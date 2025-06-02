@@ -267,6 +267,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Shop\UserControl\S_UcMateral.resx">
+      <DependentUpon>S_UcMateral.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>
