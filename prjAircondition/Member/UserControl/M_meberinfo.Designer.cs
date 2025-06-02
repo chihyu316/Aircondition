@@ -47,6 +47,9 @@
             this.memberTableAdapter1 = new prjAircondition.Member.DataSet.M_MemberDatasetTableAdapters.MemberTableAdapter();
             this.m_MemberDataset1 = new prjAircondition.Member.DataSet.M_MemberDataset();
             this.DeleteBtn = new System.Windows.Forms.Button();
+            this.MemberopenFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ChooseFileBtn = new System.Windows.Forms.Button();
+            this.DefaultPicture = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBOX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_MemberDataset1)).BeginInit();
             this.SuspendLayout();
@@ -185,7 +188,8 @@
             // 
             this.AvatarBOX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AvatarBOX.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.AvatarBOX.Location = new System.Drawing.Point(247, 98);
+            this.AvatarBOX.Image = ((System.Drawing.Image)(resources.GetObject("AvatarBOX.Image")));
+            this.AvatarBOX.Location = new System.Drawing.Point(220, 96);
             this.AvatarBOX.Name = "AvatarBOX";
             this.AvatarBOX.Size = new System.Drawing.Size(312, 298);
             this.AvatarBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,7 +202,7 @@
             this.MemberListV.HideSelection = false;
             this.MemberListV.Location = new System.Drawing.Point(34, 98);
             this.MemberListV.Name = "MemberListV";
-            this.MemberListV.Size = new System.Drawing.Size(166, 302);
+            this.MemberListV.Size = new System.Drawing.Size(131, 357);
             this.MemberListV.TabIndex = 40;
             this.MemberListV.UseCompatibleStateImageBehavior = false;
             this.MemberListV.View = System.Windows.Forms.View.Details;
@@ -223,11 +227,37 @@
             this.DeleteBtn.UseVisualStyleBackColor = true;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
+            // MemberopenFileDialog1
+            // 
+            this.MemberopenFileDialog1.FileName = "memberopenFileDialog1";
+            // 
+            // ChooseFileBtn
+            // 
+            this.ChooseFileBtn.Location = new System.Drawing.Point(247, 430);
+            this.ChooseFileBtn.Name = "ChooseFileBtn";
+            this.ChooseFileBtn.Size = new System.Drawing.Size(100, 46);
+            this.ChooseFileBtn.TabIndex = 42;
+            this.ChooseFileBtn.Text = "選擇....";
+            this.ChooseFileBtn.UseVisualStyleBackColor = true;
+            this.ChooseFileBtn.Click += new System.EventHandler(this.ChooseFileBtn_Click);
+            // 
+            // DefaultPicture
+            // 
+            this.DefaultPicture.Location = new System.Drawing.Point(417, 430);
+            this.DefaultPicture.Name = "DefaultPicture";
+            this.DefaultPicture.Size = new System.Drawing.Size(95, 46);
+            this.DefaultPicture.TabIndex = 43;
+            this.DefaultPicture.Text = "預設圖片";
+            this.DefaultPicture.UseVisualStyleBackColor = true;
+            this.DefaultPicture.Click += new System.EventHandler(this.DefaultPicture_Click);
+            // 
             // M_meberinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.Controls.Add(this.DefaultPicture);
+            this.Controls.Add(this.ChooseFileBtn);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.MemberListV);
             this.Controls.Add(this.SaveBTN);
@@ -273,5 +303,8 @@
         private DataSet.M_MemberDatasetTableAdapters.MemberTableAdapter memberTableAdapter1;
         private DataSet.M_MemberDataset m_MemberDataset1;
         private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.OpenFileDialog MemberopenFileDialog1;
+        private System.Windows.Forms.Button ChooseFileBtn;
+        private System.Windows.Forms.Button DefaultPicture;
     }
 }
