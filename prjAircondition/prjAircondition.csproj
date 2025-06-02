@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7CC2CF1B-BA22-4C72-8A63-FB850D75218C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>prjAircondition</RootNamespace>
+    <AssemblyName>prjAircondition</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerShell.5.ReferenceAssemblies.1.1.0\lib\net4\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dicuss\UserControl\D_ReplyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dicuss\UserControl\D_ReplyControl.Designer.cs">
+      <DependentUpon>D_ReplyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\UserControl\C_TradeHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recruit\UserControl\C_TradeHistory.Designer.cs">
+      <DependentUpon>C_TradeHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dicuss\Class\D_DataConnect.cs" />
+    <Compile Include="Dicuss\UserControl\D_DisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dicuss\UserControl\D_DisControl.Designer.cs">
+      <DependentUpon>D_DisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Form\FRMCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Member\Form\FRMCreate.Designer.cs">
+      <DependentUpon>FRMCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Form\FRMloLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Member\Form\FRMloLogin.Designer.cs">
+      <DependentUpon>FRMloLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member\Class\MemberClass.cs" />
+    <Compile Include="Member\UserControl\M_meberinfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Member\UserControl\M_meberinfo.Designer.cs">
+      <DependentUpon>M_meberinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member\UserControl\M_MemberAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Member\UserControl\M_MemberAddress.Designer.cs">
+      <DependentUpon>M_MemberAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Member\DataSet\M_MemberDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>M_MemberDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Member\UserControl\M_memberProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Member\UserControl\M_memberProduct.Designer.cs">
+      <DependentUpon>M_memberProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recruit\UserControl\C_CourseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recruit\UserControl\C_CourseControl.Designer.cs">
+      <DependentUpon>C_CourseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmDtail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmDtail.Designer.cs">
+      <DependentUpon>C_FrmDtail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\UserControl\C_MYCCntrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recruit\UserControl\C_MYCCntrol.Designer.cs">
+      <DependentUpon>C_MYCCntrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\DateSet\C_RecruitDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C_RecruitDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\UserControl\C_RegisterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Recruit\UserControl\C_RegisterControl.Designer.cs">
+      <DependentUpon>C_RegisterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\DataSet\R_ReapairDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_ReapairDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucInstallationChecklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucInstallationChecklist.Designer.cs">
+      <DependentUpon>R_ucInstallationChecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucMaintenanceChecklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucMaintenanceChecklist.Designer.cs">
+      <DependentUpon>R_ucMaintenanceChecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucMaterialUsage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucMaterialUsage.Designer.cs">
+      <DependentUpon>R_ucMaterialUsage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucPhotoUpload.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucPhotoUpload.Designer.cs">
+      <DependentUpon>R_ucPhotoUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucRepairChecklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucRepairChecklist.Designer.cs">
+      <DependentUpon>R_ucRepairChecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucUninstallChecklist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucUninstallChecklist.Designer.cs">
+      <DependentUpon>R_ucUninstallChecklist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucWorkOrder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repair\UserControl\R_ucWorkOrder.Designer.cs">
+      <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\DataSet\S_DCoolingProduct.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>S_DCoolingProduct.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\DataSet\S_DOrderProcessing.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>S_DOrderProcessing.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\DataSet\S_DProductImage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>S_DProductImage.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\DataSet\S_DProductReview.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>S_DProductReview.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\DataSet\S_DQAResponse.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>S_DQAResponse.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\UserControl\S_UcMateral.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shop\UserControl\S_UcMateral.Designer.cs">
+      <DependentUpon>S_UcMateral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shop\UserControl\S_UcProduct1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shop\UserControl\S_UcProduct1.Designer.cs">
+      <DependentUpon>S_UcProduct1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tech\DAL\TechnicianRepository.cs" />
+    <Compile Include="Tech\DataSet\T_ACDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tech\UserControl\T_OrderUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tech\UserControl\T_OrderUserControl1.Designer.cs">
+      <DependentUpon>T_OrderUserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tech\UserControl\T_TechUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
+      <DependentUpon>T_TechUserControl1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member\Form\FRMCreate.resx">
+      <DependentUpon>FRMCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member\Form\FRMloLogin.resx">
+      <DependentUpon>FRMloLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member\UserControl\M_MemberAddress.resx">
+      <DependentUpon>M_MemberAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member\UserControl\M_memberProduct.resx">
+      <DependentUpon>M_memberProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
+      <DependentUpon>T_TechUserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Member\DataSet\M_MemberDataset.xsc">
+      <DependentUpon>M_MemberDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Member\DataSet\M_MemberDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>M_MemberDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Member\DataSet\M_MemberDataset.xss">
+      <DependentUpon>M_MemberDataset.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Recruit\DateSet\C_RecruitDataSet.xsc">
+      <DependentUpon>C_RecruitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Recruit\DateSet\C_RecruitDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>C_RecruitDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Recruit\DateSet\C_RecruitDataSet.xss">
+      <DependentUpon>C_RecruitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Repair\DataSet\R_ReapairDataSet.xsc">
+      <DependentUpon>R_ReapairDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Repair\DataSet\R_ReapairDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>R_ReapairDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Repair\DataSet\R_ReapairDataSet.xss">
+      <DependentUpon>R_ReapairDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DCoolingProduct.xsc">
+      <DependentUpon>S_DCoolingProduct.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DCoolingProduct.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>S_DCoolingProduct.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Shop\DataSet\S_DCoolingProduct.xss">
+      <DependentUpon>S_DCoolingProduct.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DOrderProcessing.xsc">
+      <DependentUpon>S_DOrderProcessing.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DOrderProcessing.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>S_DOrderProcessing.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Shop\DataSet\S_DOrderProcessing.xss">
+      <DependentUpon>S_DOrderProcessing.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DProductImage.xsc">
+      <DependentUpon>S_DProductImage.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DProductImage.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>S_DProductImage.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Shop\DataSet\S_DProductImage.xss">
+      <DependentUpon>S_DProductImage.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DProductReview.xsc">
+      <DependentUpon>S_DProductReview.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DProductReview.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>S_DProductReview.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Shop\DataSet\S_DProductReview.xss">
+      <DependentUpon>S_DProductReview.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DQAResponse.xsc">
+      <DependentUpon>S_DQAResponse.xsd</DependentUpon>
+    </None>
+    <None Include="Shop\DataSet\S_DQAResponse.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>S_DQAResponse.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Shop\DataSet\S_DQAResponse.xss">
+      <DependentUpon>S_DQAResponse.xsd</DependentUpon>
+    </None>
+    <None Include="Tech\DataSet\T_ACDataSet1.xsc">
+      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Tech\DataSet\T_ACDataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>T_ACDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Tech\DataSet\T_ACDataSet1.xss">
+      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
