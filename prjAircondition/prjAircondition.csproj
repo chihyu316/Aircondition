@@ -55,6 +55,11 @@
     <Compile Include="Dicuss\UserControl\D_ReplyControl.Designer.cs">
       <DependentUpon>D_ReplyControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dicuss\DataSet\D_ACDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Recruit\UserControl\C_TradeHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,6 +278,17 @@
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xsc">
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>D_ACDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xss">
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Member\DataSet\M_MemberDataset.xsc">
       <DependentUpon>M_MemberDataset.xsd</DependentUpon>
     </None>
