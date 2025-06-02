@@ -39,7 +39,7 @@ namespace prjAircondition.Tech
                 if (this.t_ACDataSet1.Technicians.Rows.Count > 0)
                 {
                     string techName = this.t_ACDataSet1.Technicians[0].name;
-                    labelTechName.Text = techName;
+                    labelTechNameInWorkOrder.Text = techName;
                 }
             }
 
@@ -168,6 +168,10 @@ namespace prjAircondition.Tech
         {
             //設定好label 顯示 第幾筆/ 共有幾筆
             this.workOrderlabel.Text = $"{this.workOrderBindingSource.Position + 1} / {this.workOrderBindingSource.Count}";
+        }
+
+        private void T_OrderUserControl1_Load(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -43,11 +43,12 @@ namespace prjAircondition.Tech
             this.button1 = new System.Windows.Forms.Button();
             this.WorkOrderDataGridView = new System.Windows.Forms.DataGridView();
             this.WorkTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.labelTechName = new System.Windows.Forms.Label();
+            this.labelTechNameInWorkOrder = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.workType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workTypeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WorkOrderDataGridView)).BeginInit();
@@ -136,19 +137,19 @@ namespace prjAircondition.Tech
             this.WorkTypeComboBox.FormattingEnabled = true;
             this.WorkTypeComboBox.Location = new System.Drawing.Point(210, 181);
             this.WorkTypeComboBox.Name = "WorkTypeComboBox";
-            this.WorkTypeComboBox.Size = new System.Drawing.Size(306, 26);
+            this.WorkTypeComboBox.Size = new System.Drawing.Size(306, 36);
             this.WorkTypeComboBox.TabIndex = 11;
             // 
-            // labelTechName
+            // labelTechNameInWorkOrder
             // 
-            this.labelTechName.AutoSize = true;
-            this.labelTechName.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTechName.Location = new System.Drawing.Point(201, 108);
-            this.labelTechName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTechName.Name = "labelTechName";
-            this.labelTechName.Size = new System.Drawing.Size(165, 37);
-            this.labelTechName.TabIndex = 6;
-            this.labelTechName.Text = "師傅名稱";
+            this.labelTechNameInWorkOrder.AutoSize = true;
+            this.labelTechNameInWorkOrder.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTechNameInWorkOrder.Location = new System.Drawing.Point(201, 108);
+            this.labelTechNameInWorkOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTechNameInWorkOrder.Name = "labelTechNameInWorkOrder";
+            this.labelTechNameInWorkOrder.Size = new System.Drawing.Size(165, 37);
+            this.labelTechNameInWorkOrder.TabIndex = 6;
+            this.labelTechNameInWorkOrder.Text = "師傅名稱";
             // 
             // label2
             // 
@@ -182,6 +183,10 @@ namespace prjAircondition.Tech
             this.label1.TabIndex = 9;
             this.label1.Text = "訂單資料";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // T_OrderUserControl1
             // 
             this.BackColor = System.Drawing.Color.SeaShell;
@@ -192,12 +197,14 @@ namespace prjAircondition.Tech
             this.Controls.Add(this.button1);
             this.Controls.Add(this.WorkOrderDataGridView);
             this.Controls.Add(this.WorkTypeComboBox);
-            this.Controls.Add(this.labelTechName);
+            this.Controls.Add(this.labelTechNameInWorkOrder);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.workType);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "T_OrderUserControl1";
             this.Size = new System.Drawing.Size(1215, 1075);
+            this.Load += new System.EventHandler(this.T_OrderUserControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workTypeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WorkOrderDataGridView)).EndInit();
@@ -220,10 +227,11 @@ namespace prjAircondition.Tech
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView WorkOrderDataGridView;
         private System.Windows.Forms.ComboBox WorkTypeComboBox;
-        private System.Windows.Forms.Label labelTechName;
+        private System.Windows.Forms.Label labelTechNameInWorkOrder;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label workType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource workOrderBindingSource;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }   
