@@ -140,7 +140,20 @@ namespace prjAircondition.Recruit
 
         private void C_btnAddCourse(object sender, EventArgs e)
         {
-            
+            //C_FrmAddnewC addnewC = new C_FrmAddnewC();
+            //addnewC.ShowDialog();
+            //if (addnewC.DialogResult == DialogResult.OK)
+            //{
+            //    C_RecruitDataSet.CourseCategoryRow categoryRow = this.c_RecruitDataSet1.CourseCategory.NewCourseCategoryRow();
+            //    categoryRow.CategoryName = addnewC.combobox1.SelectedItem.ToString();
+            //    C_RecruitDataSet.CourseRow courseRow = this.c_RecruitDataSet1.Course.NewCourseRow();
+            //    C_RecruitDataSet.CourseBatchRow courseBatchRow = this.c_RecruitDataSet1.CourseBatch.NewCourseBatchRow();
+            //}
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

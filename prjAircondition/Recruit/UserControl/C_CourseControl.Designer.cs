@@ -120,23 +120,24 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(793, 391);
+            this.button1.Location = new System.Drawing.Point(823, 391);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 67);
+            this.button1.Size = new System.Drawing.Size(236, 86);
             this.button1.TabIndex = 9;
-            this.button1.Text = "新增課程";
+            this.button1.Text = "新增全新課程";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.C_btnAddCourse);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(793, 489);
+            this.button2.Location = new System.Drawing.Point(823, 501);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 67);
+            this.button2.Size = new System.Drawing.Size(236, 88);
             this.button2.TabIndex = 10;
-            this.button2.Text = "新增梯次";
+            this.button2.Text = "現有課程新增梯次 ";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // C_CourseControl
             // 
