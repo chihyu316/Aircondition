@@ -46,17 +46,18 @@
             this.MemberListV = new System.Windows.Forms.ListView();
             this.memberTableAdapter1 = new prjAircondition.Member.DataSet.M_MemberDatasetTableAdapters.MemberTableAdapter();
             this.m_MemberDataset1 = new prjAircondition.Member.DataSet.M_MemberDataset();
+            this.DeleteBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBOX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_MemberDataset1)).BeginInit();
             this.SuspendLayout();
             // 
             // SaveBTN
             // 
-            this.SaveBTN.Location = new System.Drawing.Point(937, 361);
+            this.SaveBTN.Location = new System.Drawing.Point(945, 357);
             this.SaveBTN.Name = "SaveBTN";
             this.SaveBTN.Size = new System.Drawing.Size(83, 39);
             this.SaveBTN.TabIndex = 39;
-            this.SaveBTN.Text = "儲存";
+            this.SaveBTN.Text = "儲存變更";
             this.SaveBTN.UseVisualStyleBackColor = true;
             this.SaveBTN.Click += new System.EventHandler(this.SaveBTN_Click);
             // 
@@ -64,7 +65,7 @@
             // 
             this.ShowPasswordBTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShowPasswordBTN.BackgroundImage")));
             this.ShowPasswordBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ShowPasswordBTN.Location = new System.Drawing.Point(928, 166);
+            this.ShowPasswordBTN.Location = new System.Drawing.Point(886, 161);
             this.ShowPasswordBTN.Name = "ShowPasswordBTN";
             this.ShowPasswordBTN.Size = new System.Drawing.Size(29, 31);
             this.ShowPasswordBTN.TabIndex = 38;
@@ -76,7 +77,7 @@
             // 
             this.Accountlbl.AutoSize = true;
             this.Accountlbl.Font = new System.Drawing.Font("新細明體", 15F);
-            this.Accountlbl.Location = new System.Drawing.Point(770, 108);
+            this.Accountlbl.Location = new System.Drawing.Point(728, 103);
             this.Accountlbl.Name = "Accountlbl";
             this.Accountlbl.Size = new System.Drawing.Size(0, 20);
             this.Accountlbl.TabIndex = 37;
@@ -84,7 +85,7 @@
             // NicknameTXB
             // 
             this.NicknameTXB.Font = new System.Drawing.Font("新細明體", 15F);
-            this.NicknameTXB.Location = new System.Drawing.Point(757, 371);
+            this.NicknameTXB.Location = new System.Drawing.Point(715, 366);
             this.NicknameTXB.Name = "NicknameTXB";
             this.NicknameTXB.Size = new System.Drawing.Size(175, 31);
             this.NicknameTXB.TabIndex = 36;
@@ -93,7 +94,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("新細明體", 20F);
-            this.label5.Location = new System.Drawing.Point(635, 369);
+            this.label5.Location = new System.Drawing.Point(593, 364);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 27);
             this.label5.TabIndex = 35;
@@ -103,7 +104,7 @@
             // 
             this.FemaleCheckBox.AutoSize = true;
             this.FemaleCheckBox.Font = new System.Drawing.Font("新細明體", 15F);
-            this.FemaleCheckBox.Location = new System.Drawing.Point(842, 232);
+            this.FemaleCheckBox.Location = new System.Drawing.Point(800, 227);
             this.FemaleCheckBox.Name = "FemaleCheckBox";
             this.FemaleCheckBox.Size = new System.Drawing.Size(48, 24);
             this.FemaleCheckBox.TabIndex = 34;
@@ -115,7 +116,7 @@
             // 
             this.MaleCheckBox.AutoSize = true;
             this.MaleCheckBox.Font = new System.Drawing.Font("新細明體", 15F);
-            this.MaleCheckBox.Location = new System.Drawing.Point(774, 232);
+            this.MaleCheckBox.Location = new System.Drawing.Point(732, 227);
             this.MaleCheckBox.Name = "MaleCheckBox";
             this.MaleCheckBox.Size = new System.Drawing.Size(48, 24);
             this.MaleCheckBox.TabIndex = 33;
@@ -127,7 +128,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("新細明體", 20F);
-            this.label4.Location = new System.Drawing.Point(635, 232);
+            this.label4.Location = new System.Drawing.Point(593, 227);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 27);
             this.label4.TabIndex = 32;
@@ -136,7 +137,7 @@
             // PhoneNumberTXB
             // 
             this.PhoneNumberTXB.Font = new System.Drawing.Font("新細明體", 15F);
-            this.PhoneNumberTXB.Location = new System.Drawing.Point(757, 293);
+            this.PhoneNumberTXB.Location = new System.Drawing.Point(715, 288);
             this.PhoneNumberTXB.Name = "PhoneNumberTXB";
             this.PhoneNumberTXB.Size = new System.Drawing.Size(175, 31);
             this.PhoneNumberTXB.TabIndex = 31;
@@ -145,7 +146,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 20F);
-            this.label3.Location = new System.Drawing.Point(619, 291);
+            this.label3.Location = new System.Drawing.Point(577, 286);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 27);
             this.label3.TabIndex = 30;
@@ -154,7 +155,7 @@
             // PassWordTXB
             // 
             this.PassWordTXB.Font = new System.Drawing.Font("新細明體", 15F);
-            this.PassWordTXB.Location = new System.Drawing.Point(757, 166);
+            this.PassWordTXB.Location = new System.Drawing.Point(715, 161);
             this.PassWordTXB.Name = "PassWordTXB";
             this.PassWordTXB.PasswordChar = '●';
             this.PassWordTXB.Size = new System.Drawing.Size(175, 31);
@@ -164,7 +165,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("新細明體", 20F);
-            this.label2.Location = new System.Drawing.Point(635, 164);
+            this.label2.Location = new System.Drawing.Point(593, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 27);
             this.label2.TabIndex = 28;
@@ -174,7 +175,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("新細明體", 20F);
-            this.label1.Location = new System.Drawing.Point(635, 101);
+            this.label1.Location = new System.Drawing.Point(593, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 27);
             this.label1.TabIndex = 27;
@@ -184,7 +185,7 @@
             // 
             this.AvatarBOX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AvatarBOX.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.AvatarBOX.Location = new System.Drawing.Point(301, 98);
+            this.AvatarBOX.Location = new System.Drawing.Point(247, 98);
             this.AvatarBOX.Name = "AvatarBOX";
             this.AvatarBOX.Size = new System.Drawing.Size(312, 298);
             this.AvatarBOX.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -197,7 +198,7 @@
             this.MemberListV.HideSelection = false;
             this.MemberListV.Location = new System.Drawing.Point(34, 98);
             this.MemberListV.Name = "MemberListV";
-            this.MemberListV.Size = new System.Drawing.Size(245, 302);
+            this.MemberListV.Size = new System.Drawing.Size(166, 302);
             this.MemberListV.TabIndex = 40;
             this.MemberListV.UseCompatibleStateImageBehavior = false;
             this.MemberListV.View = System.Windows.Forms.View.Details;
@@ -212,11 +213,22 @@
             this.m_MemberDataset1.DataSetName = "M_MemberDataset";
             this.m_MemberDataset1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Location = new System.Drawing.Point(945, 288);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(83, 31);
+            this.DeleteBtn.TabIndex = 41;
+            this.DeleteBtn.Text = "刪除帳號";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
             // M_meberinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.MemberListV);
             this.Controls.Add(this.SaveBTN);
             this.Controls.Add(this.ShowPasswordBTN);
@@ -233,7 +245,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AvatarBOX);
             this.Name = "M_meberinfo";
-            this.Size = new System.Drawing.Size(1028, 586);
+            this.Size = new System.Drawing.Size(1052, 594);
             this.Load += new System.EventHandler(this.M_meberinfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBOX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_MemberDataset1)).EndInit();
@@ -260,5 +272,6 @@
         private System.Windows.Forms.ListView MemberListV;
         private DataSet.M_MemberDatasetTableAdapters.MemberTableAdapter memberTableAdapter1;
         private DataSet.M_MemberDataset m_MemberDataset1;
+        private System.Windows.Forms.Button DeleteBtn;
     }
 }

@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,7 +53,7 @@ namespace prjAircondition.Member
                 {
                     con.ConnectionString = connectionstring;
                     con.Open();
-                    cmd.CommandText = $"UPDATE member set Password = @Password, HeadShot = @Headshot, Sexual = @Sexual, PhoneNumber = @PhoneNumber, Nickname = @Nickname where MemberAccount = ";
+                    cmd.CommandText = $"UPDATE Member set Password = @Password, HeadShot = @Headshot, Sexual = @Sexual, PhoneNumber = @PhoneNumber, Nickname = @Nickname where MemberAccount = '{Account}'";
                     cmd.Connection = con;
                     byte[] pictures;
                     using (MemoryStream ms = new MemoryStream())
@@ -110,7 +111,7 @@ namespace prjAircondition.Member
                 MessageBox.Show(ex.Message);
             }
         }
-
+        string Account;
         private void MemberListV_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (MemberListV.SelectedItems.Count == 0)
@@ -123,9 +124,9 @@ namespace prjAircondition.Member
                 AvatarBOX.Image = null;
                 return;
             }
-            string Account = MemberListV.SelectedItems[0].Text;
+            Account = MemberListV.SelectedItems[0].Text;
             m_MemberDataset1.Member.Clear();
-            memberTableAdapter1.FillByAccount(m_MemberDataset1.Member,Account);
+            memberTableAdapter1.FillByAccount(m_MemberDataset1.Member, Account);
 
             if (m_MemberDataset1.Member.Rows.Count > 0)
             {
@@ -160,7 +161,58 @@ namespace prjAircondition.Member
             }
         }
 
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("確定要刪除帳號嗎?", "Warning", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                string conn = Settings.Default.ACConnectionString;
+                try
+                {
+                    using (SqlConnection connect = new SqlConnection(conn))
+                    {
+                        connect.Open();
+                        string sql = "DELETE FROM Member WHERE MemberAccount = @Account";
+                        using (SqlCommand cmd = new SqlCommand(sql, connect))
+                        {
+                            cmd.Parameters.AddWithValue("@Account", Account);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("帳號刪除成功！");
+                                foreach (ListViewItem item in MemberListV.Items)
+                                {
+                                    if (item.Text == Account)
+                                    {
+                                        MemberListV.Items.Remove(item);
+                                        break;
+                                    }
+                                }
+                                Account = null;
+                                Accountlbl.Text = "";
+                                MaleCheckBox.Checked = false;
+                                FemaleCheckBox.Checked = false;
+                                PhoneNumberTXB.Text = "";
+                                NicknameTXB.Text = "";
+                                AvatarBOX.Image = null;
+                                PassWordTXB.Text = "";
+                            }
+                            else
+                            {
+                                MessageBox.Show("未找到帳號，刪除失敗！");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("刪除時發生錯誤：" + ex.Message);
+                }
+            }
+        }
     }
 }
+
 
 
