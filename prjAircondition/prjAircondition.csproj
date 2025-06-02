@@ -252,6 +252,9 @@
     <EmbeddedResource Include="Member\Form\FRMloLogin.resx">
       <DependentUpon>FRMloLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Member\UserControl\M_meberinfo.resx">
+      <DependentUpon>M_meberinfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Member\UserControl\M_MemberAddress.resx">
       <DependentUpon>M_MemberAddress.cs</DependentUpon>
     </EmbeddedResource>
