@@ -243,9 +243,6 @@
     <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Dicuss\UserControl\D_DisControl.resx">
-      <DependentUpon>D_DisControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
