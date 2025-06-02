@@ -312,4 +312,10 @@
         Eh4NS3Tz2JQXvgfLQ8TzH4r/AI360174KT4/30aHbEPs0sMyz8ZMeKGCBzY7h/7Wv//Z
 </value>
   </data>
+  <metadata name="memberTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="m_MemberDataset1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>204, 17</value>
+  </metadata>
 </root>
