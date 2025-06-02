@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjAircondition.Dicuss.Class;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,8 @@ namespace prjAircondition.Dicuss
     {
         public D_DisControl()
         {
-            InitializeComponent();
-            this.D_postsMainTableAdapter1.Fill(this.d_ACDataSet1.PostsMain);
-            this.D_bindingSource1.DataSource = this.d_ACDataSet1.PostsMain;
-            this.D_PostdataGridView.DataSource = this.D_bindingSource1;
+            InitializeComponent();           
+            this.D_PostdataGridView.DataSource = D_DataConnect.SerchPost();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -34,23 +33,13 @@ namespace prjAircondition.Dicuss
 
         private void D_buttoserchuser_Click(object sender, EventArgs e)
         {
-            string connectstring = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
-            try
-            {
-                using (SqlConnection conn = new SqlConnection())
-                {
-                    conn.ConnectionString = connectstring;
-                    conn.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter("select * from products", conn);
-                    DataTable resultTable = new DataTable();
-                    adapter.Fill(resultTable);
-                }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            this.D_PostdataGridView.DataSource = D_DataConnect.SerchPostUser(D_textUserT.Text);  
+        }
+
+        private void D_buttonSearchTitle_Click(object sender, EventArgs e)
+        {
+            this.D_PostdataGridView.DataSource = D_DataConnect.SerchPostTitle(D_textTitleT.Text);
         }
     }
 }

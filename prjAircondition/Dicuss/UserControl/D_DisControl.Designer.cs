@@ -54,16 +54,16 @@
             this.D_buttoninsert = new System.Windows.Forms.Button();
             this.D_buttonUpdate = new System.Windows.Forms.Button();
             this.D_buttondelete = new System.Windows.Forms.Button();
+            this.D_bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.d_ACDataSet1 = new prjAircondition.Dicuss.DataSet.D_ACDataSet();
             this.D_postsMainTableAdapter1 = new prjAircondition.Dicuss.DataSet.D_ACDataSetTableAdapters.PostsMainTableAdapter();
-            this.D_bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.D_groupBox1.SuspendLayout();
             this.D_groupBox2.SuspendLayout();
             this.D_groupbox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.D_PostdataGridView)).BeginInit();
             this.D_groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.d_ACDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.D_bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d_ACDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // D_buttonSearchDate
@@ -154,6 +154,7 @@
             this.D_buttonSearchTitle.TabIndex = 0;
             this.D_buttonSearchTitle.Text = "查詢";
             this.D_buttonSearchTitle.UseVisualStyleBackColor = true;
+            this.D_buttonSearchTitle.Click += new System.EventHandler(this.D_buttonSearchTitle_Click);
             // 
             // D_groupbox3
             // 
@@ -343,8 +344,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.D_PostdataGridView)).EndInit();
             this.D_groupBox4.ResumeLayout(false);
             this.D_groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.d_ACDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.D_bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d_ACDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
