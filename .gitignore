@@ -360,4 +360,5 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
-FodyWeavers.xsd
+FodyWeavers.xsdFodyWeavers.xsd
+prjAircondition/obj/Debug/prjAircondition.csproj.AssemblyReference.cache
