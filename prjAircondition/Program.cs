@@ -1,4 +1,5 @@
 ﻿using prjAircondition.Member;
+using prjAircondition.Recruit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace prjAircondition
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             Application.Run(new FRMloLogin());
+            //Application.Run(new C_FrmDtail());
         }
     }
 }

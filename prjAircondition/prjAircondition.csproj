@@ -55,6 +55,9 @@
     <Compile Include="Dicuss\UserControl\D_ReplyControl.Designer.cs">
       <DependentUpon>D_ReplyControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recruit\DateSet\C_RecruitDataSet.cs">
+      <DependentUpon>C_RecruitDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Recruit\UserControl\C_TradeHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -267,6 +270,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Recruit\Form\C_FrmDtail.resx">
+      <DependentUpon>C_FrmDtail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
+      <DependentUpon>C_CourseControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>
