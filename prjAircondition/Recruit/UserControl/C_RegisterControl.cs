@@ -170,7 +170,30 @@ namespace prjAircondition.Recruit
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string connstring = Settings.Default.ACConnectionString;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connstring))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    
+                    cmd.CommandText = $"select * from Registration"; //選取資料欄
 
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    this.dataGridView1.DataSource = dt;
+                   
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
 
         }
     }
