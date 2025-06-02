@@ -404,3 +404,14 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Ignore build artifacts
+bin/
+obj/
+*.cache
+
+# Ignore VS config files
+.vs/
+*.suo
+*.user
+*.json
