@@ -1,7 +1,10 @@
-﻿using System;
+﻿using prjAircondition.Dicuss.Class;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,9 +17,8 @@ namespace prjAircondition.Dicuss
     {
         public D_DisControl()
         {
-            InitializeComponent();
-            string TTT = "AAAA";
-            int A = 44444444;
+            InitializeComponent();           
+            this.D_PostdataGridView.DataSource = D_DataConnect.SerchPost();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -27,6 +29,17 @@ namespace prjAircondition.Dicuss
         private void D_button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void D_buttoserchuser_Click(object sender, EventArgs e)
+        {
+
+            this.D_PostdataGridView.DataSource = D_DataConnect.SerchPostUser(D_textUserT.Text);  
+        }
+
+        private void D_buttonSearchTitle_Click(object sender, EventArgs e)
+        {
+            this.D_PostdataGridView.DataSource = D_DataConnect.SerchPostTitle(D_textTitleT.Text);
         }
     }
 }
