@@ -276,7 +276,7 @@ namespace prjAircondition.Member
 
         private void SearchMember_TextChanged(object sender, EventArgs e)
         {
-
+            SearchMember.Text = "";
         }
     }
 }
