@@ -230,6 +230,12 @@
     <Compile Include="Shop\UserControl\S_UcProduct1.Designer.cs">
       <DependentUpon>S_UcProduct1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shop\UserControl\S_UcOrderMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shop\UserControl\S_UcOrderMain.Designer.cs">
+      <DependentUpon>S_UcOrderMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tech\DAL\TechnicianRepository.cs" />
     <Compile Include="Tech\DataSet\T_ACDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -278,6 +284,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Shop\UserControl\S_UcMateral.resx">
+      <DependentUpon>S_UcMateral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop\UserControl\S_UcOrderMain.resx">
+      <DependentUpon>S_UcOrderMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop\UserControl\S_UcProduct1.resx">
+      <DependentUpon>S_UcProduct1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>
