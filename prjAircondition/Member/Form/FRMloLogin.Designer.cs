@@ -79,7 +79,6 @@
             this.Logibtxt.Name = "Logibtxt";
             this.Logibtxt.Size = new System.Drawing.Size(313, 39);
             this.Logibtxt.TabIndex = 3;
-            this.Logibtxt.Text = "Adminator";
             // 
             // Passwordtxt
             // 

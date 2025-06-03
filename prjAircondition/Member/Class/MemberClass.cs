@@ -82,7 +82,6 @@ namespace prjAircondition.Member
             }
             return false;
         }
-        
 
     }
 }

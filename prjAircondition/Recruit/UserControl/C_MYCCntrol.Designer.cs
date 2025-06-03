@@ -28,16 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // C_MYCCntrol
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "C_MYCCntrol";
-            this.Size = new System.Drawing.Size(1118, 850);
-            this.ResumeLayout(false);
-
         }
 
         #endregion
