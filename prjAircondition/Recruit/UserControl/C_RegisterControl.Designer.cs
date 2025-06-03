@@ -41,6 +41,7 @@
             this.cmSelectCourse = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,7 +71,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(45, 461);
+            this.listBox1.Location = new System.Drawing.Point(76, 428);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(411, 328);
             this.listBox1.TabIndex = 16;
@@ -78,7 +79,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(180, 304);
+            this.button1.Location = new System.Drawing.Point(76, 309);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 61);
             this.button1.TabIndex = 15;
@@ -89,7 +90,7 @@
             // txtMAccount
             // 
             this.txtMAccount.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtMAccount.Location = new System.Drawing.Point(180, 110);
+            this.txtMAccount.Location = new System.Drawing.Point(180, 65);
             this.txtMAccount.Name = "txtMAccount";
             this.txtMAccount.Size = new System.Drawing.Size(417, 39);
             this.txtMAccount.TabIndex = 14;
@@ -98,7 +99,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(50, 208);
+            this.label3.Location = new System.Drawing.Point(59, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 30);
             this.label3.TabIndex = 13;
@@ -108,7 +109,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(50, 119);
+            this.label2.Location = new System.Drawing.Point(59, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 30);
             this.label2.TabIndex = 12;
@@ -118,7 +119,7 @@
             // 
             this.cmSelectCourse.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.cmSelectCourse.FormattingEnabled = true;
-            this.cmSelectCourse.Location = new System.Drawing.Point(180, 200);
+            this.cmSelectCourse.Location = new System.Drawing.Point(180, 139);
             this.cmSelectCourse.Name = "cmSelectCourse";
             this.cmSelectCourse.Size = new System.Drawing.Size(417, 38);
             this.cmSelectCourse.TabIndex = 11;
@@ -143,10 +144,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(822, 556);
             this.dataGridView1.TabIndex = 18;
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button3.Location = new System.Drawing.Point(326, 309);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(196, 61);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "取消報名";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // C_RegisterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
@@ -180,5 +192,6 @@
         private System.Windows.Forms.ComboBox cmSelectCourse;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button3;
     }
 }

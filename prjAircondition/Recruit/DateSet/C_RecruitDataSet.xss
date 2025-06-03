@@ -7,10 +7,10 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="7" ViewPortY="42" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:ClassroomManagement" ZOrder="4" X="104" Y="152" Height="530" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="449" />
-    <Shape ID="DesignTable:Course" ZOrder="3" X="872" Y="527" Height="530" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="415" />
-    <Shape ID="DesignTable:CourseBatch" ZOrder="1" X="503" Y="267" Height="564" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="449" />
+    <Shape ID="DesignTable:Course" ZOrder="1" X="872" Y="527" Height="564" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="415" />
+    <Shape ID="DesignTable:CourseBatch" ZOrder="2" X="503" Y="267" Height="564" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="449" />
     <Shape ID="DesignTable:CourseCategory" ZOrder="7" X="874" Y="52" Height="224" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
-    <Shape ID="DesignTable:Registration" ZOrder="2" X="1273" Y="207" Height="530" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="449" />
+    <Shape ID="DesignTable:Registration" ZOrder="3" X="1273" Y="207" Height="530" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="449" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_Course_CourseBatch" ZOrder="9" LineWidth="11">

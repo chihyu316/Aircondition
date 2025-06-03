@@ -2,9 +2,11 @@
 {
 }
 
-namespace prjAircondition.Recruit.DateSet {
-    
-    
-    public partial class C_RecruitDataSet {
+namespace prjAircondition.Recruit.DateSet
+{
+
+
+    public partial class C_RecruitDataSet
+    {
     }
 }

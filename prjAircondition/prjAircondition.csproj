@@ -285,6 +285,9 @@
     <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
       <DependentUpon>C_CourseControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recruit\UserControl\C_MYCCntrol.resx">
+      <DependentUpon>C_MYCCntrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recruit\UserControl\C_RegisterControl.resx">
       <DependentUpon>C_RegisterControl.cs</DependentUpon>
     </EmbeddedResource>

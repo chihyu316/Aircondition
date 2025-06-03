@@ -10,15 +10,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using prjAircondition.Properties;
 using prjAircondition.Recruit.DateSet;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace prjAircondition.Recruit
 {
     public partial class C_CourseControl : UserControl
     {
+        string s1 = " ";
         public C_CourseControl()
         {
             InitializeComponent();
             CourseControl_Load();
+            
+            this.bindingSource1.DataSource = this.c_RecruitDataSet1.Course;
+            this.dataGridView1.DataSource=this.bindingSource1 ;
         }
 
         private void CourseControl_Load()
@@ -154,6 +159,24 @@ namespace prjAircondition.Recruit
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                s1 = textBox1.Text;
+            }
+            else
+            {
+                s1 = "";
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            this.courseTableAdapter1.FillByCoursetitle(this.c_RecruitDataSet1.Course,s1);
+            this.dataGridView1.DataSource = this.c_RecruitDataSet1.Course;
         }
     }
 }
