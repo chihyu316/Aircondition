@@ -12,6 +12,7 @@ namespace prjAircondition.Repair
 {
     public partial class R_ucWorkOrder : UserControl
     {
+        string adadad = "";
         public R_ucWorkOrder()
         {
             InitializeComponent();
