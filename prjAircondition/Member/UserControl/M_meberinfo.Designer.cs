@@ -50,6 +50,7 @@
             this.MemberopenFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.ChooseFileBtn = new System.Windows.Forms.Button();
             this.DefaultPicture = new System.Windows.Forms.Button();
+            this.SearchMember = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBOX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_MemberDataset1)).BeginInit();
             this.SuspendLayout();
@@ -251,11 +252,21 @@
             this.DefaultPicture.UseVisualStyleBackColor = true;
             this.DefaultPicture.Click += new System.EventHandler(this.DefaultPicture_Click);
             // 
+            // SearchMember
+            // 
+            this.SearchMember.Font = new System.Drawing.Font("新細明體", 15F);
+            this.SearchMember.Location = new System.Drawing.Point(34, 31);
+            this.SearchMember.Name = "SearchMember";
+            this.SearchMember.Size = new System.Drawing.Size(131, 31);
+            this.SearchMember.TabIndex = 44;
+            this.SearchMember.TextChanged += new System.EventHandler(this.SearchMember_TextChanged);
+            // 
             // M_meberinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.Controls.Add(this.SearchMember);
             this.Controls.Add(this.DefaultPicture);
             this.Controls.Add(this.ChooseFileBtn);
             this.Controls.Add(this.DeleteBtn);
@@ -306,5 +317,6 @@
         private System.Windows.Forms.OpenFileDialog MemberopenFileDialog1;
         private System.Windows.Forms.Button ChooseFileBtn;
         private System.Windows.Forms.Button DefaultPicture;
+        private System.Windows.Forms.TextBox SearchMember;
     }
 }

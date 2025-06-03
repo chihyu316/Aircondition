@@ -273,6 +273,11 @@ namespace prjAircondition.Member
         {
             AvatarBOX.Image = (Image)DefaultImage.Clone();
         }
+
+        private void SearchMember_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
