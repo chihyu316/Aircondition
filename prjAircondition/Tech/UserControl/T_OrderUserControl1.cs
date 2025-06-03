@@ -12,17 +12,11 @@ namespace prjAircondition.Tech
 {
     public partial class T_OrderUserControl1 : UserControl
     {
-        //傳進來的師傅編號
-        public string TechAccount { get; set; }
-
-        //要配對的師傅id
-        public int techID;
-
-        //不過這邊要用id判斷訂單資料
         public T_OrderUserControl1()
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
         private void OrderUserControl1_Load(object sender, EventArgs e)
@@ -277,5 +271,7 @@ namespace prjAircondition.Tech
             this.workOrderBindingSource1.Position = this.workOrderBindingSource1.Count - 1;
 >>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         }
+=======
+>>>>>>> parent of ee42fb3 (師傅版面更新 v3)
     }
 }

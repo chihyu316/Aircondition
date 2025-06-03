@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(T_TechUserControl1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -1026,10 +1027,15 @@
             this.label18.Text = "雙擊進入師傅個人資訊";
 >>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             // 
+=======
+            this.SuspendLayout();
+            // 
+>>>>>>> parent of ee42fb3 (師傅版面更新 v3)
             // T_TechUserControl1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 <<<<<<< HEAD
@@ -1071,11 +1077,16 @@
 =======
             ((System.ComponentModel.ISupportInitialize)(this.LicensebindingSource1)).EndInit();
 >>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
+=======
+            this.Name = "T_TechUserControl1";
+            this.Size = new System.Drawing.Size(508, 400);
+>>>>>>> parent of ee42fb3 (師傅版面更新 v3)
             this.ResumeLayout(false);
 
         }
 
         #endregion
+<<<<<<< HEAD
 
         private System.Windows.Forms.TabControl tabControl1;
 <<<<<<< HEAD
@@ -1172,5 +1183,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label18;
 >>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
+=======
+>>>>>>> parent of ee42fb3 (師傅版面更新 v3)
     }
 }

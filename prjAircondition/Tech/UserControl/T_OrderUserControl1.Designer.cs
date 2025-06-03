@@ -1,6 +1,4 @@
-﻿using prjAircondition.Tech.DataSet;
-
-namespace prjAircondition.Tech
+﻿namespace prjAircondition.Tech
 {
     partial class T_OrderUserControl1
     {
@@ -30,6 +28,7 @@ namespace prjAircondition.Tech
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.components = new System.ComponentModel.Container();
             this.t_ACDataSet1 = new prjAircondition.Tech.DataSet.T_ACDataSet();
             this.workTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -498,9 +497,13 @@ namespace prjAircondition.Tech
             this.ResumeLayout(false);
             this.PerformLayout();
 
+=======
+            components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+>>>>>>> parent of ee42fb3 (師傅版面更新 v3)
         }
-        #endregion
 
+<<<<<<< HEAD
         private T_ACDataSet t_ACDataSet1;
         private System.Windows.Forms.BindingSource workTypeBindingSource1;
         private DataSet.T_ACDataSetTableAdapters.TechniciansTableAdapter techniciansTableAdapter1;
@@ -548,5 +551,8 @@ namespace prjAircondition.Tech
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
 >>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
+=======
+        #endregion
+>>>>>>> parent of ee42fb3 (師傅版面更新 v3)
     }
-}   
+}

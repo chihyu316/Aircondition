@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using prjAircondition.Tech.DataSet;
 
 namespace prjAircondition.Tech
 {
     public partial class T_TechUserControl1 : UserControl
     {
+<<<<<<< HEAD
         //傳進來的師傅編號
 
 <<<<<<< HEAD
@@ -576,6 +574,11 @@ namespace prjAircondition.Tech
                 LoadImageFromDS();
             }
 >>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
+=======
+        public T_TechUserControl1()
+        {
+            InitializeComponent();
+>>>>>>> parent of ee42fb3 (師傅版面更新 v3)
         }
     }
 }

@@ -226,13 +226,10 @@
       <DependentUpon>S_UcProduct1.cs</DependentUpon>
     </Compile>
     <Compile Include="Tech\DAL\TechnicianRepository.cs" />
-    <Compile Include="Tech\DataSet\T_ACDataSet.cs">
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Tech\DataSet\T_ACDataSet.Designer.cs">
+    <Compile Include="Tech\DataSet\T_ACDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
+      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Tech\UserControl\T_OrderUserControl1.cs">
       <SubType>UserControl</SubType>
@@ -270,9 +267,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Tech\UserControl\T_OrderUserControl1.resx">
-      <DependentUpon>T_OrderUserControl1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,16 +368,16 @@
     <None Include="Shop\DataSet\S_DQAResponse.xss">
       <DependentUpon>S_DQAResponse.xsd</DependentUpon>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet.xsc">
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
+    <None Include="Tech\DataSet\T_ACDataSet1.xsc">
+      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet.xsd">
+    <None Include="Tech\DataSet\T_ACDataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>T_ACDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>T_ACDataSet1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet.xss">
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
+    <None Include="Tech\DataSet\T_ACDataSet1.xss">
+      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
