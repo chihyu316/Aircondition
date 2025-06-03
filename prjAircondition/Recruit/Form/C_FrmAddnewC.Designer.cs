@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label courseIDLabel;
-            System.Windows.Forms.Label courseBatchIDLabel;
             System.Windows.Forms.Label courseTitleLabel;
             System.Windows.Forms.Label courseIntroductionLabel;
             System.Windows.Forms.Label courseLevelLabel;
@@ -45,8 +43,6 @@
             this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseTableAdapter = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseTableAdapter();
             this.tableAdapterManager = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.TableAdapterManager();
-            this.courseIDTextBox = new System.Windows.Forms.TextBox();
-            this.courseBatchIDTextBox = new System.Windows.Forms.TextBox();
             this.courseTitleTextBox = new System.Windows.Forms.TextBox();
             this.courseIntroductionTextBox = new System.Windows.Forms.TextBox();
             this.standardPriceTextBox = new System.Windows.Forms.TextBox();
@@ -71,8 +67,6 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.courseBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.courseBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            courseIDLabel = new System.Windows.Forms.Label();
-            courseBatchIDLabel = new System.Windows.Forms.Label();
             courseTitleLabel = new System.Windows.Forms.Label();
             courseIntroductionLabel = new System.Windows.Forms.Label();
             courseLevelLabel = new System.Windows.Forms.Label();
@@ -88,26 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingNavigator)).BeginInit();
             this.courseBindingNavigator.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // courseIDLabel
-            // 
-            courseIDLabel.AutoSize = true;
-            courseIDLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            courseIDLabel.Location = new System.Drawing.Point(222, 63);
-            courseIDLabel.Name = "courseIDLabel";
-            courseIDLabel.Size = new System.Drawing.Size(130, 30);
-            courseIDLabel.TabIndex = 1;
-            courseIDLabel.Text = "Course ID:";
-            // 
-            // courseBatchIDLabel
-            // 
-            courseBatchIDLabel.AutoSize = true;
-            courseBatchIDLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            courseBatchIDLabel.Location = new System.Drawing.Point(222, 117);
-            courseBatchIDLabel.Name = "courseBatchIDLabel";
-            courseBatchIDLabel.Size = new System.Drawing.Size(200, 30);
-            courseBatchIDLabel.TabIndex = 3;
-            courseBatchIDLabel.Text = "Course Batch ID:";
             // 
             // courseTitleLabel
             // 
@@ -163,7 +137,7 @@
             // 
             photosLabel.AutoSize = true;
             photosLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            photosLabel.Location = new System.Drawing.Point(864, 63);
+            photosLabel.Location = new System.Drawing.Point(875, 162);
             photosLabel.Name = "photosLabel";
             photosLabel.Size = new System.Drawing.Size(98, 30);
             photosLabel.TabIndex = 15;
@@ -223,24 +197,6 @@
             this.tableAdapterManager.RegistrationTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // courseIDTextBox
-            // 
-            this.courseIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseID", true));
-            this.courseIDTextBox.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.courseIDTextBox.Location = new System.Drawing.Point(475, 63);
-            this.courseIDTextBox.Name = "courseIDTextBox";
-            this.courseIDTextBox.Size = new System.Drawing.Size(200, 39);
-            this.courseIDTextBox.TabIndex = 2;
-            // 
-            // courseBatchIDTextBox
-            // 
-            this.courseBatchIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseBatchID", true));
-            this.courseBatchIDTextBox.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.courseBatchIDTextBox.Location = new System.Drawing.Point(475, 117);
-            this.courseBatchIDTextBox.Name = "courseBatchIDTextBox";
-            this.courseBatchIDTextBox.Size = new System.Drawing.Size(200, 39);
-            this.courseBatchIDTextBox.TabIndex = 4;
-            // 
             // courseTitleTextBox
             // 
             this.courseTitleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseTitle", true));
@@ -282,7 +238,7 @@
             this.photosPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.photosPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.courseBindingSource, "Photos", true));
             this.photosPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("photosPictureBox.Image")));
-            this.photosPictureBox.Location = new System.Drawing.Point(1045, 63);
+            this.photosPictureBox.Location = new System.Drawing.Point(1056, 162);
             this.photosPictureBox.Name = "photosPictureBox";
             this.photosPictureBox.Size = new System.Drawing.Size(222, 280);
             this.photosPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -326,7 +282,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(869, 116);
+            this.button3.Location = new System.Drawing.Point(880, 215);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 48);
             this.button3.TabIndex = 26;
@@ -471,10 +427,6 @@
             this.ClientSize = new System.Drawing.Size(1576, 834);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.courseLevelComboBox);
-            this.Controls.Add(courseIDLabel);
-            this.Controls.Add(this.courseIDTextBox);
-            this.Controls.Add(courseBatchIDLabel);
-            this.Controls.Add(this.courseBatchIDTextBox);
             this.Controls.Add(courseTitleLabel);
             this.Controls.Add(this.courseTitleTextBox);
             this.Controls.Add(courseIntroductionLabel);
@@ -513,8 +465,6 @@
         private System.Windows.Forms.BindingSource courseBindingSource;
         private Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseTableAdapter courseTableAdapter;
         private Recruit.DateSet.C_RecruitDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox courseIDTextBox;
-        private System.Windows.Forms.TextBox courseBatchIDTextBox;
         private System.Windows.Forms.TextBox courseTitleTextBox;
         private System.Windows.Forms.TextBox courseIntroductionTextBox;
         private System.Windows.Forms.TextBox standardPriceTextBox;

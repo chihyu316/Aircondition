@@ -143,7 +143,7 @@ namespace prjAircondition.Recruit
             }
         }
 
-        private void C_btnAddCourse(object sender, EventArgs e)
+        private void C_btnAddCourse_click(object sender, EventArgs e)
         {
             C_FrmAddnewC addnewC = new C_FrmAddnewC();
             addnewC.ShowDialog();
@@ -155,7 +155,7 @@ namespace prjAircondition.Recruit
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void C_btnAddBatch_click(object sender, EventArgs e)
         {
 
         }
