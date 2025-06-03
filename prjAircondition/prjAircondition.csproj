@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Recruit\Form\C_FrmAddB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmAddB.Designer.cs">
+      <DependentUpon>C_FrmAddB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmAddnewC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmAddnewC.Designer.cs">
+      <DependentUpon>C_FrmAddnewC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dicuss\UserControl\D_ReplyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -244,6 +256,18 @@
     <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Recruit\Form\C_FrmAddB.resx">
+      <DependentUpon>C_FrmAddB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recruit\Form\C_FrmAddnewC.resx">
+      <DependentUpon>C_FrmAddnewC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dicuss\UserControl\D_DisControl.resx">
+      <DependentUpon>D_DisControl.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> Recruit
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,8 +292,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Repair\UserControl\R_ucWorkOrder.resx">
       <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
+      <DependentUpon>C_CourseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop\UserControl\S_UcMateral.resx">
+      <DependentUpon>S_UcMateral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop\UserControl\S_UcOrderMain.resx">
+      <DependentUpon>S_UcOrderMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop\UserControl\S_UcProduct1.resx">
+      <DependentUpon>S_UcProduct1.cs</DependentUpon>
+>>>>>>> Recruit
     </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
