@@ -250,10 +250,10 @@
       <DependentUpon>S_UcOrderMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Tech\DAL\TechnicianRepository.cs" />
-    <Compile Include="Tech\DataSet\T_ACDataSet1.Designer.cs">
+    <Compile Include="Tech\DataSet\T_DatasSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
+      <DependentUpon>T_DatasSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Tech\UserControl\T_OrderUserControl1.cs">
       <SubType>UserControl</SubType>
@@ -427,16 +427,16 @@
     <None Include="Shop\DataSet\S_DQAResponse.xss">
       <DependentUpon>S_DQAResponse.xsd</DependentUpon>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet1.xsc">
-      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
+    <None Include="Tech\DataSet\T_DatasSet.xsc">
+      <DependentUpon>T_DatasSet.xsd</DependentUpon>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet1.xsd">
+    <None Include="Tech\DataSet\T_DatasSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>T_ACDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>T_DatasSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet1.xss">
-      <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
+    <None Include="Tech\DataSet\T_DatasSet.xss">
+      <DependentUpon>T_DatasSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
