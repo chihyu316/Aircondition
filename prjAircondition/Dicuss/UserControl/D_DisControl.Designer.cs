@@ -29,18 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.D_buttonSearchDate = new System.Windows.Forms.Button();
-            this.D_groupBox1 = new System.Windows.Forms.GroupBox();
-            this.D_label2 = new System.Windows.Forms.Label();
-            this.D_label1 = new System.Windows.Forms.Label();
-            this.D_comboBox2 = new System.Windows.Forms.ComboBox();
-            this.D_comboBox1 = new System.Windows.Forms.ComboBox();
-            this.D_groupBox2 = new System.Windows.Forms.GroupBox();
-            this.D_textTitleT = new System.Windows.Forms.TextBox();
-            this.D_buttonSearchTitle = new System.Windows.Forms.Button();
-            this.D_groupbox3 = new System.Windows.Forms.GroupBox();
-            this.D_textUserT = new System.Windows.Forms.TextBox();
-            this.D_buttoserchuser = new System.Windows.Forms.Button();
             this.D_PostdataGridView = new System.Windows.Forms.DataGridView();
             this.D_groupBox4 = new System.Windows.Forms.GroupBox();
             this.D_ListContextT = new System.Windows.Forms.TextBox();
@@ -57,142 +45,34 @@
             this.D_bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.d_ACDataSet1 = new prjAircondition.Dicuss.DataSet.D_ACDataSet();
             this.D_postsMainTableAdapter1 = new prjAircondition.Dicuss.DataSet.D_ACDataSetTableAdapters.PostsMainTableAdapter();
-            this.D_groupBox1.SuspendLayout();
-            this.D_groupBox2.SuspendLayout();
-            this.D_groupbox3.SuspendLayout();
+            this.D_buttonSearchDate = new System.Windows.Forms.Button();
+            this.D_comboBox1 = new System.Windows.Forms.ComboBox();
+            this.D_comboBox2 = new System.Windows.Forms.ComboBox();
+            this.D_label1 = new System.Windows.Forms.Label();
+            this.D_label2 = new System.Windows.Forms.Label();
+            this.D_groupBox1 = new System.Windows.Forms.GroupBox();
+            this.D_buttonSearchTitle = new System.Windows.Forms.Button();
+            this.D_textTitleT = new System.Windows.Forms.TextBox();
+            this.D_groupBox2 = new System.Windows.Forms.GroupBox();
+            this.D_buttoserchuser = new System.Windows.Forms.Button();
+            this.D_textUserT = new System.Windows.Forms.TextBox();
+            this.D_groupbox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.D_PostdataGridView)).BeginInit();
             this.D_groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.D_bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.d_ACDataSet1)).BeginInit();
+            this.D_groupBox1.SuspendLayout();
+            this.D_groupBox2.SuspendLayout();
+            this.D_groupbox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // D_buttonSearchDate
-            // 
-            this.D_buttonSearchDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.D_buttonSearchDate.Location = new System.Drawing.Point(375, 42);
-            this.D_buttonSearchDate.Name = "D_buttonSearchDate";
-            this.D_buttonSearchDate.Size = new System.Drawing.Size(97, 32);
-            this.D_buttonSearchDate.TabIndex = 0;
-            this.D_buttonSearchDate.Text = "查詢";
-            this.D_buttonSearchDate.UseVisualStyleBackColor = true;
-            this.D_buttonSearchDate.Click += new System.EventHandler(this.D_button1_Click);
-            // 
-            // D_groupBox1
-            // 
-            this.D_groupBox1.Controls.Add(this.D_label2);
-            this.D_groupBox1.Controls.Add(this.D_label1);
-            this.D_groupBox1.Controls.Add(this.D_comboBox2);
-            this.D_groupBox1.Controls.Add(this.D_comboBox1);
-            this.D_groupBox1.Controls.Add(this.D_buttonSearchDate);
-            this.D_groupBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.D_groupBox1.Location = new System.Drawing.Point(12, 261);
-            this.D_groupBox1.Name = "D_groupBox1";
-            this.D_groupBox1.Size = new System.Drawing.Size(507, 104);
-            this.D_groupBox1.TabIndex = 1;
-            this.D_groupBox1.TabStop = false;
-            this.D_groupBox1.Text = "文章日期查詢";
-            // 
-            // D_label2
-            // 
-            this.D_label2.AutoSize = true;
-            this.D_label2.Location = new System.Drawing.Point(330, 46);
-            this.D_label2.Name = "D_label2";
-            this.D_label2.Size = new System.Drawing.Size(29, 24);
-            this.D_label2.TabIndex = 4;
-            this.D_label2.Text = "月";
-            // 
-            // D_label1
-            // 
-            this.D_label1.AutoSize = true;
-            this.D_label1.Location = new System.Drawing.Point(154, 47);
-            this.D_label1.Name = "D_label1";
-            this.D_label1.Size = new System.Drawing.Size(29, 24);
-            this.D_label1.TabIndex = 3;
-            this.D_label1.Text = "年";
-            // 
-            // D_comboBox2
-            // 
-            this.D_comboBox2.FormattingEnabled = true;
-            this.D_comboBox2.Location = new System.Drawing.Point(195, 42);
-            this.D_comboBox2.Name = "D_comboBox2";
-            this.D_comboBox2.Size = new System.Drawing.Size(121, 32);
-            this.D_comboBox2.TabIndex = 2;
-            // 
-            // D_comboBox1
-            // 
-            this.D_comboBox1.FormattingEnabled = true;
-            this.D_comboBox1.Location = new System.Drawing.Point(22, 42);
-            this.D_comboBox1.Name = "D_comboBox1";
-            this.D_comboBox1.Size = new System.Drawing.Size(121, 32);
-            this.D_comboBox1.TabIndex = 1;
-            // 
-            // D_groupBox2
-            // 
-            this.D_groupBox2.Controls.Add(this.D_textTitleT);
-            this.D_groupBox2.Controls.Add(this.D_buttonSearchTitle);
-            this.D_groupBox2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.D_groupBox2.Location = new System.Drawing.Point(12, 139);
-            this.D_groupBox2.Name = "D_groupBox2";
-            this.D_groupBox2.Size = new System.Drawing.Size(507, 104);
-            this.D_groupBox2.TabIndex = 2;
-            this.D_groupBox2.TabStop = false;
-            this.D_groupBox2.Text = "文章標題查詢";
-            // 
-            // D_textTitleT
-            // 
-            this.D_textTitleT.Location = new System.Drawing.Point(22, 42);
-            this.D_textTitleT.Name = "D_textTitleT";
-            this.D_textTitleT.Size = new System.Drawing.Size(337, 33);
-            this.D_textTitleT.TabIndex = 1;
-            // 
-            // D_buttonSearchTitle
-            // 
-            this.D_buttonSearchTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.D_buttonSearchTitle.Location = new System.Drawing.Point(375, 42);
-            this.D_buttonSearchTitle.Name = "D_buttonSearchTitle";
-            this.D_buttonSearchTitle.Size = new System.Drawing.Size(97, 32);
-            this.D_buttonSearchTitle.TabIndex = 0;
-            this.D_buttonSearchTitle.Text = "查詢";
-            this.D_buttonSearchTitle.UseVisualStyleBackColor = true;
-            this.D_buttonSearchTitle.Click += new System.EventHandler(this.D_buttonSearchTitle_Click);
-            // 
-            // D_groupbox3
-            // 
-            this.D_groupbox3.Controls.Add(this.D_textUserT);
-            this.D_groupbox3.Controls.Add(this.D_buttoserchuser);
-            this.D_groupbox3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.D_groupbox3.Location = new System.Drawing.Point(12, 17);
-            this.D_groupbox3.Name = "D_groupbox3";
-            this.D_groupbox3.Size = new System.Drawing.Size(507, 104);
-            this.D_groupbox3.TabIndex = 4;
-            this.D_groupbox3.TabStop = false;
-            this.D_groupbox3.Text = "發文者查詢";
-            // 
-            // D_textUserT
-            // 
-            this.D_textUserT.Location = new System.Drawing.Point(22, 42);
-            this.D_textUserT.Name = "D_textUserT";
-            this.D_textUserT.Size = new System.Drawing.Size(337, 33);
-            this.D_textUserT.TabIndex = 1;
-            // 
-            // D_buttoserchuser
-            // 
-            this.D_buttoserchuser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.D_buttoserchuser.Location = new System.Drawing.Point(375, 42);
-            this.D_buttoserchuser.Name = "D_buttoserchuser";
-            this.D_buttoserchuser.Size = new System.Drawing.Size(97, 32);
-            this.D_buttoserchuser.TabIndex = 0;
-            this.D_buttoserchuser.Text = "查詢";
-            this.D_buttoserchuser.UseVisualStyleBackColor = true;
-            this.D_buttoserchuser.Click += new System.EventHandler(this.D_buttoserchuser_Click);
             // 
             // D_PostdataGridView
             // 
             this.D_PostdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.D_PostdataGridView.Location = new System.Drawing.Point(3, 371);
+            this.D_PostdataGridView.Location = new System.Drawing.Point(419, 368);
             this.D_PostdataGridView.Name = "D_PostdataGridView";
             this.D_PostdataGridView.RowTemplate.Height = 24;
-            this.D_PostdataGridView.Size = new System.Drawing.Size(516, 258);
+            this.D_PostdataGridView.Size = new System.Drawing.Size(592, 258);
             this.D_PostdataGridView.TabIndex = 5;
             this.D_PostdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -207,7 +87,7 @@
             this.D_groupBox4.Controls.Add(this.D_label4);
             this.D_groupBox4.Controls.Add(this.D_label3);
             this.D_groupBox4.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.D_groupBox4.Location = new System.Drawing.Point(624, 17);
+            this.D_groupBox4.Location = new System.Drawing.Point(3, 14);
             this.D_groupBox4.Name = "D_groupBox4";
             this.D_groupBox4.Size = new System.Drawing.Size(400, 615);
             this.D_groupBox4.TabIndex = 6;
@@ -283,7 +163,7 @@
             // 
             this.D_buttoninsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.D_buttoninsert.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.D_buttoninsert.Location = new System.Drawing.Point(525, 36);
+            this.D_buttoninsert.Location = new System.Drawing.Point(419, 7);
             this.D_buttoninsert.Name = "D_buttoninsert";
             this.D_buttoninsert.Size = new System.Drawing.Size(93, 33);
             this.D_buttoninsert.TabIndex = 7;
@@ -294,7 +174,7 @@
             // 
             this.D_buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.D_buttonUpdate.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.D_buttonUpdate.Location = new System.Drawing.Point(525, 88);
+            this.D_buttonUpdate.Location = new System.Drawing.Point(518, 7);
             this.D_buttonUpdate.Name = "D_buttonUpdate";
             this.D_buttonUpdate.Size = new System.Drawing.Size(93, 33);
             this.D_buttonUpdate.TabIndex = 8;
@@ -305,7 +185,7 @@
             // 
             this.D_buttondelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.D_buttondelete.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.D_buttondelete.Location = new System.Drawing.Point(525, 139);
+            this.D_buttondelete.Location = new System.Drawing.Point(617, 7);
             this.D_buttondelete.Name = "D_buttondelete";
             this.D_buttondelete.Size = new System.Drawing.Size(93, 33);
             this.D_buttondelete.TabIndex = 9;
@@ -321,49 +201,156 @@
             // 
             this.D_postsMainTableAdapter1.ClearBeforeFill = true;
             // 
+            // D_buttonSearchDate
+            // 
+            this.D_buttonSearchDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D_buttonSearchDate.Location = new System.Drawing.Point(375, 42);
+            this.D_buttonSearchDate.Name = "D_buttonSearchDate";
+            this.D_buttonSearchDate.Size = new System.Drawing.Size(97, 32);
+            this.D_buttonSearchDate.TabIndex = 0;
+            this.D_buttonSearchDate.Text = "查詢";
+            this.D_buttonSearchDate.UseVisualStyleBackColor = true;
+            this.D_buttonSearchDate.Click += new System.EventHandler(this.D_button1_Click);
+            // 
+            // D_comboBox1
+            // 
+            this.D_comboBox1.FormattingEnabled = true;
+            this.D_comboBox1.Location = new System.Drawing.Point(22, 42);
+            this.D_comboBox1.Name = "D_comboBox1";
+            this.D_comboBox1.Size = new System.Drawing.Size(121, 32);
+            this.D_comboBox1.TabIndex = 1;
+            // 
+            // D_comboBox2
+            // 
+            this.D_comboBox2.FormattingEnabled = true;
+            this.D_comboBox2.Location = new System.Drawing.Point(203, 43);
+            this.D_comboBox2.Name = "D_comboBox2";
+            this.D_comboBox2.Size = new System.Drawing.Size(121, 32);
+            this.D_comboBox2.TabIndex = 2;
+            // 
+            // D_label1
+            // 
+            this.D_label1.AutoSize = true;
+            this.D_label1.Location = new System.Drawing.Point(154, 47);
+            this.D_label1.Name = "D_label1";
+            this.D_label1.Size = new System.Drawing.Size(29, 24);
+            this.D_label1.TabIndex = 3;
+            this.D_label1.Text = "年";
+            // 
+            // D_label2
+            // 
+            this.D_label2.AutoSize = true;
+            this.D_label2.Location = new System.Drawing.Point(330, 46);
+            this.D_label2.Name = "D_label2";
+            this.D_label2.Size = new System.Drawing.Size(29, 24);
+            this.D_label2.TabIndex = 4;
+            this.D_label2.Text = "月";
+            // 
+            // D_groupBox1
+            // 
+            this.D_groupBox1.Controls.Add(this.D_label2);
+            this.D_groupBox1.Controls.Add(this.D_label1);
+            this.D_groupBox1.Controls.Add(this.D_comboBox2);
+            this.D_groupBox1.Controls.Add(this.D_comboBox1);
+            this.D_groupBox1.Controls.Add(this.D_buttonSearchDate);
+            this.D_groupBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.D_groupBox1.Location = new System.Drawing.Point(419, 258);
+            this.D_groupBox1.Name = "D_groupBox1";
+            this.D_groupBox1.Size = new System.Drawing.Size(606, 94);
+            this.D_groupBox1.TabIndex = 1;
+            this.D_groupBox1.TabStop = false;
+            this.D_groupBox1.Text = "文章日期查詢";
+            // 
+            // D_buttonSearchTitle
+            // 
+            this.D_buttonSearchTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D_buttonSearchTitle.Location = new System.Drawing.Point(375, 42);
+            this.D_buttonSearchTitle.Name = "D_buttonSearchTitle";
+            this.D_buttonSearchTitle.Size = new System.Drawing.Size(97, 32);
+            this.D_buttonSearchTitle.TabIndex = 0;
+            this.D_buttonSearchTitle.Text = "查詢";
+            this.D_buttonSearchTitle.UseVisualStyleBackColor = true;
+            this.D_buttonSearchTitle.Click += new System.EventHandler(this.D_buttonSearchTitle_Click);
+            // 
+            // D_textTitleT
+            // 
+            this.D_textTitleT.Location = new System.Drawing.Point(22, 42);
+            this.D_textTitleT.Name = "D_textTitleT";
+            this.D_textTitleT.Size = new System.Drawing.Size(337, 33);
+            this.D_textTitleT.TabIndex = 1;
+            // 
+            // D_groupBox2
+            // 
+            this.D_groupBox2.Controls.Add(this.D_textTitleT);
+            this.D_groupBox2.Controls.Add(this.D_buttonSearchTitle);
+            this.D_groupBox2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.D_groupBox2.Location = new System.Drawing.Point(419, 158);
+            this.D_groupBox2.Name = "D_groupBox2";
+            this.D_groupBox2.Size = new System.Drawing.Size(606, 94);
+            this.D_groupBox2.TabIndex = 2;
+            this.D_groupBox2.TabStop = false;
+            this.D_groupBox2.Text = "文章標題查詢";
+            // 
+            // D_buttoserchuser
+            // 
+            this.D_buttoserchuser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.D_buttoserchuser.Location = new System.Drawing.Point(375, 42);
+            this.D_buttoserchuser.Name = "D_buttoserchuser";
+            this.D_buttoserchuser.Size = new System.Drawing.Size(97, 32);
+            this.D_buttoserchuser.TabIndex = 0;
+            this.D_buttoserchuser.Text = "查詢";
+            this.D_buttoserchuser.UseVisualStyleBackColor = true;
+            this.D_buttoserchuser.Click += new System.EventHandler(this.D_buttoserchuser_Click);
+            // 
+            // D_textUserT
+            // 
+            this.D_textUserT.Location = new System.Drawing.Point(22, 42);
+            this.D_textUserT.Name = "D_textUserT";
+            this.D_textUserT.Size = new System.Drawing.Size(337, 33);
+            this.D_textUserT.TabIndex = 1;
+            // 
+            // D_groupbox3
+            // 
+            this.D_groupbox3.Controls.Add(this.D_textUserT);
+            this.D_groupbox3.Controls.Add(this.D_buttoserchuser);
+            this.D_groupbox3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.D_groupbox3.Location = new System.Drawing.Point(419, 46);
+            this.D_groupbox3.Name = "D_groupbox3";
+            this.D_groupbox3.Size = new System.Drawing.Size(606, 94);
+            this.D_groupbox3.TabIndex = 4;
+            this.D_groupbox3.TabStop = false;
+            this.D_groupbox3.Text = "發文者查詢";
+            // 
             // D_DisControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.D_buttondelete);
-            this.Controls.Add(this.D_buttonUpdate);
-            this.Controls.Add(this.D_buttoninsert);
             this.Controls.Add(this.D_groupBox4);
             this.Controls.Add(this.D_PostdataGridView);
+            this.Controls.Add(this.D_buttonUpdate);
             this.Controls.Add(this.D_groupbox3);
             this.Controls.Add(this.D_groupBox2);
             this.Controls.Add(this.D_groupBox1);
+            this.Controls.Add(this.D_buttoninsert);
             this.Name = "D_DisControl";
             this.Size = new System.Drawing.Size(1025, 632);
+            ((System.ComponentModel.ISupportInitialize)(this.D_PostdataGridView)).EndInit();
+            this.D_groupBox4.ResumeLayout(false);
+            this.D_groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.D_bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.d_ACDataSet1)).EndInit();
             this.D_groupBox1.ResumeLayout(false);
             this.D_groupBox1.PerformLayout();
             this.D_groupBox2.ResumeLayout(false);
             this.D_groupBox2.PerformLayout();
             this.D_groupbox3.ResumeLayout(false);
             this.D_groupbox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.D_PostdataGridView)).EndInit();
-            this.D_groupBox4.ResumeLayout(false);
-            this.D_groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.D_bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.d_ACDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button D_buttonSearchDate;
-        private System.Windows.Forms.GroupBox D_groupBox1;
-        private System.Windows.Forms.Label D_label2;
-        private System.Windows.Forms.Label D_label1;
-        private System.Windows.Forms.ComboBox D_comboBox2;
-        private System.Windows.Forms.ComboBox D_comboBox1;
-        private System.Windows.Forms.GroupBox D_groupBox2;
-        private System.Windows.Forms.TextBox D_textTitleT;
-        private System.Windows.Forms.Button D_buttonSearchTitle;
-        private System.Windows.Forms.GroupBox D_groupbox3;
-        private System.Windows.Forms.TextBox D_textUserT;
-        private System.Windows.Forms.Button D_buttoserchuser;
         private System.Windows.Forms.DataGridView D_PostdataGridView;
         private System.Windows.Forms.GroupBox D_groupBox4;
         private System.Windows.Forms.Label D_label3;
@@ -380,5 +367,17 @@
         private DataSet.D_ACDataSet d_ACDataSet1;
         private DataSet.D_ACDataSetTableAdapters.PostsMainTableAdapter D_postsMainTableAdapter1;
         private System.Windows.Forms.BindingSource D_bindingSource1;
+        private System.Windows.Forms.Button D_buttonSearchDate;
+        private System.Windows.Forms.ComboBox D_comboBox1;
+        private System.Windows.Forms.ComboBox D_comboBox2;
+        private System.Windows.Forms.Label D_label1;
+        private System.Windows.Forms.Label D_label2;
+        private System.Windows.Forms.GroupBox D_groupBox1;
+        private System.Windows.Forms.Button D_buttonSearchTitle;
+        private System.Windows.Forms.TextBox D_textTitleT;
+        private System.Windows.Forms.GroupBox D_groupBox2;
+        private System.Windows.Forms.Button D_buttoserchuser;
+        private System.Windows.Forms.TextBox D_textUserT;
+        private System.Windows.Forms.GroupBox D_groupbox3;
     }
 }
