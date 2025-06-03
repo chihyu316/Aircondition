@@ -205,6 +205,7 @@
     <Compile Include="Repair\UserControl\R_ucWorkOrder.Designer.cs">
       <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repair\UserControl\RE_DataSearch.cs" />
     <Compile Include="Shop\DataSet\S_DCoolingProduct.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
