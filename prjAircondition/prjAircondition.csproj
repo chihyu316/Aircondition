@@ -199,6 +199,7 @@
     <Compile Include="Repair\UserControl\R_ucWorkOrder.Designer.cs">
       <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repair\RE_DataSearch.cs" />
     <Compile Include="Shop\DataSet\S_DCoolingProduct.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -301,6 +302,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Shop\UserControl\S_UcProduct1.resx">
       <DependentUpon>S_UcProduct1.cs</DependentUpon>
+    <EmbeddedResource Include="Repair\UserControl\R_ucWorkOrder.resx">
+      <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
