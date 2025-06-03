@@ -128,7 +128,7 @@
             // ER_SearchT
             // 
             this.ER_SearchT.Font = new System.Drawing.Font("微軟正黑體", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.ER_SearchT.Location = new System.Drawing.Point(744, 191);
+            this.ER_SearchT.Location = new System.Drawing.Point(741, 90);
             this.ER_SearchT.Name = "ER_SearchT";
             this.ER_SearchT.Size = new System.Drawing.Size(120, 23);
             this.ER_SearchT.TabIndex = 7;
@@ -154,7 +154,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(741, 87);
+            this.comboBox1.Location = new System.Drawing.Point(867, 273);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 10;

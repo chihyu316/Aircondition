@@ -63,6 +63,12 @@ namespace prjAircondition
                 case "師傅名稱":
                     query = query + " where t.Nickname Like @T    ";
                     break;
+                case "會員名稱":
+                    query = query + " where M.NickName Like @T    ";
+                    break;
+                case "工單建立日期":
+                    query = query + " where  CONVERT(varchar, CreatedDate, 23) LIKE @T%    ";
+                    break;
             }
             try
             {
