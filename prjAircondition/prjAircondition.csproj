@@ -55,6 +55,11 @@
     <Compile Include="Dicuss\UserControl\D_ReplyControl.Designer.cs">
       <DependentUpon>D_ReplyControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dicuss\DataSet\D_ACDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Recruit\UserControl\C_TradeHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -243,6 +248,9 @@
     <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dicuss\UserControl\D_DisControl.resx">
+      <DependentUpon>D_DisControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Member\Form\FRMloLogin.resx">
       <DependentUpon>FRMloLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member\UserControl\M_meberinfo.resx">
+      <DependentUpon>M_meberinfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Member\UserControl\M_MemberAddress.resx">
       <DependentUpon>M_MemberAddress.cs</DependentUpon>
@@ -270,6 +281,17 @@
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xsc">
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>D_ACDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xss">
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Member\DataSet\M_MemberDataset.xsc">
       <DependentUpon>M_MemberDataset.xsd</DependentUpon>
     </None>

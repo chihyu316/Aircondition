@@ -29,53 +29,51 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("會員資料");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("會員產品");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("會員地址");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("會員", new System.Windows.Forms.TreeNode[] {
-            treeNode28,
-            treeNode29,
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("師傅資訊");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("訂單管理");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("師傅", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("冷的一比");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("冷料鋪");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Node7");
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Node8");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("涼心產品", new System.Windows.Forms.TreeNode[] {
-            treeNode35,
-            treeNode36,
-            treeNode37,
-            treeNode38});
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("施工單");
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("安裝");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("保養");
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("維修");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("拆機");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("工單", new System.Windows.Forms.TreeNode[] {
-            treeNode40,
-            treeNode41,
-            treeNode42,
-            treeNode43,
-            treeNode44});
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("課程一覽");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("我要報名");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("我的課程");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("我的交易記錄");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("證照課程", new System.Windows.Forms.TreeNode[] {
-            treeNode46,
-            treeNode47,
-            treeNode48,
-            treeNode49});
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("文章管理");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("留言管理");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("討論版", new System.Windows.Forms.TreeNode[] {
-            treeNode51,
-            treeNode52});
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("登出");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("會員資料");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("會員產品");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("會員地址");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("會員", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("師傅資訊");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("訂單管理");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("師傅", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("冷氣商品");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("材料商品");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("訂單");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("涼心產品", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("施工單");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("安裝");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("保養");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("維修");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("拆機");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("工單", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("課程一覽");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("我要報名");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("我的課程");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("我的交易記錄");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("證照課程", new System.Windows.Forms.TreeNode[] {
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("文章管理");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("留言管理");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("討論版", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("登出");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -119,68 +117,66 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.treeView1.Location = new System.Drawing.Point(0, 154);
             this.treeView1.Name = "treeView1";
-            treeNode28.Name = "M_Node1";
-            treeNode28.Text = "會員資料";
-            treeNode29.Name = "M_Node2";
-            treeNode29.Text = "會員產品";
-            treeNode30.Name = "M_Node";
-            treeNode30.Text = "會員地址";
-            treeNode31.Name = "會員";
-            treeNode31.Text = "會員";
-            treeNode32.Name = "T_Node1";
-            treeNode32.Text = "師傅資訊";
-            treeNode33.Name = "T_Node2";
-            treeNode33.Text = "訂單管理";
-            treeNode34.Name = "Tech";
-            treeNode34.Text = "師傅";
-            treeNode35.Name = "Shop_Node1";
-            treeNode35.Text = "冷的一比";
-            treeNode36.Name = "Shop_Node2";
-            treeNode36.Text = "冷料鋪";
-            treeNode37.Name = "Shop_Node3";
-            treeNode37.Text = "Node7";
-            treeNode38.Name = "Shop_Node4";
-            treeNode38.Text = "Node8";
-            treeNode39.Name = "Shop";
-            treeNode39.Text = "涼心產品";
-            treeNode40.Name = "Repair_Node1";
-            treeNode40.Text = "施工單";
-            treeNode41.Name = "Repair_Node2";
-            treeNode41.Text = "安裝";
-            treeNode42.Name = "Repair_Node3";
-            treeNode42.Text = "保養";
-            treeNode43.Name = "Repair_Node4";
-            treeNode43.Text = "維修";
-            treeNode44.Name = "Repair_Node5";
-            treeNode44.Text = "拆機";
-            treeNode45.Name = "Repair";
-            treeNode45.Text = "工單";
-            treeNode46.Name = "Recruit_Node1";
-            treeNode46.Text = "課程一覽";
-            treeNode47.Name = "Recruit_Node2";
-            treeNode47.Text = "我要報名";
-            treeNode48.Name = "Recruit_Node3";
-            treeNode48.Text = "我的課程";
-            treeNode49.Name = "Recruit_Node4";
-            treeNode49.Text = "我的交易記錄";
-            treeNode50.Name = "Recruit";
-            treeNode50.Text = "證照課程";
-            treeNode51.Name = "Dis_Node1";
-            treeNode51.Text = "文章管理";
-            treeNode52.Name = "Dis_Node2";
-            treeNode52.Text = "留言管理";
-            treeNode53.Name = "Discuss";
-            treeNode53.Text = "討論版";
-            treeNode54.Name = "LogOut";
-            treeNode54.Text = "登出";
+            treeNode1.Name = "M_Node1";
+            treeNode1.Text = "會員資料";
+            treeNode2.Name = "M_Node2";
+            treeNode2.Text = "會員產品";
+            treeNode3.Name = "M_Node";
+            treeNode3.Text = "會員地址";
+            treeNode4.Name = "會員";
+            treeNode4.Text = "會員";
+            treeNode5.Name = "T_Node1";
+            treeNode5.Text = "師傅資訊";
+            treeNode6.Name = "T_Node2";
+            treeNode6.Text = "訂單管理";
+            treeNode7.Name = "Tech";
+            treeNode7.Text = "師傅";
+            treeNode8.Name = "Shop_Node1";
+            treeNode8.Text = "冷氣商品";
+            treeNode9.Name = "Shop_Node2";
+            treeNode9.Text = "材料商品";
+            treeNode10.Name = "Shop_Node3";
+            treeNode10.Text = "訂單";
+            treeNode11.Name = "Shop";
+            treeNode11.Text = "涼心產品";
+            treeNode12.Name = "Repair_Node1";
+            treeNode12.Text = "施工單";
+            treeNode13.Name = "Repair_Node2";
+            treeNode13.Text = "安裝";
+            treeNode14.Name = "Repair_Node3";
+            treeNode14.Text = "保養";
+            treeNode15.Name = "Repair_Node4";
+            treeNode15.Text = "維修";
+            treeNode16.Name = "Repair_Node5";
+            treeNode16.Text = "拆機";
+            treeNode17.Name = "Repair";
+            treeNode17.Text = "工單";
+            treeNode18.Name = "Recruit_Node1";
+            treeNode18.Text = "課程一覽";
+            treeNode19.Name = "Recruit_Node2";
+            treeNode19.Text = "我要報名";
+            treeNode20.Name = "Recruit_Node3";
+            treeNode20.Text = "我的課程";
+            treeNode21.Name = "Recruit_Node4";
+            treeNode21.Text = "我的交易記錄";
+            treeNode22.Name = "Recruit";
+            treeNode22.Text = "證照課程";
+            treeNode23.Name = "Dis_Node1";
+            treeNode23.Text = "文章管理";
+            treeNode24.Name = "Dis_Node2";
+            treeNode24.Text = "留言管理";
+            treeNode25.Name = "Discuss";
+            treeNode25.Text = "討論版";
+            treeNode26.Name = "LogOut";
+            treeNode26.Text = "登出";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode31,
-            treeNode34,
-            treeNode39,
-            treeNode45,
-            treeNode50,
-            treeNode53,
-            treeNode54});
+            treeNode4,
+            treeNode7,
+            treeNode11,
+            treeNode17,
+            treeNode22,
+            treeNode25,
+            treeNode26});
             this.treeView1.Size = new System.Drawing.Size(258, 481);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
