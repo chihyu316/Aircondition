@@ -79,8 +79,10 @@ namespace prjAircondition.Tech
             WorkTypeComboBox.DataSource = this.workTypeBindingSource1;
             // 給使用者看的文字 比如 1-維修 2-安裝 顯示欄位
             this.WorkTypeComboBox.DisplayMember = "WorkType";
-            //實際上拿到的是ID
-            WorkTypeComboBox.ValueMember = "WorkTypeID";      // 實際代表的值 (當 SelectedValue 取出時拿到的是 WorkTypeID)
+            //實際上拿到的是ID TODO
+            //WorkTypeComboBox.ValueMember = "WorkTypeID";
+            // 實際代表的值 (當 SelectedValue 取出時拿到的是 WorkTypeID)
+            WorkTypeComboBox.ValueMember = "WorkTypeOrderID";
         }
 
         //去撈索引 comboBox去撈對應的工單類型資料
@@ -168,7 +170,6 @@ namespace prjAircondition.Tech
 
         private void WorkTypeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-
         }
     }
 }
