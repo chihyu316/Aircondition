@@ -24,8 +24,9 @@ namespace prjAircondition
             this.Validate();
             this.courseBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.c_RecruitDataSet);
-            
 
+            MessageBox.Show("儲存成功");
+            this.Close();
         }
 
         private void C_FrmAddnewC_Load(object sender, EventArgs e)
@@ -49,6 +50,17 @@ namespace prjAircondition
             this.courseLevelComboBox.SelectedIndex = 0;
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            { 
+                MessageBox.Show("ok" + this.openFileDialog1.FileName);
+                this.photosPictureBox.Image= Image.FromFile(this.openFileDialog1.FileName);               
+
+
+            }
+        }
     }
 } 
 

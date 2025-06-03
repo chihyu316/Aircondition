@@ -137,7 +137,8 @@ namespace prjAircondition.Recruit
         {
             switch (status)
             {
-                case 0: return "啟用";                case 1: return "結束";
+                case 0: return "啟用";                
+                case 1: return "結束";
                 default: return "未知";
             }
         }
@@ -145,14 +146,13 @@ namespace prjAircondition.Recruit
         private void C_btnAddCourse(object sender, EventArgs e)
         {
             C_FrmAddnewC addnewC = new C_FrmAddnewC();
-            //addnewC.ShowDialog();
-            //if (addnewC.DialogResult == DialogResult.OK)
-            //{
-            //    C_RecruitDataSet.CourseCategoryRow categoryRow = this.c_RecruitDataSet1.CourseCategory.NewCourseCategoryRow();
-            //    categoryRow.CategoryName = addnewC.combobox1.SelectedItem.ToString();
-            //    C_RecruitDataSet.CourseRow courseRow = this.c_RecruitDataSet1.Course.NewCourseRow();
-            //    C_RecruitDataSet.CourseBatchRow courseBatchRow = this.c_RecruitDataSet1.CourseBatch.NewCourseBatchRow();
-            //}
+            addnewC.ShowDialog();
+            if (addnewC.DialogResult == DialogResult.OK)
+            {
+                            
+                C_RecruitDataSet.CourseRow courseRow = this.c_RecruitDataSet1.Course.NewCourseRow();
+            
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
