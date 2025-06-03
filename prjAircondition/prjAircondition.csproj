@@ -260,8 +260,12 @@
     <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Dicuss\UserControl\D_DisControl.resx">
-      <DependentUpon>D_DisControl.cs</DependentUpon>
+    <Compile Include="Repair\UserControl\R_ucWorkOrder.cs" />
+    <Compile Include="Repair\UserControl\R_ucWorkOrder.Designer.cs">
+    <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Repair\UserControl\R_ucWorkOrder.resx">
+    <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
