@@ -17,7 +17,7 @@ namespace prjAircondition.Tech
     {
         //傳進來的師傅編號
 
-        public string TechloginAccount { get; set; }
+        //public string TechloginAccount { get; set; }
 
         //private string connString = "Data Source=.;Initial Catalog=AC;Persist Security Info=True;User ID=sa;Password=***********;Encrypt=True;Trust Server Certificate=True";
 
@@ -41,7 +41,7 @@ namespace prjAircondition.Tech
         private void T_TechUserControl1_Load_1(object sender, EventArgs e)
         {
             //先把該帳號資訊傳入 帳號文字輸入框裡面
-            techAccountTextBox.Text = TechloginAccount;
+            //techAccountTextBox.Text = TechloginAccount;
             // 所有師傅資料導入
             this.techniciansTableAdapter1.Fill(this.t_ACDataSet1.Technicians);
             MessageBox.Show($"目前Technicians共有 {this.t_ACDataSet1.Technicians.Rows.Count} 筆資料");
@@ -434,6 +434,25 @@ namespace prjAircondition.Tech
         {
             //到最後一筆索引
             this.techniciansBindingSource.Position = this.techniciansBindingSource.Count - 1;
+        }
+
+        //dataGridView 資料列雙擊跳
+        private void techniciansDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            if (techniciansBindingSource.Current is DataRowView drv)
+            {
+                // 直接從 DataRowView 取出 T_id
+                int technicianID = Convert.ToInt32(drv["T_id"]);
+
+                // 這邊你根本不需要重新撈資料
+                // 因為 techniciansBindingSource 已經正確指到這筆資料了
+
+                // 直接切換到個人資料頁面
+                this.tabControl1.SelectedTab = this.TechPage;
+
+                // 順手載入圖片（因為你圖片是隨 SelectionChanged 或 ShowTechnicianDetail 載入的）
+                LoadImageFromDS();
+            }
         }
     }
 }

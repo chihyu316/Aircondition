@@ -32,8 +32,34 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(T_TechUserControl1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AllTechPage = new System.Windows.Forms.TabPage();
+            this.ALLTechLabel = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.labelTechNameInALLTechs = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.showTechButton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.techniciansDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.t_ACDataSet1 = new prjAircondition.Tech.DataSet.T_ACDataSet();
             this.TechPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonUploadPhoto = new System.Windows.Forms.Button();
@@ -75,37 +101,14 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.LicensebindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.showTechButton = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.labelTechNameInALLTechs = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.ALLTechLabel = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.t_ACDataSet1 = new prjAircondition.Tech.DataSet.T_ACDataSet();
             this.techniciansTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSetTableAdapters.TechniciansTableAdapter();
             this.tableAdapterManager = new prjAircondition.Tech.DataSet.T_ACDataSetTableAdapters.TableAdapterManager();
+            this.label18 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.AllTechPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).BeginInit();
             this.TechPage.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,8 +117,6 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicensebindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -133,6 +134,7 @@
             // AllTechPage
             // 
             this.AllTechPage.BackColor = System.Drawing.Color.SeaShell;
+            this.AllTechPage.Controls.Add(this.label18);
             this.AllTechPage.Controls.Add(this.ALLTechLabel);
             this.AllTechPage.Controls.Add(this.button4);
             this.AllTechPage.Controls.Add(this.button3);
@@ -149,6 +151,84 @@
             this.AllTechPage.Size = new System.Drawing.Size(2796, 2273);
             this.AllTechPage.TabIndex = 2;
             this.AllTechPage.Text = "所有師傅資訊";
+            // 
+            // ALLTechLabel
+            // 
+            this.ALLTechLabel.AutoSize = true;
+            this.ALLTechLabel.Location = new System.Drawing.Point(261, 184);
+            this.ALLTechLabel.Name = "ALLTechLabel";
+            this.ALLTechLabel.Size = new System.Drawing.Size(89, 37);
+            this.ALLTechLabel.TabIndex = 6;
+            this.ALLTechLabel.Text = "1/10";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(489, 174);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(89, 56);
+            this.button4.TabIndex = 5;
+            this.button4.Text = ">>";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(378, 174);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(89, 56);
+            this.button3.TabIndex = 5;
+            this.button3.Text = ">";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(153, 174);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 56);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "<";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(39, 174);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 56);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "<<";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // labelTechNameInALLTechs
+            // 
+            this.labelTechNameInALLTechs.AutoSize = true;
+            this.labelTechNameInALLTechs.Location = new System.Drawing.Point(504, 85);
+            this.labelTechNameInALLTechs.Name = "labelTechNameInALLTechs";
+            this.labelTechNameInALLTechs.Size = new System.Drawing.Size(276, 37);
+            this.labelTechNameInALLTechs.TabIndex = 4;
+            this.labelTechNameInALLTechs.Text = "選取的師傅名字";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(315, 85);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(183, 37);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "師傅名稱:";
+            // 
+            // showTechButton
+            // 
+            this.showTechButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.showTechButton.Location = new System.Drawing.Point(821, 79);
+            this.showTechButton.Name = "showTechButton";
+            this.showTechButton.Size = new System.Drawing.Size(275, 49);
+            this.showTechButton.TabIndex = 2;
+            this.showTechButton.Text = "顯示師傅資料";
+            this.showTechButton.UseVisualStyleBackColor = false;
+            this.showTechButton.Click += new System.EventHandler(this.showTechButton_Click);
             // 
             // label16
             // 
@@ -189,6 +269,147 @@
             this.techniciansDataGridView.Size = new System.Drawing.Size(1371, 517);
             this.techniciansDataGridView.TabIndex = 0;
             this.techniciansDataGridView.SelectionChanged += new System.EventHandler(this.techniciansDataGridView_SelectionChanged);
+            this.techniciansDataGridView.DoubleClick += new System.EventHandler(this.techniciansDataGridView_DoubleClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "T_id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "T_id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "phone";
+            this.dataGridViewTextBoxColumn2.HeaderText = "phone";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "name";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Nickname";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nickname";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "account";
+            this.dataGridViewTextBoxColumn5.HeaderText = "account";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "password";
+            this.dataGridViewTextBoxColumn6.HeaderText = "password";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "photo";
+            this.dataGridViewTextBoxColumn7.HeaderText = "photo";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "is_active";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "is_active";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "address";
+            this.dataGridViewTextBoxColumn8.HeaderText = "address";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "email";
+            this.dataGridViewTextBoxColumn9.HeaderText = "email";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "created_at";
+            this.dataGridViewTextBoxColumn10.HeaderText = "created_at";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "updated_at";
+            this.dataGridViewTextBoxColumn11.HeaderText = "updated_at";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 150;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "gender";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "gender";
+            this.dataGridViewCheckBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.Width = 150;
+            // 
+            // dataGridViewCheckBoxColumn3
+            // 
+            this.dataGridViewCheckBoxColumn3.DataPropertyName = "is_open_payment";
+            this.dataGridViewCheckBoxColumn3.HeaderText = "is_open_payment";
+            this.dataGridViewCheckBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
+            this.dataGridViewCheckBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "points";
+            this.dataGridViewTextBoxColumn12.HeaderText = "points";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "ratings";
+            this.dataGridViewTextBoxColumn13.HeaderText = "ratings";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 150;
+            // 
+            // techniciansBindingSource
+            // 
+            this.techniciansBindingSource.DataMember = "Technicians";
+            this.techniciansBindingSource.DataSource = this.t_ACDataSet1;
+            this.techniciansBindingSource.CurrentChanged += new System.EventHandler(this.techniciansBindingSource_CurrentChanged);
+            // 
+            // t_ACDataSet1
+            // 
+            this.t_ACDataSet1.DataSetName = "T_ACDataSet";
+            this.t_ACDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // TechPage
             // 
@@ -590,231 +811,13 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 46);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(2782, 2235);
+            this.tabPage4.Size = new System.Drawing.Size(2782, 2217);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "查看所有證照";
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // showTechButton
-            // 
-            this.showTechButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.showTechButton.Location = new System.Drawing.Point(821, 79);
-            this.showTechButton.Name = "showTechButton";
-            this.showTechButton.Size = new System.Drawing.Size(275, 49);
-            this.showTechButton.TabIndex = 2;
-            this.showTechButton.Text = "顯示師傅資料";
-            this.showTechButton.UseVisualStyleBackColor = false;
-            this.showTechButton.Click += new System.EventHandler(this.showTechButton_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(315, 85);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(183, 37);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "師傅名稱:";
-            // 
-            // labelTechNameInALLTechs
-            // 
-            this.labelTechNameInALLTechs.AutoSize = true;
-            this.labelTechNameInALLTechs.Location = new System.Drawing.Point(504, 85);
-            this.labelTechNameInALLTechs.Name = "labelTechNameInALLTechs";
-            this.labelTechNameInALLTechs.Size = new System.Drawing.Size(276, 37);
-            this.labelTechNameInALLTechs.TabIndex = 4;
-            this.labelTechNameInALLTechs.Text = "選取的師傅名字";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(39, 174);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 56);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "<<";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(153, 174);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 56);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(378, 174);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(89, 56);
-            this.button3.TabIndex = 5;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(489, 174);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 56);
-            this.button4.TabIndex = 5;
-            this.button4.Text = ">>";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // ALLTechLabel
-            // 
-            this.ALLTechLabel.AutoSize = true;
-            this.ALLTechLabel.Location = new System.Drawing.Point(261, 184);
-            this.ALLTechLabel.Name = "ALLTechLabel";
-            this.ALLTechLabel.Size = new System.Drawing.Size(89, 37);
-            this.ALLTechLabel.TabIndex = 6;
-            this.ALLTechLabel.Text = "1/10";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "T_id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "T_id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "phone";
-            this.dataGridViewTextBoxColumn2.HeaderText = "phone";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "name";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Nickname";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nickname";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "account";
-            this.dataGridViewTextBoxColumn5.HeaderText = "account";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "password";
-            this.dataGridViewTextBoxColumn6.HeaderText = "password";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "photo";
-            this.dataGridViewTextBoxColumn7.HeaderText = "photo";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 150;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "is_active";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "is_active";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "address";
-            this.dataGridViewTextBoxColumn8.HeaderText = "address";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "email";
-            this.dataGridViewTextBoxColumn9.HeaderText = "email";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "created_at";
-            this.dataGridViewTextBoxColumn10.HeaderText = "created_at";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "updated_at";
-            this.dataGridViewTextBoxColumn11.HeaderText = "updated_at";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 150;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "gender";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "gender";
-            this.dataGridViewCheckBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.Width = 150;
-            // 
-            // dataGridViewCheckBoxColumn3
-            // 
-            this.dataGridViewCheckBoxColumn3.DataPropertyName = "is_open_payment";
-            this.dataGridViewCheckBoxColumn3.HeaderText = "is_open_payment";
-            this.dataGridViewCheckBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
-            this.dataGridViewCheckBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "points";
-            this.dataGridViewTextBoxColumn12.HeaderText = "points";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "ratings";
-            this.dataGridViewTextBoxColumn13.HeaderText = "ratings";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 150;
-            // 
-            // techniciansBindingSource
-            // 
-            this.techniciansBindingSource.DataMember = "Technicians";
-            this.techniciansBindingSource.DataSource = this.t_ACDataSet1;
-            this.techniciansBindingSource.CurrentChanged += new System.EventHandler(this.techniciansBindingSource_CurrentChanged);
-            // 
-            // t_ACDataSet1
-            // 
-            this.t_ACDataSet1.DataSetName = "T_ACDataSet";
-            this.t_ACDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // techniciansTableAdapter1
             // 
@@ -828,6 +831,17 @@
             this.tableAdapterManager.UpdateOrder = prjAircondition.Tech.DataSet.T_ACDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WorkOrderTableAdapter = null;
             this.tableAdapterManager.WorkTypeTableAdapter = null;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label18.Location = new System.Drawing.Point(821, 191);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(389, 39);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "雙擊進入師傅個人資訊";
             // 
             // T_TechUserControl1
             // 
@@ -844,6 +858,8 @@
             this.AllTechPage.ResumeLayout(false);
             this.AllTechPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).EndInit();
             this.TechPage.ResumeLayout(false);
             this.TechPage.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -855,8 +871,6 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LicensebindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -937,5 +951,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label18;
     }
 }

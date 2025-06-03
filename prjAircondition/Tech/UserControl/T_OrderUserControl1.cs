@@ -24,37 +24,40 @@ namespace prjAircondition.Tech
             InitializeComponent();
         }
 
-        private void OrderUserControl1_Load(object sender, EventArgs e)
+        private void T_OrderUserControl1_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TechAccount))
-            {
-                //先取得那 師傅資料欄位中的id 再來做載入訂單動作
-                techID = GetTechnicianIDByAccount(TechAccount);
-                //載入師傅的訂單
-                LoadOrders(techID);
-
-                // 先把 離線 師傅資料表 以帳號叫出來
-                //把欄位name抓出來給labelTechName.Text
-                this.techniciansTableAdapter1.FillByAccount(this.t_ACDataSet1.Technicians, TechAccount);
-                if (this.t_ACDataSet1.Technicians.Rows.Count > 0)
-                {
-                    string techName = this.t_ACDataSet1.Technicians[0].name;
-                    labelTechNameInWorkOrder.Text = techName;
-                }
-            }
-
-            //串好workOrder中介點
+            // 預設顯示全部
+            // 串好workOrder中介點
             // 先在 Form_Load (UserControl_Load) 中做綁定：
+            this.workOrderBindingSource1.DataSource = this.t_ACDataSet1.WorkOrder;
+            this.workOrderDataGridView.DataSource = this.workOrderBindingSource1;
+            this.workOrderTableAdapter1.FillByAllWorkOrderWithTechnicians(this.t_ACDataSet1.WorkOrder);
 
-            this.workOrderBindingSource.DataSource = this.t_ACDataSet1.WorkOrder;
-            this.WorkOrderDataGridView.DataSource = this.workOrderBindingSource;
+            //綁定UI
+            this.labelTechNameInWorkOrder.DataBindings.Add("Text", workOrderBindingSource1, "TechnicianName");
+            this.WorkOrdertextBox.DataBindings.Add("Text", workOrderBindingSource1, "TechnicianID");
 
-            //載入工作類型資料表
+            // 載入工作類型資料表
             // 這裡是把 WorkTypes 資料撈進 DataSet
             this.workTypeTableAdapter1.Fill(this.t_ACDataSet1.WorkType);
+            //把所有資料撈出來
 
             //設定binding
             BindWorkTypeComboBox();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(this.WorkOrdertextBox.Text, out int techID))
+            {
+                // 只用師傅ID先撈全部
+                this.workOrderTableAdapter1.FillByCertainTechAllWorkOrders(this.t_ACDataSet1.WorkOrder, techID);
+            }
+            else
+            {
+                MessageBox.Show("請輸入有效的師傅ID");
+                this.t_ACDataSet1.WorkOrder.Clear();
+            }
         }
 
         private void BindWorkTypeComboBox()
@@ -72,17 +75,26 @@ namespace prjAircondition.Tech
 
             // 讓 ComboBox 綁定離線 這個資料中界點
             WorkTypeComboBox.DataSource = this.workTypeBindingSource1;
-            // 給使用者看的文字 比如 1-維修 2-安裝
+            // 給使用者看的文字 比如 1-維修 2-安裝 顯示欄位
             this.WorkTypeComboBox.DisplayMember = "WorkType";
             //實際上拿到的是ID
             WorkTypeComboBox.ValueMember = "WorkTypeID";      // 實際代表的值 (當 SelectedValue 取出時拿到的是 WorkTypeID)
         }
 
         //去撈索引 comboBox去撈對應的工單類型資料
-        private void WorkTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //重新讀取目前 UI 上的 WorkOrdertextBoxWorkOrdertextBox
+
+        private void WorkTypeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (WorkTypeComboBox.SelectedValue != null)
             {
+                if (!int.TryParse(this.WorkOrdertextBox.Text, out int techID))
+                {
+                    // 沒有有效師傅ID → 清空
+                    this.t_ACDataSet1.WorkOrder.Clear();
+                    return;
+                }
+
                 //先初始化為0
                 int workTypeID = 0;
                 // 這種情況表示你 DataSource 綁在 BindingSource (也就是 workTypeBindingSource1)
@@ -101,61 +113,24 @@ namespace prjAircondition.Tech
                     workTypeID = Convert.ToInt32(WorkTypeComboBox.SelectedValue);
                 }
 
+                int.TryParse(this.WorkOrdertextBox.Text, out int currentTechID);
                 if (workTypeID == 0)
                 {
-                    // 如果選擇全部 -> 撈取該技師的所有訂單
-                    this.workOrderTableAdapter1.FillByTechnicianID(this.t_ACDataSet1.WorkOrder, techID);
+                    //全部工單（依照技師ID是否有值）
+                    if (techID > 0)
+                        this.workOrderTableAdapter1.FillByCertainTechAllWorkOrders(this.t_ACDataSet1.WorkOrder, currentTechID);
+                    else
+                        this.workOrderTableAdapter1.FillByAllWorkOrderWithTechnicians(this.t_ACDataSet1.WorkOrder);
                 }
                 else
                 {
-                    // 否則正常按照 typeID 去撈
-                    this.workOrderTableAdapter1.FillByTechnicianIDAndWorkTypeID(this.t_ACDataSet1.WorkOrder, techID, workTypeID);
+                    // 交叉篩選：有技師ID與工單類型ID才做篩選
+                    if (currentTechID > 0)
+                    {
+                        this.workOrderTableAdapter1.FillByTechnicianIDAndWorkTypeID(this.t_ACDataSet1.WorkOrder, currentTechID, workTypeID);
+                    }
                 }
             }
-        }
-
-        private int GetTechnicianIDByAccount(string account)
-        {
-            int id = -1;
-
-            // 直接使用設計器裡拉好的物件，不用new
-            this.techniciansTableAdapter1.FillByAccount(this.t_ACDataSet1.Technicians, account);
-
-            if (this.t_ACDataSet1.Technicians.Rows.Count > 0)
-            {
-                //把我要的師傅id撈出來
-                id = this.t_ACDataSet1.Technicians[0].T_id;
-            }
-
-            return id;
-        }
-
-        //再從訂單表 用T_id撈對應的訂單資料 先載入所有資料包含所有工單類型
-        private void LoadOrders(int techID)
-        {
-            //把ID傳入到workOrder 把order資料撈出來
-            this.workOrderTableAdapter1.FillByTechnicianID(this.t_ACDataSet1.WorkOrder, techID);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.workOrderBindingSource.Position = 0;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.workOrderBindingSource.Position -= 1;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.workOrderBindingSource.Position += 1;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //最後一筆資料
-            this.workOrderBindingSource.Position = this.workOrderBindingSource.Count - 1;
         }
 
         // 綁定在 BindingSource 物件的事件。
@@ -164,14 +139,32 @@ namespace prjAircondition.Tech
         // 例如：按按鈕改變 Position、或是滑鼠直接點選 DataGridView 其他列，都會觸發此事件。
         // 注意：如果只是修改目前那筆資料的內容，但 Position 沒有改變，則不會觸發此事件。
         // 只負責監聽位置移動 (Position 改變)
-        private void workOrderBindingSource_CurrentChanged(object sender, EventArgs e)
+
+        private void workOrderBindingSource1_CurrentChanged(object sender, EventArgs e)
         {
             //設定好label 顯示 第幾筆/ 共有幾筆
-            this.workOrderlabel.Text = $"{this.workOrderBindingSource.Position + 1} / {this.workOrderBindingSource.Count}";
+            this.workOrderlabel.Text = $"{this.workOrderBindingSource1.Position + 1} / {this.workOrderBindingSource1.Count}";
         }
 
-        private void T_OrderUserControl1_Load(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
+            this.workOrderBindingSource1.Position += 1;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.workOrderBindingSource1.Position = 0;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.workOrderBindingSource1.Position -= 1;
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            //最後一筆資料
+            this.workOrderBindingSource1.Position = this.workOrderBindingSource1.Count - 1;
         }
     }
 }
