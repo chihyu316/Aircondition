@@ -226,13 +226,13 @@
       <DependentUpon>S_UcProduct1.cs</DependentUpon>
     </Compile>
     <Compile Include="Tech\DAL\TechnicianRepository.cs" />
-    <Compile Include="Tech\DataSet\T_ACDataSet.cs">
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
+    <Compile Include="Tech\DataSet\T_DataSet.cs">
+      <DependentUpon>T_DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Tech\DataSet\T_ACDataSet.Designer.cs">
+    <Compile Include="Tech\DataSet\T_DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
+      <DependentUpon>T_DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Tech\Forms\FormTech.cs">
       <SubType>Form</SubType>
@@ -383,16 +383,16 @@
     <None Include="Shop\DataSet\S_DQAResponse.xss">
       <DependentUpon>S_DQAResponse.xsd</DependentUpon>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet.xsc">
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
+    <None Include="Tech\DataSet\T_DataSet.xsc">
+      <DependentUpon>T_DataSet.xsd</DependentUpon>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet.xsd">
+    <None Include="Tech\DataSet\T_DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>T_ACDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>T_DataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Tech\DataSet\T_ACDataSet.xss">
-      <DependentUpon>T_ACDataSet.xsd</DependentUpon>
+    <None Include="Tech\DataSet\T_DataSet.xss">
+      <DependentUpon>T_DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
