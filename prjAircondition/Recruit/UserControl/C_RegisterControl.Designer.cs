@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            components = new System.ComponentModel.Container();
-=======
             this.components = new System.ComponentModel.Container();
             this.c_RecruitDataSet1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSet();
             this.registrationTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.RegistrationTableAdapter();
@@ -160,10 +157,41 @@
             // C_RegisterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
->>>>>>> Recruit
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtMAccount);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmSelectCourse);
+            this.Controls.Add(this.label1);
+            this.Name = "C_RegisterControl";
+            this.Size = new System.Drawing.Size(1526, 887);
+            ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private DateSet.C_RecruitDataSet c_RecruitDataSet1;
+        private DateSet.C_RecruitDataSetTableAdapters.RegistrationTableAdapter registrationTableAdapter1;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtMAccount;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmSelectCourse;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button3;
     }
 }

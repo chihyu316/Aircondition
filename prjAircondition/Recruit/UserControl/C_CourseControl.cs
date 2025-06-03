@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using prjAircondition.Properties;
+using prjAircondition.Recruit.DateSet;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace prjAircondition.Recruit
 {
     public partial class C_CourseControl : UserControl
     {
+        string s1 = " ";
         public C_CourseControl()
         {
             InitializeComponent();
-<<<<<<< HEAD
-=======
             CourseControl_Load();
             
             this.bindingSource1.DataSource = this.c_RecruitDataSet1.Course;
@@ -39,7 +42,7 @@ namespace prjAircondition.Recruit
                     conn.Open();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandText = $"SELECT CategoryName FROM CourseCategory";//選取資料欄
+                    cmd.CommandText = $"select CategoryName from CourseCategory";//選取資料欄
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     this.comboBox1.Items.Clear();
@@ -48,7 +51,7 @@ namespace prjAircondition.Recruit
                     {
                         this.comboBox1.Items.Add(reader["CategoryName"]);
                     }
-                    //this.comboBox1.SelectedIndex = 0;
+                    this.comboBox1.SelectedIndex = 0;
                 }
 
             }
@@ -154,8 +157,7 @@ namespace prjAircondition.Recruit
 
         private void C_btnAddBatch_click(object sender, EventArgs e)
         {
-            C_FrmAddB frmAddB = new C_FrmAddB();
-            frmAddB.ShowDialog();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -174,7 +176,6 @@ namespace prjAircondition.Recruit
         {
             this.courseTableAdapter1.FillByCoursetitle(this.c_RecruitDataSet1.Course,s1);
             this.dataGridView1.DataSource = this.c_RecruitDataSet1.Course;
->>>>>>> Recruit
         }
     }
 }
