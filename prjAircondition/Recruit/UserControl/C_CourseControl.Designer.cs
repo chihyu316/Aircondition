@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.c_RecruitDataSet1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSet();
-            this.courseCategoryTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseCategoryTableAdapter();
-            this.courseTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseTableAdapter();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.detail = new System.Windows.Forms.DataGridViewLinkColumn();
@@ -43,24 +40,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.c_RecruitDataSet1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSet();
+            this.courseCategoryTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseCategoryTableAdapter();
+            this.courseTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseTableAdapter();
             this.courseBatchTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseBatchTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // c_RecruitDataSet1
-            // 
-            this.c_RecruitDataSet1.DataSetName = "C_RecruitDataSet";
-            this.c_RecruitDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // courseCategoryTableAdapter1
-            // 
-            this.courseCategoryTableAdapter1.ClearBeforeFill = true;
-            // 
-            // courseTableAdapter1
-            // 
-            this.courseTableAdapter1.ClearBeforeFill = true;
             // 
             // openFileDialog1
             // 
@@ -112,18 +99,18 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(669, 88);
+            this.button1.Location = new System.Drawing.Point(666, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(236, 86);
             this.button1.TabIndex = 9;
-            this.button1.Text = "新增全新課程";
+            this.button1.Text = "新增課程";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.C_btnAddCourse);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(955, 86);
+            this.button2.Location = new System.Drawing.Point(955, 68);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(236, 88);
             this.button2.TabIndex = 10;
@@ -161,6 +148,19 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "搜尋課程名稱";
             // 
+            // c_RecruitDataSet1
+            // 
+            this.c_RecruitDataSet1.DataSetName = "C_RecruitDataSet";
+            this.c_RecruitDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // courseCategoryTableAdapter1
+            // 
+            this.courseCategoryTableAdapter1.ClearBeforeFill = true;
+            // 
+            // courseTableAdapter1
+            // 
+            this.courseTableAdapter1.ClearBeforeFill = true;
+            // 
             // courseBatchTableAdapter1
             // 
             this.courseBatchTableAdapter1.ClearBeforeFill = true;
@@ -180,9 +180,9 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "C_CourseControl";
             this.Size = new System.Drawing.Size(1228, 891);
-            ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
