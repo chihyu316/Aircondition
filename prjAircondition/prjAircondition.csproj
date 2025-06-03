@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Recruit\Form\C_FrmAddB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmAddB.Designer.cs">
+      <DependentUpon>C_FrmAddB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmAddnewC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recruit\Form\C_FrmAddnewC.Designer.cs">
+      <DependentUpon>C_FrmAddnewC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dicuss\UserControl\D_ReplyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +205,7 @@
     <Compile Include="Repair\UserControl\R_ucWorkOrder.Designer.cs">
       <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repair\UserControl\RE_DataSearch.cs" />
     <Compile Include="Shop\DataSet\S_DCoolingProduct.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -254,6 +267,12 @@
     <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Recruit\Form\C_FrmAddB.resx">
+      <DependentUpon>C_FrmAddB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recruit\Form\C_FrmAddnewC.resx">
+      <DependentUpon>C_FrmAddnewC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dicuss\UserControl\D_DisControl.resx">
       <DependentUpon>D_DisControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +303,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
+      <DependentUpon>C_CourseControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shop\UserControl\S_UcMateral.resx">
       <DependentUpon>S_UcMateral.cs</DependentUpon>
     </EmbeddedResource>
