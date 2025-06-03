@@ -1,4 +1,3 @@
-﻿namespace prjAircondition.Tech
 ﻿using prjAircondition.Tech.DataSet;
 
 namespace prjAircondition.Tech
@@ -31,9 +30,6 @@ namespace prjAircondition.Tech
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        }
             this.components = new System.ComponentModel.Container();
             this.t_ACDataSet1 = new prjAircondition.Tech.DataSet.T_ACDataSet();
             this.workTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -470,5 +466,4 @@ namespace prjAircondition.Tech
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
     }
-}
 }   

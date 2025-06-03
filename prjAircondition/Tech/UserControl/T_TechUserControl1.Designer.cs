@@ -884,7 +884,6 @@
             // 
             // T_TechUserControl1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
@@ -892,7 +891,6 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "T_TechUserControl1";
-            this.Size = new System.Drawing.Size(508, 400);
             this.Size = new System.Drawing.Size(2804, 2323);
             this.Load += new System.EventHandler(this.T_TechUserControl1_Load_1);
             this.tabControl1.ResumeLayout(false);
