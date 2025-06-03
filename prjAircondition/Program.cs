@@ -19,7 +19,7 @@ namespace prjAircondition
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             //Application.Run(new FRMloLogin());
-            Application.Run(new FrmAddnewC ());
+            Application.Run(new C_FrmAddnewC ());
         }
     }
 }

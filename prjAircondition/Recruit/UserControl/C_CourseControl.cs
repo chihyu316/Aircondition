@@ -137,15 +137,14 @@ namespace prjAircondition.Recruit
         {
             switch (status)
             {
-                case 0: return "啟用";
-                case 1: return "結束";
+                case 0: return "啟用";                case 1: return "結束";
                 default: return "未知";
             }
         }
 
         private void C_btnAddCourse(object sender, EventArgs e)
         {
-            //C_FrmAddnewC addnewC = new C_FrmAddnewC();
+            C_FrmAddnewC addnewC = new C_FrmAddnewC();
             //addnewC.ShowDialog();
             //if (addnewC.DialogResult == DialogResult.OK)
             //{
