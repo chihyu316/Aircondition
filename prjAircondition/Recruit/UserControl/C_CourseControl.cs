@@ -42,7 +42,7 @@ namespace prjAircondition.Recruit
                     conn.Open();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandText = $"select CategoryName from CourseCategory";//選取資料欄
+                    cmd.CommandText = $"SELECT CategoryName FROM CourseCategory";//選取資料欄
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     this.comboBox1.Items.Clear();
@@ -51,7 +51,7 @@ namespace prjAircondition.Recruit
                     {
                         this.comboBox1.Items.Add(reader["CategoryName"]);
                     }
-                    this.comboBox1.SelectedIndex = 0;
+                    //this.comboBox1.SelectedIndex = 0;
                 }
 
             }
@@ -157,7 +157,8 @@ namespace prjAircondition.Recruit
 
         private void C_btnAddBatch_click(object sender, EventArgs e)
         {
-
+            C_FrmAddB frmAddB = new C_FrmAddB();
+            frmAddB.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
