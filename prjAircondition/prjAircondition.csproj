@@ -67,6 +67,11 @@
     <Compile Include="Dicuss\UserControl\D_ReplyControl.Designer.cs">
       <DependentUpon>D_ReplyControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dicuss\DataSet\D_ACDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Recruit\UserControl\C_TradeHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,7 +205,6 @@
     <Compile Include="Repair\UserControl\R_ucWorkOrder.Designer.cs">
       <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repair\RE_DataSearch.cs" />
     <Compile Include="Shop\DataSet\S_DCoolingProduct.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -238,6 +242,12 @@
     <Compile Include="Shop\UserControl\S_UcProduct1.Designer.cs">
       <DependentUpon>S_UcProduct1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shop\UserControl\S_UcOrderMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Shop\UserControl\S_UcOrderMain.Designer.cs">
+      <DependentUpon>S_UcOrderMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tech\DAL\TechnicianRepository.cs" />
     <Compile Include="Tech\DataSet\T_ACDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -256,8 +266,6 @@
     <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
     <EmbeddedResource Include="Recruit\Form\C_FrmAddB.resx">
       <DependentUpon>C_FrmAddB.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,7 +275,6 @@
     <EmbeddedResource Include="Dicuss\UserControl\D_DisControl.resx">
       <DependentUpon>D_DisControl.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> Recruit
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Member\Form\FRMloLogin.resx">
       <DependentUpon>FRMloLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Member\UserControl\M_meberinfo.resx">
+      <DependentUpon>M_meberinfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Member\UserControl\M_MemberAddress.resx">
       <DependentUpon>M_MemberAddress.cs</DependentUpon>
@@ -292,10 +302,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Repair\UserControl\R_ucWorkOrder.resx">
-      <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
-=======
     <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
       <DependentUpon>C_CourseControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,11 +313,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Shop\UserControl\S_UcProduct1.resx">
       <DependentUpon>S_UcProduct1.cs</DependentUpon>
->>>>>>> Recruit
     </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xsc">
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>D_ACDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dicuss\DataSet\D_ACDataSet.xss">
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Member\DataSet\M_MemberDataset.xsc">
       <DependentUpon>M_MemberDataset.xsd</DependentUpon>
     </None>
