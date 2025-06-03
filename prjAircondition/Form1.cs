@@ -56,13 +56,17 @@ namespace prjAircondition
                     T_OrderUserControl1 order= new T_OrderUserControl1();
                     ShowPage(order);
                     break;
-                case "冷的一比":
+                case "冷氣商品":
                     S_UcProduct1 ucproduct= new S_UcProduct1();
                     ShowPage(ucproduct);
                     break;
-                case "冷料鋪":
+                case "材料商品":
                     S_UcMateral ucMateral= new S_UcMateral();
                     ShowPage(ucMateral);
+                    break;
+                case "訂單":
+                    S_UcOrderMain orderMain= new S_UcOrderMain();
+                    ShowPage(orderMain);
                     break;
                 case "施工單":
                     R_ucWorkOrder UcWorkOrder= new R_ucWorkOrder();

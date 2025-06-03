@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace prjAircondition
+{
+    public partial class S_UcOrderMain : UserControl
+    {
+        private string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True";
+        public S_UcOrderMain()
+        {
+            InitializeComponent();
+        }
+
+        private void S_UcOrderMain_Load(object sender, EventArgs e)
+        {
+            LoadOrders(); // ✅ 預設顯示所有訂單
+        }
+        private void LoadOrders(string keyword = "")
+        {
+            string sql = @"
+        SELECT 
+            m.MemberAccount, 
+            m.NickName,
+            o.*         
+        FROM Orders o
+        JOIN Member m ON o.MemberID = m.MemberID
+        WHERE (@kw = '') 
+              OR (CAST(o.MemberID AS NVARCHAR) LIKE @kw 
+              OR m.MemberAccount LIKE @kw 
+              OR m.NickName LIKE @kw)";
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@kw", "%" + keyword + "%");
+
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+
+                    dataGridView1.Columns["OrderID"].HeaderText = "訂單編號";
+                    dataGridView1.Columns["MemberID"].HeaderText = "會員ID";
+                    dataGridView1.Columns["MemberAccount"].HeaderText = "會員帳號";
+                    dataGridView1.Columns["NickName"].HeaderText = "暱稱";
+                    dataGridView1.Columns["OrderDate"].HeaderText = "訂單日期";
+                    dataGridView1.Columns["OrderStatus"].HeaderText = "訂單狀態";
+                    dataGridView1.Columns["PaymentStatus"].HeaderText = "付款狀態";
+                    dataGridView1.Columns["TotalAmount"].HeaderText = "總金額";
+                    dataGridView1.Columns["Receiver"].HeaderText = "收件人";
+                    dataGridView1.Columns["Address"].HeaderText = "地址";
+                    dataGridView1.Columns["DeliveryMethod"].HeaderText = "配送方式";
+                    dataGridView1.Columns["ReceiverAddress"].HeaderText = "收件門市或地址";
+                    dataGridView1.Columns["InvoiceType"].HeaderText = "發票型式";
+                    dataGridView1.Columns["TaxID"].HeaderText = "統一編號";
+                    dataGridView1.Columns["Note"].HeaderText = "備註";
+
+
+                    // 設定欄位寬度與顯示模式
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("載入失敗：" + ex.Message);
+                }
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            string col = dataGridView1.Columns[e.ColumnIndex].Name;//從 DataGridView 的事件中，取得目前正在格式化的欄位名稱
+
+            if (col == "OrderStatus" && e.Value is byte val1)
+            {
+                switch (val1)
+                {
+                    case 0:
+                        e.Value = "未出貨"; break;
+                    case 1:
+                        e.Value = "出貨中"; break;
+                    case 2:
+                        e.Value = "已完成"; break;
+                    default:
+                        e.Value = "未知狀態"; break;
+                }
+            }
+
+            if (col == "PaymentStatus" && e.Value is byte val2)
+            {
+                e.Value = val2 == 0 ? "未付款" : val2 == 1 ? "已付款" : "未知付款狀態";
+            }
+        }
+    }
+}
