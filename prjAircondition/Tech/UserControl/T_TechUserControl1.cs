@@ -339,7 +339,7 @@ namespace prjAircondition.Tech
             }
         }
 
-        //回送回資料庫 包含圖片 以及更新時間 欄位顯示為當下按下去的時間
+        //回送個人師傅回資料庫 包含圖片 以及更新時間 欄位顯示為當下按下去的時間
         private void btnSaveData_Click_1(object sender, EventArgs e)
         {
             // 先確認目前 techniciansBindingSource 指向哪一筆資料
@@ -470,8 +470,8 @@ namespace prjAircondition.Tech
             }
         }
 
-        //回推資料庫
-        private void UpdateToDBbutton_Click(object sender, EventArgs e)
+        //回推 師傅資料列 到資料庫
+        private void UpdateTechToDBbutton_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -491,29 +491,9 @@ namespace prjAircondition.Tech
         }
 
         //回推資料庫
-
-        private void UpdateToDBbutton_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                // 1. 確認 UI 資料有效，先觸發驗證邏輯
-                this.Validate();
-
-                // 2. 通知 BindingSource：目前編輯完成，將 UI 上變更寫回 DataSet
-                this.techniciansBindingSource.EndEdit();
-                // 3. 將離線資料表推送回資料庫
-                this.techniciansTableAdapter1.Update(this.t_ACDataSet1.Technicians);
-                MessageBox.Show("成功儲存");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("儲存失敗: " + ex.Message);
-            }
-        }
 
         private void InsertTechButton_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

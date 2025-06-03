@@ -80,13 +80,12 @@ namespace prjAircondition.Tech
             // 給使用者看的文字 比如 1-維修 2-安裝 顯示欄位
             this.WorkTypeComboBox.DisplayMember = "WorkType";
             //實際上拿到的是ID TODO
-            //WorkTypeComboBox.ValueMember = "WorkTypeID";
+            WorkTypeComboBox.ValueMember = "WorkTypeID";
             // 實際代表的值 (當 SelectedValue 取出時拿到的是 WorkTypeID)
-            WorkTypeComboBox.ValueMember = "WorkTypeOrderID";
         }
 
         //去撈索引 comboBox去撈對應的工單類型資料
-        private void WorkTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void WorkTypeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (WorkTypeComboBox.SelectedValue != null)
             {
@@ -127,11 +126,8 @@ namespace prjAircondition.Tech
             }
         }
 
-        //再從訂單表 用T_id撈對應的訂單資料 先載入所有資料包含所有工單類型
-        private void LoadOrders()
+        private void WorkOrdertextBox_TextChanged(object sender, EventArgs e)
         {
-            //把所有資料撈出來
-            this.workOrderTableAdapter1.FillByAllWorkOrderWithTechnicians(this.t_ACDataSet1.WorkOrder);
         }
 
         // 綁定在 BindingSource 物件的事件。
@@ -166,10 +162,6 @@ namespace prjAircondition.Tech
         {
             //最後一筆資料
             this.workOrderBindingSource1.Position = this.workOrderBindingSource1.Count - 1;
-        }
-
-        private void WorkTypeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
         }
     }
 }

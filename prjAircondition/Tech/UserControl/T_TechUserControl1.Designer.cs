@@ -32,7 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(T_TechUserControl1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AllTechPage = new System.Windows.Forms.TabPage();
-            this.UpdateToDBbutton = new System.Windows.Forms.Button();
+            this.UpdateTechToDBbutton = new System.Windows.Forms.Button();
+            this.InsertTechButton = new System.Windows.Forms.Button();
             this.DeleteTechbutton = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.ALLTechLabel = new System.Windows.Forms.Label();
@@ -106,7 +107,6 @@
             this.techniciansTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSetTableAdapters.TechniciansTableAdapter();
             this.tableAdapterManager = new prjAircondition.Tech.DataSet.T_ACDataSetTableAdapters.TableAdapterManager();
             this.LicensebindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.InsertTechButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AllTechPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansDataGridView)).BeginInit();
@@ -137,7 +137,7 @@
             // AllTechPage
             // 
             this.AllTechPage.BackColor = System.Drawing.Color.SeaShell;
-            this.AllTechPage.Controls.Add(this.UpdateToDBbutton);
+            this.AllTechPage.Controls.Add(this.UpdateTechToDBbutton);
             this.AllTechPage.Controls.Add(this.InsertTechButton);
             this.AllTechPage.Controls.Add(this.DeleteTechbutton);
             this.AllTechPage.Controls.Add(this.label18);
@@ -158,16 +158,27 @@
             this.AllTechPage.TabIndex = 2;
             this.AllTechPage.Text = "所有師傅資訊";
             // 
-            // UpdateToDBbutton
+            // UpdateTechToDBbutton
             // 
-            this.UpdateToDBbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.UpdateToDBbutton.Location = new System.Drawing.Point(997, 184);
-            this.UpdateToDBbutton.Name = "UpdateToDBbutton";
-            this.UpdateToDBbutton.Size = new System.Drawing.Size(137, 47);
-            this.UpdateToDBbutton.TabIndex = 8;
-            this.UpdateToDBbutton.Text = "儲存";
-            this.UpdateToDBbutton.UseVisualStyleBackColor = false;
-            this.UpdateToDBbutton.Click += new System.EventHandler(this.UpdateToDBbutton_Click_1);
+            this.UpdateTechToDBbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.UpdateTechToDBbutton.Location = new System.Drawing.Point(997, 184);
+            this.UpdateTechToDBbutton.Name = "UpdateTechToDBbutton";
+            this.UpdateTechToDBbutton.Size = new System.Drawing.Size(137, 47);
+            this.UpdateTechToDBbutton.TabIndex = 8;
+            this.UpdateTechToDBbutton.Text = "儲存";
+            this.UpdateTechToDBbutton.UseVisualStyleBackColor = false;
+            this.UpdateTechToDBbutton.Click += new System.EventHandler(this.UpdateTechToDBbutton_Click_1);
+            // 
+            // InsertTechButton
+            // 
+            this.InsertTechButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.InsertTechButton.Location = new System.Drawing.Point(615, 184);
+            this.InsertTechButton.Name = "InsertTechButton";
+            this.InsertTechButton.Size = new System.Drawing.Size(178, 47);
+            this.InsertTechButton.TabIndex = 8;
+            this.InsertTechButton.Text = "新增資料";
+            this.InsertTechButton.UseVisualStyleBackColor = false;
+            this.InsertTechButton.Click += new System.EventHandler(this.InsertTechButton_Click);
             // 
             // DeleteTechbutton
             // 
@@ -301,7 +312,7 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
             this.techniciansDataGridView.DataSource = this.techniciansBindingSource;
-            this.techniciansDataGridView.Location = new System.Drawing.Point(39, 272);
+            this.techniciansDataGridView.Location = new System.Drawing.Point(25, 268);
             this.techniciansDataGridView.Name = "techniciansDataGridView";
             this.techniciansDataGridView.RowHeadersWidth = 62;
             this.techniciansDataGridView.RowTemplate.Height = 31;
@@ -850,7 +861,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 46);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(2782, 2235);
+            this.tabPage4.Size = new System.Drawing.Size(2782, 2217);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "查看所有證照";
             // 
@@ -870,17 +881,6 @@
             this.tableAdapterManager.UpdateOrder = prjAircondition.Tech.DataSet.T_ACDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.WorkOrderTableAdapter = null;
             this.tableAdapterManager.WorkTypeTableAdapter = null;
-            // 
-            // InsertTechButton
-            // 
-            this.InsertTechButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.InsertTechButton.Location = new System.Drawing.Point(615, 184);
-            this.InsertTechButton.Name = "InsertTechButton";
-            this.InsertTechButton.Size = new System.Drawing.Size(178, 47);
-            this.InsertTechButton.TabIndex = 8;
-            this.InsertTechButton.Text = "新增資料";
-            this.InsertTechButton.UseVisualStyleBackColor = false;
-            this.InsertTechButton.Click += new System.EventHandler(this.InsertTechButton_Click);
             // 
             // T_TechUserControl1
             // 
@@ -992,7 +992,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button DeleteTechbutton;
-        private System.Windows.Forms.Button UpdateToDBbutton;
+        private System.Windows.Forms.Button UpdateTechToDBbutton;
         private System.Windows.Forms.Button InsertTechButton;
     }
 }

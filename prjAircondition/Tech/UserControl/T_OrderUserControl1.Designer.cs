@@ -68,10 +68,12 @@ namespace prjAircondition.Tech
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workTypeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // t_ACDataSet1
@@ -203,6 +205,7 @@ namespace prjAircondition.Tech
             this.WorkOrdertextBox.Name = "WorkOrdertextBox";
             this.WorkOrdertextBox.Size = new System.Drawing.Size(228, 36);
             this.WorkOrdertextBox.TabIndex = 17;
+            this.WorkOrdertextBox.TextChanged += new System.EventHandler(this.WorkOrdertextBox_TextChanged);
             // 
             // label3
             // 
@@ -262,7 +265,7 @@ namespace prjAircondition.Tech
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15});
             this.workOrderDataGridView.DataSource = this.workOrderBindingSource1;
-            this.workOrderDataGridView.Location = new System.Drawing.Point(37, 335);
+            this.workOrderDataGridView.Location = new System.Drawing.Point(37, 327);
             this.workOrderDataGridView.Name = "workOrderDataGridView";
             this.workOrderDataGridView.RowHeadersWidth = 62;
             this.workOrderDataGridView.RowTemplate.Height = 31;
@@ -397,6 +400,11 @@ namespace prjAircondition.Tech
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.Width = 150;
             // 
+            // techniciansBindingSource
+            // 
+            this.techniciansBindingSource.DataMember = "Technicians";
+            this.techniciansBindingSource.DataSource = this.t_ACDataSet1;
+            // 
             // T_OrderUserControl1
             // 
             this.BackColor = System.Drawing.Color.SeaShell;
@@ -416,12 +424,13 @@ namespace prjAircondition.Tech
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "T_OrderUserControl1";
-            this.Size = new System.Drawing.Size(1215, 1075);
+            this.Size = new System.Drawing.Size(1689, 1075);
             this.Load += new System.EventHandler(this.T_OrderUserControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workTypeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,5 +474,6 @@ namespace prjAircondition.Tech
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.BindingSource techniciansBindingSource;
     }
 }   
