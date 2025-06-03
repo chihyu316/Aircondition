@@ -64,6 +64,8 @@ namespace prjAircondition
                     S_UcMateral ucMateral= new S_UcMateral();
                     ShowPage(ucMateral);
                     break;
+                case "涼單":
+
                 case "施工單":
                     R_ucWorkOrder UcWorkOrder= new R_ucWorkOrder();
                     ShowPage(UcWorkOrder);
