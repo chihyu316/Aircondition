@@ -12,6 +12,7 @@
 *.exe
 *.pdb
 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
