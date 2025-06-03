@@ -60,6 +60,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>D_ACDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Shop\UserControl\FormOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shop\UserControl\FormOrderDetails.Designer.cs">
+      <DependentUpon>FormOrderDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recruit\UserControl\C_TradeHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -284,6 +290,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Shop\UserControl\FormOrderDetails.resx">
+      <DependentUpon>FormOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shop\UserControl\S_UcMateral.resx">
       <DependentUpon>S_UcMateral.cs</DependentUpon>
     </EmbeddedResource>
