@@ -30,19 +30,8 @@ namespace prjAircondition.Tech.DataSet {
         
         private TechniciansDataTable tableTechnicians;
         
-<<<<<<< HEAD
         private global::System.Data.DataRelation relationFK_WorkType_WorkOrder;
         
-=======
-        private licensesDataTable tablelicenses;
-        
-        private global::System.Data.DataRelation relationFK_WorkType_WorkOrder;
-        
-        private global::System.Data.DataRelation relationFK_licenses_Technicians;
-        
-        private global::System.Data.DataRelation relationWorkOrder_Technicians;
-        
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -80,12 +69,6 @@ namespace prjAircondition.Tech.DataSet {
                 if ((ds.Tables["Technicians"] != null)) {
                     base.Tables.Add(new TechniciansDataTable(ds.Tables["Technicians"]));
                 }
-<<<<<<< HEAD
-=======
-                if ((ds.Tables["licenses"] != null)) {
-                    base.Tables.Add(new licensesDataTable(ds.Tables["licenses"]));
-                }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -136,19 +119,6 @@ namespace prjAircondition.Tech.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
-=======
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public licensesDataTable licenses {
-            get {
-                return this.tablelicenses;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -223,12 +193,6 @@ namespace prjAircondition.Tech.DataSet {
                 if ((ds.Tables["Technicians"] != null)) {
                     base.Tables.Add(new TechniciansDataTable(ds.Tables["Technicians"]));
                 }
-<<<<<<< HEAD
-=======
-                if ((ds.Tables["licenses"] != null)) {
-                    base.Tables.Add(new licensesDataTable(ds.Tables["licenses"]));
-                }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -280,19 +244,7 @@ namespace prjAircondition.Tech.DataSet {
                     this.tableTechnicians.InitVars();
                 }
             }
-<<<<<<< HEAD
             this.relationFK_WorkType_WorkOrder = this.Relations["FK_WorkType_WorkOrder"];
-=======
-            this.tablelicenses = ((licensesDataTable)(base.Tables["licenses"]));
-            if ((initTable == true)) {
-                if ((this.tablelicenses != null)) {
-                    this.tablelicenses.InitVars();
-                }
-            }
-            this.relationFK_WorkType_WorkOrder = this.Relations["FK_WorkType_WorkOrder"];
-            this.relationFK_licenses_Technicians = this.Relations["FK_licenses_Technicians"];
-            this.relationWorkOrder_Technicians = this.Relations["WorkOrder_Technicians"];
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -309,26 +261,10 @@ namespace prjAircondition.Tech.DataSet {
             base.Tables.Add(this.tableWorkType);
             this.tableTechnicians = new TechniciansDataTable();
             base.Tables.Add(this.tableTechnicians);
-<<<<<<< HEAD
-=======
-            this.tablelicenses = new licensesDataTable();
-            base.Tables.Add(this.tablelicenses);
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             this.relationFK_WorkType_WorkOrder = new global::System.Data.DataRelation("FK_WorkType_WorkOrder", new global::System.Data.DataColumn[] {
                         this.tableWorkOrder.WorkOrderIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableWorkType.WorkOrderIDColumn}, false);
             this.Relations.Add(this.relationFK_WorkType_WorkOrder);
-<<<<<<< HEAD
-=======
-            this.relationFK_licenses_Technicians = new global::System.Data.DataRelation("FK_licenses_Technicians", new global::System.Data.DataColumn[] {
-                        this.tableTechnicians.T_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tablelicenses.T_idColumn}, false);
-            this.Relations.Add(this.relationFK_licenses_Technicians);
-            this.relationWorkOrder_Technicians = new global::System.Data.DataRelation("WorkOrder_Technicians", new global::System.Data.DataColumn[] {
-                        this.tableWorkOrder.TechnicianIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTechnicians.T_idColumn}, false);
-            this.Relations.Add(this.relationWorkOrder_Technicians);
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -351,15 +287,6 @@ namespace prjAircondition.Tech.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
-=======
-        private bool ShouldSerializelicenses() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -422,12 +349,6 @@ namespace prjAircondition.Tech.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void TechniciansRowChangeEventHandler(object sender, TechniciansRowChangeEvent e);
         
-<<<<<<< HEAD
-=======
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void licensesRowChangeEventHandler(object sender, licensesRowChangeEvent e);
-        
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -465,11 +386,6 @@ namespace prjAircondition.Tech.DataSet {
             
             private global::System.Data.DataColumn columnAddressDetail;
             
-<<<<<<< HEAD
-=======
-            private global::System.Data.DataColumn columnTechnicianName;
-            
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WorkOrderDataTable() {
@@ -625,17 +541,6 @@ namespace prjAircondition.Tech.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
-=======
-            public global::System.Data.DataColumn TechnicianNameColumn {
-                get {
-                    return this.columnTechnicianName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -671,27 +576,7 @@ namespace prjAircondition.Tech.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
             public WorkOrderRow AddWorkOrderRow(int WorkOrderID, int DetailID, int WorkTypeID, int TechnicianID, int ClosingTechnicianID, string ModelName, string SerialNumber, System.DateTime CreatedDate, int OrderStatus, System.DateTime CompletedDate, bool PaymentType, int MemberID, int CityID, int AreaID, string AddressDetail) {
-=======
-            public WorkOrderRow AddWorkOrderRow(
-                        int WorkOrderID, 
-                        int DetailID, 
-                        int WorkTypeID, 
-                        int TechnicianID, 
-                        int ClosingTechnicianID, 
-                        string ModelName, 
-                        string SerialNumber, 
-                        System.DateTime CreatedDate, 
-                        int OrderStatus, 
-                        System.DateTime CompletedDate, 
-                        bool PaymentType, 
-                        int MemberID, 
-                        int CityID, 
-                        int AreaID, 
-                        string AddressDetail, 
-                        string TechnicianName) {
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 WorkOrderRow rowWorkOrderRow = ((WorkOrderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         WorkOrderID,
@@ -708,12 +593,7 @@ namespace prjAircondition.Tech.DataSet {
                         MemberID,
                         CityID,
                         AreaID,
-<<<<<<< HEAD
                         AddressDetail};
-=======
-                        AddressDetail,
-                        TechnicianName};
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 rowWorkOrderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWorkOrderRow);
                 return rowWorkOrderRow;
@@ -758,10 +638,6 @@ namespace prjAircondition.Tech.DataSet {
                 this.columnCityID = base.Columns["CityID"];
                 this.columnAreaID = base.Columns["AreaID"];
                 this.columnAddressDetail = base.Columns["AddressDetail"];
-<<<<<<< HEAD
-=======
-                this.columnTechnicianName = base.Columns["TechnicianName"];
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -797,11 +673,6 @@ namespace prjAircondition.Tech.DataSet {
                 base.Columns.Add(this.columnAreaID);
                 this.columnAddressDetail = new global::System.Data.DataColumn("AddressDetail", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddressDetail);
-<<<<<<< HEAD
-=======
-                this.columnTechnicianName = new global::System.Data.DataColumn("TechnicianName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTechnicianName);
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnWorkOrderID}, true));
                 this.columnWorkOrderID.AllowDBNull = false;
@@ -1709,407 +1580,6 @@ namespace prjAircondition.Tech.DataSet {
         }
         
         /// <summary>
-<<<<<<< HEAD
-=======
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class licensesDataTable : global::System.Data.TypedTableBase<licensesRow> {
-            
-            private global::System.Data.DataColumn columnlicense_id;
-            
-            private global::System.Data.DataColumn columnT_id;
-            
-            private global::System.Data.DataColumn columnlicense_name;
-            
-            private global::System.Data.DataColumn columnimage_source;
-            
-            private global::System.Data.DataColumn columnimage_description;
-            
-            private global::System.Data.DataColumn columnissued_by;
-            
-            private global::System.Data.DataColumn columnissue_date;
-            
-            private global::System.Data.DataColumn columnexpiry_date;
-            
-            private global::System.Data.DataColumn columncreated_at;
-            
-            private global::System.Data.DataColumn columnUpdated_at;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesDataTable() {
-                this.TableName = "licenses";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal licensesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected licensesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn license_idColumn {
-                get {
-                    return this.columnlicense_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn T_idColumn {
-                get {
-                    return this.columnT_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn license_nameColumn {
-                get {
-                    return this.columnlicense_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn image_sourceColumn {
-                get {
-                    return this.columnimage_source;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn image_descriptionColumn {
-                get {
-                    return this.columnimage_description;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn issued_byColumn {
-                get {
-                    return this.columnissued_by;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn issue_dateColumn {
-                get {
-                    return this.columnissue_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn expiry_dateColumn {
-                get {
-                    return this.columnexpiry_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn created_atColumn {
-                get {
-                    return this.columncreated_at;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Updated_atColumn {
-                get {
-                    return this.columnUpdated_at;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesRow this[int index] {
-                get {
-                    return ((licensesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event licensesRowChangeEventHandler licensesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event licensesRowChangeEventHandler licensesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event licensesRowChangeEventHandler licensesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event licensesRowChangeEventHandler licensesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddlicensesRow(licensesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesRow AddlicensesRow(TechniciansRow parentTechniciansRowByFK_licenses_Technicians, string license_name, string image_source, string image_description, string issued_by, System.DateTime issue_date, System.DateTime expiry_date, System.DateTime created_at, System.DateTime Updated_at) {
-                licensesRow rowlicensesRow = ((licensesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        license_name,
-                        image_source,
-                        image_description,
-                        issued_by,
-                        issue_date,
-                        expiry_date,
-                        created_at,
-                        Updated_at};
-                if ((parentTechniciansRowByFK_licenses_Technicians != null)) {
-                    columnValuesArray[1] = parentTechniciansRowByFK_licenses_Technicians[0];
-                }
-                rowlicensesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowlicensesRow);
-                return rowlicensesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesRow FindBylicense_id(int license_id) {
-                return ((licensesRow)(this.Rows.Find(new object[] {
-                            license_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                licensesDataTable cln = ((licensesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new licensesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnlicense_id = base.Columns["license_id"];
-                this.columnT_id = base.Columns["T_id"];
-                this.columnlicense_name = base.Columns["license_name"];
-                this.columnimage_source = base.Columns["image_source"];
-                this.columnimage_description = base.Columns["image_description"];
-                this.columnissued_by = base.Columns["issued_by"];
-                this.columnissue_date = base.Columns["issue_date"];
-                this.columnexpiry_date = base.Columns["expiry_date"];
-                this.columncreated_at = base.Columns["created_at"];
-                this.columnUpdated_at = base.Columns["Updated_at"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnlicense_id = new global::System.Data.DataColumn("license_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlicense_id);
-                this.columnT_id = new global::System.Data.DataColumn("T_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnT_id);
-                this.columnlicense_name = new global::System.Data.DataColumn("license_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlicense_name);
-                this.columnimage_source = new global::System.Data.DataColumn("image_source", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnimage_source);
-                this.columnimage_description = new global::System.Data.DataColumn("image_description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnimage_description);
-                this.columnissued_by = new global::System.Data.DataColumn("issued_by", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnissued_by);
-                this.columnissue_date = new global::System.Data.DataColumn("issue_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnissue_date);
-                this.columnexpiry_date = new global::System.Data.DataColumn("expiry_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnexpiry_date);
-                this.columncreated_at = new global::System.Data.DataColumn("created_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncreated_at);
-                this.columnUpdated_at = new global::System.Data.DataColumn("Updated_at", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUpdated_at);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnlicense_id}, true));
-                this.columnlicense_id.AutoIncrement = true;
-                this.columnlicense_id.AutoIncrementSeed = -1;
-                this.columnlicense_id.AutoIncrementStep = -1;
-                this.columnlicense_id.AllowDBNull = false;
-                this.columnlicense_id.ReadOnly = true;
-                this.columnlicense_id.Unique = true;
-                this.columnT_id.AllowDBNull = false;
-                this.columnlicense_name.MaxLength = 100;
-                this.columnimage_source.AllowDBNull = false;
-                this.columnimage_source.MaxLength = 255;
-                this.columnimage_description.MaxLength = 255;
-                this.columnissued_by.MaxLength = 100;
-                this.columncreated_at.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesRow NewlicensesRow() {
-                return ((licensesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new licensesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(licensesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.licensesRowChanged != null)) {
-                    this.licensesRowChanged(this, new licensesRowChangeEvent(((licensesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.licensesRowChanging != null)) {
-                    this.licensesRowChanging(this, new licensesRowChangeEvent(((licensesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.licensesRowDeleted != null)) {
-                    this.licensesRowDeleted(this, new licensesRowChangeEvent(((licensesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.licensesRowDeleting != null)) {
-                    this.licensesRowDeleting(this, new licensesRowChangeEvent(((licensesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovelicensesRow(licensesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                T_ACDataSet ds = new T_ACDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "licensesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class WorkOrderRow : global::System.Data.DataRow {
@@ -2360,25 +1830,6 @@ namespace prjAircondition.Tech.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
-=======
-            public string TechnicianName {
-                get {
-                    try {
-                        return ((string)(this[this.tableWorkOrder.TechnicianNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'WorkOrder\' 中資料行 \'TechnicianName\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableWorkOrder.TechnicianNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             public bool IsDetailIDNull() {
                 return this.IsNull(this.tableWorkOrder.DetailIDColumn);
             }
@@ -2547,21 +1998,6 @@ namespace prjAircondition.Tech.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
-=======
-            public bool IsTechnicianNameNull() {
-                return this.IsNull(this.tableWorkOrder.TechnicianNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTechnicianNameNull() {
-                this[this.tableWorkOrder.TechnicianNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             public WorkTypeRow[] GetWorkTypeRows() {
                 if ((this.Table.ChildRelations["FK_WorkType_WorkOrder"] == null)) {
                     return new WorkTypeRow[0];
@@ -2570,20 +2006,6 @@ namespace prjAircondition.Tech.DataSet {
                     return ((WorkTypeRow[])(base.GetChildRows(this.Table.ChildRelations["FK_WorkType_WorkOrder"])));
                 }
             }
-<<<<<<< HEAD
-=======
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TechniciansRow[] GetTechniciansRows() {
-                if ((this.Table.ChildRelations["WorkOrder_Technicians"] == null)) {
-                    return new TechniciansRow[0];
-                }
-                else {
-                    return ((TechniciansRow[])(base.GetChildRows(this.Table.ChildRelations["WorkOrder_Technicians"])));
-                }
-            }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         }
         
         /// <summary>
@@ -2931,20 +2353,6 @@ namespace prjAircondition.Tech.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
-=======
-            public WorkOrderRow WorkOrderRow {
-                get {
-                    return ((WorkOrderRow)(this.GetParentRow(this.Table.ParentRelations["WorkOrder_Technicians"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["WorkOrder_Technicians"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             public bool IsphoneNull() {
                 return this.IsNull(this.tableTechnicians.phoneColumn);
             }
@@ -3086,258 +2494,6 @@ namespace prjAircondition.Tech.DataSet {
             public void SetratingsNull() {
                 this[this.tableTechnicians.ratingsColumn] = global::System.Convert.DBNull;
             }
-<<<<<<< HEAD
-=======
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesRow[] GetlicensesRows() {
-                if ((this.Table.ChildRelations["FK_licenses_Technicians"] == null)) {
-                    return new licensesRow[0];
-                }
-                else {
-                    return ((licensesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_licenses_Technicians"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class licensesRow : global::System.Data.DataRow {
-            
-            private licensesDataTable tablelicenses;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal licensesRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablelicenses = ((licensesDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int license_id {
-                get {
-                    return ((int)(this[this.tablelicenses.license_idColumn]));
-                }
-                set {
-                    this[this.tablelicenses.license_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int T_id {
-                get {
-                    return ((int)(this[this.tablelicenses.T_idColumn]));
-                }
-                set {
-                    this[this.tablelicenses.T_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string license_name {
-                get {
-                    try {
-                        return ((string)(this[this.tablelicenses.license_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'licenses\' 中資料行 \'license_name\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablelicenses.license_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string image_source {
-                get {
-                    return ((string)(this[this.tablelicenses.image_sourceColumn]));
-                }
-                set {
-                    this[this.tablelicenses.image_sourceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string image_description {
-                get {
-                    try {
-                        return ((string)(this[this.tablelicenses.image_descriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'licenses\' 中資料行 \'image_description\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablelicenses.image_descriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string issued_by {
-                get {
-                    try {
-                        return ((string)(this[this.tablelicenses.issued_byColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'licenses\' 中資料行 \'issued_by\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablelicenses.issued_byColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime issue_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablelicenses.issue_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'licenses\' 中資料行 \'issue_date\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablelicenses.issue_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime expiry_date {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablelicenses.expiry_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'licenses\' 中資料行 \'expiry_date\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablelicenses.expiry_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime created_at {
-                get {
-                    return ((global::System.DateTime)(this[this.tablelicenses.created_atColumn]));
-                }
-                set {
-                    this[this.tablelicenses.created_atColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime Updated_at {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tablelicenses.Updated_atColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("資料表 \'licenses\' 中資料行 \'Updated_at\' 的值是 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablelicenses.Updated_atColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TechniciansRow TechniciansRow {
-                get {
-                    return ((TechniciansRow)(this.GetParentRow(this.Table.ParentRelations["FK_licenses_Technicians"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_licenses_Technicians"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Islicense_nameNull() {
-                return this.IsNull(this.tablelicenses.license_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setlicense_nameNull() {
-                this[this.tablelicenses.license_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isimage_descriptionNull() {
-                return this.IsNull(this.tablelicenses.image_descriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setimage_descriptionNull() {
-                this[this.tablelicenses.image_descriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isissued_byNull() {
-                return this.IsNull(this.tablelicenses.issued_byColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setissued_byNull() {
-                this[this.tablelicenses.issued_byColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isissue_dateNull() {
-                return this.IsNull(this.tablelicenses.issue_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setissue_dateNull() {
-                this[this.tablelicenses.issue_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isexpiry_dateNull() {
-                return this.IsNull(this.tablelicenses.expiry_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setexpiry_dateNull() {
-                this[this.tablelicenses.expiry_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsUpdated_atNull() {
-                return this.IsNull(this.tablelicenses.Updated_atColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetUpdated_atNull() {
-                this[this.tablelicenses.Updated_atColumn] = global::System.Convert.DBNull;
-            }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         }
         
         /// <summary>
@@ -3441,43 +2597,6 @@ namespace prjAircondition.Tech.DataSet {
                 }
             }
         }
-<<<<<<< HEAD
-=======
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class licensesRowChangeEvent : global::System.EventArgs {
-            
-            private licensesRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesRowChangeEvent(licensesRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public licensesRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
     }
 }
 namespace prjAircondition.Tech.DataSet.T_ACDataSetTableAdapters {
@@ -3759,11 +2878,7 @@ SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mod
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-<<<<<<< HEAD
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
-=======
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mode" +
@@ -3772,7 +2887,6 @@ SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mod
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-<<<<<<< HEAD
             this._commandCollection[1].CommandText = "SELECT AddressDetail, AreaID, CityID, ClosingTechnicianID, CompletedDate, Created" +
                 "Date, DetailID, MemberID, ModelName, OrderStatus, PaymentType, SerialNumber, Tec" +
                 "hnicianID, WorkOrderID, WorkTypeID FROM WorkOrder WHERE (TechnicianID = @Technic" +
@@ -3787,34 +2901,6 @@ SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mod
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TechnicianID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WorkTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WorkTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-=======
-            this._commandCollection[1].CommandText = @"SELECT  WO.WorkOrderID, WO.DetailID, WO.WorkTypeID, WO.TechnicianID, T.name AS TechnicianName, WO.ClosingTechnicianID, WO.ModelName, 
-               WO.SerialNumber, WO.CreatedDate, WO.OrderStatus, WO.CompletedDate, WO.PaymentType, WO.MemberID, WO.CityID, WO.AreaID, 
-               WO.AddressDetail
-FROM     WorkOrder AS WO LEFT OUTER JOIN
-               Technicians AS T ON WO.TechnicianID = T.T_id";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT \r\n    T.name AS TechnicianName,\r\n    WO.*\r\nFROM \r\n    WorkOrder WO\r\nJOIN \r" +
-                "\n    Technicians T\r\nON \r\n    WO.TechnicianID = T.T_id\r\nWHERE\r\n    T.T_id = @Tech" +
-                "nicianID";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "T_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT \r\nT.name AS TechnicianName,\r\nWO.*\r\nFROM \r\n    WorkOrder WO\r\nJOIN \r\n    Tec" +
-                "hnicians T\r\nON \r\n    WO.TechnicianID = T.T_id";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT  WT.WorkType,W.*\r\nFROM WorkOrder W\r\nINNER JOIN WorkType WT ON W.WorkTypeID" +
-                " = WT.WorkTypeID\r\nWHERE W.TechnicianID = @TechnicianID\r\nAND W.WorkTypeID = @Work" +
-                "TypeID";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TechnicianID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WorkTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WorkTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3845,7 +2931,6 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-<<<<<<< HEAD
         public virtual int FillByTechnicianID(T_ACDataSet.WorkOrderDataTable dataTable, global::System.Nullable<int> TechnicianID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((TechnicianID.HasValue == true)) {
@@ -3854,10 +2939,6 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-=======
-        public virtual int FillByAllWorkOrderWithTechnicians(T_ACDataSet.WorkOrderDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -3869,7 +2950,6 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-<<<<<<< HEAD
         public virtual T_ACDataSet.WorkOrderDataTable GetDataByTechnicianID(global::System.Nullable<int> TechnicianID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((TechnicianID.HasValue == true)) {
@@ -3878,60 +2958,6 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-=======
-        public virtual T_ACDataSet.WorkOrderDataTable GetDataByAllWorkOrderWithTechnicians() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            T_ACDataSet.WorkOrderDataTable dataTable = new T_ACDataSet.WorkOrderDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCertainTechAllWorkOrders(T_ACDataSet.WorkOrderDataTable dataTable, int TechnicianID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual T_ACDataSet.WorkOrderDataTable GetDataByCertainTechAllWorkOrders(int TechnicianID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID));
-            T_ACDataSet.WorkOrderDataTable dataTable = new T_ACDataSet.WorkOrderDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTechnicianID(T_ACDataSet.WorkOrderDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual T_ACDataSet.WorkOrderDataTable GetDataByTechnicianID() {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             T_ACDataSet.WorkOrderDataTable dataTable = new T_ACDataSet.WorkOrderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3942,11 +2968,7 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByTechnicianIDAndWorkTypeID(T_ACDataSet.WorkOrderDataTable dataTable, global::System.Nullable<int> TechnicianID, global::System.Nullable<int> WorkTypeID) {
-<<<<<<< HEAD
             this.Adapter.SelectCommand = this.CommandCollection[2];
-=======
-            this.Adapter.SelectCommand = this.CommandCollection[4];
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             if ((TechnicianID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
             }
@@ -3971,11 +2993,7 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual T_ACDataSet.WorkOrderDataTable GetDataByTechnicianIDAndWorkTypeID(global::System.Nullable<int> TechnicianID, global::System.Nullable<int> WorkTypeID) {
-<<<<<<< HEAD
             this.Adapter.SelectCommand = this.CommandCollection[2];
-=======
-            this.Adapter.SelectCommand = this.CommandCollection[4];
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             if ((TechnicianID.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
             }
@@ -5849,593 +4867,6 @@ SELECT T_id, phone, name, Nickname, account, password, photo, is_active, address
     }
     
     /// <summary>
-<<<<<<< HEAD
-=======
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class licensesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public licensesTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "licenses";
-            tableMapping.ColumnMappings.Add("license_id", "license_id");
-            tableMapping.ColumnMappings.Add("T_id", "T_id");
-            tableMapping.ColumnMappings.Add("license_name", "license_name");
-            tableMapping.ColumnMappings.Add("image_source", "image_source");
-            tableMapping.ColumnMappings.Add("image_description", "image_description");
-            tableMapping.ColumnMappings.Add("issued_by", "issued_by");
-            tableMapping.ColumnMappings.Add("issue_date", "issue_date");
-            tableMapping.ColumnMappings.Add("expiry_date", "expiry_date");
-            tableMapping.ColumnMappings.Add("created_at", "created_at");
-            tableMapping.ColumnMappings.Add("Updated_at", "Updated_at");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[licenses] WHERE (([license_id] = @Original_license_id) AND ([T_id] = @Original_T_id) AND ((@IsNull_license_name = 1 AND [license_name] IS NULL) OR ([license_name] = @Original_license_name)) AND ([image_source] = @Original_image_source) AND ((@IsNull_image_description = 1 AND [image_description] IS NULL) OR ([image_description] = @Original_image_description)) AND ((@IsNull_issued_by = 1 AND [issued_by] IS NULL) OR ([issued_by] = @Original_issued_by)) AND ((@IsNull_issue_date = 1 AND [issue_date] IS NULL) OR ([issue_date] = @Original_issue_date)) AND ((@IsNull_expiry_date = 1 AND [expiry_date] IS NULL) OR ([expiry_date] = @Original_expiry_date)) AND ([created_at] = @Original_created_at) AND ((@IsNull_Updated_at = 1 AND [Updated_at] IS NULL) OR ([Updated_at] = @Original_Updated_at)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_license_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_T_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "T_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_license_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_license_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_image_source", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_source", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_image_description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_image_description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_issued_by", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issued_by", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_issued_by", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issued_by", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_issue_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issue_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_issue_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issue_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_expiry_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiry_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_expiry_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiry_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Updated_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[licenses] ([T_id], [license_name], [image_source], [image_description], [issued_by], [issue_date], [expiry_date], [created_at], [Updated_at]) VALUES (@T_id, @license_name, @image_source, @image_description, @issued_by, @issue_date, @expiry_date, @created_at, @Updated_at);
-SELECT license_id, T_id, license_name, image_source, image_description, issued_by, issue_date, expiry_date, created_at, Updated_at FROM licenses WHERE (license_id = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@T_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "T_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@license_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@image_source", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_source", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@image_description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@issued_by", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issued_by", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@issue_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issue_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@expiry_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiry_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[licenses] SET [T_id] = @T_id, [license_name] = @license_name, [image_source] = @image_source, [image_description] = @image_description, [issued_by] = @issued_by, [issue_date] = @issue_date, [expiry_date] = @expiry_date, [created_at] = @created_at, [Updated_at] = @Updated_at WHERE (([license_id] = @Original_license_id) AND ([T_id] = @Original_T_id) AND ((@IsNull_license_name = 1 AND [license_name] IS NULL) OR ([license_name] = @Original_license_name)) AND ([image_source] = @Original_image_source) AND ((@IsNull_image_description = 1 AND [image_description] IS NULL) OR ([image_description] = @Original_image_description)) AND ((@IsNull_issued_by = 1 AND [issued_by] IS NULL) OR ([issued_by] = @Original_issued_by)) AND ((@IsNull_issue_date = 1 AND [issue_date] IS NULL) OR ([issue_date] = @Original_issue_date)) AND ((@IsNull_expiry_date = 1 AND [expiry_date] IS NULL) OR ([expiry_date] = @Original_expiry_date)) AND ([created_at] = @Original_created_at) AND ((@IsNull_Updated_at = 1 AND [Updated_at] IS NULL) OR ([Updated_at] = @Original_Updated_at)));
-SELECT license_id, T_id, license_name, image_source, image_description, issued_by, issue_date, expiry_date, created_at, Updated_at FROM licenses WHERE (license_id = @license_id)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@T_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "T_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@license_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@image_source", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_source", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@image_description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@issued_by", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issued_by", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@issue_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issue_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@expiry_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiry_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated_at", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_license_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_T_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "T_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_license_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_license_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "license_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_image_source", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_source", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_image_description", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_description", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_image_description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "image_description", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_issued_by", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issued_by", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_issued_by", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issued_by", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_issue_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issue_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_issue_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "issue_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_expiry_date", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiry_date", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_expiry_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "expiry_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_created_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "created_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Updated_at", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated_at", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Updated_at", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated_at", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@license_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "license_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::prjAircondition.Properties.Settings.Default.ACConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT license_id, T_id, license_name, image_source, image_description, issued_by" +
-                ", issue_date, expiry_date, created_at, Updated_at FROM dbo.licenses";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(T_ACDataSet.licensesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual T_ACDataSet.licensesDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            T_ACDataSet.licensesDataTable dataTable = new T_ACDataSet.licensesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(T_ACDataSet.licensesDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(T_ACDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "licenses");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_license_id, int Original_T_id, string Original_license_name, string Original_image_source, string Original_image_description, string Original_issued_by, global::System.Nullable<global::System.DateTime> Original_issue_date, global::System.Nullable<global::System.DateTime> Original_expiry_date, System.DateTime Original_created_at, global::System.Nullable<global::System.DateTime> Original_Updated_at) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_license_id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_T_id));
-            if ((Original_license_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_license_name));
-            }
-            if ((Original_image_source == null)) {
-                throw new global::System.ArgumentNullException("Original_image_source");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_image_source));
-            }
-            if ((Original_image_description == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_image_description));
-            }
-            if ((Original_issued_by == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_issued_by));
-            }
-            if ((Original_issue_date.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_issue_date.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_expiry_date.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_expiry_date.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[13].Value = ((System.DateTime)(Original_created_at));
-            if ((Original_Updated_at.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((System.DateTime)(Original_Updated_at.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int T_id, string license_name, string image_source, string image_description, string issued_by, global::System.Nullable<global::System.DateTime> issue_date, global::System.Nullable<global::System.DateTime> expiry_date, System.DateTime created_at, global::System.Nullable<global::System.DateTime> Updated_at) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(T_id));
-            if ((license_name == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(license_name));
-            }
-            if ((image_source == null)) {
-                throw new global::System.ArgumentNullException("image_source");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(image_source));
-            }
-            if ((image_description == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(image_description));
-            }
-            if ((issued_by == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(issued_by));
-            }
-            if ((issue_date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(issue_date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((expiry_date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(expiry_date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(created_at));
-            if ((Updated_at.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Updated_at.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int T_id, 
-                    string license_name, 
-                    string image_source, 
-                    string image_description, 
-                    string issued_by, 
-                    global::System.Nullable<global::System.DateTime> issue_date, 
-                    global::System.Nullable<global::System.DateTime> expiry_date, 
-                    System.DateTime created_at, 
-                    global::System.Nullable<global::System.DateTime> Updated_at, 
-                    int Original_license_id, 
-                    int Original_T_id, 
-                    string Original_license_name, 
-                    string Original_image_source, 
-                    string Original_image_description, 
-                    string Original_issued_by, 
-                    global::System.Nullable<global::System.DateTime> Original_issue_date, 
-                    global::System.Nullable<global::System.DateTime> Original_expiry_date, 
-                    System.DateTime Original_created_at, 
-                    global::System.Nullable<global::System.DateTime> Original_Updated_at, 
-                    int license_id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(T_id));
-            if ((license_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(license_name));
-            }
-            if ((image_source == null)) {
-                throw new global::System.ArgumentNullException("image_source");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(image_source));
-            }
-            if ((image_description == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(image_description));
-            }
-            if ((issued_by == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(issued_by));
-            }
-            if ((issue_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(issue_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((expiry_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(expiry_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(created_at));
-            if ((Updated_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Updated_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_license_id));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_T_id));
-            if ((Original_license_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_license_name));
-            }
-            if ((Original_image_source == null)) {
-                throw new global::System.ArgumentNullException("Original_image_source");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_image_source));
-            }
-            if ((Original_image_description == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_image_description));
-            }
-            if ((Original_issued_by == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_issued_by));
-            }
-            if ((Original_issue_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_issue_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((Original_expiry_date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_expiry_date.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_created_at));
-            if ((Original_Updated_at.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Updated_at.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(license_id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    int T_id, 
-                    string license_name, 
-                    string image_source, 
-                    string image_description, 
-                    string issued_by, 
-                    global::System.Nullable<global::System.DateTime> issue_date, 
-                    global::System.Nullable<global::System.DateTime> expiry_date, 
-                    System.DateTime created_at, 
-                    global::System.Nullable<global::System.DateTime> Updated_at, 
-                    int Original_license_id, 
-                    int Original_T_id, 
-                    string Original_license_name, 
-                    string Original_image_source, 
-                    string Original_image_description, 
-                    string Original_issued_by, 
-                    global::System.Nullable<global::System.DateTime> Original_issue_date, 
-                    global::System.Nullable<global::System.DateTime> Original_expiry_date, 
-                    System.DateTime Original_created_at, 
-                    global::System.Nullable<global::System.DateTime> Original_Updated_at) {
-            return this.Update(T_id, license_name, image_source, image_description, issued_by, issue_date, expiry_date, created_at, Updated_at, Original_license_id, Original_T_id, Original_license_name, Original_image_source, Original_image_description, Original_issued_by, Original_issue_date, Original_expiry_date, Original_created_at, Original_Updated_at, Original_license_id);
-        }
-    }
-    
-    /// <summary>
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6453,11 +4884,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
         
         private TechniciansTableAdapter _techniciansTableAdapter;
         
-<<<<<<< HEAD
-=======
-        private licensesTableAdapter _licensesTableAdapter;
-        
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -6517,23 +4943,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-<<<<<<< HEAD
-=======
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public licensesTableAdapter licensesTableAdapter {
-            get {
-                return this._licensesTableAdapter;
-            }
-            set {
-                this._licensesTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -6563,13 +4972,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                             && (this._techniciansTableAdapter.Connection != null))) {
                     return this._techniciansTableAdapter.Connection;
                 }
-<<<<<<< HEAD
-=======
-                if (((this._licensesTableAdapter != null) 
-                            && (this._licensesTableAdapter.Connection != null))) {
-                    return this._licensesTableAdapter.Connection;
-                }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 return null;
             }
             set {
@@ -6592,12 +4994,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                 if ((this._techniciansTableAdapter != null)) {
                     count = (count + 1);
                 }
-<<<<<<< HEAD
-=======
-                if ((this._licensesTableAdapter != null)) {
-                    count = (count + 1);
-                }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 return count;
             }
         }
@@ -6618,18 +5014,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-<<<<<<< HEAD
-=======
-            if ((this._techniciansTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Technicians.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._techniciansTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             if ((this._workTypeTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.WorkType.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6639,21 +5023,12 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-<<<<<<< HEAD
             if ((this._techniciansTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Technicians.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._techniciansTableAdapter.Update(updatedRows));
-=======
-            if ((this._licensesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.licenses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._licensesTableAdapter.Update(updatedRows));
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6675,17 +5050,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                     allAddedRows.AddRange(addedRows);
                 }
             }
-<<<<<<< HEAD
-=======
-            if ((this._techniciansTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Technicians.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._techniciansTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             if ((this._workTypeTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.WorkType.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6694,19 +5058,11 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                     allAddedRows.AddRange(addedRows);
                 }
             }
-<<<<<<< HEAD
             if ((this._techniciansTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Technicians.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._techniciansTableAdapter.Update(addedRows));
-=======
-            if ((this._licensesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.licenses.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._licensesTableAdapter.Update(addedRows));
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6720,19 +5076,11 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(T_ACDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-<<<<<<< HEAD
             if ((this._techniciansTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Technicians.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._techniciansTableAdapter.Update(deletedRows));
-=======
-            if ((this._licensesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.licenses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._licensesTableAdapter.Update(deletedRows));
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6744,17 +5092,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-<<<<<<< HEAD
-=======
-            if ((this._techniciansTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Technicians.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._techniciansTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             if ((this._workOrderTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.WorkOrder.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6814,13 +5151,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                         && (this.MatchTableAdapterConnection(this._techniciansTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("所有以 TableAdapterManager 管理的 TableAdapters 必須使用相同的連接字串。");
             }
-<<<<<<< HEAD
-=======
-            if (((this._licensesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._licensesTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("所有以 TableAdapterManager 管理的 TableAdapters 必須使用相同的連接字串。");
-            }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager 未包含連接資訊。請將每個 TableAdapterManager 的 TableAdapter 屬性設成有效的 Table" +
@@ -6879,18 +5209,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                         adaptersWithAcceptChangesDuringUpdate.Add(this._techniciansTableAdapter.Adapter);
                     }
                 }
-<<<<<<< HEAD
-=======
-                if ((this._licensesTableAdapter != null)) {
-                    revertConnections.Add(this._licensesTableAdapter, this._licensesTableAdapter.Connection);
-                    this._licensesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._licensesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._licensesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._licensesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._licensesTableAdapter.Adapter);
-                    }
-                }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 // 
                 //---- Perform updates -----------
                 //
@@ -6961,13 +5279,6 @@ SELECT license_id, T_id, license_name, image_source, image_description, issued_b
                     this._techniciansTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._techniciansTableAdapter]));
                     this._techniciansTableAdapter.Transaction = null;
                 }
-<<<<<<< HEAD
-=======
-                if ((this._licensesTableAdapter != null)) {
-                    this._licensesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._licensesTableAdapter]));
-                    this._licensesTableAdapter.Transaction = null;
-                }
->>>>>>> 65eefd30698b50c161f2eac48b28623d4a4330e5
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
                     adaptersWithAcceptChangesDuringUpdate.CopyTo(adapters);
