@@ -318,7 +318,7 @@
             this.techniciansDataGridView.RowTemplate.Height = 31;
             this.techniciansDataGridView.Size = new System.Drawing.Size(1371, 517);
             this.techniciansDataGridView.TabIndex = 0;
-            this.techniciansDataGridView.SelectionChanged += new System.EventHandler(this.techniciansDataGridView_SelectionChanged);
+
             this.techniciansDataGridView.DoubleClick += new System.EventHandler(this.techniciansDataGridView_DoubleClick);
             // 
             // dataGridViewTextBoxColumn1

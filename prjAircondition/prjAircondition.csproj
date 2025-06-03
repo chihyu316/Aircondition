@@ -234,11 +234,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>T_ACDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Tech\Forms\FormAddTech.cs">
+    <Compile Include="Tech\Forms\FormTech.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tech\Forms\FormAddTech.Designer.cs">
-      <DependentUpon>FormAddTech.cs</DependentUpon>
+    <Compile Include="Tech\Forms\FormTech.Designer.cs">
+      <DependentUpon>FormTech.cs</DependentUpon>
     </Compile>
     <Compile Include="Tech\UserControl\T_OrderUserControl1.cs">
       <SubType>UserControl</SubType>
@@ -276,8 +276,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Tech\Forms\FormAddTech.resx">
-      <DependentUpon>FormAddTech.cs</DependentUpon>
+    <EmbeddedResource Include="Tech\Forms\FormTech.resx">
+      <DependentUpon>FormTech.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_OrderUserControl1.resx">
       <DependentUpon>T_OrderUserControl1.cs</DependentUpon>

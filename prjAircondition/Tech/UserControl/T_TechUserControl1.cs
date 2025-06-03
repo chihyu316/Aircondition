@@ -60,11 +60,9 @@ namespace prjAircondition.Tech
         }
 
         //選取的資料列position發生更動時觸發此條件 切換到個人師傅資訊
-        private void techniciansDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            // 讀取對應圖片
-            LoadImageFromDS();
-        }
+        //private void techniciansDataGridView_SelectionChanged(object sender, EventArgs e)
+        //{
+        //}
 
         //中界點綁定設定
         private void InitBindingSource()
