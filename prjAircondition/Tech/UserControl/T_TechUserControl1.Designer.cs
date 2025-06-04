@@ -133,6 +133,10 @@
             this.tableAdapterManager = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TableAdapterManager();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.s_DOrderProcessing1 = new prjAircondition.Shop.DataSet.S_DOrderProcessing();
+            this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.workOrderTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter();
             this.tabControl1.SuspendLayout();
             this.AllTechPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingNavigator)).BeginInit();
@@ -147,6 +151,8 @@
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // UpdateTechToDBbutton
@@ -278,6 +284,7 @@
             this.tabControl1.Controls.Add(this.AllTechPage);
             this.tabControl1.Controls.Add(this.TechPage);
             this.tabControl1.Controls.Add(this.LicensePage);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -1166,6 +1173,29 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 42);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1640, 948);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // s_DOrderProcessing1
+            // 
+            this.s_DOrderProcessing1.DataSetName = "S_DOrderProcessing";
+            this.s_DOrderProcessing1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // workOrderBindingSource
+            // 
+            this.workOrderBindingSource.DataMember = "WorkOrder";
+            this.workOrderBindingSource.DataSource = this.t_ACDataSet1;
+            // 
+            // workOrderTableAdapter
+            // 
+            this.workOrderTableAdapter.ClearBeforeFill = true;
+            // 
             // T_TechUserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1207,6 +1237,8 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1317,5 +1349,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private Shop.DataSet.S_DOrderProcessing s_DOrderProcessing1;
+        private System.Windows.Forms.BindingSource workOrderBindingSource;
+        private DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter workOrderTableAdapter;
     }
 }
