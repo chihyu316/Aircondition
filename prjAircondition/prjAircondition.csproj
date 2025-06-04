@@ -303,6 +303,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Recruit\Form\C_FrmDtail.resx">
+      <DependentUpon>C_FrmDtail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
       <DependentUpon>C_CourseControl.cs</DependentUpon>
     </EmbeddedResource>

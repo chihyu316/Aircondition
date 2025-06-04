@@ -45,13 +45,15 @@ namespace prjAircondition
                     conn.Open();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = conn;
-                    cmd.CommandText="select name from t.Technicians"
+                    cmd.CommandText = "select name from t.Technicians";
                 }
                 
 
                 }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message)}
-        }   
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+        
+       
+          
     }
 }

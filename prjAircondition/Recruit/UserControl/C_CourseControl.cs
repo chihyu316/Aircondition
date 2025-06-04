@@ -109,7 +109,7 @@ namespace prjAircondition.Recruit
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_detail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int Id = (int)this.dataGridView1.CurrentRow.Cells[1].Value;
             if (e.ColumnIndex == 0)
