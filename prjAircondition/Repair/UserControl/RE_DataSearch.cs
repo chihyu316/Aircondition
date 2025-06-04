@@ -11,36 +11,56 @@ namespace prjAircondition
 {
     public class RE_DataSearch
     {
+
+
+        public static DataTable LoadWorkOrder()
+        {
+            string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
+            string query = "SELECT * FROM WorkOrder";
+
+
+            DataTable result = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                adapter.Fill(result);
+            }
+
+            return result;
+        }
+
+
+
+
         public static DataTable LoadhWorkOrder()
         {
             string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
-            string query = @"
-                             SELECT 
-                                     W.WorkOrderID as '工單編號', 
-                                     WT.WorkType as '工作類型', 
-                                     T.Nickname as '師傅名稱', 
-                                     ModelName as '機型',
-                                     SerialNumber as '機號', 
-                                     CreatedDate as '工單建立日期', 
-                                     OS.Status as '工單狀態', 
-                                     CompletedDate as '工單完工日期',
-                                CASE 
-                                     WHEN PaymentType = 0 THEN N'現金'
-                                     WHEN PaymentType = 1 THEN N'分期付款'
-                                     ELSE N''
-                                     END AS '付款方式',
-                                     M.NickName as '會員名稱', 
-                                     Ci.City as '城市名稱', 
-                                     Ar.AREA as '地區名稱', 
-                                     AddressDetail as '施工地址'
-                                FROM WorkOrder AS W
-                          INNER JOIN Technicians AS T ON T.T_id = W.TechnicianID
-                          INNER JOIN Member AS M ON M.MemberID = W.MemberID
-                          INNER JOIN CityList AS Ci ON Ci.CityID = W.CityID
-                          INNER JOIN AreaList AS Ar ON Ar.AREAID = W.AreaID
-                          INNER JOIN OrderStatus AS OS ON OS.OrderStatus = W.OrderStatus
-                          INNER JOIN WorkType AS WT ON WT.WorkTypeID = W.WorkTypeID
-    ";
+            string query =
+            " SELECT W.WorkOrderID as '工單編號', " +
+            "       WT.WorkType as '工作類型', " +
+            "       T.Nickname as '師傅名稱', " +
+            "       W.ModelName as '機型', " +
+            "       W.SerialNumber as '機號', " +
+            "       W.CreatedDate as '工單建立日期', " +
+            "       OS.Status as '工單狀態', " +
+            "       W.CompletedDate as '工單完工日期', " +
+            "       CASE " +
+            "           WHEN W.PaymentType = 0 THEN N'現金' " +
+            "           WHEN W.PaymentType = 1 THEN N'分期付款' " +
+            "           ELSE N'' " +
+            "       END AS '付款方式', " +
+            "       M.NickName as '會員名稱', " +
+            "       Ci.City as '城市名稱', " +
+            "       Ar.AREA as '地區名稱', " +
+            "       W.AddressDetail as '施工地址' " +
+            "       FROM WorkOrder AS W " +
+            "       LEFT JOIN Technicians AS T ON T.T_id = W.TechnicianID " +
+            "       LEFT JOIN [Member] AS M ON M.MemberID = W.MemberID " +
+            "       LEFT JOIN CityList AS Ci ON Ci.CityID = W.CityID " +
+            "       LEFT JOIN AreaList AS Ar ON Ar.AreaID = W.AreaID " +
+            "       LEFT JOIN OrderStatus AS OS ON OS.OrderStatus = W.OrderStatus " +
+            "       LEFT JOIN WorkType AS WT ON WT.WorkTypeID = W.WorkTypeID ";
 
             DataTable resultTable = new DataTable();
 
@@ -59,6 +79,7 @@ namespace prjAircondition
             }
 
             return resultTable;
+
         }
         public static DataTable WorkOrderSearch(string S, string T)
         {

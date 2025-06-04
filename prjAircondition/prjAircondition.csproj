@@ -312,6 +312,9 @@
     <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
       <DependentUpon>C_CourseControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Repair\UserControl\R_ucWorkOrder.resx">
+      <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shop\UserControl\S_UcMateral.resx">
       <DependentUpon>S_UcMateral.cs</DependentUpon>
     </EmbeddedResource>
