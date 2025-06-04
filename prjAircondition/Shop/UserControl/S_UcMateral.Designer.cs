@@ -66,11 +66,11 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 272);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 293);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1116, 456);
+            this.dataGridView1.Size = new System.Drawing.Size(1114, 309);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
@@ -78,9 +78,9 @@
             // picMaterial
             // 
             this.picMaterial.Image = ((System.Drawing.Image)(resources.GetObject("picMaterial.Image")));
-            this.picMaterial.Location = new System.Drawing.Point(789, 19);
+            this.picMaterial.Location = new System.Drawing.Point(819, 2);
             this.picMaterial.Name = "picMaterial";
-            this.picMaterial.Size = new System.Drawing.Size(308, 220);
+            this.picMaterial.Size = new System.Drawing.Size(269, 201);
             this.picMaterial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMaterial.TabIndex = 15;
             this.picMaterial.TabStop = false;
@@ -146,7 +146,7 @@
             this.Controls.Add(this.lblSelectedMaterial);
             this.Controls.Add(this.btnSaveChanges);
             this.Name = "S_UcMateral";
-            this.Size = new System.Drawing.Size(1116, 728);
+            this.Size = new System.Drawing.Size(1114, 602);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMaterial)).EndInit();
             this.ResumeLayout(false);

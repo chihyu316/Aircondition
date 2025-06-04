@@ -184,6 +184,7 @@
             // 
             this.NickNameTXB.Font = new System.Drawing.Font("新細明體", 15F);
             this.NickNameTXB.Location = new System.Drawing.Point(481, 254);
+            this.NickNameTXB.MaxLength = 10;
             this.NickNameTXB.Name = "NickNameTXB";
             this.NickNameTXB.Size = new System.Drawing.Size(245, 31);
             this.NickNameTXB.TabIndex = 27;

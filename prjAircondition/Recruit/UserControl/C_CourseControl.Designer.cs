@@ -44,6 +44,7 @@
             this.courseCategoryTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseCategoryTableAdapter();
             this.courseTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseTableAdapter();
             this.courseBatchTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseBatchTableAdapter();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
@@ -99,24 +100,24 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(666, 68);
+            this.button1.Location = new System.Drawing.Point(685, 43);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(236, 86);
+            this.button1.Size = new System.Drawing.Size(233, 76);
             this.button1.TabIndex = 9;
             this.button1.Text = "新增課程";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.C_btnAddCourse);
+            this.button1.Click += new System.EventHandler(this.C_btnAddCourse_click);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(955, 68);
+            this.button2.Location = new System.Drawing.Point(965, 43);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 88);
+            this.button2.Size = new System.Drawing.Size(226, 76);
             this.button2.TabIndex = 10;
             this.button2.Text = "現有課程新增梯次 ";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.C_btnAddBatch_click);
             // 
             // textBox1
             // 
@@ -165,11 +166,21 @@
             // 
             this.courseBatchTableAdapter1.ClearBeforeFill = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(685, 137);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(233, 50);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // C_CourseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
@@ -205,5 +216,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label2;
         private DateSet.C_RecruitDataSetTableAdapters.CourseBatchTableAdapter courseBatchTableAdapter1;
+        private System.Windows.Forms.Button button4;
     }
 }

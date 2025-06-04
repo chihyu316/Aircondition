@@ -80,12 +80,6 @@ namespace prjAircondition
             }
         }
 
-        public void ShowMemberOrderDetail(string memberId)
-        {
-            FormOrderDetails detailForm = new FormOrderDetails(memberId);
-            detailForm.ShowDialog();
-        }
-
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             string col = dataGridView1.Columns[e.ColumnIndex].Name;//從 DataGridView 的事件中，取得目前正在格式化的欄位名稱
@@ -108,16 +102,6 @@ namespace prjAircondition
             if (col == "PaymentStatus" && e.Value is byte val2)
             {
                 e.Value = val2 == 0 ? "未付款" : val2 == 1 ? "已付款" : "未知付款狀態";
-            }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "MemberID")
-            {
-                string memberId = dataGridView1.Rows[e.RowIndex].Cells["MemberID"].Value.ToString();
-                FormOrderDetails frm = new FormOrderDetails(memberId);
-                frm.ShowDialog(); // 顯示訂單明細
             }
         }
     }
