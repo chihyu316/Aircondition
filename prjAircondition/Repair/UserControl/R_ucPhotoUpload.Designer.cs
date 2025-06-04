@@ -34,6 +34,7 @@
             this.RE_btnDelete = new System.Windows.Forms.Button();
             this.RE_txtDescription = new System.Windows.Forms.TextBox();
             this.RE_lblCount = new System.Windows.Forms.Label();
+            this.RE_lab10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RE_dgvPhotoList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RE_pbPreview)).BeginInit();
             this.SuspendLayout();
@@ -82,25 +83,37 @@
             // 
             // RE_txtDescription
             // 
-            this.RE_txtDescription.Location = new System.Drawing.Point(611, 225);
+            this.RE_txtDescription.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.RE_txtDescription.Location = new System.Drawing.Point(593, 235);
             this.RE_txtDescription.Name = "RE_txtDescription";
-            this.RE_txtDescription.Size = new System.Drawing.Size(100, 22);
+            this.RE_txtDescription.Size = new System.Drawing.Size(261, 34);
             this.RE_txtDescription.TabIndex = 3;
             // 
             // RE_lblCount
             // 
             this.RE_lblCount.AutoSize = true;
             this.RE_lblCount.Font = new System.Drawing.Font("新細明體", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.RE_lblCount.Location = new System.Drawing.Point(626, 281);
+            this.RE_lblCount.Location = new System.Drawing.Point(789, 307);
             this.RE_lblCount.Name = "RE_lblCount";
-            this.RE_lblCount.Size = new System.Drawing.Size(85, 34);
+            this.RE_lblCount.Size = new System.Drawing.Size(83, 33);
             this.RE_lblCount.TabIndex = 4;
             this.RE_lblCount.Text = "筆數";
+            // 
+            // RE_lab10
+            // 
+            this.RE_lab10.AutoSize = true;
+            this.RE_lab10.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.RE_lab10.Location = new System.Drawing.Point(485, 238);
+            this.RE_lab10.Name = "RE_lab10";
+            this.RE_lab10.Size = new System.Drawing.Size(102, 25);
+            this.RE_lab10.TabIndex = 5;
+            this.RE_lab10.Text = "輸入敘述 :";
             // 
             // R_ucPhotoUpload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.RE_lab10);
             this.Controls.Add(this.RE_lblCount);
             this.Controls.Add(this.RE_txtDescription);
             this.Controls.Add(this.RE_btnDelete);
@@ -124,5 +137,6 @@
         private System.Windows.Forms.Button RE_btnDelete;
         private System.Windows.Forms.TextBox RE_txtDescription;
         private System.Windows.Forms.Label RE_lblCount;
+        private System.Windows.Forms.Label RE_lab10;
     }
 }
