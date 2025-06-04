@@ -33,25 +33,26 @@
             this.RE_btnupdate = new System.Windows.Forms.Button();
             this.RE_delet = new System.Windows.Forms.Button();
             this.RE_ref = new System.Windows.Forms.Button();
+            this.RE_lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RE_checklist)).BeginInit();
             this.SuspendLayout();
             // 
             // RE_checklist
             // 
             this.RE_checklist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RE_checklist.Location = new System.Drawing.Point(113, 121);
+            this.RE_checklist.Location = new System.Drawing.Point(41, 121);
             this.RE_checklist.Name = "RE_checklist";
             this.RE_checklist.RowHeadersWidth = 51;
             this.RE_checklist.RowTemplate.Height = 24;
-            this.RE_checklist.Size = new System.Drawing.Size(667, 391);
+            this.RE_checklist.Size = new System.Drawing.Size(771, 391);
             this.RE_checklist.TabIndex = 0;
             // 
             // RE_btnNew1
             // 
             this.RE_btnNew1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.RE_btnNew1.Location = new System.Drawing.Point(244, 57);
+            this.RE_btnNew1.Location = new System.Drawing.Point(376, 78);
             this.RE_btnNew1.Name = "RE_btnNew1";
-            this.RE_btnNew1.Size = new System.Drawing.Size(98, 37);
+            this.RE_btnNew1.Size = new System.Drawing.Size(102, 37);
             this.RE_btnNew1.TabIndex = 1;
             this.RE_btnNew1.Text = "新增";
             this.RE_btnNew1.UseVisualStyleBackColor = true;
@@ -60,9 +61,9 @@
             // RE_btnupdate
             // 
             this.RE_btnupdate.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.RE_btnupdate.Location = new System.Drawing.Point(348, 57);
+            this.RE_btnupdate.Location = new System.Drawing.Point(484, 78);
             this.RE_btnupdate.Name = "RE_btnupdate";
-            this.RE_btnupdate.Size = new System.Drawing.Size(90, 37);
+            this.RE_btnupdate.Size = new System.Drawing.Size(102, 37);
             this.RE_btnupdate.TabIndex = 2;
             this.RE_btnupdate.Text = "儲存";
             this.RE_btnupdate.UseVisualStyleBackColor = true;
@@ -71,9 +72,9 @@
             // RE_delet
             // 
             this.RE_delet.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.RE_delet.Location = new System.Drawing.Point(444, 57);
+            this.RE_delet.Location = new System.Drawing.Point(704, 78);
             this.RE_delet.Name = "RE_delet";
-            this.RE_delet.Size = new System.Drawing.Size(86, 37);
+            this.RE_delet.Size = new System.Drawing.Size(97, 40);
             this.RE_delet.TabIndex = 2;
             this.RE_delet.Text = "刪除";
             this.RE_delet.UseVisualStyleBackColor = true;
@@ -82,18 +83,29 @@
             // RE_ref
             // 
             this.RE_ref.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.RE_ref.Location = new System.Drawing.Point(536, 57);
+            this.RE_ref.Location = new System.Drawing.Point(592, 78);
             this.RE_ref.Name = "RE_ref";
-            this.RE_ref.Size = new System.Drawing.Size(106, 37);
+            this.RE_ref.Size = new System.Drawing.Size(106, 39);
             this.RE_ref.TabIndex = 2;
             this.RE_ref.Text = "重新整理";
             this.RE_ref.UseVisualStyleBackColor = true;
             this.RE_ref.Click += new System.EventHandler(this.RE_ref_Click);
             // 
+            // RE_lbl
+            // 
+            this.RE_lbl.AutoSize = true;
+            this.RE_lbl.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.RE_lbl.Location = new System.Drawing.Point(59, 76);
+            this.RE_lbl.Name = "RE_lbl";
+            this.RE_lbl.Size = new System.Drawing.Size(59, 29);
+            this.RE_lbl.TabIndex = 4;
+            this.RE_lbl.Text = "筆數";
+            // 
             // R_ucInstallationChecklist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.RE_lbl);
             this.Controls.Add(this.RE_ref);
             this.Controls.Add(this.RE_delet);
             this.Controls.Add(this.RE_btnupdate);
@@ -104,6 +116,7 @@
             this.Load += new System.EventHandler(this.R_ucInstallationChecklist_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RE_checklist)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -114,5 +127,6 @@
         private System.Windows.Forms.Button RE_btnupdate;
         private System.Windows.Forms.Button RE_delet;
         private System.Windows.Forms.Button RE_ref;
+        private System.Windows.Forms.Label RE_lbl;
     }
 }
