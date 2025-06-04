@@ -13,21 +13,21 @@ namespace prjAircondition.Repair
 {
     public partial class R_ucWorkOrder : UserControl
     {
-        
+
+
         public R_ucWorkOrder()
         {
             InitializeComponent();
             //  載入全部工單資料
-            DataTable result = RE_DataSearch.LoadhWorkOrder();
+            DataTable result = RE_DataSearch.WorkOrderSearch((string)RE_cob.SelectedItem, RE_SearchT.Text);
+
+            //  綁定結果到 DataGridView
             RE_dataGridView1.DataSource = result;
 
-            //  顯示筆數
-            ER_lblCount.Text = $"共 {result.Rows.Count} 筆資料";
+            //  顯示筆數到 Label
+            RE_lblCount.Text = $"共 {result.Rows.Count} 筆資料";
         }
-
-
-
-        private void button3_Click(object sender, EventArgs e)
+        private void ER_btnSelect_Click(object sender, EventArgs e)
         {
             //  呼叫搜尋結果
             DataTable result = RE_DataSearch.WorkOrderSearch((string)RE_cob.SelectedItem, RE_SearchT.Text);
@@ -36,9 +36,8 @@ namespace prjAircondition.Repair
             RE_dataGridView1.DataSource = result;
 
             //  顯示筆數到 Label
-            ER_lblCount.Text = $"共 {result.Rows.Count} 筆資料";
+            RE_lblCount.Text = $"共 {result.Rows.Count} 筆資料";
         }
-
         private void RE_btnNew_Click(object sender, EventArgs e)
         {
             string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
@@ -89,7 +88,71 @@ namespace prjAircondition.Repair
 
         private void RE_update_Click(object sender, EventArgs e)
         {
-            RE_dataGridView1.DataSource = RE_DataSearch.LoadWorkOrder();
+            DataTable dt = (DataTable)RE_dataGridView1.DataSource;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row.RowState == DataRowState.Modified)
+                {
+                    try
+                    {
+                        RE_DataSearch.UpdateWorkOrder(row); // ✨呼叫資料庫更新
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("更新失敗：" + ex.Message);
+                    }
+                }
+            }
+
+            MessageBox.Show("所有變更已儲存！");
+            ReloadWorkOrders(); // 重新載入最新資料
         }
+        private void ReloadWorkOrders()
+        {
+            DataTable result = RE_DataSearch.LoadWorkOrder();  // 載入原始英文欄位資料
+            RE_dataGridView1.DataSource = result;
+            InitGridHeaders(); // 顯示中文欄位名稱、隱藏系統欄位
+            RE_lblCount.Text = $"共 {result.Rows.Count} 筆資料";
+        }
+        private void InitGridHeaders()
+        {
+            var dgv = RE_dataGridView1;
+
+            dgv.Columns["WorkOrderID"].HeaderText = "工單編號";
+            dgv.Columns["DetailID"].HeaderText = "工單細項";
+            dgv.Columns["WorkTypeID"].HeaderText = "工作類型";
+            dgv.Columns["TechnicianID"].HeaderText = "派工師傅";
+            dgv.Columns["ClosingTechnicianID"].HeaderText = "完工師傅";
+            dgv.Columns["ModelName"].HeaderText = "機型";
+            dgv.Columns["SerialNumber"].HeaderText = "機號";
+            dgv.Columns["CreatedDate"].HeaderText = "建立日期";
+            dgv.Columns["OrderStatus"].HeaderText = "工單狀態";
+            dgv.Columns["CompletedDate"].HeaderText = "完工日期";
+            dgv.Columns["PaymentType"].HeaderText = "付款方式";
+            dgv.Columns["MemberID"].HeaderText = "會員編號";
+            dgv.Columns["CityID"].HeaderText = "城市";
+            dgv.Columns["AreaID"].HeaderText = "地區";
+            dgv.Columns["AddressDetail"].HeaderText = "施工地址";
+
+            // 🛑 隱藏系統用欄位
+            //dgv.Columns["WorkOrderID"].Visible = false;
+            dgv.Columns["DetailID"].Visible = false;
+            dgv.Columns["MemberID"].Visible = false;
+            dgv.Columns["TechnicianID"].Visible = false;
+            dgv.Columns["ClosingTechnicianID"].Visible = false;
+            //dgv.Columns["WorkTypeID"].Visible = false;
+            dgv.Columns["OrderStatus"].Visible = false;
+            dgv.Columns["PaymentType"].Visible = false;
+            dgv.Columns["CityID"].Visible = false;
+            dgv.Columns["AreaID"].Visible = false;
+        }
+        private void RE_update_Click_1(object sender, EventArgs e)
+        {
+            ReloadWorkOrders();
+        }
+
+
     }
 }
+
