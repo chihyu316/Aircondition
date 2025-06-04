@@ -315,6 +315,9 @@
     <EmbeddedResource Include="Repair\UserControl\R_ucInstallationChecklist.resx">
       <DependentUpon>R_ucInstallationChecklist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Repair\UserControl\R_ucPhotoUpload.resx">
+      <DependentUpon>R_ucPhotoUpload.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Repair\UserControl\R_ucWorkOrder.resx">
       <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </EmbeddedResource>
