@@ -98,11 +98,11 @@
     <Compile Include="Member\UserControl\M_meberinfo.Designer.cs">
       <DependentUpon>M_meberinfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Member\UserControl\M_MemberAddress.cs">
+    <Compile Include="Member\UserControl\M_createaccount.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Member\UserControl\M_MemberAddress.Designer.cs">
-      <DependentUpon>M_MemberAddress.cs</DependentUpon>
+    <Compile Include="Member\UserControl\M_createaccount.Designer.cs">
+      <DependentUpon>M_createaccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Member\DataSet\M_MemberDataset.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -276,8 +276,8 @@
     <EmbeddedResource Include="Member\UserControl\M_meberinfo.resx">
       <DependentUpon>M_meberinfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Member\UserControl\M_MemberAddress.resx">
-      <DependentUpon>M_MemberAddress.cs</DependentUpon>
+    <EmbeddedResource Include="Member\UserControl\M_createaccount.resx">
+      <DependentUpon>M_createaccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Member\UserControl\M_memberProduct.resx">
       <DependentUpon>M_memberProduct.cs</DependentUpon>

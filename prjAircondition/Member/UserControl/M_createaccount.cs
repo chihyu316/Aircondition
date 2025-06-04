@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace prjAircondition.Member
 {
-    public partial class M_MemberAddress : UserControl
+    public partial class M_createaccount : UserControl
     {
-        public M_MemberAddress()
+        public M_createaccount()
         {
             InitializeComponent();
         }

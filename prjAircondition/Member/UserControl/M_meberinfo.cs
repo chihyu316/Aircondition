@@ -96,6 +96,7 @@ namespace prjAircondition.Member
                         cmd.CommandText = "UPDATE Member set  HeadShot = @Headshot, Sexual = @Sexual, PhoneNumber = @PhoneNumber, Nickname = @Nickname where MemberAccount = @Account";
                     }
                     byte[] pictures;
+
                     using (MemoryStream ms = new MemoryStream())
                     {
                         using (Bitmap bmp = new Bitmap(AvatarBOX.Image))

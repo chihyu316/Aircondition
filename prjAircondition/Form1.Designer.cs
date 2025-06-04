@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("會員資料");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("會員產品");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("會員地址");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("新增會員");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("會員", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
@@ -122,7 +122,7 @@
             treeNode2.Name = "M_Node2";
             treeNode2.Text = "會員產品";
             treeNode3.Name = "M_Node";
-            treeNode3.Text = "會員地址";
+            treeNode3.Text = "新增會員";
             treeNode4.Name = "會員";
             treeNode4.Text = "會員";
             treeNode5.Name = "T_Node1";

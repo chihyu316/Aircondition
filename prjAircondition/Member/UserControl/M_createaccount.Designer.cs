@@ -1,6 +1,6 @@
 ﻿namespace prjAircondition.Member
 {
-    partial class M_MemberAddress
+    partial class M_createaccount
     {
         /// <summary> 
         /// 設計工具所需的變數。
@@ -30,11 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // M_MemberAddress
+            // M_createaccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "M_MemberAddress";
+            this.BackColor = System.Drawing.SystemColors.Info;
+            this.Name = "M_createaccount";
             this.Size = new System.Drawing.Size(697, 638);
             this.ResumeLayout(false);
 

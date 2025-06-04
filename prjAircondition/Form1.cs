@@ -44,8 +44,8 @@ namespace prjAircondition
                     M_memberProduct product= new M_memberProduct();
                     ShowPage(product);
                     break;
-                case "會員地址":
-                    M_MemberAddress address= new M_MemberAddress();
+                case "新增會員":
+                    M_createaccount address= new M_createaccount();
                     ShowPage(address);
                     break;
                 case "師傅資訊":
