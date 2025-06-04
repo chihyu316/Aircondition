@@ -40,6 +40,9 @@
             this.comboFunctionType = new System.Windows.Forms.ComboBox();
             this.btnSearchByFunction = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -159,10 +162,40 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "功能搜尋";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(46, 674);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 15);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "廠商id:  1:日立 2:大金 3:三菱";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(362, 674);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 15);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "分類:  0家用 1商用 2其他";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(642, 674);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(168, 15);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "類別:  0定頻 1變頻 2其他";
+            // 
             // S_UcProduct1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSearchByFunction);
             this.Controls.Add(this.comboFunctionType);
             this.Controls.Add(this.btnShowAll);
@@ -175,7 +208,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboVendor);
             this.Name = "S_UcProduct1";
-            this.Size = new System.Drawing.Size(1151, 682);
+            this.Size = new System.Drawing.Size(1156, 753);
             this.Load += new System.EventHandler(this.S_UcProduct1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -197,5 +230,8 @@
         private System.Windows.Forms.ComboBox comboFunctionType;
         private System.Windows.Forms.Button btnSearchByFunction;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

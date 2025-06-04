@@ -82,21 +82,18 @@ namespace prjAircondition
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            string col = dataGridView1.Columns[e.ColumnIndex].Name;//從 DataGridView 的事件中，取得目前正在格式化的欄位名稱
+            string col = dataGridView1.Columns[e.ColumnIndex].Name;
 
+            if (col == "MemberAccount")
+            {
+                e.CellStyle.ForeColor = Color.Blue;
+                e.CellStyle.Font = new Font(dataGridView1.Font, FontStyle.Underline);
+            }
+
+            // ✅ 訂單狀態轉文字
             if (col == "OrderStatus" && e.Value is byte val1)
             {
-                switch (val1)
-                {
-                    case 0:
-                        e.Value = "未出貨"; break;
-                    case 1:
-                        e.Value = "出貨中"; break;
-                    case 2:
-                        e.Value = "已完成"; break;
-                    default:
-                        e.Value = "未知狀態"; break;
-                }
+                e.Value = val1 == 0 ? "未出貨" : val1 == 1 ? "出貨中" : "已完成";
             }
 
             if (col == "PaymentStatus" && e.Value is byte val2)
@@ -104,5 +101,40 @@ namespace prjAircondition
                 e.Value = val2 == 0 ? "未付款" : val2 == 1 ? "已付款" : "未知付款狀態";
             }
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+
+            // 如果點的是 MemberID 或 MemberAccount 欄位
+            if (colName == "MemberID" || colName == "MemberAccount")
+            {
+                string memberId = dataGridView1.Rows[e.RowIndex].Cells["MemberID"].Value.ToString();
+                FormOrderDetails frm = new FormOrderDetails(memberId);
+                frm.ShowDialog();
+            }
+        }
+
+        private void txtSearchMember_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string keyword = txtSearchMember.Text.Trim();
+            LoadOrders(keyword); // ✅ 傳入關鍵字查詢
+        }
+
+        private void txtSearchMember_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.PerformClick(); // 等同點查詢
+            }
+        }
     }
+    
 }

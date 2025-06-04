@@ -55,6 +55,8 @@ namespace prjAircondition.Shop
                 bindingSource = new BindingSource(dataSet, "Material");
                 dataGridView1.DataSource = bindingSource;
 
+                
+
                 if (dataGridView1.Columns.Contains("CreatedTime"))
                     dataGridView1.Columns["CreatedTime"].ReadOnly = true;
                 if (dataGridView1.Columns.Contains("MaterialID"))
@@ -67,6 +69,20 @@ namespace prjAircondition.Shop
                 //資料還是存在、可讀可寫，但不顯示那一欄。
                 if (dataGridView1.Columns.Contains("SmallImage"))
                     dataGridView1.Columns["SmallImage"].Visible = false;
+
+                if (dataGridView1.Columns.Contains("MaterialID")) dataGridView1.Columns["MaterialID"].HeaderText = "材料編號";
+                if (dataGridView1.Columns.Contains("MaterialName")) dataGridView1.Columns["MaterialName"].HeaderText = "材料名稱";
+                if (dataGridView1.Columns.Contains("Price")) dataGridView1.Columns["Price"].HeaderText = "價格";
+                if (dataGridView1.Columns.Contains("Stock")) dataGridView1.Columns["Stock"].HeaderText = "庫存";
+                if (dataGridView1.Columns.Contains("IsAvailable")) dataGridView1.Columns["IsAvailable"].HeaderText = "是否啟用";
+                if (dataGridView1.Columns.Contains("CreatedTime")) dataGridView1.Columns["CreatedTime"].HeaderText = "建立時間";
+                if (dataGridView1.Columns.Contains("CreatedBy")) dataGridView1.Columns["CreatedBy"].HeaderText = "建立者";
+                if (dataGridView1.Columns.Contains("UpdatedTime")) dataGridView1.Columns["UpdatedTime"].HeaderText = "更新時間";
+                if (dataGridView1.Columns.Contains("UpdatedBy")) dataGridView1.Columns["UpdatedBy"].HeaderText = "更新者";
+                if (dataGridView1.Columns.Contains("SmallImage")) dataGridView1.Columns["SmallImage"].HeaderText = "圖片資料";
+
+
+
             }
             // ✅ 若尚未加入圖片按鈕欄位就加
             if (!dataGridView1.Columns.Contains("圖片"))
@@ -226,10 +242,16 @@ namespace prjAircondition.Shop
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "圖片")
+            if (e.RowIndex < 0) return;
+
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+
+            // 如果點的是 MemberID 或 MemberAccount 欄位
+            if (colName == "MemberID" || colName == "MemberAccount")
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                ShowImageDialog(row); // ✅ 呼叫圖片管理對話視窗
+                string memberId = dataGridView1.Rows[e.RowIndex].Cells["MemberID"].Value.ToString();
+                FormOrderDetails frm = new FormOrderDetails(memberId);
+                frm.ShowDialog();
             }
         }
         //ShowImageDialog() 方法

@@ -90,6 +90,23 @@ namespace prjAircondition.Shop
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.MultiSelect = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            if (dataGridView1.Columns.Contains("CoolingProductID")) dataGridView1.Columns["CoolingProductID"].HeaderText = "商品編號";
+            if (dataGridView1.Columns.Contains("CoolingName")) dataGridView1.Columns["CoolingName"].HeaderText = "商品名稱";
+            if (dataGridView1.Columns.Contains("Category")) dataGridView1.Columns["Category"].HeaderText = "商品類別";
+            if (dataGridView1.Columns.Contains("Type")) dataGridView1.Columns["Type"].HeaderText = "商品類型";
+            if (dataGridView1.Columns.Contains("CoolingEfficiencyID")) dataGridView1.Columns["CoolingEfficiencyID"].HeaderText = "能效等級ID";
+            if (dataGridView1.Columns.Contains("Price")) dataGridView1.Columns["Price"].HeaderText = "價格";
+            if (dataGridView1.Columns.Contains("Description")) dataGridView1.Columns["Description"].HeaderText = "商品描述";
+            if (dataGridView1.Columns.Contains("InstallmentRate")) dataGridView1.Columns["InstallmentRate"].HeaderText = "分期率";
+            if (dataGridView1.Columns.Contains("Stock")) dataGridView1.Columns["Stock"].HeaderText = "庫存";
+            if (dataGridView1.Columns.Contains("ProductStatus")) dataGridView1.Columns["ProductStatus"].HeaderText = "上架狀態";
+            if (dataGridView1.Columns.Contains("CreatedTime")) dataGridView1.Columns["CreatedTime"].HeaderText = "建立時間";
+            if (dataGridView1.Columns.Contains("CreatedBy")) dataGridView1.Columns["CreatedBy"].HeaderText = "建立者";
+            if (dataGridView1.Columns.Contains("UpdatedTime")) dataGridView1.Columns["UpdatedTime"].HeaderText = "修改時間";
+            if (dataGridView1.Columns.Contains("UpdatedBy")) dataGridView1.Columns["UpdatedBy"].HeaderText = "修改者";
+            if (dataGridView1.Columns.Contains("VendorID")) dataGridView1.Columns["VendorID"].HeaderText = "廠商";
+
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
@@ -152,19 +169,20 @@ namespace prjAircondition.Shop
 
         private void btnSearchByFunction_Click(object sender, EventArgs e)
         {
+            string connStr = Settings.Default.ACConnectionString;
+
+            // ✅ 廠商 + 功能類型都選
             if (comboFunctionType.SelectedValue != null && comboVendor.SelectedValue != null)
             {
                 string functionType = comboFunctionType.SelectedValue.ToString();
-                int vendorId = Convert.ToInt32(comboVendor.SelectedValue);
+                int vendorId = Convert.ToInt32(((DataRowView)comboVendor.SelectedItem)["VendorID"]);
 
-                string connStr = Settings.Default.ACConnectionString;
                 string sql = @"
-                    SELECT DISTINCT cp.*
-                    FROM CoolingProduct cp
-                    JOIN Vendor v ON cp.VendorID = v.VendorID
-                    JOIN CoolingFunctionMap map ON cp.CoolingProductID = map.CoolingProductID
-                    JOIN CoolingFunction cf ON map.FunctionTypeID = cf.FunctionTypeID
-                    WHERE v.VendorID = @VendorID AND cf.FunctionType = @FunctionType";
+            SELECT DISTINCT cp.*
+            FROM CoolingProduct cp
+            JOIN CoolingFunctionMap map ON cp.CoolingProductID = map.CoolingProductID
+            JOIN CoolingFunction cf ON map.FunctionTypeID = cf.FunctionTypeID
+            WHERE cp.VendorID = @VendorID AND cf.FunctionType = @FunctionType";
 
                 using (SqlConnection conn = new SqlConnection(connStr))
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -178,15 +196,38 @@ namespace prjAircondition.Shop
                     dataGridView1.DataSource = dt;
                 }
             }
+            // ✅ 只有選功能（沒選廠商）
+            else if (comboFunctionType.SelectedValue != null)
+            {
+                string functionType = comboFunctionType.SelectedValue.ToString();
+
+                string sql = @"
+            SELECT DISTINCT cp.*
+            FROM CoolingProduct cp
+            JOIN CoolingFunctionMap map ON cp.CoolingProductID = map.CoolingProductID
+            JOIN CoolingFunction cf ON map.FunctionTypeID = cf.FunctionTypeID
+            WHERE cf.FunctionType = @FunctionType";
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@FunctionType", functionType);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            // ✅ 只有選廠商（已有 fallback）
             else if (comboVendor.SelectedValue != null)
             {
                 comboVendor_SelectedIndexChanged(sender, e);
             }
             else
             {
-                MessageBox.Show("請先選擇廠商與功能分類！");
+                MessageBox.Show("請至少選擇廠商或功能分類！");
             }
-
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -202,6 +243,10 @@ namespace prjAircondition.Shop
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "ProductStatus" && e.Value is int val3)
             {
                 e.Value = val3 == 0 ? "下架" : "上架";
+            }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "VendorID" && e.Value is int val4)
+            {
+                e.Value = val4 == 1 ? "日立" : val4 == 2 ? "大金" : val4 == 3 ? "三菱" : "其他廠商";
             }
         }
 
@@ -247,7 +292,7 @@ namespace prjAircondition.Shop
                 this.Validate();
                 bindingSource.EndEdit();
 
-                // ✅ 第一步：記錄目前選取的 CoolingProductID
+                // 記錄目前選取的 CoolingProductID
                 int selectedID = -1;
                 if (dataGridView1.CurrentRow != null)
                 {
@@ -256,7 +301,7 @@ namespace prjAircondition.Shop
                         selectedID = Convert.ToInt32(val);
                 }
 
-                // ✅ 第二步：更新 UpdatedTime
+                // 更新 UpdatedTime
                 foreach (DataRow row in dataSet.Tables["CoolingProduct"].Rows)
                 {
                     if (row.RowState == DataRowState.Modified)
@@ -265,14 +310,14 @@ namespace prjAircondition.Shop
                     }
                 }
 
-                // ✅ 第三步：更新資料庫
+                // 更新資料庫
                 adapter.Update(dataSet, "CoolingProduct");
                 MessageBox.Show("修改儲存成功！");
 
-                // ✅ 第四步：重新載入資料
+                // 重新載入資料
                 LoadCoolingProduct();
 
-                // ✅ 第五步：嘗試重新選取剛剛那一筆 CoolingProductID
+                // 嘗試重新選取剛剛那一筆 CoolingProductID
                 if (selectedID > 0)
                 {
                     foreach (DataGridViewRow row in dataGridView1.Rows)

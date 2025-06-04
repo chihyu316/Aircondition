@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Shop\UserControl\FormOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shop\UserControl\FormOrderDetails.Designer.cs">
+      <DependentUpon>FormOrderDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recruit\Form\C_FrmAddB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,9 @@
     </Compile>
     <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
       <DependentUpon>C_CourseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop\UserControl\FormOrderDetails.resx">
+      <DependentUpon>FormOrderDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shop\UserControl\S_UcMateral.resx">
       <DependentUpon>S_UcMateral.cs</DependentUpon>

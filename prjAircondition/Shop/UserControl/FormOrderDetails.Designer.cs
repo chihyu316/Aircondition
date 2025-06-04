@@ -34,76 +34,64 @@
             System.Windows.Forms.Label orderIDLabel;
             System.Windows.Forms.Label coolingProductIDLabel;
             System.Windows.Forms.Label materialIDLabel;
-            System.Windows.Forms.Label unitPriceLabel;
+            System.Windows.Forms.Label PriceLable;
             System.Windows.Forms.Label quantityLabel;
             System.Windows.Forms.Label subtotalLabel;
             System.Windows.Forms.Label shipmentTrackingLabel;
             System.Windows.Forms.Label workOrderIDLabel;
             System.Windows.Forms.Label paymentRecordLabel;
-            System.Windows.Forms.Label createdTimeLabel;
-            System.Windows.Forms.Label createdByLabel;
-            System.Windows.Forms.Label updatedTimeLabel;
-            System.Windows.Forms.Label updatedByLabel;
-            this.s_DOrderProcessing = new prjAircondition.Shop.DataSet.S_DOrderProcessing();
+            this.s_DProductImage = new prjAircondition.Shop.DataSet.S_DProductImage();
             this.orderDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orderDetailsTableAdapter = new prjAircondition.Shop.DataSet.S_DOrderProcessingTableAdapters.OrderDetailsTableAdapter();
-            this.tableAdapterManager = new prjAircondition.Shop.DataSet.S_DOrderProcessingTableAdapters.TableAdapterManager();
+            this.orderDetailsTableAdapter = new prjAircondition.Shop.DataSet.S_DProductImageTableAdapters.OrderDetailsTableAdapter();
+            this.tableAdapterManager = new prjAircondition.Shop.DataSet.S_DProductImageTableAdapters.TableAdapterManager();
             this.orderDetailsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.orderDetailsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.detailIDTextBox = new System.Windows.Forms.TextBox();
             this.orderIDTextBox = new System.Windows.Forms.TextBox();
-            this.coolingProductIDTextBox = new System.Windows.Forms.TextBox();
-            this.materialIDTextBox = new System.Windows.Forms.TextBox();
-            this.unitPriceTextBox = new System.Windows.Forms.TextBox();
-            this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.subtotalTextBox = new System.Windows.Forms.TextBox();
+            this.txtCoolingProductID = new System.Windows.Forms.TextBox();
+            this.txtMaterialID = new System.Windows.Forms.TextBox();
+            this.txtUnitPrice = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.shipmentTrackingTextBox = new System.Windows.Forms.TextBox();
             this.workOrderIDTextBox = new System.Windows.Forms.TextBox();
             this.paymentRecordTextBox = new System.Windows.Forms.TextBox();
-            this.createdTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.createdByTextBox = new System.Windows.Forms.TextBox();
-            this.updatedTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.updatedByTextBox = new System.Windows.Forms.TextBox();
             detailIDLabel = new System.Windows.Forms.Label();
             orderIDLabel = new System.Windows.Forms.Label();
             coolingProductIDLabel = new System.Windows.Forms.Label();
             materialIDLabel = new System.Windows.Forms.Label();
-            unitPriceLabel = new System.Windows.Forms.Label();
+            PriceLable = new System.Windows.Forms.Label();
             quantityLabel = new System.Windows.Forms.Label();
             subtotalLabel = new System.Windows.Forms.Label();
             shipmentTrackingLabel = new System.Windows.Forms.Label();
             workOrderIDLabel = new System.Windows.Forms.Label();
             paymentRecordLabel = new System.Windows.Forms.Label();
-            createdTimeLabel = new System.Windows.Forms.Label();
-            createdByLabel = new System.Windows.Forms.Label();
-            updatedTimeLabel = new System.Windows.Forms.Label();
-            updatedByLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.s_DProductImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingNavigator)).BeginInit();
             this.orderDetailsBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
-            // s_DOrderProcessing
+            // s_DProductImage
             // 
-            this.s_DOrderProcessing.DataSetName = "S_DOrderProcessing";
-            this.s_DOrderProcessing.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.s_DProductImage.DataSetName = "S_DProductImage";
+            this.s_DProductImage.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // orderDetailsBindingSource
             // 
             this.orderDetailsBindingSource.DataMember = "OrderDetails";
-            this.orderDetailsBindingSource.DataSource = this.s_DOrderProcessing;
+            this.orderDetailsBindingSource.DataSource = this.s_DProductImage;
             // 
             // orderDetailsTableAdapter
             // 
@@ -112,9 +100,10 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.MemberTableAdapter = null;
             this.tableAdapterManager.OrderDetailsTableAdapter = this.orderDetailsTableAdapter;
             this.tableAdapterManager.OrdersTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = prjAircondition.Shop.DataSet.S_DOrderProcessingTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = prjAircondition.Shop.DataSet.S_DProductImageTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // orderDetailsBindingNavigator
             // 
@@ -143,9 +132,34 @@
             this.orderDetailsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.orderDetailsBindingNavigator.Name = "orderDetailsBindingNavigator";
             this.orderDetailsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.orderDetailsBindingNavigator.Size = new System.Drawing.Size(800, 27);
+            this.orderDetailsBindingNavigator.Size = new System.Drawing.Size(766, 31);
             this.orderDetailsBindingNavigator.TabIndex = 0;
             this.orderDetailsBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Text = "加入新的";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorCountItem.Text = "/{0}";
+            this.bindingNavigatorCountItem.ToolTipText = "項目總數";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Text = "刪除";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -153,7 +167,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "移到最前面";
             // 
             // bindingNavigatorMovePreviousItem
@@ -162,34 +176,28 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "移到上一個";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "位置";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "目前的位置";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(34, 19);
-            this.bindingNavigatorCountItem.Text = "/{0}";
-            this.bindingNavigatorCountItem.ToolTipText = "項目總數";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -197,7 +205,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "移到下一個";
             // 
             // bindingNavigatorMoveLastItem
@@ -206,62 +214,44 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "移到最後面";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "加入新的";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "刪除";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // orderDetailsBindingNavigatorSaveItem
             // 
             this.orderDetailsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.orderDetailsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("orderDetailsBindingNavigatorSaveItem.Image")));
             this.orderDetailsBindingNavigatorSaveItem.Name = "orderDetailsBindingNavigatorSaveItem";
-            this.orderDetailsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.orderDetailsBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.orderDetailsBindingNavigatorSaveItem.Text = "儲存資料";
-            this.orderDetailsBindingNavigatorSaveItem.Click += new System.EventHandler(this.orderDetailsBindingNavigatorSaveItem_Click_2);
+            this.orderDetailsBindingNavigatorSaveItem.Click += new System.EventHandler(this.orderDetailsBindingNavigatorSaveItem_Click);
             // 
             // detailIDLabel
             // 
             detailIDLabel.AutoSize = true;
-            detailIDLabel.Location = new System.Drawing.Point(240, 47);
+            detailIDLabel.Location = new System.Drawing.Point(41, 78);
             detailIDLabel.Name = "detailIDLabel";
-            detailIDLabel.Size = new System.Drawing.Size(71, 15);
+            detailIDLabel.Size = new System.Drawing.Size(67, 15);
             detailIDLabel.TabIndex = 1;
-            detailIDLabel.Text = "明細編號:";
+            detailIDLabel.Text = "明細編號";
             // 
             // detailIDTextBox
             // 
             this.detailIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "DetailID", true));
-            this.detailIDTextBox.Location = new System.Drawing.Point(369, 44);
+            this.detailIDTextBox.Location = new System.Drawing.Point(170, 75);
             this.detailIDTextBox.Name = "detailIDTextBox";
-            this.detailIDTextBox.Size = new System.Drawing.Size(200, 25);
+            this.detailIDTextBox.Size = new System.Drawing.Size(250, 25);
             this.detailIDTextBox.TabIndex = 2;
             // 
             // orderIDLabel
             // 
             orderIDLabel.AutoSize = true;
-            orderIDLabel.Location = new System.Drawing.Point(240, 78);
+            orderIDLabel.Location = new System.Drawing.Point(41, 109);
             orderIDLabel.Name = "orderIDLabel";
             orderIDLabel.Size = new System.Drawing.Size(67, 15);
             orderIDLabel.TabIndex = 3;
@@ -270,100 +260,103 @@
             // orderIDTextBox
             // 
             this.orderIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "OrderID", true));
-            this.orderIDTextBox.Location = new System.Drawing.Point(369, 75);
+            this.orderIDTextBox.Location = new System.Drawing.Point(170, 106);
             this.orderIDTextBox.Name = "orderIDTextBox";
-            this.orderIDTextBox.Size = new System.Drawing.Size(200, 25);
+            this.orderIDTextBox.Size = new System.Drawing.Size(250, 25);
             this.orderIDTextBox.TabIndex = 4;
             // 
             // coolingProductIDLabel
             // 
             coolingProductIDLabel.AutoSize = true;
-            coolingProductIDLabel.Location = new System.Drawing.Point(240, 109);
+            coolingProductIDLabel.Location = new System.Drawing.Point(41, 140);
             coolingProductIDLabel.Name = "coolingProductIDLabel";
             coolingProductIDLabel.Size = new System.Drawing.Size(97, 15);
             coolingProductIDLabel.TabIndex = 5;
             coolingProductIDLabel.Text = "冷氣商品編號";
             // 
-            // coolingProductIDTextBox
+            // txtCoolingProductID
             // 
-            this.coolingProductIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "CoolingProductID", true));
-            this.coolingProductIDTextBox.Location = new System.Drawing.Point(369, 106);
-            this.coolingProductIDTextBox.Name = "coolingProductIDTextBox";
-            this.coolingProductIDTextBox.Size = new System.Drawing.Size(200, 25);
-            this.coolingProductIDTextBox.TabIndex = 6;
+            this.txtCoolingProductID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "CoolingProductID", true));
+            this.txtCoolingProductID.Location = new System.Drawing.Point(170, 137);
+            this.txtCoolingProductID.Name = "txtCoolingProductID";
+            this.txtCoolingProductID.Size = new System.Drawing.Size(250, 25);
+            this.txtCoolingProductID.TabIndex = 6;
+            this.txtCoolingProductID.TextChanged += new System.EventHandler(this.txtCoolingProductID_TextChanged);
+            this.txtCoolingProductID.Leave += new System.EventHandler(this.txtCoolingProductID_Leave);
             // 
             // materialIDLabel
             // 
             materialIDLabel.AutoSize = true;
-            materialIDLabel.Location = new System.Drawing.Point(240, 140);
+            materialIDLabel.Location = new System.Drawing.Point(41, 171);
             materialIDLabel.Name = "materialIDLabel";
             materialIDLabel.Size = new System.Drawing.Size(97, 15);
             materialIDLabel.TabIndex = 7;
             materialIDLabel.Text = "材料商品編號";
             // 
-            // materialIDTextBox
+            // txtMaterialID
             // 
-            this.materialIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "MaterialID", true));
-            this.materialIDTextBox.Location = new System.Drawing.Point(369, 137);
-            this.materialIDTextBox.Name = "materialIDTextBox";
-            this.materialIDTextBox.Size = new System.Drawing.Size(200, 25);
-            this.materialIDTextBox.TabIndex = 8;
+            this.txtMaterialID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "MaterialID", true));
+            this.txtMaterialID.Location = new System.Drawing.Point(170, 168);
+            this.txtMaterialID.Name = "txtMaterialID";
+            this.txtMaterialID.Size = new System.Drawing.Size(250, 25);
+            this.txtMaterialID.TabIndex = 8;
+            this.txtMaterialID.Leave += new System.EventHandler(this.txtMaterialID_Leave);
             // 
-            // unitPriceLabel
+            // PriceLable
             // 
-            unitPriceLabel.AutoSize = true;
-            unitPriceLabel.Location = new System.Drawing.Point(240, 171);
-            unitPriceLabel.Name = "unitPriceLabel";
-            unitPriceLabel.Size = new System.Drawing.Size(37, 15);
-            unitPriceLabel.TabIndex = 9;
-            unitPriceLabel.Text = "單價";
+            PriceLable.AutoSize = true;
+            PriceLable.Location = new System.Drawing.Point(41, 202);
+            PriceLable.Name = "PriceLable";
+            PriceLable.Size = new System.Drawing.Size(37, 15);
+            PriceLable.TabIndex = 9;
+            PriceLable.Text = "單價";
             // 
-            // unitPriceTextBox
+            // txtUnitPrice
             // 
-            this.unitPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "UnitPrice", true));
-            this.unitPriceTextBox.Location = new System.Drawing.Point(369, 168);
-            this.unitPriceTextBox.Name = "unitPriceTextBox";
-            this.unitPriceTextBox.Size = new System.Drawing.Size(200, 25);
-            this.unitPriceTextBox.TabIndex = 10;
+            this.txtUnitPrice.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "UnitPrice", true));
+            this.txtUnitPrice.Location = new System.Drawing.Point(170, 199);
+            this.txtUnitPrice.Name = "txtUnitPrice";
+            this.txtUnitPrice.Size = new System.Drawing.Size(250, 25);
+            this.txtUnitPrice.TabIndex = 10;
             // 
             // quantityLabel
             // 
             quantityLabel.AutoSize = true;
-            quantityLabel.Location = new System.Drawing.Point(240, 202);
+            quantityLabel.Location = new System.Drawing.Point(41, 233);
             quantityLabel.Name = "quantityLabel";
             quantityLabel.Size = new System.Drawing.Size(37, 15);
             quantityLabel.TabIndex = 11;
             quantityLabel.Text = "數量";
             // 
-            // quantityTextBox
+            // txtQuantity
             // 
-            this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "Quantity", true));
-            this.quantityTextBox.Location = new System.Drawing.Point(369, 199);
-            this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(200, 25);
-            this.quantityTextBox.TabIndex = 12;
+            this.txtQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "Quantity", true));
+            this.txtQuantity.Location = new System.Drawing.Point(170, 230);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(250, 25);
+            this.txtQuantity.TabIndex = 12;
             // 
             // subtotalLabel
             // 
             subtotalLabel.AutoSize = true;
-            subtotalLabel.Location = new System.Drawing.Point(240, 233);
+            subtotalLabel.Location = new System.Drawing.Point(41, 264);
             subtotalLabel.Name = "subtotalLabel";
             subtotalLabel.Size = new System.Drawing.Size(37, 15);
             subtotalLabel.TabIndex = 13;
             subtotalLabel.Text = "小計";
             // 
-            // subtotalTextBox
+            // txtSubtotal
             // 
-            this.subtotalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "Subtotal", true));
-            this.subtotalTextBox.Location = new System.Drawing.Point(369, 230);
-            this.subtotalTextBox.Name = "subtotalTextBox";
-            this.subtotalTextBox.Size = new System.Drawing.Size(200, 25);
-            this.subtotalTextBox.TabIndex = 14;
+            this.txtSubtotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "Subtotal", true));
+            this.txtSubtotal.Location = new System.Drawing.Point(170, 261);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(250, 25);
+            this.txtSubtotal.TabIndex = 14;
             // 
             // shipmentTrackingLabel
             // 
             shipmentTrackingLabel.AutoSize = true;
-            shipmentTrackingLabel.Location = new System.Drawing.Point(240, 264);
+            shipmentTrackingLabel.Location = new System.Drawing.Point(41, 295);
             shipmentTrackingLabel.Name = "shipmentTrackingLabel";
             shipmentTrackingLabel.Size = new System.Drawing.Size(82, 15);
             shipmentTrackingLabel.TabIndex = 15;
@@ -372,15 +365,15 @@
             // shipmentTrackingTextBox
             // 
             this.shipmentTrackingTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "ShipmentTracking", true));
-            this.shipmentTrackingTextBox.Location = new System.Drawing.Point(369, 261);
+            this.shipmentTrackingTextBox.Location = new System.Drawing.Point(170, 292);
             this.shipmentTrackingTextBox.Name = "shipmentTrackingTextBox";
-            this.shipmentTrackingTextBox.Size = new System.Drawing.Size(200, 25);
+            this.shipmentTrackingTextBox.Size = new System.Drawing.Size(250, 25);
             this.shipmentTrackingTextBox.TabIndex = 16;
             // 
             // workOrderIDLabel
             // 
             workOrderIDLabel.AutoSize = true;
-            workOrderIDLabel.Location = new System.Drawing.Point(240, 295);
+            workOrderIDLabel.Location = new System.Drawing.Point(41, 326);
             workOrderIDLabel.Name = "workOrderIDLabel";
             workOrderIDLabel.Size = new System.Drawing.Size(67, 15);
             workOrderIDLabel.TabIndex = 17;
@@ -389,15 +382,15 @@
             // workOrderIDTextBox
             // 
             this.workOrderIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "WorkOrderID", true));
-            this.workOrderIDTextBox.Location = new System.Drawing.Point(369, 292);
+            this.workOrderIDTextBox.Location = new System.Drawing.Point(170, 323);
             this.workOrderIDTextBox.Name = "workOrderIDTextBox";
-            this.workOrderIDTextBox.Size = new System.Drawing.Size(200, 25);
+            this.workOrderIDTextBox.Size = new System.Drawing.Size(250, 25);
             this.workOrderIDTextBox.TabIndex = 18;
             // 
             // paymentRecordLabel
             // 
             paymentRecordLabel.AutoSize = true;
-            paymentRecordLabel.Location = new System.Drawing.Point(240, 326);
+            paymentRecordLabel.Location = new System.Drawing.Point(41, 357);
             paymentRecordLabel.Name = "paymentRecordLabel";
             paymentRecordLabel.Size = new System.Drawing.Size(67, 15);
             paymentRecordLabel.TabIndex = 19;
@@ -406,117 +399,41 @@
             // paymentRecordTextBox
             // 
             this.paymentRecordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "PaymentRecord", true));
-            this.paymentRecordTextBox.Location = new System.Drawing.Point(369, 323);
+            this.paymentRecordTextBox.Location = new System.Drawing.Point(170, 354);
             this.paymentRecordTextBox.Name = "paymentRecordTextBox";
-            this.paymentRecordTextBox.Size = new System.Drawing.Size(200, 25);
+            this.paymentRecordTextBox.Size = new System.Drawing.Size(250, 25);
             this.paymentRecordTextBox.TabIndex = 20;
-            // 
-            // createdTimeLabel
-            // 
-            createdTimeLabel.AutoSize = true;
-            createdTimeLabel.Location = new System.Drawing.Point(240, 358);
-            createdTimeLabel.Name = "createdTimeLabel";
-            createdTimeLabel.Size = new System.Drawing.Size(67, 15);
-            createdTimeLabel.TabIndex = 21;
-            createdTimeLabel.Text = "建立時間";
-            // 
-            // createdTimeDateTimePicker
-            // 
-            this.createdTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderDetailsBindingSource, "CreatedTime", true));
-            this.createdTimeDateTimePicker.Location = new System.Drawing.Point(369, 354);
-            this.createdTimeDateTimePicker.Name = "createdTimeDateTimePicker";
-            this.createdTimeDateTimePicker.Size = new System.Drawing.Size(200, 25);
-            this.createdTimeDateTimePicker.TabIndex = 22;
-            // 
-            // createdByLabel
-            // 
-            createdByLabel.AutoSize = true;
-            createdByLabel.Location = new System.Drawing.Point(240, 388);
-            createdByLabel.Name = "createdByLabel";
-            createdByLabel.Size = new System.Drawing.Size(52, 15);
-            createdByLabel.TabIndex = 23;
-            createdByLabel.Text = "建立人";
-            // 
-            // createdByTextBox
-            // 
-            this.createdByTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "CreatedBy", true));
-            this.createdByTextBox.Location = new System.Drawing.Point(369, 385);
-            this.createdByTextBox.Name = "createdByTextBox";
-            this.createdByTextBox.Size = new System.Drawing.Size(200, 25);
-            this.createdByTextBox.TabIndex = 24;
-            // 
-            // updatedTimeLabel
-            // 
-            updatedTimeLabel.AutoSize = true;
-            updatedTimeLabel.Location = new System.Drawing.Point(240, 420);
-            updatedTimeLabel.Name = "updatedTimeLabel";
-            updatedTimeLabel.Size = new System.Drawing.Size(67, 15);
-            updatedTimeLabel.TabIndex = 25;
-            updatedTimeLabel.Text = "修改時間";
-            // 
-            // updatedTimeDateTimePicker
-            // 
-            this.updatedTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.orderDetailsBindingSource, "UpdatedTime", true));
-            this.updatedTimeDateTimePicker.Location = new System.Drawing.Point(369, 416);
-            this.updatedTimeDateTimePicker.Name = "updatedTimeDateTimePicker";
-            this.updatedTimeDateTimePicker.Size = new System.Drawing.Size(200, 25);
-            this.updatedTimeDateTimePicker.TabIndex = 26;
-            // 
-            // updatedByLabel
-            // 
-            updatedByLabel.AutoSize = true;
-            updatedByLabel.Location = new System.Drawing.Point(240, 450);
-            updatedByLabel.Name = "updatedByLabel";
-            updatedByLabel.Size = new System.Drawing.Size(52, 15);
-            updatedByLabel.TabIndex = 27;
-            updatedByLabel.Text = "修改人";
-            // 
-            // updatedByTextBox
-            // 
-            this.updatedByTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.orderDetailsBindingSource, "UpdatedBy", true));
-            this.updatedByTextBox.Location = new System.Drawing.Point(369, 447);
-            this.updatedByTextBox.Name = "updatedByTextBox";
-            this.updatedByTextBox.Size = new System.Drawing.Size(200, 25);
-            this.updatedByTextBox.TabIndex = 28;
             // 
             // FormOrderDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 550);
+            this.ClientSize = new System.Drawing.Size(766, 513);
             this.Controls.Add(detailIDLabel);
             this.Controls.Add(this.detailIDTextBox);
             this.Controls.Add(orderIDLabel);
             this.Controls.Add(this.orderIDTextBox);
             this.Controls.Add(coolingProductIDLabel);
-            this.Controls.Add(this.coolingProductIDTextBox);
+            this.Controls.Add(this.txtCoolingProductID);
             this.Controls.Add(materialIDLabel);
-            this.Controls.Add(this.materialIDTextBox);
-            this.Controls.Add(unitPriceLabel);
-            this.Controls.Add(this.unitPriceTextBox);
+            this.Controls.Add(this.txtMaterialID);
+            this.Controls.Add(PriceLable);
+            this.Controls.Add(this.txtUnitPrice);
             this.Controls.Add(quantityLabel);
-            this.Controls.Add(this.quantityTextBox);
+            this.Controls.Add(this.txtQuantity);
             this.Controls.Add(subtotalLabel);
-            this.Controls.Add(this.subtotalTextBox);
+            this.Controls.Add(this.txtSubtotal);
             this.Controls.Add(shipmentTrackingLabel);
             this.Controls.Add(this.shipmentTrackingTextBox);
             this.Controls.Add(workOrderIDLabel);
             this.Controls.Add(this.workOrderIDTextBox);
             this.Controls.Add(paymentRecordLabel);
             this.Controls.Add(this.paymentRecordTextBox);
-            this.Controls.Add(createdTimeLabel);
-            this.Controls.Add(this.createdTimeDateTimePicker);
-            this.Controls.Add(createdByLabel);
-            this.Controls.Add(this.createdByTextBox);
-            this.Controls.Add(updatedTimeLabel);
-            this.Controls.Add(this.updatedTimeDateTimePicker);
-            this.Controls.Add(updatedByLabel);
-            this.Controls.Add(this.updatedByTextBox);
             this.Controls.Add(this.orderDetailsBindingNavigator);
             this.Name = "FormOrderDetails";
-            this.Text = "付款紀錄";
+            this.Text = "FormOrderDetails";
             this.Load += new System.EventHandler(this.FormOrderDetails_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.s_DProductImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderDetailsBindingNavigator)).EndInit();
             this.orderDetailsBindingNavigator.ResumeLayout(false);
@@ -528,10 +445,10 @@
 
         #endregion
 
-        private Shop.DataSet.S_DOrderProcessing s_DOrderProcessing;
+        private Shop.DataSet.S_DProductImage s_DProductImage;
         private System.Windows.Forms.BindingSource orderDetailsBindingSource;
-        private Shop.DataSet.S_DOrderProcessingTableAdapters.OrderDetailsTableAdapter orderDetailsTableAdapter;
-        private Shop.DataSet.S_DOrderProcessingTableAdapters.TableAdapterManager tableAdapterManager;
+        private Shop.DataSet.S_DProductImageTableAdapters.OrderDetailsTableAdapter orderDetailsTableAdapter;
+        private Shop.DataSet.S_DProductImageTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator orderDetailsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -547,17 +464,13 @@
         private System.Windows.Forms.ToolStripButton orderDetailsBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox detailIDTextBox;
         private System.Windows.Forms.TextBox orderIDTextBox;
-        private System.Windows.Forms.TextBox coolingProductIDTextBox;
-        private System.Windows.Forms.TextBox materialIDTextBox;
-        private System.Windows.Forms.TextBox unitPriceTextBox;
-        private System.Windows.Forms.TextBox quantityTextBox;
-        private System.Windows.Forms.TextBox subtotalTextBox;
+        private System.Windows.Forms.TextBox txtCoolingProductID;
+        private System.Windows.Forms.TextBox txtMaterialID;
+        private System.Windows.Forms.TextBox txtUnitPrice;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox txtSubtotal;
         private System.Windows.Forms.TextBox shipmentTrackingTextBox;
         private System.Windows.Forms.TextBox workOrderIDTextBox;
         private System.Windows.Forms.TextBox paymentRecordTextBox;
-        private System.Windows.Forms.DateTimePicker createdTimeDateTimePicker;
-        private System.Windows.Forms.TextBox createdByTextBox;
-        private System.Windows.Forms.DateTimePicker updatedTimeDateTimePicker;
-        private System.Windows.Forms.TextBox updatedByTextBox;
     }
 }
