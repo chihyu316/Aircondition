@@ -93,7 +93,6 @@
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "\t刪除";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAddNew
             // 

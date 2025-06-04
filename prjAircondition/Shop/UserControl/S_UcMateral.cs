@@ -81,7 +81,7 @@ namespace prjAircondition.Shop
                 if (dataGridView1.Columns.Contains("UpdatedBy")) dataGridView1.Columns["UpdatedBy"].HeaderText = "更新者";
                 if (dataGridView1.Columns.Contains("SmallImage")) dataGridView1.Columns["SmallImage"].HeaderText = "圖片資料";
 
-
+                dataGridView1.Columns["Price"].DefaultCellStyle.Format = "N0";//N0 表示「不顯示小數點」僅影響畫面，不影響資料庫
 
             }
             // ✅ 若尚未加入圖片按鈕欄位就加
@@ -125,7 +125,7 @@ namespace prjAircondition.Shop
                         }
 
                         row["CreatedTime"] = DateTime.Now;
-                        row["CreatedBy"] = "admin";
+                        row["CreatedBy"] = "Adminator";
                         row["IsAvailable"] = true;
                         hasNewRow = true;
                     }
@@ -167,6 +167,7 @@ namespace prjAircondition.Shop
                     if (row.RowState == DataRowState.Modified)
                     {
                         row["UpdatedTime"] = DateTime.Now;
+                        row["UpdatedBy"] = "Adminator";
                         isModified = true;
                     }
                 }
@@ -246,14 +247,22 @@ namespace prjAircondition.Shop
 
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
-            // 如果點的是 MemberID 或 MemberAccount 欄位
-            if (colName == "MemberID" || colName == "MemberAccount")
+            // ✅ 處理圖片欄位
+            if (colName == "圖片")
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                ShowImageDialog(selectedRow); // ✅ 彈出圖片視窗
+            }
+
+            // ✅ 處理會員細節（如果還需要）
+            else if (colName == "MemberID" || colName == "MemberAccount")
             {
                 string memberId = dataGridView1.Rows[e.RowIndex].Cells["MemberID"].Value.ToString();
                 FormOrderDetails frm = new FormOrderDetails(memberId);
                 frm.ShowDialog();
             }
         }
+        
         //ShowImageDialog() 方法
         private void ShowImageDialog(DataGridViewRow row)
         {

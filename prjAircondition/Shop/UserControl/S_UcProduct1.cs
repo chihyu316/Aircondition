@@ -131,7 +131,7 @@ namespace prjAircondition.Shop
                             !int.TryParse(stockText, out int stock) || stock < 0 )
                             //!int.TryParse(rateText, out int rate) || rate < 0)
                         {
-                            MessageBox.Show("請確認欄位是否完整與正確（名稱、價格、庫存、分期）", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("請確認欄位是否完整與正確（名稱、價格、庫存）", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
@@ -232,6 +232,11 @@ namespace prjAircondition.Shop
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (e.ColumnIndex < 0 || e.ColumnIndex >= dataGridView1.Columns.Count)
+                return;
+
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Category" && e.Value is int val1)
             {
                 e.Value = val1 == 0 ? "家用" : val1 == 1 ? "商用" : "其他";
