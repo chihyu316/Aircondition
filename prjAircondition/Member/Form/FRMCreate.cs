@@ -104,7 +104,6 @@ namespace prjAircondition.Member
             if (string.IsNullOrWhiteSpace(password)) emptyFields.Add("密碼");
             if (string.IsNullOrWhiteSpace(email)) emptyFields.Add("信箱");
             if (string.IsNullOrWhiteSpace(phonenumber)) emptyFields.Add("電話");
-            if (string.IsNullOrWhiteSpace(nickname)) emptyFields.Add("暱稱");
 
             if (emptyFields.Count > 0)
             {
