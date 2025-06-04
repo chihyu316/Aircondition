@@ -1,6 +1,7 @@
 ﻿using prjAircondition.Properties;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -82,7 +83,26 @@ namespace prjAircondition.Member
             }
             return false;
         }
-        
+        public void SQLDataFill(string Account)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.Parameters.Add("@Account",SqlDbType.NVarChar,10).Value = Account;
+            string query = @"SELECT [MemberID],[ProductType],[InstallDate],[Address],[Notes],[FileCreateTime],[RegularMaintenanceNotice] 
+                            FROM [dbo].[MemberProduct] mp
+                            JOIN 
+                            [dbo].[Member] m ON mp.MemberID = m.MemberID
+                            WHERE 
+                            m.MemberAccount = @account";
+            DataTable resulttable = new DataTable();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
     }
 }

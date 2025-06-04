@@ -15,6 +15,7 @@ namespace prjAircondition.Member
 {
     public partial class M_memberProduct : UserControl
     {
+        MemberClass MC = new MemberClass();
         public M_memberProduct()
         {
             InitializeComponent();
@@ -56,6 +57,7 @@ namespace prjAircondition.Member
         private void MemberListV_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Account = MemberListV.Text;
+            MC.SQLDataFill(Account);
         }
 
         private void M_memberProduct_Load(object sender, EventArgs e)
