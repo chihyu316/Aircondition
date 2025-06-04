@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjAircondition.Dicuss.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,7 @@ namespace prjAircondition.Dicuss
         public D_DisControl()
         {
             InitializeComponent();
-            string TTT = "AAAA";
-            int A = 44444444;
+            D_PostdataGridView.DataSource = D_DataConnect.LoadhPostmain();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
