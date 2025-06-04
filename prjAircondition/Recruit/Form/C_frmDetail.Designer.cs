@@ -1,6 +1,6 @@
 ﻿namespace prjAircondition.Recruit
 {
-    partial class C_FrmDtail
+    partial class C_frmDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -58,7 +58,7 @@
             System.Windows.Forms.Label createDateLabel1;
             System.Windows.Forms.Label categoryIDLabel1;
             System.Windows.Forms.Label categoryNameLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(C_FrmDtail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(C_frmDetail));
             this.courseIDTextBox = new System.Windows.Forms.TextBox();
             this.courseBatchIDTextBox = new System.Windows.Forms.TextBox();
             this.courseTitleTextBox = new System.Windows.Forms.TextBox();

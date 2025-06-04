@@ -135,11 +135,11 @@
     <Compile Include="Recruit\UserControl\C_CourseControl.Designer.cs">
       <DependentUpon>C_CourseControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recruit\Form\C_FrmDtail.cs">
+    <Compile Include="Recruit\Form\C_frmDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recruit\Form\C_FrmDtail.Designer.cs">
-      <DependentUpon>C_FrmDtail.cs</DependentUpon>
+    <Compile Include="Recruit\Form\C_frmDetail.Designer.cs">
+      <DependentUpon>C_frmDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Recruit\UserControl\C_MYCCntrol.cs">
       <SubType>UserControl</SubType>

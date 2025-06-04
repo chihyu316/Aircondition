@@ -114,7 +114,7 @@ namespace prjAircondition.Recruit
             int Id = (int)this.dataGridView1.CurrentRow.Cells[1].Value;
             if (e.ColumnIndex == 0)
             {
-                C_FrmDtail detail = new C_FrmDtail();
+                C_frmDetail detail = new C_frmDetail();
                 detail.CategoryID = Id;
                 detail.CourseBatchID = Id;
                 detail.CourseID = Id;

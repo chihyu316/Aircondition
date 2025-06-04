@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace prjAircondition.Recruit
 {
-    public partial class C_FrmDtail : Form
+    public partial class C_frmDetail : Form
     {
         public int CategoryID { get; internal set; }
         public int CourseBatchID { get; internal set; }
         public int CourseID { get; internal set; }
        
-        public C_FrmDtail()
+        public C_frmDetail()
         {
             InitializeComponent();
         }
