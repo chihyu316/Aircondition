@@ -20,6 +20,7 @@ namespace prjAircondition
             //Application.Run(new Form1());
             Application.Run(new FRMloLogin());
             //Application.Run(new C_FrmAddnewC ());
+            //Application.Run(new C_FrmEdit());
         }
     }
 }

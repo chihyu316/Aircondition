@@ -28,6 +28,7 @@ namespace prjAircondition.Recruit
 
         private void CourseControl_Load()
         {
+           
             //Connected
             //1.SqlConnection
             //2.SqlCommand
@@ -51,7 +52,7 @@ namespace prjAircondition.Recruit
                     {
                         this.comboBox1.Items.Add(reader["CategoryName"]);
                     }
-                    this.comboBox1.SelectedIndex = 0;
+                    //this.comboBox1.SelectedIndex = 0;
                 }
 
             }
@@ -106,6 +107,13 @@ namespace prjAircondition.Recruit
                 this.dataGridView1.Columns["梯次狀態"].Visible = false;
                 this.dataGridView1.Columns["課程狀態"].Visible = false;
 
+                this.dataGridView1.ReadOnly = false;
+
+                // 設定哪些欄位可以編輯（可選）
+                this.dataGridView1.Columns["編號"].ReadOnly = true;  // 編號不能改
+                this.dataGridView1.Columns["BatchStatus"].ReadOnly = true;  // 隱藏欄位不能改
+                this.dataGridView1.Columns["CourseStatus"].ReadOnly = true;  // 隱藏欄位不能改
+
             }
         }
 
@@ -155,9 +163,63 @@ namespace prjAircondition.Recruit
             }
         }
 
-        private void C_btnAddBatch_click(object sender, EventArgs e)
+        private void C_btnalterC_click(object sender, EventArgs e) //修改課程
         {
+            MessageBox.Show("現在可以修改表格了！雙擊要修改的欄位即可");
+            this.dataGridView1.ReadOnly = false;
+        }
+             private void button4_Click(object sender, EventArgs e)
+        {
+            string connstring = Settings.Default.ACConnectionString;
+            DataTable dt = (DataTable)this.dataGridView1.DataSource;
 
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connstring))
+                {
+                    conn.Open();
+
+                    // 只處理有變更的行
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        if (row.RowState == DataRowState.Modified)
+                        {
+                            int courseID = Convert.ToInt32(row["編號"]);
+                            string courseLevel = row["課程級別"].ToString();
+                            string courseTitle = row["課程名稱"].ToString();
+                            DateTime startDate = Convert.ToDateTime(row["開課日期"]);
+                            DateTime endDate = Convert.ToDateTime(row["結束日期"]);
+
+                            // 更新資料庫
+                            string sql = @"UPDATE Course SET CourseLevel = @CourseLevel, CourseTitle = @CourseTitle
+                                  WHERE CourseID = @CourseID;
+                                  
+                                  UPDATE CourseBatch SET StartDate = @StartDate, EndDate = @EndDate
+                                  WHERE CourseBatchID = (SELECT CourseBatchID FROM Course WHERE CourseID = @CourseID)";
+
+                            using (SqlCommand cmd = new SqlCommand(sql, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@CourseID", courseID);
+                                cmd.Parameters.AddWithValue("@CourseLevel", courseLevel);
+                                cmd.Parameters.AddWithValue("@CourseTitle", courseTitle);
+                                cmd.Parameters.AddWithValue("@StartDate", startDate);
+                                cmd.Parameters.AddWithValue("@EndDate", endDate);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+
+                MessageBox.Show("儲存成功！");
+                this.dataGridView1.ReadOnly = true;
+
+                // 接受變更
+                dt.AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("儲存失敗：" + ex.Message);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -177,5 +239,7 @@ namespace prjAircondition.Recruit
             this.courseTableAdapter1.FillByCoursetitle(this.c_RecruitDataSet1.Course,s1);
             this.dataGridView1.DataSource = this.c_RecruitDataSet1.Course;
         }
+
+
     }
 }

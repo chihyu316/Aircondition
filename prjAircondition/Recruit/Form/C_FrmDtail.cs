@@ -61,40 +61,5 @@ namespace prjAircondition.Recruit
 
 
 
-        //private void CourseBindingSource_CurrentChanged(object sender, EventArgs e)
-        //{
-        //    UpdateRelatedTables();
-        //}        
-        //private void UpdateRelatedTables()
-        //{
-        //    if (this.courseBindingSource.Current != null)
-        //    {
-        //        DataRowView currentCourse = (DataRowView)this.courseBindingSource.Current;
-
-        //        // 取得當前 Course 的 CourseBatchID
-        //        var courseBatchID = currentCourse["CourseBatchID"];
-
-        //        // 在 CourseBatch 表中找到對應的記錄
-        //        var batchRows = this.c_RecruitDataSet.CourseBatch.Select($"CourseBatchID = {courseBatchID}");
-        //        if (batchRows.Length > 0)
-        //        {
-        //            // 移動 CourseBatch BindingSource 到對應位置
-        //            var batchIndex = this.c_RecruitDataSet.CourseBatch.Rows.IndexOf(batchRows[0]);
-        //            this.courseBatchBindingSource.Position = batchIndex;
-
-        //            // 取得 CourseBatch 的 CategoryID
-        //            var categoryID = batchRows[0]["CategoryID"];
-
-        //            // 在 CourseCategory 表中找到對應的記錄
-        //            var categoryRows = this.c_RecruitDataSet.CourseCategory.Select($"CategoryID = {categoryID}");
-        //            if (categoryRows.Length > 0)
-        //            {
-        //                // 移動 CourseCategory BindingSource 到對應位置
-        //                var categoryIndex = this.c_RecruitDataSet.CourseCategory.Rows.IndexOf(categoryRows[0]);
-        //                this.courseCategoryBindingSource.Position = categoryIndex;
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

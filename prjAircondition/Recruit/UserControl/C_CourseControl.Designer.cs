@@ -100,9 +100,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(685, 43);
+            this.button1.Location = new System.Drawing.Point(656, 43);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(233, 76);
+            this.button1.Size = new System.Drawing.Size(132, 76);
             this.button1.TabIndex = 9;
             this.button1.Text = "新增課程";
             this.button1.UseVisualStyleBackColor = true;
@@ -111,13 +111,13 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(965, 43);
+            this.button2.Location = new System.Drawing.Point(805, 43);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(226, 76);
+            this.button2.Size = new System.Drawing.Size(157, 76);
             this.button2.TabIndex = 10;
-            this.button2.Text = "現有課程新增梯次 ";
+            this.button2.Text = "修改課程";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.C_btnAddBatch_click);
+            this.button2.Click += new System.EventHandler(this.C_btnalterC_click);
             // 
             // textBox1
             // 
@@ -168,12 +168,14 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(685, 137);
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(981, 43);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(233, 50);
+            this.button4.Size = new System.Drawing.Size(157, 76);
             this.button4.TabIndex = 14;
-            this.button4.Text = "button4";
+            this.button4.Text = "修改後儲存";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // C_CourseControl
             // 
