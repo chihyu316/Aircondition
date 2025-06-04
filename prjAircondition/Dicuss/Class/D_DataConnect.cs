@@ -13,8 +13,8 @@ namespace prjAircondition.Dicuss.Class
     {
         public static DataTable LoadhPostmain()
         {
-            string connStr = "Data Source=192.168.71.139;User Id=sa;Password=sa;Initial Catalog=AC;Integrated Security=True;";
-            string query = @"M.NickName as '發文者' , 
+            string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True";
+            string query = @"select M.NickName as '發文者' , 
                              PS.PostsSortName AS '文章類型' 
                             ,PL.PostsStateListId AS '文章狀態', P.Title AS '文章標題' ,
                              P.Contents AS '文章內容', P.GreatPoint AS 'GP數'
@@ -30,17 +30,82 @@ namespace prjAircondition.Dicuss.Class
             DataTable resultTable = new DataTable();
             try
             {
-                using (SqlConnection conn = new SqlConnection(connStr))
-                using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
-                {
-                    adapter.Fill(resultTable);
-                }
+                SqlConnection conn = new SqlConnection(connStr);
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                conn.Open();                
+                adapter.Fill(resultTable);
+                conn.Close();     
+            }
+           
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return resultTable;
+        }
+            public static DataTable PostSearchTitle(string Title)
+            {
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");           
+              string query = @"select M.NickName as '發文者' , PS.PostsSortName AS '文章類型' ,
+                               PL.PostsStateListId AS '文章狀態', P.Title AS '文章標題' ,  
+                               P.Contents AS '文章內容', P.GreatPoint AS 'GP數',
+                               P.PageView AS '瀏覽數' , P.PostTime AS '發文時間',
+                               CASE 
+                               WHEN P.EditTime IS NOT NULL THEN CONVERT(VARCHAR, P.EditTime, 120) 
+                               ELSE NULL 
+                               END AS '編輯時間'
+                               from PostsMain as P
+                               join [Member] as M on  P.MemberID = M.MemberID
+                               join [PostsSortList] as ps on PS.PostsSortID = P.PostsSortID
+                               join [PostsStateList] as PL on PL.PostsStateListId = P.PostsState
+                               where P.Title like @Title";
+              DataTable resultTable = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                
+                    cmd.Parameters.AddWithValue("@Title", "%" + Title + "%");
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(resultTable);
+                    }
+                
             }
             catch (Exception ex)
             {
+                MessageBox.Show("查詢失敗：" + ex.Message);
                 return resultTable;
             }
             return resultTable;
+            }
+        //public  void D_button1_Click(object sender)
+        //{
+        //    if (sender is Button btnName)
+        //    {
+        //        if (btnName.Name == "D_Btn_Title")
+        //        {
+
+        //        }
+        //        else if (btnName.Name == "D_Btn_Title") ;
+
+        //    }
+        //}
+        public static void PostMainSrc(string srcStr1, string srcStr2, string srcStr3)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");
+            string query = @"select M.NickName as '發文者' , PS.PostsSortName AS '文章類型' ,
+                               PL.PostsStateListId AS '文章狀態', P.Title AS '文章標題' ,  
+                               P.Contents AS '文章內容', P.GreatPoint AS 'GP數',
+                               P.PageView AS '瀏覽數' , P.PostTime AS '發文時間',
+                               CASE 
+                               WHEN P.EditTime IS NOT NULL THEN CONVERT(VARCHAR, P.EditTime, 120) 
+                               ELSE NULL 
+                               END AS '編輯時間'
+                               from PostsMain as P
+                               join [Member] as M on  P.MemberID = M.MemberID
+                               join [PostsSortList] as ps on PS.PostsSortID = P.PostsSortID
+                               join [PostsStateList] as PL on PL.PostsStateListId = P.PostsState
+                               where P.Title like @Title";
         }
     }
 }

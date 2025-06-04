@@ -12,11 +12,11 @@ using System.Windows.Forms;
 namespace prjAircondition.Dicuss
 {
     public partial class D_DisControl : UserControl
-    {
+    { 
         public D_DisControl()
-        {
+        {   
             InitializeComponent();
-            D_PostdataGridView.DataSource = D_DataConnect.LoadhPostmain();
+            D_PostdataGridView.DataSource = D_DataConnect.LoadhPostmain();            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -24,7 +24,7 @@ namespace prjAircondition.Dicuss
 
         }
 
-        private void D_button1_Click(object sender, EventArgs e)
+        private void D_Btn_Date_Click(object sender, EventArgs e)
         {
 
         }
