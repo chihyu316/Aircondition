@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using prjAircondition.Properties;
 
 namespace prjAircondition
 {
@@ -35,7 +37,21 @@ namespace prjAircondition
         }
         private void LoadCategory() 
         {
+            string connstring = Settings.Default.ACConnectionString;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connstring))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText="select name from t.Technicians"
+                }
+                
 
-        }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message)}
+        }   
     }
 }
