@@ -37,40 +37,7 @@ namespace prjAircondition
             return result;
         }
 
-        //public static DataTable LoadhWorkOrder()
-        //{
 
-        //    string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
-        //    string query = @"
-        //SELECT WorkOrderID,
-        //       DetailID,
-        //       WorkTypeID,
-        //       TechnicianID,
-        //       ClosingTechnicianID,
-        //       ModelName,
-        //       SerialNumber,
-        //       CreatedDate,
-        //       OrderStatus,
-        //       CompletedDate,
-        //       PaymentType,
-        //       MemberID,
-        //       CityID,
-        //       AreaID,
-        //       AddressDetail
-        //FROM WorkOrder";
-
-        //    DataTable result = new DataTable();
-
-        //    using (SqlConnection conn = new SqlConnection(connStr))
-        //    using (SqlCommand cmd = new SqlCommand(query, conn))
-        //    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-        //    {
-        //        adapter.Fill(result);
-        //    }
-
-        //    return result;
-
-        //}
         public static DataTable WorkOrderSearch(string S, string T)
         {
             //工作類型
@@ -159,8 +126,6 @@ namespace prjAircondition
         }
 
 
-
-
         public static void UpdateWorkOrder(DataRow row)
         {
             string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
@@ -214,6 +179,60 @@ namespace prjAircondition
                 }
             }
         }
-    
+
+        public static void DeleteWorkOrder(int workOrderID)
+        {
+            string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
+            string sql = "DELETE FROM WorkOrder WHERE WorkOrderID = @WorkOrderID";
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@WorkOrderID", workOrderID);
+                try
+                {
+                    conn.Open();
+
+                    int result = cmd.ExecuteNonQuery();
+                    MessageBox.Show($"已刪除 {result} 筆工單", "刪除成功");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("刪除失敗：" + ex.Message, "錯誤");
+                }
+            }
+
+        }
+        public static bool HasRelatedData(int workOrderID)
+        {
+            string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
+            string sql = @"
+        SELECT COUNT(*) FROM (
+            SELECT WorkOrderID FROM InstallationChecklist WHERE WorkOrderID = @ID
+            UNION
+            SELECT WorkOrderID FROM MaintenanceForm WHERE WorkOrderID = @ID
+            UNION
+            SELECT WorkOrderID FROM RepairIssue WHERE WorkOrderID = @ID
+            UNION
+            SELECT WorkOrderID FROM DismantleRecord WHERE WorkOrderID = @ID
+        ) AS RelatedRecords";
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@ID", workOrderID);
+                try
+                {
+                    conn.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0; // 若有子資料，回傳 true 表示「有關聯資料」
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("檢查子資料時發生錯誤：" + ex.Message);
+                    return true; // 發生錯誤時，當作不能刪
+                }
+            }
+        }
     }
 }

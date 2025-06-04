@@ -312,6 +312,9 @@
     <EmbeddedResource Include="Recruit\UserControl\C_CourseControl.resx">
       <DependentUpon>C_CourseControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Repair\UserControl\R_ucInstallationChecklist.resx">
+      <DependentUpon>R_ucInstallationChecklist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Repair\UserControl\R_ucWorkOrder.resx">
       <DependentUpon>R_ucWorkOrder.cs</DependentUpon>
     </EmbeddedResource>

@@ -72,7 +72,7 @@ namespace prjAircondition.Repair
                     if (result > 0)
                     {
                         MessageBox.Show("新增空白工單成功", "新增成功");
-
+                        ReloadWorkOrders(); // 重新整理資料表
                     }
                     else
                     {
@@ -147,11 +147,56 @@ namespace prjAircondition.Repair
             dgv.Columns["CityID"].Visible = false;
             dgv.Columns["AreaID"].Visible = false;
         }
-        private void RE_update_Click_1(object sender, EventArgs e)
-        {
-            ReloadWorkOrders();
-        }
 
+        
+        private void RE_btndele_Click(object sender, EventArgs e)
+        {
+            //  支援點單格也能刪
+            var rowsToDelete = RE_dataGridView1.SelectedRows.Count > 0 ?
+                RE_dataGridView1.SelectedRows.Cast<DataGridViewRow>().ToList() :
+                (RE_dataGridView1.CurrentRow != null ? new List<DataGridViewRow> { RE_dataGridView1.CurrentRow } : null);
+
+            if (rowsToDelete == null || rowsToDelete.Count == 0)
+            {
+                MessageBox.Show("請先選取要刪除的工單");
+                return;
+            }
+
+            List<int> deletable = new List<int>();
+            List<int> blocked = new List<int>();
+
+            //  分類是否可刪除
+            foreach (var row in rowsToDelete)
+            {
+                int workOrderID = Convert.ToInt32(row.Cells["工單編號"].Value);
+
+                if (RE_DataSearch.HasRelatedData(workOrderID))
+                    blocked.Add(workOrderID);
+                else
+                    deletable.Add(workOrderID);
+            }
+
+            //  提示不能刪除的工單
+            if (blocked.Count > 0)
+            {
+                string blockedMsg = string.Join("、", blocked.Select(id => $"#{id}"));
+                MessageBox.Show($"以下工單已有子資料，無法刪除：\n{blockedMsg}", "禁止刪除");
+            }
+
+            //  刪除可刪除的工單
+            if (deletable.Count == 0) return;
+
+            string deletableMsg = string.Join("、", deletable.Select(id => $"#{id}"));
+            var confirm = MessageBox.Show($"確定要刪除以下 {deletable.Count} 筆工單？\n{deletableMsg}", "刪除確認", MessageBoxButtons.YesNo);
+            if (confirm != DialogResult.Yes) return;
+
+            foreach (int id in deletable)
+            {
+                RE_DataSearch.DeleteWorkOrder(id);
+            }
+
+            ReloadWorkOrders(); // 重新整理資料表
+        }
 
     }
 }

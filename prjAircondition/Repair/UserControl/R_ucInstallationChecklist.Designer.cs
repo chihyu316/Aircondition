@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // R_ucInstallationChecklist
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "R_ucInstallationChecklist";
+            this.Size = new System.Drawing.Size(855, 534);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
