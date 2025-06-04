@@ -121,9 +121,9 @@
             this.courseIDLabel.AutoSize = true;
             this.courseIDLabel.Location = new System.Drawing.Point(42, 60);
             this.courseIDLabel.Name = "courseIDLabel";
-            this.courseIDLabel.Size = new System.Drawing.Size(84, 18);
+            this.courseIDLabel.Size = new System.Drawing.Size(85, 18);
             this.courseIDLabel.TabIndex = 1;
-            this.courseIDLabel.Text = "Course ID:";
+            this.courseIDLabel.Text = "課程編號:";
             // 
             // courseBatchIDLabel
             // 
@@ -139,81 +139,81 @@
             this.courseTitleLabel.AutoSize = true;
             this.courseTitleLabel.Location = new System.Drawing.Point(42, 130);
             this.courseTitleLabel.Name = "courseTitleLabel";
-            this.courseTitleLabel.Size = new System.Drawing.Size(99, 18);
+            this.courseTitleLabel.Size = new System.Drawing.Size(85, 18);
             this.courseTitleLabel.TabIndex = 5;
-            this.courseTitleLabel.Text = "Course Title:";
+            this.courseTitleLabel.Text = "課程名稱:";
             // 
             // courseIntroductionLabel
             // 
             this.courseIntroductionLabel.AutoSize = true;
             this.courseIntroductionLabel.Location = new System.Drawing.Point(42, 165);
             this.courseIntroductionLabel.Name = "courseIntroductionLabel";
-            this.courseIntroductionLabel.Size = new System.Drawing.Size(149, 18);
+            this.courseIntroductionLabel.Size = new System.Drawing.Size(85, 18);
             this.courseIntroductionLabel.TabIndex = 7;
-            this.courseIntroductionLabel.Text = "Course Introduction:";
+            this.courseIntroductionLabel.Text = "課程介紹:";
             // 
             // courseLevelLabel
             // 
             this.courseLevelLabel.AutoSize = true;
             this.courseLevelLabel.Location = new System.Drawing.Point(42, 200);
             this.courseLevelLabel.Name = "courseLevelLabel";
-            this.courseLevelLabel.Size = new System.Drawing.Size(105, 18);
+            this.courseLevelLabel.Size = new System.Drawing.Size(85, 18);
             this.courseLevelLabel.TabIndex = 9;
-            this.courseLevelLabel.Text = "Course Level:";
+            this.courseLevelLabel.Text = "課程級別:";
             // 
             // standardPriceLabel
             // 
             this.standardPriceLabel.AutoSize = true;
             this.standardPriceLabel.Location = new System.Drawing.Point(42, 235);
             this.standardPriceLabel.Name = "standardPriceLabel";
-            this.standardPriceLabel.Size = new System.Drawing.Size(114, 18);
+            this.standardPriceLabel.Size = new System.Drawing.Size(85, 18);
             this.standardPriceLabel.TabIndex = 11;
-            this.standardPriceLabel.Text = "Standard Price:";
+            this.standardPriceLabel.Text = "標準價格:";
             // 
             // courseHoursLabel
             // 
             this.courseHoursLabel.AutoSize = true;
             this.courseHoursLabel.Location = new System.Drawing.Point(42, 270);
             this.courseHoursLabel.Name = "courseHoursLabel";
-            this.courseHoursLabel.Size = new System.Drawing.Size(107, 18);
+            this.courseHoursLabel.Size = new System.Drawing.Size(85, 18);
             this.courseHoursLabel.TabIndex = 13;
-            this.courseHoursLabel.Text = "Course Hours:";
+            this.courseHoursLabel.Text = "課程時數:";
             // 
             // photosLabel
             // 
             this.photosLabel.AutoSize = true;
             this.photosLabel.Location = new System.Drawing.Point(42, 302);
             this.photosLabel.Name = "photosLabel";
-            this.photosLabel.Size = new System.Drawing.Size(58, 18);
+            this.photosLabel.Size = new System.Drawing.Size(49, 18);
             this.photosLabel.TabIndex = 15;
-            this.photosLabel.Text = "Photos:";
+            this.photosLabel.Text = "圖片:";
             // 
             // courseStatusLabel
             // 
             this.courseStatusLabel.AutoSize = true;
-            this.courseStatusLabel.Location = new System.Drawing.Point(42, 361);
+            this.courseStatusLabel.Location = new System.Drawing.Point(42, 456);
             this.courseStatusLabel.Name = "courseStatusLabel";
-            this.courseStatusLabel.Size = new System.Drawing.Size(108, 18);
+            this.courseStatusLabel.Size = new System.Drawing.Size(85, 18);
             this.courseStatusLabel.TabIndex = 17;
-            this.courseStatusLabel.Text = "Course Status:";
+            this.courseStatusLabel.Text = "課程狀態:";
             // 
             // createDateLabel
             // 
             this.createDateLabel.AutoSize = true;
-            this.createDateLabel.Location = new System.Drawing.Point(42, 397);
+            this.createDateLabel.Location = new System.Drawing.Point(42, 492);
             this.createDateLabel.Name = "createDateLabel";
-            this.createDateLabel.Size = new System.Drawing.Size(97, 18);
+            this.createDateLabel.Size = new System.Drawing.Size(85, 18);
             this.createDateLabel.TabIndex = 19;
-            this.createDateLabel.Text = "Create Date:";
+            this.createDateLabel.Text = "建立日期:";
             // 
             // updateDateLabel
             // 
             this.updateDateLabel.AutoSize = true;
-            this.updateDateLabel.Location = new System.Drawing.Point(42, 432);
+            this.updateDateLabel.Location = new System.Drawing.Point(42, 527);
             this.updateDateLabel.Name = "updateDateLabel";
-            this.updateDateLabel.Size = new System.Drawing.Size(100, 18);
+            this.updateDateLabel.Size = new System.Drawing.Size(85, 18);
             this.updateDateLabel.TabIndex = 21;
-            this.updateDateLabel.Text = "Update Date:";
+            this.updateDateLabel.Text = "更新日期:";
             // 
             // courseBatchIDLabel1
             // 
@@ -229,153 +229,153 @@
             this.categoryIDLabel.AutoSize = true;
             this.categoryIDLabel.Location = new System.Drawing.Point(434, 92);
             this.categoryIDLabel.Name = "categoryIDLabel";
-            this.categoryIDLabel.Size = new System.Drawing.Size(98, 18);
+            this.categoryIDLabel.Size = new System.Drawing.Size(85, 18);
             this.categoryIDLabel.TabIndex = 25;
-            this.categoryIDLabel.Text = "Category ID:";
+            this.categoryIDLabel.Text = "類別編號:";
             // 
             // batchNameLabel
             // 
             this.batchNameLabel.AutoSize = true;
             this.batchNameLabel.Location = new System.Drawing.Point(434, 127);
             this.batchNameLabel.Name = "batchNameLabel";
-            this.batchNameLabel.Size = new System.Drawing.Size(99, 18);
+            this.batchNameLabel.Size = new System.Drawing.Size(85, 18);
             this.batchNameLabel.TabIndex = 27;
-            this.batchNameLabel.Text = "Batch Name:";
+            this.batchNameLabel.Text = "梯次名稱:";
             // 
             // instructorIDLabel
             // 
             this.instructorIDLabel.AutoSize = true;
             this.instructorIDLabel.Location = new System.Drawing.Point(434, 162);
             this.instructorIDLabel.Name = "instructorIDLabel";
-            this.instructorIDLabel.Size = new System.Drawing.Size(103, 18);
+            this.instructorIDLabel.Size = new System.Drawing.Size(85, 18);
             this.instructorIDLabel.TabIndex = 29;
-            this.instructorIDLabel.Text = "Instructor ID:";
+            this.instructorIDLabel.Text = "講師編號:";
             // 
             // classroomIDLabel
             // 
             this.classroomIDLabel.AutoSize = true;
             this.classroomIDLabel.Location = new System.Drawing.Point(434, 197);
             this.classroomIDLabel.Name = "classroomIDLabel";
-            this.classroomIDLabel.Size = new System.Drawing.Size(109, 18);
+            this.classroomIDLabel.Size = new System.Drawing.Size(85, 18);
             this.classroomIDLabel.TabIndex = 31;
-            this.classroomIDLabel.Text = "Classroom ID:";
+            this.classroomIDLabel.Text = "教室編號:";
             // 
             // startDateLabel
             // 
             this.startDateLabel.AutoSize = true;
             this.startDateLabel.Location = new System.Drawing.Point(434, 233);
             this.startDateLabel.Name = "startDateLabel";
-            this.startDateLabel.Size = new System.Drawing.Size(84, 18);
+            this.startDateLabel.Size = new System.Drawing.Size(85, 18);
             this.startDateLabel.TabIndex = 33;
-            this.startDateLabel.Text = "Start Date:";
+            this.startDateLabel.Text = "開課日期:";
             // 
             // endDateLabel
             // 
             this.endDateLabel.AutoSize = true;
             this.endDateLabel.Location = new System.Drawing.Point(434, 268);
             this.endDateLabel.Name = "endDateLabel";
-            this.endDateLabel.Size = new System.Drawing.Size(77, 18);
+            this.endDateLabel.Size = new System.Drawing.Size(85, 18);
             this.endDateLabel.TabIndex = 35;
-            this.endDateLabel.Text = "End Date:";
+            this.endDateLabel.Text = "結束日期:";
             // 
             // classTimeLabel
             // 
             this.classTimeLabel.AutoSize = true;
             this.classTimeLabel.Location = new System.Drawing.Point(434, 302);
             this.classTimeLabel.Name = "classTimeLabel";
-            this.classTimeLabel.Size = new System.Drawing.Size(92, 18);
+            this.classTimeLabel.Size = new System.Drawing.Size(85, 18);
             this.classTimeLabel.TabIndex = 37;
-            this.classTimeLabel.Text = "Class Time:";
+            this.classTimeLabel.Text = "上課時間:";
             // 
             // maxCapacityLabel
             // 
             this.maxCapacityLabel.AutoSize = true;
             this.maxCapacityLabel.Location = new System.Drawing.Point(434, 337);
             this.maxCapacityLabel.Name = "maxCapacityLabel";
-            this.maxCapacityLabel.Size = new System.Drawing.Size(110, 18);
+            this.maxCapacityLabel.Size = new System.Drawing.Size(85, 18);
             this.maxCapacityLabel.TabIndex = 39;
-            this.maxCapacityLabel.Text = "Max Capacity:";
+            this.maxCapacityLabel.Text = "最多人數:";
             // 
             // currentEnrollmentLabel
             // 
             this.currentEnrollmentLabel.AutoSize = true;
             this.currentEnrollmentLabel.Location = new System.Drawing.Point(434, 372);
             this.currentEnrollmentLabel.Name = "currentEnrollmentLabel";
-            this.currentEnrollmentLabel.Size = new System.Drawing.Size(146, 18);
+            this.currentEnrollmentLabel.Size = new System.Drawing.Size(121, 18);
             this.currentEnrollmentLabel.TabIndex = 41;
-            this.currentEnrollmentLabel.Text = "Current Enrollment:";
+            this.currentEnrollmentLabel.Text = "目前報名人數:";
             // 
             // actualPriceLabel
             // 
             this.actualPriceLabel.AutoSize = true;
             this.actualPriceLabel.Location = new System.Drawing.Point(434, 407);
             this.actualPriceLabel.Name = "actualPriceLabel";
-            this.actualPriceLabel.Size = new System.Drawing.Size(100, 18);
+            this.actualPriceLabel.Size = new System.Drawing.Size(85, 18);
             this.actualPriceLabel.TabIndex = 43;
-            this.actualPriceLabel.Text = "Actual Price:";
+            this.actualPriceLabel.Text = "實際價格:";
             // 
             // earlyBirdPriceLabel
             // 
             this.earlyBirdPriceLabel.AutoSize = true;
             this.earlyBirdPriceLabel.Location = new System.Drawing.Point(434, 442);
             this.earlyBirdPriceLabel.Name = "earlyBirdPriceLabel";
-            this.earlyBirdPriceLabel.Size = new System.Drawing.Size(126, 18);
+            this.earlyBirdPriceLabel.Size = new System.Drawing.Size(85, 18);
             this.earlyBirdPriceLabel.TabIndex = 45;
-            this.earlyBirdPriceLabel.Text = "Early Bird Price:";
+            this.earlyBirdPriceLabel.Text = "早鳥價格:";
             // 
             // earlyBirdDeadlineLabel
             // 
             this.earlyBirdDeadlineLabel.AutoSize = true;
             this.earlyBirdDeadlineLabel.Location = new System.Drawing.Point(434, 478);
             this.earlyBirdDeadlineLabel.Name = "earlyBirdDeadlineLabel";
-            this.earlyBirdDeadlineLabel.Size = new System.Drawing.Size(152, 18);
+            this.earlyBirdDeadlineLabel.Size = new System.Drawing.Size(121, 18);
             this.earlyBirdDeadlineLabel.TabIndex = 47;
-            this.earlyBirdDeadlineLabel.Text = "Early Bird Deadline:";
+            this.earlyBirdDeadlineLabel.Text = "早鳥截止日期:";
             // 
             // groupDiscountDescLabel
             // 
             this.groupDiscountDescLabel.AutoSize = true;
             this.groupDiscountDescLabel.Location = new System.Drawing.Point(434, 512);
             this.groupDiscountDescLabel.Name = "groupDiscountDescLabel";
-            this.groupDiscountDescLabel.Size = new System.Drawing.Size(161, 18);
+            this.groupDiscountDescLabel.Size = new System.Drawing.Size(121, 18);
             this.groupDiscountDescLabel.TabIndex = 49;
-            this.groupDiscountDescLabel.Text = "Group Discount Desc:";
+            this.groupDiscountDescLabel.Text = "團體折扣說明:";
             // 
             // batchStatusLabel
             // 
             this.batchStatusLabel.AutoSize = true;
             this.batchStatusLabel.Location = new System.Drawing.Point(434, 547);
             this.batchStatusLabel.Name = "batchStatusLabel";
-            this.batchStatusLabel.Size = new System.Drawing.Size(100, 18);
+            this.batchStatusLabel.Size = new System.Drawing.Size(85, 18);
             this.batchStatusLabel.TabIndex = 51;
-            this.batchStatusLabel.Text = "Batch Status:";
+            this.batchStatusLabel.Text = "梯次狀態:";
             // 
             // createDateLabel1
             // 
             this.createDateLabel1.AutoSize = true;
             this.createDateLabel1.Location = new System.Drawing.Point(434, 583);
             this.createDateLabel1.Name = "createDateLabel1";
-            this.createDateLabel1.Size = new System.Drawing.Size(97, 18);
+            this.createDateLabel1.Size = new System.Drawing.Size(85, 18);
             this.createDateLabel1.TabIndex = 53;
-            this.createDateLabel1.Text = "Create Date:";
+            this.createDateLabel1.Text = "建立日期:";
             // 
             // categoryIDLabel1
             // 
             this.categoryIDLabel1.AutoSize = true;
             this.categoryIDLabel1.Location = new System.Drawing.Point(898, 54);
             this.categoryIDLabel1.Name = "categoryIDLabel1";
-            this.categoryIDLabel1.Size = new System.Drawing.Size(98, 18);
+            this.categoryIDLabel1.Size = new System.Drawing.Size(85, 18);
             this.categoryIDLabel1.TabIndex = 55;
-            this.categoryIDLabel1.Text = "Category ID:";
+            this.categoryIDLabel1.Text = "類別編號:";
             // 
             // categoryNameLabel
             // 
             this.categoryNameLabel.AutoSize = true;
             this.categoryNameLabel.Location = new System.Drawing.Point(898, 89);
             this.categoryNameLabel.Name = "categoryNameLabel";
-            this.categoryNameLabel.Size = new System.Drawing.Size(121, 18);
+            this.categoryNameLabel.Size = new System.Drawing.Size(85, 18);
             this.categoryNameLabel.TabIndex = 57;
-            this.categoryNameLabel.Text = "Category Name:";
+            this.categoryNameLabel.Text = "類別名稱:";
             // 
             // courseIDTextBox
             // 
@@ -448,14 +448,14 @@
             this.photosPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.courseBindingSource, "Photos", true));
             this.photosPictureBox.Location = new System.Drawing.Point(197, 302);
             this.photosPictureBox.Name = "photosPictureBox";
-            this.photosPictureBox.Size = new System.Drawing.Size(200, 50);
+            this.photosPictureBox.Size = new System.Drawing.Size(200, 131);
             this.photosPictureBox.TabIndex = 16;
             this.photosPictureBox.TabStop = false;
             // 
             // courseStatusTextBox
             // 
             this.courseStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseStatus", true));
-            this.courseStatusTextBox.Location = new System.Drawing.Point(197, 358);
+            this.courseStatusTextBox.Location = new System.Drawing.Point(197, 453);
             this.courseStatusTextBox.Name = "courseStatusTextBox";
             this.courseStatusTextBox.Size = new System.Drawing.Size(200, 29);
             this.courseStatusTextBox.TabIndex = 18;
@@ -463,7 +463,7 @@
             // createDateDateTimePicker
             // 
             this.createDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBindingSource, "CreateDate", true));
-            this.createDateDateTimePicker.Location = new System.Drawing.Point(197, 393);
+            this.createDateDateTimePicker.Location = new System.Drawing.Point(197, 488);
             this.createDateDateTimePicker.Name = "createDateDateTimePicker";
             this.createDateDateTimePicker.Size = new System.Drawing.Size(200, 29);
             this.createDateDateTimePicker.TabIndex = 20;
@@ -471,7 +471,7 @@
             // updateDateDateTimePicker
             // 
             this.updateDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBindingSource, "UpdateDate", true));
-            this.updateDateDateTimePicker.Location = new System.Drawing.Point(197, 428);
+            this.updateDateDateTimePicker.Location = new System.Drawing.Point(197, 523);
             this.updateDateDateTimePicker.Name = "updateDateDateTimePicker";
             this.updateDateDateTimePicker.Size = new System.Drawing.Size(200, 29);
             this.updateDateDateTimePicker.TabIndex = 22;
@@ -730,6 +730,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "位置";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 38);
             this.bindingNavigatorPositionItem.Text = "0";

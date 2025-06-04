@@ -16,5 +16,21 @@ namespace prjAircondition.Recruit
         {
             InitializeComponent();
         }
+
+        private void courseBatchBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.courseBatchBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.c_RecruitDataSet);
+
+        }
+
+        private void courseBatchBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.courseBatchBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.c_RecruitDataSet);
+
+        }
     }
 }

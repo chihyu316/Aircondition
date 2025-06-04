@@ -45,6 +45,7 @@
             this.courseTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseTableAdapter();
             this.courseBatchTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseBatchTableAdapter();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
@@ -66,6 +67,7 @@
             this.dataGridView1.RowTemplate.Height = 31;
             this.dataGridView1.Size = new System.Drawing.Size(1158, 643);
             this.dataGridView1.TabIndex = 7;
+       
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_detail_CellContentClick);
             // 
             // detail
@@ -137,7 +139,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "搜尋";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnSearch_Click);
+            this.button3.Click += new System.EventHandler(this.C_btnSearch_Click);
             // 
             // label2
             // 
@@ -175,13 +177,25 @@
             this.button4.TabIndex = 14;
             this.button4.Text = "修改後儲存";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button5.Location = new System.Drawing.Point(656, 125);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(145, 76);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "刪除";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // C_CourseControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
@@ -219,5 +233,6 @@
         private System.Windows.Forms.Label label2;
         private DateSet.C_RecruitDataSetTableAdapters.CourseBatchTableAdapter courseBatchTableAdapter1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

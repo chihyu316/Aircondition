@@ -89,9 +89,9 @@
             courseTitleLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             courseTitleLabel.Location = new System.Drawing.Point(222, 162);
             courseTitleLabel.Name = "courseTitleLabel";
-            courseTitleLabel.Size = new System.Drawing.Size(153, 30);
+            courseTitleLabel.Size = new System.Drawing.Size(115, 30);
             courseTitleLabel.TabIndex = 5;
-            courseTitleLabel.Text = "Course Title:";
+            courseTitleLabel.Text = "課程名稱:";
             // 
             // courseIntroductionLabel
             // 
@@ -99,9 +99,9 @@
             courseIntroductionLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             courseIntroductionLabel.Location = new System.Drawing.Point(222, 231);
             courseIntroductionLabel.Name = "courseIntroductionLabel";
-            courseIntroductionLabel.Size = new System.Drawing.Size(247, 30);
+            courseIntroductionLabel.Size = new System.Drawing.Size(115, 30);
             courseIntroductionLabel.TabIndex = 7;
-            courseIntroductionLabel.Text = "Course Introduction:";
+            courseIntroductionLabel.Text = "課程介紹:";
             // 
             // courseLevelLabel
             // 
@@ -109,9 +109,9 @@
             courseLevelLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             courseLevelLabel.Location = new System.Drawing.Point(222, 287);
             courseLevelLabel.Name = "courseLevelLabel";
-            courseLevelLabel.Size = new System.Drawing.Size(163, 30);
+            courseLevelLabel.Size = new System.Drawing.Size(115, 30);
             courseLevelLabel.TabIndex = 9;
-            courseLevelLabel.Text = "Course Level:";
+            courseLevelLabel.Text = "課程級別:";
             // 
             // standardPriceLabel
             // 
@@ -119,9 +119,9 @@
             standardPriceLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             standardPriceLabel.Location = new System.Drawing.Point(222, 345);
             standardPriceLabel.Name = "standardPriceLabel";
-            standardPriceLabel.Size = new System.Drawing.Size(183, 30);
+            standardPriceLabel.Size = new System.Drawing.Size(115, 30);
             standardPriceLabel.TabIndex = 11;
-            standardPriceLabel.Text = "Standard Price:";
+            standardPriceLabel.Text = "標準價格:";
             // 
             // courseHoursLabel
             // 
@@ -129,9 +129,9 @@
             courseHoursLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             courseHoursLabel.Location = new System.Drawing.Point(222, 400);
             courseHoursLabel.Name = "courseHoursLabel";
-            courseHoursLabel.Size = new System.Drawing.Size(173, 30);
+            courseHoursLabel.Size = new System.Drawing.Size(115, 30);
             courseHoursLabel.TabIndex = 13;
-            courseHoursLabel.Text = "Course Hours:";
+            courseHoursLabel.Text = "課程時數:";
             // 
             // photosLabel
             // 
@@ -139,9 +139,9 @@
             photosLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             photosLabel.Location = new System.Drawing.Point(875, 162);
             photosLabel.Name = "photosLabel";
-            photosLabel.Size = new System.Drawing.Size(98, 30);
+            photosLabel.Size = new System.Drawing.Size(67, 30);
             photosLabel.TabIndex = 15;
-            photosLabel.Text = "Photos:";
+            photosLabel.Text = "圖片:";
             // 
             // courseStatusLabel
             // 
@@ -149,9 +149,9 @@
             courseStatusLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             courseStatusLabel.Location = new System.Drawing.Point(222, 485);
             courseStatusLabel.Name = "courseStatusLabel";
-            courseStatusLabel.Size = new System.Drawing.Size(176, 30);
+            courseStatusLabel.Size = new System.Drawing.Size(115, 30);
             courseStatusLabel.TabIndex = 17;
-            courseStatusLabel.Text = "Course Status:";
+            courseStatusLabel.Text = "課程狀態:";
             // 
             // createDateLabel
             // 
@@ -159,9 +159,9 @@
             createDateLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             createDateLabel.Location = new System.Drawing.Point(222, 535);
             createDateLabel.Name = "createDateLabel";
-            createDateLabel.Size = new System.Drawing.Size(154, 30);
+            createDateLabel.Size = new System.Drawing.Size(115, 30);
             createDateLabel.TabIndex = 19;
-            createDateLabel.Text = "Create Date:";
+            createDateLabel.Text = "建立日期:";
             // 
             // updateDateLabel
             // 
@@ -169,9 +169,9 @@
             updateDateLabel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             updateDateLabel.Location = new System.Drawing.Point(222, 585);
             updateDateLabel.Name = "updateDateLabel";
-            updateDateLabel.Size = new System.Drawing.Size(163, 30);
+            updateDateLabel.Size = new System.Drawing.Size(115, 30);
             updateDateLabel.TabIndex = 21;
-            updateDateLabel.Text = "Update Date:";
+            updateDateLabel.Text = "更新日期:";
             // 
             // c_RecruitDataSet
             // 
@@ -194,6 +194,7 @@
             this.tableAdapterManager.CourseBatchTableAdapter = null;
             this.tableAdapterManager.CourseCategoryTableAdapter = null;
             this.tableAdapterManager.CourseTableAdapter = this.courseTableAdapter;
+            this.tableAdapterManager.InstructorTableAdapter = null;
             this.tableAdapterManager.RegistrationTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 

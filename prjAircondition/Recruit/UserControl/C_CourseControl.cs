@@ -21,14 +21,15 @@ namespace prjAircondition.Recruit
         {
             InitializeComponent();
             CourseControl_Load();
-            
+
             this.bindingSource1.DataSource = this.c_RecruitDataSet1.Course;
-            this.dataGridView1.DataSource=this.bindingSource1 ;
+            this.dataGridView1.DataSource = this.bindingSource1;
+
         }
 
         private void CourseControl_Load()
         {
-           
+
             //Connected
             //1.SqlConnection
             //2.SqlCommand
@@ -145,7 +146,7 @@ namespace prjAircondition.Recruit
         {
             switch (status)
             {
-                case 0: return "啟用";                
+                case 0: return "啟用";
                 case 1: return "結束";
                 default: return "未知";
             }
@@ -157,9 +158,9 @@ namespace prjAircondition.Recruit
             addnewC.ShowDialog();
             if (addnewC.DialogResult == DialogResult.OK)
             {
-                            
+
                 C_RecruitDataSet.CourseRow courseRow = this.c_RecruitDataSet1.Course.NewCourseRow();
-            
+
             }
         }
 
@@ -168,7 +169,7 @@ namespace prjAircondition.Recruit
             MessageBox.Show("現在可以修改表格了！雙擊要修改的欄位即可");
             this.dataGridView1.ReadOnly = false;
         }
-             private void button4_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             string connstring = Settings.Default.ACConnectionString;
             DataTable dt = (DataTable)this.dataGridView1.DataSource;
@@ -234,12 +235,54 @@ namespace prjAircondition.Recruit
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void C_btnSearch_Click(object sender, EventArgs e)
         {
-            this.courseTableAdapter1.FillByCoursetitle(this.c_RecruitDataSet1.Course,s1);
+            this.courseTableAdapter1.FillByCoursetitle(this.c_RecruitDataSet1.Course, s1);
             this.dataGridView1.DataSource = this.c_RecruitDataSet1.Course;
         }
 
 
-    }
-}
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("請先選擇要刪除的課程");
+                return;
+            }
+
+            DataGridViewRow currentRow = this.dataGridView1.CurrentRow;
+
+            // 取得課程ID和課程名稱
+            int courseID = Convert.ToInt32(currentRow.Cells["編號"].Value);
+            string courseName = currentRow.Cells["課程名稱"].Value.ToString();
+
+            if (MessageBox.Show($"確定要刪除課程「{courseName}」嗎？", "確認刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                // 刪除
+                string connstring = Settings.Default.ACConnectionString;
+                using (SqlConnection conn = new SqlConnection(connstring))
+                {
+                    conn.Open();
+                    string sql = "DELETE FROM Course WHERE CourseID = @CourseID";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CourseID", courseID);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("刪除成功！");
+                            cmCourse_SelectedIndexChanged(this.comboBox1, EventArgs.Empty);
+                        }
+                        else
+                        {
+                            MessageBox.Show("刪除失敗：找不到該課程");
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }   }
