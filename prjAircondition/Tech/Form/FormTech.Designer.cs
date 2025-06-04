@@ -60,6 +60,9 @@
             this.techbindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.techniciansTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet11)).BeginInit();
@@ -69,10 +72,7 @@
             // cmdGender
             // 
             this.cmdGender.FormattingEnabled = true;
-            this.cmdGender.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.cmdGender.Location = new System.Drawing.Point(343, 543);
+            this.cmdGender.Location = new System.Drawing.Point(343, 552);
             this.cmdGender.Name = "cmdGender";
             this.cmdGender.Size = new System.Drawing.Size(172, 36);
             this.cmdGender.TabIndex = 59;
@@ -90,7 +90,7 @@
             // 
             // updatedAtPicker
             // 
-            this.updatedAtPicker.Location = new System.Drawing.Point(343, 683);
+            this.updatedAtPicker.Location = new System.Drawing.Point(343, 692);
             this.updatedAtPicker.Name = "updatedAtPicker";
             this.updatedAtPicker.Size = new System.Drawing.Size(378, 36);
             this.updatedAtPicker.TabIndex = 57;
@@ -98,7 +98,7 @@
             // 
             // createdAtPicker
             // 
-            this.createdAtPicker.Location = new System.Drawing.Point(343, 614);
+            this.createdAtPicker.Location = new System.Drawing.Point(343, 623);
             this.createdAtPicker.Name = "createdAtPicker";
             this.createdAtPicker.Size = new System.Drawing.Size(378, 36);
             this.createdAtPicker.TabIndex = 58;
@@ -128,45 +128,46 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(343, 470);
+            this.emailTextBox.Location = new System.Drawing.Point(343, 479);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(378, 36);
             this.emailTextBox.TabIndex = 48;
             // 
             // AddresstextBox
             // 
-            this.AddresstextBox.Location = new System.Drawing.Point(343, 419);
+            this.AddresstextBox.Location = new System.Drawing.Point(343, 428);
             this.AddresstextBox.Name = "AddresstextBox";
             this.AddresstextBox.Size = new System.Drawing.Size(378, 36);
             this.AddresstextBox.TabIndex = 49;
             // 
             // PasswordtextBox
             // 
-            this.PasswordtextBox.Location = new System.Drawing.Point(343, 356);
+            this.PasswordtextBox.Location = new System.Drawing.Point(343, 365);
             this.PasswordtextBox.Name = "PasswordtextBox";
             this.PasswordtextBox.Size = new System.Drawing.Size(378, 36);
             this.PasswordtextBox.TabIndex = 50;
             // 
             // techAccountTextBox
             // 
-            this.techAccountTextBox.Location = new System.Drawing.Point(343, 296);
+            this.techAccountTextBox.Location = new System.Drawing.Point(343, 305);
             this.techAccountTextBox.Name = "techAccountTextBox";
             this.techAccountTextBox.Size = new System.Drawing.Size(378, 36);
             this.techAccountTextBox.TabIndex = 51;
             // 
             // phone_textBox
             // 
-            this.phone_textBox.Location = new System.Drawing.Point(343, 227);
+            this.phone_textBox.Location = new System.Drawing.Point(343, 236);
             this.phone_textBox.Name = "phone_textBox";
             this.phone_textBox.Size = new System.Drawing.Size(378, 36);
             this.phone_textBox.TabIndex = 52;
             // 
             // NickNameTextBox
             // 
-            this.NickNameTextBox.Location = new System.Drawing.Point(343, 158);
+            this.NickNameTextBox.Location = new System.Drawing.Point(343, 167);
             this.NickNameTextBox.Name = "NickNameTextBox";
             this.NickNameTextBox.Size = new System.Drawing.Size(378, 36);
             this.NickNameTextBox.TabIndex = 53;
+            this.NickNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -192,7 +193,7 @@
             // 
             // userNameTextBox
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(343, 89);
+            this.userNameTextBox.Location = new System.Drawing.Point(343, 98);
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(378, 36);
             this.userNameTextBox.TabIndex = 54;
@@ -294,6 +295,7 @@
             this.buttonUploadPhoto.TabIndex = 20;
             this.buttonUploadPhoto.Text = "Open File ...";
             this.buttonUploadPhoto.UseVisualStyleBackColor = true;
+            this.buttonUploadPhoto.Click += new System.EventHandler(this.buttonUploadPhoto_Click);
             // 
             // pictureBox1
             // 
@@ -331,12 +333,45 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(622, 98);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(129, 36);
+            this.label13.TabIndex = 61;
+            this.label13.Text = "(必填)";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(622, 301);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(129, 36);
+            this.label12.TabIndex = 61;
+            this.label12.Text = "(必填)";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(622, 365);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(129, 36);
+            this.label14.TabIndex = 61;
+            this.label14.Text = "(必填)";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormTech
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1459, 1073);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cmdGender);
             this.Controls.Add(this.label4);
@@ -407,5 +442,8 @@
         private System.Windows.Forms.BindingSource techbindingSource1;
         private Tech.DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter techniciansTableAdapter1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
     }
 }

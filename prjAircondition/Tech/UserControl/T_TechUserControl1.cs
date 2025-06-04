@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
+using File = System.IO.File;
 
 namespace prjAircondition.Tech
 {
@@ -44,6 +46,9 @@ namespace prjAircondition.Tech
             //但 DataGridView 設計器在第一次設計階段並沒有
             //正確幫你自動產生欄位(AutoGenerateColumns 問題)。
 
+            // 先載入證照資料
+            this.licensesTableAdapter1.Fill(this.t_ACDataSet1.licenses);
+
             //綁了 DataTable 不是整個 DataSet，
             //設計器無法幫你預先產生正確欄位。
             //要格外加方法
@@ -59,7 +64,30 @@ namespace prjAircondition.Tech
             // techniciansBindingSource  BindingSource 綁定師傅資料表(DataTable)
             this.techniciansBindingSource.DataSource = this.t_ACDataSet1.Technicians;
 
+            // 讓 LicenseBindingSource 綁定 Licenses 資料表
+            this.licensebindingSource1.DataSource = this.t_ACDataSet1.licenses;
+            // licenseBindingSource 做出 Master-Detail 綁定
+            //Filter 其實是 DataView.RowFilter 的封裝。
+            //BindingSource 層 Filter 屬性找到那筆欄位值 等於多少的資料列
+            //Filter 不是 SQL 語法，而是 .NET DataView 語法
+            //這裡比對T_id 篩選資料列
+
+            licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
+
             // techniciansDataGridView 已經在設計器上 DataSource 綁定了 techniciansBindingSource
+        }
+
+        //取得當前師傅ID
+        private object GetCurrentTechnicianId()
+        {
+            if (this.techniciansBindingSource.Current is DataRowView drv)
+            {
+                return Convert.ToInt32(drv["T_id"]);
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         public void BindControl()
@@ -169,7 +197,7 @@ namespace prjAircondition.Tech
         //預設圖片位置
         private void LoadDefaultImage()
         {
-            //給預設照片 都在 C:\Tech\prjAircondition\Tech\TechResources底下
+            //給預設照片 都在 C:\Users\yozora\Desktop\AC_Middern\NewTech\Aircondition\TechResources底下
             string defaultPath = Path.Combine(imageFolderPath, "default.png");
             //執行檔案預設路徑
             //MessageBox.Show("Application.StartupPath: " + Application.StartupPath);
@@ -221,14 +249,14 @@ namespace prjAircondition.Tech
                     //儲存時複製一份檔案到資料夾裡 路徑
                     string storePath = Path.Combine(imageFolderPath, fileName);
 
-                    // 檢查來源路徑是否有效，才進行檔案複製
-                    if (!string.IsNullOrEmpty(selectedPhotoFullPath) && File.Exists(selectedPhotoFullPath))
-                    {
-                        // 避免重複覆蓋同名檔案 複製一份檔案到這路徑storePath下
-                        // true 代表有同名檔案時覆蓋
-                        File.Copy(selectedPhotoFullPath, storePath, true);
-                        selectedPhotoFullPath = null;
-                    }
+                    //// 檢查來源路徑是否有效，才進行檔案複製
+                    //if (!string.IsNullOrEmpty(selectedPhotoFullPath) && File.Exists(selectedPhotoFullPath))
+                    //{
+                    //    // 避免重複覆蓋同名檔案 複製一份檔案到這路徑storePath下
+                    //    // true 代表有同名檔案時覆蓋
+                    //    File.Copy(selectedPhotoFullPath, storePath, true);
+                    //    selectedPhotoFullPath = null;
+                    //}
                 }
             }
             //強制觸發整個表單(Form 或 UserControl) 上所有控制項的驗證事件。 如果UI
@@ -337,7 +365,18 @@ namespace prjAircondition.Tech
         private void techniciansBindingSource_CurrentChanged(object sender, EventArgs e)
         {
             //設定好label 顯示 第幾筆/ 共有幾筆
-            this.ALLTechLabel.Text = $"{this.techniciansBindingSource.Position + 1} / {this.techniciansBindingSource.Count}";
+            this.ALLTechLabel1.Text = $"{this.techniciansBindingSource.Position + 1} / {this.techniciansBindingSource.Count}";
+
+            RefreshLicenseBinding();
+        }
+
+        //師傅切換時，也切換顯示
+        private void RefreshLicenseBinding()
+        {
+            if (licensebindingSource1 != null)
+            {
+                licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
+            }
         }
 
         private void AllTechbutton1_Click(object sender, EventArgs e)
@@ -417,8 +456,48 @@ namespace prjAircondition.Tech
 
         private void InsertTechButton1_Click(object sender, EventArgs e)
         {
-            Form f = new FormTech();
+            //和FormTech共用一份離線資料表
+            Form f = new FormTech(this.t_ACDataSet1);
             f.Show();
+        }
+
+        private void techniciansDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.techniciansDataGridView.Columns[e.ColumnIndex].Name == "gender" && e.Value != null)
+            {
+                // 新增防呆判斷
+                bool gender = false; // 預設男生
+                if (e.Value != DBNull.Value && e.Value != null)
+                    gender = Convert.ToBoolean(e.Value);
+                e.Value = gender ? "女生" : "男生";
+                e.FormattingApplied = true;
+            }
+        }
+
+        //切換到師父 所有圖片一覽頁面
+        private void btnTechAllLicense_Click(object sender, EventArgs e)
+        {
+            this.tabControl2.SelectedTab = this.LicenseAllPage;
+        }
+
+        private void btnSaveLicense_Click(object sender, EventArgs e)
+        {
+        }
+
+        //新增證照功能
+        private void btnAddLicense_Click(object sender, EventArgs e)
+        {
+            // 先透過 BindingSource 產生新資料列（會自動幫你建好 DataRowView）
+            var newRowView = (DataRowView)licensebindingSource1.AddNew();
+
+            // 設定欄位值
+            newRowView["T_id"] = GetCurrentTechnicianId();  // 外鍵，指向目前的師傅
+
+            // 結束編輯（通常你可以等 UI 完整編輯後再呼叫 EndEdit）
+            licensebindingSource1.EndEdit();
+
+            // 移動游標到新增的這一筆（可有可無，看你要不要跳到最後一筆方便觀察）
+            licensebindingSource1.MoveLast();
         }
     }
 }

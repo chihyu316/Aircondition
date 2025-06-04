@@ -73,8 +73,8 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdateTechToDBbutton1 = new System.Windows.Forms.Button();
@@ -110,12 +110,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.LicensePage = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.InsertLicense = new System.Windows.Forms.TabPage();
             this.License_Upload_button = new System.Windows.Forms.Button();
             this.licensepictureBox = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.updatedAtPickerLicense = new System.Windows.Forms.DateTimePicker();
+            this.createdAtPickerLicense = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.expirydateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -128,15 +128,20 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.LicenseAllPage = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.techniciansTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter();
             this.tableAdapterManager = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TableAdapterManager();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.s_DOrderProcessing1 = new prjAircondition.Shop.DataSet.S_DOrderProcessing();
             this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workOrderTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter();
+            this.btnSaveLicense = new System.Windows.Forms.Button();
+            this.btnTechAllLicense = new System.Windows.Forms.Button();
+            this.licensesTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.licensesTableAdapter();
+            this.licensebindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddLicense = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AllTechPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingNavigator)).BeginInit();
@@ -149,10 +154,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.LicensePage.SuspendLayout();
             this.tabControl2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.InsertLicense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.licensebindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // UpdateTechToDBbutton
@@ -286,7 +292,7 @@
             this.tabControl1.Controls.Add(this.LicensePage);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.tabControl1.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -312,9 +318,9 @@
             this.AllTechPage.Controls.Add(this.showTechButton1);
             this.AllTechPage.Controls.Add(this.label5);
             this.AllTechPage.ForeColor = System.Drawing.Color.Black;
-            this.AllTechPage.Location = new System.Drawing.Point(4, 42);
+            this.AllTechPage.Location = new System.Drawing.Point(4, 46);
             this.AllTechPage.Name = "AllTechPage";
-            this.AllTechPage.Size = new System.Drawing.Size(1640, 948);
+            this.AllTechPage.Size = new System.Drawing.Size(1640, 944);
             this.AllTechPage.TabIndex = 2;
             this.AllTechPage.Text = "所有師傅資訊";
             // 
@@ -473,8 +479,8 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
-            this.dataGridViewCheckBoxColumn2,
             this.dataGridViewCheckBoxColumn3,
+            this.gender,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
             this.techniciansDataGridView.DataSource = this.techniciansBindingSource;
@@ -482,8 +488,10 @@
             this.techniciansDataGridView.Name = "techniciansDataGridView";
             this.techniciansDataGridView.RowHeadersWidth = 62;
             this.techniciansDataGridView.RowTemplate.Height = 31;
+            this.techniciansDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.techniciansDataGridView.Size = new System.Drawing.Size(1057, 374);
             this.techniciansDataGridView.TabIndex = 13;
+            this.techniciansDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.techniciansDataGridView_CellFormatting);
             this.techniciansDataGridView.DoubleClick += new System.EventHandler(this.techniciansDataGridView_DoubleClick);
             // 
             // dataGridViewTextBoxColumn1
@@ -583,14 +591,6 @@
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.Width = 150;
             // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "gender";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "gender";
-            this.dataGridViewCheckBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.Width = 150;
-            // 
             // dataGridViewCheckBoxColumn3
             // 
             this.dataGridViewCheckBoxColumn3.DataPropertyName = "is_open_payment";
@@ -598,6 +598,14 @@
             this.dataGridViewCheckBoxColumn3.MinimumWidth = 8;
             this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
             this.dataGridViewCheckBoxColumn3.Width = 150;
+            // 
+            // gender
+            // 
+            this.gender.DataPropertyName = "gender";
+            this.gender.HeaderText = "gender";
+            this.gender.MinimumWidth = 8;
+            this.gender.Name = "gender";
+            this.gender.Width = 150;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -655,16 +663,16 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Location = new System.Drawing.Point(821, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(346, 34);
+            this.label1.Size = new System.Drawing.Size(315, 39);
             this.label1.TabIndex = 7;
-            this.label1.Text = "雙擊進入師傅個人資訊";
+            this.label1.Text = "雙擊師傅個人簡介";
             // 
             // ALLTechLabel1
             // 
             this.ALLTechLabel1.AutoSize = true;
             this.ALLTechLabel1.Location = new System.Drawing.Point(264, 190);
             this.ALLTechLabel1.Name = "ALLTechLabel1";
-            this.ALLTechLabel1.Size = new System.Drawing.Size(71, 32);
+            this.ALLTechLabel1.Size = new System.Drawing.Size(89, 37);
             this.ALLTechLabel1.TabIndex = 6;
             this.ALLTechLabel1.Text = "1/10";
             // 
@@ -713,7 +721,7 @@
             this.labelTechNameInALLTechs1.AutoSize = true;
             this.labelTechNameInALLTechs1.Location = new System.Drawing.Point(504, 85);
             this.labelTechNameInALLTechs1.Name = "labelTechNameInALLTechs1";
-            this.labelTechNameInALLTechs1.Size = new System.Drawing.Size(245, 32);
+            this.labelTechNameInALLTechs1.Size = new System.Drawing.Size(276, 37);
             this.labelTechNameInALLTechs1.TabIndex = 4;
             this.labelTechNameInALLTechs1.Text = "選取的師傅名字";
             // 
@@ -722,14 +730,14 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(315, 85);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 32);
+            this.label4.Size = new System.Drawing.Size(183, 37);
             this.label4.TabIndex = 3;
             this.label4.Text = "師傅名稱:";
             // 
             // showTechButton1
             // 
             this.showTechButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.showTechButton1.Location = new System.Drawing.Point(821, 79);
+            this.showTechButton1.Location = new System.Drawing.Point(821, 85);
             this.showTechButton1.Name = "showTechButton1";
             this.showTechButton1.Size = new System.Drawing.Size(275, 49);
             this.showTechButton1.TabIndex = 2;
@@ -743,7 +751,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(32, 85);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(212, 32);
+            this.label5.Size = new System.Drawing.Size(239, 37);
             this.label5.TabIndex = 1;
             this.label5.Text = "所有師傅資料";
             // 
@@ -764,10 +772,10 @@
             this.TechPage.Controls.Add(this.label10);
             this.TechPage.Controls.Add(this.label11);
             this.TechPage.Controls.Add(this.label12);
-            this.TechPage.Location = new System.Drawing.Point(4, 42);
+            this.TechPage.Location = new System.Drawing.Point(4, 46);
             this.TechPage.Name = "TechPage";
             this.TechPage.Padding = new System.Windows.Forms.Padding(3);
-            this.TechPage.Size = new System.Drawing.Size(1640, 948);
+            this.TechPage.Size = new System.Drawing.Size(1640, 944);
             this.TechPage.TabIndex = 0;
             this.TechPage.Text = "個人資料";
             // 
@@ -830,20 +838,20 @@
             // 
             this.updatedAtPicker.Location = new System.Drawing.Point(325, 452);
             this.updatedAtPicker.Name = "updatedAtPicker";
-            this.updatedAtPicker.Size = new System.Drawing.Size(378, 46);
+            this.updatedAtPicker.Size = new System.Drawing.Size(378, 45);
             this.updatedAtPicker.TabIndex = 22;
             // 
             // createdAtPicker
             // 
             this.createdAtPicker.Location = new System.Drawing.Point(325, 383);
             this.createdAtPicker.Name = "createdAtPicker";
-            this.createdAtPicker.Size = new System.Drawing.Size(378, 46);
+            this.createdAtPicker.Size = new System.Drawing.Size(378, 45);
             this.createdAtPicker.TabIndex = 23;
             // 
             // btnSaveData
             // 
             this.btnSaveData.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveData.Location = new System.Drawing.Point(413, 612);
+            this.btnSaveData.Location = new System.Drawing.Point(413, 585);
             this.btnSaveData.Name = "btnSaveData";
             this.btnSaveData.Size = new System.Drawing.Size(290, 71);
             this.btnSaveData.TabIndex = 21;
@@ -855,21 +863,21 @@
             // 
             this.techAccountTextBox.Location = new System.Drawing.Point(325, 314);
             this.techAccountTextBox.Name = "techAccountTextBox";
-            this.techAccountTextBox.Size = new System.Drawing.Size(378, 46);
+            this.techAccountTextBox.Size = new System.Drawing.Size(378, 45);
             this.techAccountTextBox.TabIndex = 15;
             // 
             // phone_textBox
             // 
             this.phone_textBox.Location = new System.Drawing.Point(325, 245);
             this.phone_textBox.Name = "phone_textBox";
-            this.phone_textBox.Size = new System.Drawing.Size(378, 46);
+            this.phone_textBox.Size = new System.Drawing.Size(378, 45);
             this.phone_textBox.TabIndex = 16;
             // 
             // NickNameTextBox
             // 
             this.NickNameTextBox.Location = new System.Drawing.Point(325, 176);
             this.NickNameTextBox.Name = "NickNameTextBox";
-            this.NickNameTextBox.Size = new System.Drawing.Size(378, 46);
+            this.NickNameTextBox.Size = new System.Drawing.Size(378, 45);
             this.NickNameTextBox.TabIndex = 17;
             // 
             // label8
@@ -898,7 +906,7 @@
             // 
             this.userNameTextBox.Location = new System.Drawing.Point(325, 115);
             this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(378, 46);
+            this.userNameTextBox.Size = new System.Drawing.Size(378, 45);
             this.userNameTextBox.TabIndex = 18;
             // 
             // label10
@@ -939,57 +947,60 @@
             // 
             this.LicensePage.BackColor = System.Drawing.Color.SeaShell;
             this.LicensePage.Controls.Add(this.tabControl2);
-            this.LicensePage.Location = new System.Drawing.Point(4, 42);
+            this.LicensePage.Location = new System.Drawing.Point(4, 46);
             this.LicensePage.Name = "LicensePage";
             this.LicensePage.Padding = new System.Windows.Forms.Padding(3);
-            this.LicensePage.Size = new System.Drawing.Size(1640, 948);
+            this.LicensePage.Size = new System.Drawing.Size(1640, 944);
             this.LicensePage.TabIndex = 1;
             this.LicensePage.Text = "證件資料";
             // 
             // tabControl2
             // 
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Controls.Add(this.InsertLicense);
+            this.tabControl2.Controls.Add(this.LicenseAllPage);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1634, 942);
+            this.tabControl2.Size = new System.Drawing.Size(1634, 938);
             this.tabControl2.TabIndex = 0;
             // 
-            // tabPage3
+            // InsertLicense
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.SeaShell;
-            this.tabPage3.Controls.Add(this.License_Upload_button);
-            this.tabPage3.Controls.Add(this.licensepictureBox);
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.dateTimePicker1);
-            this.tabPage3.Controls.Add(this.dateTimePicker2);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.expirydateTimePicker1);
-            this.tabPage3.Controls.Add(this.issueDateTimePicker1);
-            this.tabPage3.Controls.Add(this.issuedByTextBox);
-            this.tabPage3.Controls.Add(this.licenseDesTextBox);
-            this.tabPage3.Controls.Add(this.licenseNameTextBox);
-            this.tabPage3.Controls.Add(this.label19);
-            this.tabPage3.Controls.Add(this.label20);
-            this.tabPage3.Controls.Add(this.label21);
-            this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Location = new System.Drawing.Point(4, 42);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1626, 896);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "新增證照";
+            this.InsertLicense.BackColor = System.Drawing.Color.SeaShell;
+            this.InsertLicense.Controls.Add(this.btnAddLicense);
+            this.InsertLicense.Controls.Add(this.btnTechAllLicense);
+            this.InsertLicense.Controls.Add(this.btnSaveLicense);
+            this.InsertLicense.Controls.Add(this.License_Upload_button);
+            this.InsertLicense.Controls.Add(this.licensepictureBox);
+            this.InsertLicense.Controls.Add(this.label15);
+            this.InsertLicense.Controls.Add(this.updatedAtPickerLicense);
+            this.InsertLicense.Controls.Add(this.createdAtPickerLicense);
+            this.InsertLicense.Controls.Add(this.label13);
+            this.InsertLicense.Controls.Add(this.label14);
+            this.InsertLicense.Controls.Add(this.expirydateTimePicker1);
+            this.InsertLicense.Controls.Add(this.issueDateTimePicker1);
+            this.InsertLicense.Controls.Add(this.issuedByTextBox);
+            this.InsertLicense.Controls.Add(this.licenseDesTextBox);
+            this.InsertLicense.Controls.Add(this.licenseNameTextBox);
+            this.InsertLicense.Controls.Add(this.label19);
+            this.InsertLicense.Controls.Add(this.label20);
+            this.InsertLicense.Controls.Add(this.label21);
+            this.InsertLicense.Controls.Add(this.label22);
+            this.InsertLicense.Controls.Add(this.label23);
+            this.InsertLicense.Location = new System.Drawing.Point(4, 46);
+            this.InsertLicense.Name = "InsertLicense";
+            this.InsertLicense.Padding = new System.Windows.Forms.Padding(3);
+            this.InsertLicense.Size = new System.Drawing.Size(1626, 888);
+            this.InsertLicense.TabIndex = 0;
+            this.InsertLicense.Text = "新增證照";
             // 
             // License_Upload_button
             // 
             this.License_Upload_button.ForeColor = System.Drawing.Color.Black;
-            this.License_Upload_button.Location = new System.Drawing.Point(790, 564);
+            this.License_Upload_button.Location = new System.Drawing.Point(775, 569);
             this.License_Upload_button.Name = "License_Upload_button";
-            this.License_Upload_button.Size = new System.Drawing.Size(208, 39);
+            this.License_Upload_button.Size = new System.Drawing.Size(228, 39);
             this.License_Upload_button.TabIndex = 30;
             this.License_Upload_button.Text = "Open File ...";
             this.License_Upload_button.UseVisualStyleBackColor = true;
@@ -1017,19 +1028,19 @@
             this.label15.TabIndex = 28;
             this.label15.Text = "證照照片";
             // 
-            // dateTimePicker1
+            // updatedAtPickerLicense
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(278, 482);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(251, 46);
-            this.dateTimePicker1.TabIndex = 26;
+            this.updatedAtPickerLicense.Location = new System.Drawing.Point(278, 482);
+            this.updatedAtPickerLicense.Name = "updatedAtPickerLicense";
+            this.updatedAtPickerLicense.Size = new System.Drawing.Size(306, 45);
+            this.updatedAtPickerLicense.TabIndex = 26;
             // 
-            // dateTimePicker2
+            // createdAtPickerLicense
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(278, 416);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(251, 46);
-            this.dateTimePicker2.TabIndex = 27;
+            this.createdAtPickerLicense.Location = new System.Drawing.Point(278, 416);
+            this.createdAtPickerLicense.Name = "createdAtPickerLicense";
+            this.createdAtPickerLicense.Size = new System.Drawing.Size(306, 45);
+            this.createdAtPickerLicense.TabIndex = 27;
             // 
             // label13
             // 
@@ -1055,35 +1066,35 @@
             // 
             this.expirydateTimePicker1.Location = new System.Drawing.Point(278, 345);
             this.expirydateTimePicker1.Name = "expirydateTimePicker1";
-            this.expirydateTimePicker1.Size = new System.Drawing.Size(222, 46);
+            this.expirydateTimePicker1.Size = new System.Drawing.Size(306, 45);
             this.expirydateTimePicker1.TabIndex = 2;
             // 
             // issueDateTimePicker1
             // 
             this.issueDateTimePicker1.Location = new System.Drawing.Point(278, 288);
             this.issueDateTimePicker1.Name = "issueDateTimePicker1";
-            this.issueDateTimePicker1.Size = new System.Drawing.Size(222, 46);
+            this.issueDateTimePicker1.Size = new System.Drawing.Size(306, 45);
             this.issueDateTimePicker1.TabIndex = 2;
             // 
             // issuedByTextBox
             // 
             this.issuedByTextBox.Location = new System.Drawing.Point(278, 218);
             this.issuedByTextBox.Name = "issuedByTextBox";
-            this.issuedByTextBox.Size = new System.Drawing.Size(211, 46);
+            this.issuedByTextBox.Size = new System.Drawing.Size(306, 45);
             this.issuedByTextBox.TabIndex = 1;
             // 
             // licenseDesTextBox
             // 
             this.licenseDesTextBox.Location = new System.Drawing.Point(278, 157);
             this.licenseDesTextBox.Name = "licenseDesTextBox";
-            this.licenseDesTextBox.Size = new System.Drawing.Size(211, 46);
+            this.licenseDesTextBox.Size = new System.Drawing.Size(306, 45);
             this.licenseDesTextBox.TabIndex = 1;
             // 
             // licenseNameTextBox
             // 
             this.licenseNameTextBox.Location = new System.Drawing.Point(278, 84);
             this.licenseNameTextBox.Name = "licenseNameTextBox";
-            this.licenseNameTextBox.Size = new System.Drawing.Size(211, 46);
+            this.licenseNameTextBox.Size = new System.Drawing.Size(306, 45);
             this.licenseNameTextBox.TabIndex = 1;
             // 
             // label19
@@ -1142,15 +1153,24 @@
             this.label23.Text = "證照名稱";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tabPage4
+            // LicenseAllPage
             // 
-            this.tabPage4.BackColor = System.Drawing.Color.SeaShell;
-            this.tabPage4.Location = new System.Drawing.Point(4, 42);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1626, 896);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "查看所有證照";
+            this.LicenseAllPage.BackColor = System.Drawing.Color.SeaShell;
+            this.LicenseAllPage.Location = new System.Drawing.Point(4, 46);
+            this.LicenseAllPage.Name = "LicenseAllPage";
+            this.LicenseAllPage.Padding = new System.Windows.Forms.Padding(3);
+            this.LicenseAllPage.Size = new System.Drawing.Size(1626, 888);
+            this.LicenseAllPage.TabIndex = 1;
+            this.LicenseAllPage.Text = "查看所有證照";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 46);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1640, 944);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // techniciansTableAdapter
             // 
@@ -1173,15 +1193,6 @@
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 42);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1640, 948);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // s_DOrderProcessing1
             // 
             this.s_DOrderProcessing1.DataSetName = "S_DOrderProcessing";
@@ -1195,6 +1206,43 @@
             // workOrderTableAdapter
             // 
             this.workOrderTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnSaveLicense
+            // 
+            this.btnSaveLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveLicense.Location = new System.Drawing.Point(278, 569);
+            this.btnSaveLicense.Name = "btnSaveLicense";
+            this.btnSaveLicense.Size = new System.Drawing.Size(284, 39);
+            this.btnSaveLicense.TabIndex = 31;
+            this.btnSaveLicense.Text = "Update back DB";
+            this.btnSaveLicense.UseVisualStyleBackColor = true;
+            this.btnSaveLicense.Click += new System.EventHandler(this.btnSaveLicense_Click);
+            // 
+            // btnTechAllLicense
+            // 
+            this.btnTechAllLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnTechAllLicense.Location = new System.Drawing.Point(36, 566);
+            this.btnTechAllLicense.Name = "btnTechAllLicense";
+            this.btnTechAllLicense.Size = new System.Drawing.Size(211, 45);
+            this.btnTechAllLicense.TabIndex = 31;
+            this.btnTechAllLicense.Text = "所有證照";
+            this.btnTechAllLicense.UseVisualStyleBackColor = true;
+            this.btnTechAllLicense.Click += new System.EventHandler(this.btnTechAllLicense_Click);
+            // 
+            // licensesTableAdapter1
+            // 
+            this.licensesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // btnAddLicense
+            // 
+            this.btnAddLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnAddLicense.Location = new System.Drawing.Point(56, 18);
+            this.btnAddLicense.Name = "btnAddLicense";
+            this.btnAddLicense.Size = new System.Drawing.Size(253, 45);
+            this.btnAddLicense.TabIndex = 31;
+            this.btnAddLicense.Text = "繼續新增證照";
+            this.btnAddLicense.UseVisualStyleBackColor = true;
+            this.btnAddLicense.Click += new System.EventHandler(this.btnAddLicense_Click);
             // 
             // T_TechUserControl1
             // 
@@ -1234,11 +1282,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.LicensePage.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.InsertLicense.ResumeLayout(false);
+            this.InsertLicense.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.licensebindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1262,7 +1311,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage AllTechPage;
         private System.Windows.Forms.Button UpdateTechToDBbutton1;
-        private System.Windows.Forms.Button InsertTechButton1;
         private System.Windows.Forms.Button DeleteTechbutton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ALLTechLabel1;
@@ -1294,12 +1342,12 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabPage LicensePage;
         private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage InsertLicense;
         private System.Windows.Forms.Button License_Upload_button;
         private System.Windows.Forms.PictureBox licensepictureBox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker updatedAtPickerLicense;
+        private System.Windows.Forms.DateTimePicker createdAtPickerLicense;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker expirydateTimePicker1;
@@ -1312,7 +1360,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage LicenseAllPage;
         private DataSet.T_ACDataSet1 t_ACDataSet1;
         private System.Windows.Forms.BindingSource techniciansBindingSource;
         private DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter techniciansTableAdapter;
@@ -1331,6 +1379,13 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton techniciansBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView techniciansDataGridView;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private Shop.DataSet.S_DOrderProcessing s_DOrderProcessing1;
+        private System.Windows.Forms.BindingSource workOrderBindingSource;
+        private DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter workOrderTableAdapter;
+        private System.Windows.Forms.Button InsertTechButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1343,15 +1398,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog2;
-        private System.Windows.Forms.TabPage tabPage1;
-        private Shop.DataSet.S_DOrderProcessing s_DOrderProcessing1;
-        private System.Windows.Forms.BindingSource workOrderBindingSource;
-        private DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter workOrderTableAdapter;
+        private System.Windows.Forms.Button btnTechAllLicense;
+        private System.Windows.Forms.Button btnSaveLicense;
+        private DataSet.T_ACDataSet1TableAdapters.licensesTableAdapter licensesTableAdapter1;
+        private System.Windows.Forms.BindingSource licensebindingSource1;
+        private System.Windows.Forms.Button btnAddLicense;
     }
 }
