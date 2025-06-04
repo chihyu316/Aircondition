@@ -243,6 +243,7 @@
             // 
             this.workOrderBindingSource.DataMember = "WorkOrder";
             this.workOrderBindingSource.DataSource = this.t_ACDataSet1;
+            this.workOrderBindingSource.CurrentChanged += new System.EventHandler(this.workOrderBindingSource_CurrentChanged);
             // 
             // workOrderTableAdapter
             // 

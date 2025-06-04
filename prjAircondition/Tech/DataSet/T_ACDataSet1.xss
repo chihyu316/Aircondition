@@ -8,8 +8,8 @@
   <Shapes>
     <Shape ID="DesignTable:Technicians" ZOrder="7" X="192" Y="425" Height="436" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="345" />
     <Shape ID="DesignTable:licenses" ZOrder="6" X="614" Y="69" Height="358" Width="264" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="293" />
-    <Shape ID="DesignTable:WorkOrder" ZOrder="4" X="762" Y="701" Height="514" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="345" />
-    <Shape ID="DesignTable:WorkType" ZOrder="3" X="1099" Y="340" Height="176" Width="287" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="111" />
+    <Shape ID="DesignTable:WorkOrder" ZOrder="1" X="732" Y="608" Height="488" Width="479" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="345" />
+    <Shape ID="DesignTable:WorkType" ZOrder="4" X="1099" Y="340" Height="176" Width="287" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="111" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_licenses_Technicians" ZOrder="5" LineWidth="11">
@@ -28,14 +28,14 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_WorkType_WorkOrder" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:FK_WorkType_WorkOrder" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>1045</X>
-          <Y>701</Y>
+          <X>1015</X>
+          <Y>608</Y>
         </Point>
         <Point>
-          <X>1045</X>
+          <X>1015</X>
           <Y>499</Y>
         </Point>
         <Point>
@@ -44,23 +44,23 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:WorkOrder_Technicians" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:WorkOrder_Technicians" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>762</X>
-          <Y>819</Y>
+          <X>732</X>
+          <Y>726</Y>
         </Point>
         <Point>
           <X>594</X>
-          <Y>819</Y>
+          <Y>726</Y>
         </Point>
         <Point>
           <X>594</X>
-          <Y>811</Y>
+          <Y>718</Y>
         </Point>
         <Point>
           <X>492</X>
-          <Y>811</Y>
+          <Y>718</Y>
         </Point>
       </RoutePoints>
     </Connector>

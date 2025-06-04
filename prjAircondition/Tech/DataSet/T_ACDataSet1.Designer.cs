@@ -5211,7 +5211,7 @@ SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mod
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mode" +
@@ -5220,32 +5220,94 @@ SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mod
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT  WO.WorkOrderID, WO.DetailID, WO.WorkTypeID, WO.TechnicianID, T.name AS TechnicianName, WO.ClosingTechnicianID, WO.ModelName, 
-               WO.SerialNumber, WO.CreatedDate, WO.OrderStatus, WO.CompletedDate, WO.PaymentType, WO.MemberID, WO.CityID, WO.AreaID, 
-               WO.AddressDetail
-FROM     WorkOrder AS WO LEFT OUTER JOIN
-               Technicians AS T ON WO.TechnicianID = T.T_id";
+            this._commandCollection[1].CommandText = @"SELECT  
+    WO.WorkOrderID, 
+    WO.DetailID, 
+    WO.WorkTypeID, 
+    WT.WorkType AS WorkTypeName,  -- 新增：工作類型名稱
+    WO.TechnicianID, 
+    T.name AS TechnicianName, 
+    WO.ClosingTechnicianID, 
+    WO.ModelName, 
+    WO.SerialNumber, 
+    WO.CreatedDate, 
+    WO.OrderStatus, 
+    WO.CompletedDate, 
+    WO.PaymentType, 
+    WO.MemberID, 
+    WO.CityID, 
+    WO.AreaID, 
+    WO.AddressDetail
+FROM     
+    WorkOrder AS WO
+LEFT JOIN 
+    Technicians AS T ON WO.TechnicianID = T.T_id
+LEFT JOIN 
+    WorkType AS WT ON WO.WorkTypeID = WT.WorkTypeID";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT \r\n    T.name AS TechnicianName,\r\n    WO.*\r\nFROM \r\n    WorkOrder WO\r\nJOIN \r" +
-                "\n    Technicians T\r\nON \r\n    WO.TechnicianID = T.T_id\r\nWHERE\r\n    T.T_id = @Tech" +
-                "nicianID";
+            this._commandCollection[2].CommandText = @"SELECT 
+    WO.WorkOrderID, 
+    WO.DetailID, 
+    WO.WorkTypeID, 
+    WT.WorkType AS WorkTypeName,  -- 新增：工作類型名稱
+    WO.TechnicianID, 
+    T.name AS TechnicianName, 
+    WO.ClosingTechnicianID, 
+    WO.ModelName, 
+    WO.SerialNumber, 
+    WO.CreatedDate, 
+    WO.OrderStatus, 
+    WO.CompletedDate, 
+    WO.PaymentType, 
+    WO.MemberID, 
+    WO.CityID, 
+    WO.AreaID, 
+    WO.AddressDetail
+FROM 
+    WorkOrder WO
+JOIN 
+    Technicians T
+ON 
+    WO.TechnicianID = T.T_id
+JOIN 
+    WorkType WT
+ON 
+    WO.WorkTypeID = WT.WorkTypeID
+WHERE
+    T.T_id = @TechnicianID
+";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "T_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT \r\nT.name AS TechnicianName,\r\nWO.*\r\nFROM \r\n    WorkOrder WO\r\nJOIN \r\n    Tec" +
-                "hnicians T\r\nON \r\n    WO.TechnicianID = T.T_id";
+            this._commandCollection[3].CommandText = @"SELECT 
+    WO.WorkOrderID, 
+    WO.DetailID, 
+    WO.WorkTypeID, 
+    WO.TechnicianID, 
+    T.name AS TechnicianName, 
+    WT.WorkType, -- 新增這個
+    WO.ClosingTechnicianID, 
+    WO.ModelName, 
+    WO.SerialNumber, 
+    WO.CreatedDate, 
+    WO.OrderStatus, 
+    WO.CompletedDate, 
+    WO.PaymentType, 
+    WO.MemberID, 
+    WO.CityID, 
+    WO.AreaID, 
+    WO.AddressDetail
+FROM WorkOrder AS WO
+LEFT JOIN Technicians AS T ON WO.TechnicianID = T.T_id
+LEFT JOIN WorkType AS WT ON WO.WorkTypeID = WT.WorkTypeID
+WHERE WO.TechnicianID = @TechID
+AND WO.WorkTypeID = @WorkTypeID";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT  WT.WorkType,W.*\r\nFROM WorkOrder W\r\nINNER JOIN WorkType WT ON W.WorkTypeID" +
-                " = WT.WorkTypeID\r\nWHERE W.TechnicianID = @TechnicianID\r\nAND W.WorkTypeID = @Work" +
-                "TypeID";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TechnicianID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WorkTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WorkTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TechnicianID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WorkTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WorkTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5326,34 +5388,10 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTechnicianID(T_ACDataSet1.WorkOrderDataTable dataTable) {
+        public virtual int FillByTechnicianIDAndWorkTypeID(T_ACDataSet1.WorkOrderDataTable dataTable, global::System.Nullable<int> TechID, global::System.Nullable<int> WorkTypeID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual T_ACDataSet1.WorkOrderDataTable GetDataByTechnicianID() {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            T_ACDataSet1.WorkOrderDataTable dataTable = new T_ACDataSet1.WorkOrderDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTechnicianIDAndWorkTypeID(T_ACDataSet1.WorkOrderDataTable dataTable, global::System.Nullable<int> TechnicianID, global::System.Nullable<int> WorkTypeID) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((TechnicianID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
+            if ((TechID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5375,10 +5413,10 @@ FROM     WorkOrder AS WO LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual T_ACDataSet1.WorkOrderDataTable GetDataByTechnicianIDAndWorkTypeID(global::System.Nullable<int> TechnicianID, global::System.Nullable<int> WorkTypeID) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((TechnicianID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
+        public virtual T_ACDataSet1.WorkOrderDataTable GetDataByTechnicianIDAndWorkTypeID(global::System.Nullable<int> TechID, global::System.Nullable<int> WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((TechID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
