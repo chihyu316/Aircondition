@@ -9,8 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace prjAircondition.Repair
 {
+    
     public partial class R_ucWorkOrder : UserControl
     {
 
@@ -198,6 +200,10 @@ namespace prjAircondition.Repair
             ReloadWorkOrders(); // 重新整理資料表
         }
 
+        private void RE_update_Click_1(object sender, EventArgs e)
+        {
+            ReloadWorkOrders();
+        }
     }
 }
 

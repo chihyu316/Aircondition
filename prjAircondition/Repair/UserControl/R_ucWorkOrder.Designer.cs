@@ -77,6 +77,7 @@
             this.RE_update.TabIndex = 2;
             this.RE_update.Text = "Fill Work";
             this.RE_update.UseVisualStyleBackColor = true;
+            this.RE_update.Click += new System.EventHandler(this.RE_update_Click_1);
             // 
             // ER_btnSelect
             // 
