@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dicuss\DataSet\D_ACDataSet.cs">
+      <DependentUpon>D_ACDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Recruit\Form\C_FrmAddB.cs">
       <SubType>Form</SubType>
     </Compile>
