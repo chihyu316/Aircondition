@@ -151,6 +151,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>R_ReapairDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repair\UserControl\RE_DataSearch.cs" />
     <Compile Include="Repair\UserControl\R_ucInstallationChecklist.cs">
       <SubType>UserControl</SubType>
     </Compile>
