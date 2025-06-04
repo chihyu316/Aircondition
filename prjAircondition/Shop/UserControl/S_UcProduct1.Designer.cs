@@ -53,6 +53,7 @@
             this.btnShowAll.TabIndex = 19;
             this.btnShowAll.Text = "顯示全部商品";
             this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
             // dataGridView1
             // 
@@ -76,6 +77,7 @@
             this.btnSaveUpdate.TabIndex = 16;
             this.btnSaveUpdate.Text = "編輯";
             this.btnSaveUpdate.UseVisualStyleBackColor = true;
+            this.btnSaveUpdate.Click += new System.EventHandler(this.btnSaveUpdate_Click);
             // 
             // btnDelete
             // 
@@ -86,6 +88,7 @@
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "刪除";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // pictureBox1
             // 
@@ -125,6 +128,7 @@
             this.comboVendor.Name = "comboVendor";
             this.comboVendor.Size = new System.Drawing.Size(310, 23);
             this.comboVendor.TabIndex = 13;
+            this.comboVendor.SelectedIndexChanged += new System.EventHandler(this.comboVendor_SelectedIndexChanged);
             // 
             // comboFunctionType
             // 

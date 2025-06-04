@@ -28,6 +28,7 @@ namespace prjAircondition.Shop
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             this.dataGridView1.DefaultValuesNeeded += dataGridView1_DefaultValuesNeeded; // 預設值
             btnSearchByFunction.Click += btnSearchByFunction_Click;
+
         }
 
         private void LoadVendorList()
@@ -177,10 +178,15 @@ namespace prjAircondition.Shop
                     dataGridView1.DataSource = dt;
                 }
             }
+            else if (comboVendor.SelectedValue != null)
+            {
+                comboVendor_SelectedIndexChanged(sender, e);
+            }
             else
             {
                 MessageBox.Show("請先選擇廠商與功能分類！");
             }
+
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -196,6 +202,123 @@ namespace prjAircondition.Shop
             else if (dataGridView1.Columns[e.ColumnIndex].Name == "ProductStatus" && e.Value is int val3)
             {
                 e.Value = val3 == 0 ? "下架" : "上架";
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("請選擇一筆要刪除的資料！");
+                return;
+            }
+
+            // 取得選取列的主鍵 ID
+            var result = MessageBox.Show("確定要刪除這筆資料嗎？", "確認刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result != DialogResult.Yes) return;
+
+            try
+            {
+                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CoolingProductID"].Value);
+                string connString = Settings.Default.ACConnectionString;
+                string sql = "DELETE FROM CoolingProduct WHERE CoolingProductID = @ID";
+
+                using (SqlConnection conn = new SqlConnection(connString))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    conn.Open();
+                    int rows = cmd.ExecuteNonQuery();
+
+                    MessageBox.Show(rows > 0 ? "刪除成功！" : "刪除失敗！");
+                    LoadCoolingProduct(); // 重新載入資料
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("刪除失敗：" + ex.Message);
+            }
+        }
+
+        private void btnSaveUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Validate();
+                bindingSource.EndEdit();
+
+                // ✅ 第一步：記錄目前選取的 CoolingProductID
+                int selectedID = -1;
+                if (dataGridView1.CurrentRow != null)
+                {
+                    object val = dataGridView1.CurrentRow.Cells["CoolingProductID"].Value;
+                    if (val != DBNull.Value && val != null)
+                        selectedID = Convert.ToInt32(val);
+                }
+
+                // ✅ 第二步：更新 UpdatedTime
+                foreach (DataRow row in dataSet.Tables["CoolingProduct"].Rows)
+                {
+                    if (row.RowState == DataRowState.Modified)
+                    {
+                        row["UpdatedTime"] = DateTime.Now;
+                    }
+                }
+
+                // ✅ 第三步：更新資料庫
+                adapter.Update(dataSet, "CoolingProduct");
+                MessageBox.Show("修改儲存成功！");
+
+                // ✅ 第四步：重新載入資料
+                LoadCoolingProduct();
+
+                // ✅ 第五步：嘗試重新選取剛剛那一筆 CoolingProductID
+                if (selectedID > 0)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (row.Cells["CoolingProductID"].Value != null &&
+                            Convert.ToInt32(row.Cells["CoolingProductID"].Value) == selectedID)
+                        {
+                            row.Selected = true;
+                            dataGridView1.CurrentCell = row.Cells[1]; // 讓焦點在某欄
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("修改失敗：" + ex.Message);
+            }
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            comboVendor.SelectedIndex = -1;
+            comboFunctionType.SelectedIndex = -1;
+            LoadCoolingProduct();
+            MessageBox.Show("已顯示全部商品！");
+        }
+
+        private void comboVendor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboVendor.SelectedItem is DataRowView rowView && comboFunctionType.SelectedValue == null)
+            {
+                int vendorId = Convert.ToInt32(rowView["VendorID"]);
+
+                string connStr = Settings.Default.ACConnectionString;
+                string sql = "SELECT * FROM CoolingProduct WHERE VendorID = @VendorID";
+
+                using (SqlConnection conn = new SqlConnection(connStr))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@VendorID", vendorId);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
             }
         }
     }
