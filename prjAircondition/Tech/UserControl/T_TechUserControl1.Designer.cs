@@ -82,10 +82,10 @@
             this.DeleteTechbutton1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ALLTechLabel1 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.AllTechbutton4 = new System.Windows.Forms.Button();
+            this.AllTechbutton3 = new System.Windows.Forms.Button();
+            this.AllTechbutton2 = new System.Windows.Forms.Button();
+            this.AllTechbutton1 = new System.Windows.Forms.Button();
             this.labelTechNameInALLTechs1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.showTechButton1 = new System.Windows.Forms.Button();
@@ -283,7 +283,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1214, 994);
+            this.tabControl1.Size = new System.Drawing.Size(1648, 994);
             this.tabControl1.TabIndex = 22;
             // 
             // AllTechPage
@@ -296,10 +296,10 @@
             this.AllTechPage.Controls.Add(this.DeleteTechbutton1);
             this.AllTechPage.Controls.Add(this.label1);
             this.AllTechPage.Controls.Add(this.ALLTechLabel1);
-            this.AllTechPage.Controls.Add(this.button8);
-            this.AllTechPage.Controls.Add(this.button9);
-            this.AllTechPage.Controls.Add(this.button10);
-            this.AllTechPage.Controls.Add(this.button11);
+            this.AllTechPage.Controls.Add(this.AllTechbutton4);
+            this.AllTechPage.Controls.Add(this.AllTechbutton3);
+            this.AllTechPage.Controls.Add(this.AllTechbutton2);
+            this.AllTechPage.Controls.Add(this.AllTechbutton1);
             this.AllTechPage.Controls.Add(this.labelTechNameInALLTechs1);
             this.AllTechPage.Controls.Add(this.label4);
             this.AllTechPage.Controls.Add(this.showTechButton1);
@@ -307,7 +307,7 @@
             this.AllTechPage.ForeColor = System.Drawing.Color.Black;
             this.AllTechPage.Location = new System.Drawing.Point(4, 42);
             this.AllTechPage.Name = "AllTechPage";
-            this.AllTechPage.Size = new System.Drawing.Size(1206, 948);
+            this.AllTechPage.Size = new System.Drawing.Size(1640, 948);
             this.AllTechPage.TabIndex = 2;
             this.AllTechPage.Text = "所有師傅資訊";
             // 
@@ -339,7 +339,7 @@
             this.techniciansBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.techniciansBindingNavigator.Name = "techniciansBindingNavigator";
             this.techniciansBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.techniciansBindingNavigator.Size = new System.Drawing.Size(368, 38);
+            this.techniciansBindingNavigator.Size = new System.Drawing.Size(368, 33);
             this.techniciansBindingNavigator.TabIndex = 23;
             this.techniciansBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -349,13 +349,14 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorAddNewItem.Text = "加入新的";
             // 
             // techniciansBindingSource
             // 
             this.techniciansBindingSource.DataMember = "Technicians";
             this.techniciansBindingSource.DataSource = this.t_ACDataSet1;
+            this.techniciansBindingSource.CurrentChanged += new System.EventHandler(this.techniciansBindingSource_CurrentChanged);
             // 
             // t_ACDataSet1
             // 
@@ -365,7 +366,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(40, 33);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorCountItem.Text = "/{0}";
             this.bindingNavigatorCountItem.ToolTipText = "項目總數";
             // 
@@ -375,7 +376,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorDeleteItem.Text = "刪除";
             // 
             // bindingNavigatorMoveFirstItem
@@ -384,7 +385,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMoveFirstItem.Text = "移到最前面";
             // 
             // bindingNavigatorMovePreviousItem
@@ -393,13 +394,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMovePreviousItem.Text = "移到上一個";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -414,7 +415,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -422,7 +423,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMoveNextItem.Text = "移到下一個";
             // 
             // bindingNavigatorMoveLastItem
@@ -431,20 +432,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMoveLastItem.Text = "移到最後面";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
             // techniciansBindingNavigatorSaveItem
             // 
             this.techniciansBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.techniciansBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("techniciansBindingNavigatorSaveItem.Image")));
             this.techniciansBindingNavigatorSaveItem.Name = "techniciansBindingNavigatorSaveItem";
-            this.techniciansBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 33);
+            this.techniciansBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 28);
             this.techniciansBindingNavigatorSaveItem.Text = "儲存資料";
             this.techniciansBindingNavigatorSaveItem.Click += new System.EventHandler(this.techniciansBindingNavigatorSaveItem_Click);
             // 
@@ -476,6 +477,7 @@
             this.techniciansDataGridView.RowTemplate.Height = 31;
             this.techniciansDataGridView.Size = new System.Drawing.Size(1057, 374);
             this.techniciansDataGridView.TabIndex = 13;
+            this.techniciansDataGridView.DoubleClick += new System.EventHandler(this.techniciansDataGridView_DoubleClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -615,6 +617,7 @@
             this.UpdateTechToDBbutton1.TabIndex = 8;
             this.UpdateTechToDBbutton1.Text = "儲存";
             this.UpdateTechToDBbutton1.UseVisualStyleBackColor = false;
+            this.UpdateTechToDBbutton1.Click += new System.EventHandler(this.UpdateTechToDBbutton1_Click);
             // 
             // InsertTechButton1
             // 
@@ -625,6 +628,7 @@
             this.InsertTechButton1.TabIndex = 8;
             this.InsertTechButton1.Text = "新增資料";
             this.InsertTechButton1.UseVisualStyleBackColor = false;
+            this.InsertTechButton1.Click += new System.EventHandler(this.InsertTechButton1_Click);
             // 
             // DeleteTechbutton1
             // 
@@ -635,6 +639,7 @@
             this.DeleteTechbutton1.TabIndex = 8;
             this.DeleteTechbutton1.Text = "刪除";
             this.DeleteTechbutton1.UseVisualStyleBackColor = false;
+            this.DeleteTechbutton1.Click += new System.EventHandler(this.DeleteTechbutton1_Click);
             // 
             // label1
             // 
@@ -656,41 +661,45 @@
             this.ALLTechLabel1.TabIndex = 6;
             this.ALLTechLabel1.Text = "1/10";
             // 
-            // button8
+            // AllTechbutton4
             // 
-            this.button8.Location = new System.Drawing.Point(489, 174);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(89, 56);
-            this.button8.TabIndex = 5;
-            this.button8.Text = ">>";
-            this.button8.UseVisualStyleBackColor = true;
+            this.AllTechbutton4.Location = new System.Drawing.Point(489, 174);
+            this.AllTechbutton4.Name = "AllTechbutton4";
+            this.AllTechbutton4.Size = new System.Drawing.Size(89, 56);
+            this.AllTechbutton4.TabIndex = 5;
+            this.AllTechbutton4.Text = ">>";
+            this.AllTechbutton4.UseVisualStyleBackColor = true;
+            this.AllTechbutton4.Click += new System.EventHandler(this.AllTechbutton4_Click);
             // 
-            // button9
+            // AllTechbutton3
             // 
-            this.button9.Location = new System.Drawing.Point(378, 174);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(89, 56);
-            this.button9.TabIndex = 5;
-            this.button9.Text = ">";
-            this.button9.UseVisualStyleBackColor = true;
+            this.AllTechbutton3.Location = new System.Drawing.Point(378, 174);
+            this.AllTechbutton3.Name = "AllTechbutton3";
+            this.AllTechbutton3.Size = new System.Drawing.Size(89, 56);
+            this.AllTechbutton3.TabIndex = 5;
+            this.AllTechbutton3.Text = ">";
+            this.AllTechbutton3.UseVisualStyleBackColor = true;
+            this.AllTechbutton3.Click += new System.EventHandler(this.AllTechbutton3_Click);
             // 
-            // button10
+            // AllTechbutton2
             // 
-            this.button10.Location = new System.Drawing.Point(153, 174);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(89, 56);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "<";
-            this.button10.UseVisualStyleBackColor = true;
+            this.AllTechbutton2.Location = new System.Drawing.Point(153, 174);
+            this.AllTechbutton2.Name = "AllTechbutton2";
+            this.AllTechbutton2.Size = new System.Drawing.Size(89, 56);
+            this.AllTechbutton2.TabIndex = 5;
+            this.AllTechbutton2.Text = "<";
+            this.AllTechbutton2.UseVisualStyleBackColor = true;
+            this.AllTechbutton2.Click += new System.EventHandler(this.AllTechbutton2_Click);
             // 
-            // button11
+            // AllTechbutton1
             // 
-            this.button11.Location = new System.Drawing.Point(39, 174);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(89, 56);
-            this.button11.TabIndex = 5;
-            this.button11.Text = "<<";
-            this.button11.UseVisualStyleBackColor = true;
+            this.AllTechbutton1.Location = new System.Drawing.Point(39, 174);
+            this.AllTechbutton1.Name = "AllTechbutton1";
+            this.AllTechbutton1.Size = new System.Drawing.Size(89, 56);
+            this.AllTechbutton1.TabIndex = 5;
+            this.AllTechbutton1.Text = "<<";
+            this.AllTechbutton1.UseVisualStyleBackColor = true;
+            this.AllTechbutton1.Click += new System.EventHandler(this.AllTechbutton1_Click);
             // 
             // labelTechNameInALLTechs1
             // 
@@ -719,6 +728,7 @@
             this.showTechButton1.TabIndex = 2;
             this.showTechButton1.Text = "顯示師傅資料";
             this.showTechButton1.UseVisualStyleBackColor = false;
+            this.showTechButton1.Click += new System.EventHandler(this.showTechButton1_Click);
             // 
             // label5
             // 
@@ -750,7 +760,7 @@
             this.TechPage.Location = new System.Drawing.Point(4, 42);
             this.TechPage.Name = "TechPage";
             this.TechPage.Padding = new System.Windows.Forms.Padding(3);
-            this.TechPage.Size = new System.Drawing.Size(1206, 948);
+            this.TechPage.Size = new System.Drawing.Size(1640, 948);
             this.TechPage.TabIndex = 0;
             this.TechPage.Text = "個人資料";
             // 
@@ -759,7 +769,7 @@
             this.panel1.Controls.Add(this.buttonUploadPhoto);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(853, 44);
+            this.panel1.Location = new System.Drawing.Point(797, 31);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(651, 715);
             this.panel1.TabIndex = 24;
@@ -767,12 +777,13 @@
             // buttonUploadPhoto
             // 
             this.buttonUploadPhoto.ForeColor = System.Drawing.Color.Black;
-            this.buttonUploadPhoto.Location = new System.Drawing.Point(40, 578);
+            this.buttonUploadPhoto.Location = new System.Drawing.Point(40, 570);
             this.buttonUploadPhoto.Name = "buttonUploadPhoto";
             this.buttonUploadPhoto.Size = new System.Drawing.Size(321, 71);
             this.buttonUploadPhoto.TabIndex = 20;
             this.buttonUploadPhoto.Text = "Open File ...";
             this.buttonUploadPhoto.UseVisualStyleBackColor = true;
+            this.buttonUploadPhoto.Click += new System.EventHandler(this.buttonUploadPhoto_Click);
             // 
             // pictureBox1
             // 
@@ -803,7 +814,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(38, 249);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 37);
+            this.label7.Size = new System.Drawing.Size(217, 37);
             this.label7.TabIndex = 12;
             this.label7.Text = "電話號碼:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -831,6 +842,7 @@
             this.btnSaveData.TabIndex = 21;
             this.btnSaveData.Text = "Update back DB";
             this.btnSaveData.UseVisualStyleBackColor = true;
+            this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
             // 
             // techAccountTextBox
             // 
@@ -857,9 +869,9 @@
             // 
             this.label8.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(38, 450);
+            this.label8.Location = new System.Drawing.Point(19, 452);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(183, 37);
+            this.label8.Size = new System.Drawing.Size(236, 37);
             this.label8.TabIndex = 9;
             this.label8.Text = "更新時間:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -868,9 +880,9 @@
             // 
             this.label9.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(38, 383);
+            this.label9.Location = new System.Drawing.Point(36, 383);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(183, 37);
+            this.label9.Size = new System.Drawing.Size(217, 37);
             this.label9.TabIndex = 10;
             this.label9.Text = "創建時間:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -886,9 +898,9 @@
             // 
             this.label10.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(112, 316);
+            this.label10.Location = new System.Drawing.Point(81, 314);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 37);
+            this.label10.Size = new System.Drawing.Size(172, 37);
             this.label10.TabIndex = 11;
             this.label10.Text = "帳號:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -898,9 +910,9 @@
             this.label11.AutoEllipsis = true;
             this.label11.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(112, 182);
+            this.label11.Location = new System.Drawing.Point(110, 185);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(109, 37);
+            this.label11.Size = new System.Drawing.Size(143, 37);
             this.label11.TabIndex = 13;
             this.label11.Text = "暱稱:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -911,7 +923,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(112, 115);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 37);
+            this.label12.Size = new System.Drawing.Size(143, 37);
             this.label12.TabIndex = 14;
             this.label12.Text = "姓名:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -923,7 +935,7 @@
             this.LicensePage.Location = new System.Drawing.Point(4, 42);
             this.LicensePage.Name = "LicensePage";
             this.LicensePage.Padding = new System.Windows.Forms.Padding(3);
-            this.LicensePage.Size = new System.Drawing.Size(1206, 948);
+            this.LicensePage.Size = new System.Drawing.Size(1640, 948);
             this.LicensePage.TabIndex = 1;
             this.LicensePage.Text = "證件資料";
             // 
@@ -935,7 +947,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1200, 942);
+            this.tabControl2.Size = new System.Drawing.Size(1634, 942);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage3
@@ -961,19 +973,20 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 42);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1192, 896);
+            this.tabPage3.Size = new System.Drawing.Size(1626, 896);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "新增證照";
             // 
             // License_Upload_button
             // 
             this.License_Upload_button.ForeColor = System.Drawing.Color.Black;
-            this.License_Upload_button.Location = new System.Drawing.Point(786, 564);
+            this.License_Upload_button.Location = new System.Drawing.Point(790, 564);
             this.License_Upload_button.Name = "License_Upload_button";
             this.License_Upload_button.Size = new System.Drawing.Size(208, 39);
             this.License_Upload_button.TabIndex = 30;
             this.License_Upload_button.Text = "Open File ...";
             this.License_Upload_button.UseVisualStyleBackColor = true;
+            this.License_Upload_button.Click += new System.EventHandler(this.License_Upload_button_Click);
             // 
             // licensepictureBox
             // 
@@ -1173,7 +1186,8 @@
             this.Controls.Add(this.label16);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "T_TechUserControl1";
-            this.Size = new System.Drawing.Size(1214, 994);
+            this.Size = new System.Drawing.Size(1648, 994);
+            this.Load += new System.EventHandler(this.T_TechUserControl1_Load);
             this.tabControl1.ResumeLayout(false);
             this.AllTechPage.ResumeLayout(false);
             this.AllTechPage.PerformLayout();
@@ -1220,10 +1234,10 @@
         private System.Windows.Forms.Button DeleteTechbutton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ALLTechLabel1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button AllTechbutton4;
+        private System.Windows.Forms.Button AllTechbutton3;
+        private System.Windows.Forms.Button AllTechbutton2;
+        private System.Windows.Forms.Button AllTechbutton1;
         private System.Windows.Forms.Label labelTechNameInALLTechs1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button showTechButton1;

@@ -34,10 +34,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.WorkOrdertextBox = new System.Windows.Forms.TextBox();
             this.workOrderlabel = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.WorkOrderbutton4 = new System.Windows.Forms.Button();
+            this.WorkOrderbutton2 = new System.Windows.Forms.Button();
+            this.WorkOrderbutton3 = new System.Windows.Forms.Button();
+            this.WorkOrderbutton1 = new System.Windows.Forms.Button();
             this.WorkTypeComboBox = new System.Windows.Forms.ComboBox();
             this.labelTechNameInWorkOrder = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -93,19 +93,20 @@
             // searchButton
             // 
             this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.searchButton.Location = new System.Drawing.Point(793, 268);
+            this.searchButton.Location = new System.Drawing.Point(559, 262);
             this.searchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(244, 56);
+            this.searchButton.Size = new System.Drawing.Size(115, 42);
             this.searchButton.TabIndex = 33;
             this.searchButton.Text = "搜尋";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(612, 160);
+            this.label3.Location = new System.Drawing.Point(552, 159);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 37);
@@ -114,75 +115,81 @@
             // 
             // WorkOrdertextBox
             // 
-            this.WorkOrdertextBox.Location = new System.Drawing.Point(831, 160);
+            this.WorkOrdertextBox.Location = new System.Drawing.Point(705, 159);
             this.WorkOrdertextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.WorkOrdertextBox.Name = "WorkOrdertextBox";
-            this.WorkOrdertextBox.Size = new System.Drawing.Size(328, 36);
+            this.WorkOrdertextBox.Size = new System.Drawing.Size(105, 36);
             this.WorkOrdertextBox.TabIndex = 30;
             // 
             // workOrderlabel
             // 
             this.workOrderlabel.AutoSize = true;
-            this.workOrderlabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.workOrderlabel.Location = new System.Drawing.Point(419, 380);
+            this.workOrderlabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.workOrderlabel.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.workOrderlabel.Location = new System.Drawing.Point(424, 381);
             this.workOrderlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.workOrderlabel.Name = "workOrderlabel";
-            this.workOrderlabel.Size = new System.Drawing.Size(64, 28);
+            this.workOrderlabel.Size = new System.Drawing.Size(91, 39);
             this.workOrderlabel.TabIndex = 29;
             this.workOrderlabel.Text = "1/10";
             // 
-            // button4
+            // WorkOrderbutton4
             // 
-            this.button4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(738, 369);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 67);
-            this.button4.TabIndex = 25;
-            this.button4.Text = ">>";
-            this.button4.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WorkOrderbutton4.Location = new System.Drawing.Point(738, 369);
+            this.WorkOrderbutton4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.WorkOrderbutton4.Name = "WorkOrderbutton4";
+            this.WorkOrderbutton4.Size = new System.Drawing.Size(150, 67);
+            this.WorkOrderbutton4.TabIndex = 25;
+            this.WorkOrderbutton4.Text = "最後一筆";
+            this.WorkOrderbutton4.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton4.Click += new System.EventHandler(this.WorkOrderbutton4_Click);
             // 
-            // button2
+            // WorkOrderbutton2
             // 
-            this.button2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(225, 369);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 67);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WorkOrderbutton2.Location = new System.Drawing.Point(229, 369);
+            this.WorkOrderbutton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.WorkOrderbutton2.Name = "WorkOrderbutton2";
+            this.WorkOrderbutton2.Size = new System.Drawing.Size(150, 67);
+            this.WorkOrderbutton2.TabIndex = 26;
+            this.WorkOrderbutton2.Text = "上一筆";
+            this.WorkOrderbutton2.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton2.Click += new System.EventHandler(this.WorkOrderbutton2_Click);
             // 
-            // button3
+            // WorkOrderbutton3
             // 
-            this.button3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(559, 369);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 67);
-            this.button3.TabIndex = 27;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WorkOrderbutton3.Location = new System.Drawing.Point(559, 369);
+            this.WorkOrderbutton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.WorkOrderbutton3.Name = "WorkOrderbutton3";
+            this.WorkOrderbutton3.Size = new System.Drawing.Size(150, 67);
+            this.WorkOrderbutton3.TabIndex = 27;
+            this.WorkOrderbutton3.Text = "下一筆";
+            this.WorkOrderbutton3.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton3.Click += new System.EventHandler(this.WorkOrderbutton3_Click);
             // 
-            // button1
+            // WorkOrderbutton1
             // 
-            this.button1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(43, 369);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 67);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "<<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WorkOrderbutton1.Location = new System.Drawing.Point(43, 369);
+            this.WorkOrderbutton1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.WorkOrderbutton1.Name = "WorkOrderbutton1";
+            this.WorkOrderbutton1.Size = new System.Drawing.Size(150, 67);
+            this.WorkOrderbutton1.TabIndex = 28;
+            this.WorkOrderbutton1.Text = "第一筆";
+            this.WorkOrderbutton1.UseVisualStyleBackColor = true;
+            this.WorkOrderbutton1.Click += new System.EventHandler(this.WorkOrderbutton1_Click);
             // 
             // WorkTypeComboBox
             // 
             this.WorkTypeComboBox.FormattingEnabled = true;
-            this.WorkTypeComboBox.Location = new System.Drawing.Point(293, 274);
+            this.WorkTypeComboBox.Location = new System.Drawing.Point(266, 268);
             this.WorkTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.WorkTypeComboBox.Name = "WorkTypeComboBox";
-            this.WorkTypeComboBox.Size = new System.Drawing.Size(440, 36);
+            this.WorkTypeComboBox.Size = new System.Drawing.Size(247, 36);
             this.WorkTypeComboBox.TabIndex = 24;
+            this.WorkTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.WorkTypeComboBox_SelectedIndexChanged);
             // 
             // labelTechNameInWorkOrder
             // 
@@ -214,7 +221,7 @@
             this.workType.Name = "workType";
             this.workType.Size = new System.Drawing.Size(238, 58);
             this.workType.TabIndex = 22;
-            this.workType.Text = "工作類型";
+            this.workType.Text = "工作類型:";
             // 
             // label1
             // 
@@ -285,7 +292,7 @@
             this.workOrderBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.workOrderBindingNavigator.Name = "workOrderBindingNavigator";
             this.workOrderBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.workOrderBindingNavigator.Size = new System.Drawing.Size(1797, 38);
+            this.workOrderBindingNavigator.Size = new System.Drawing.Size(1797, 33);
             this.workOrderBindingNavigator.TabIndex = 34;
             this.workOrderBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -295,13 +302,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorAddNewItem.Text = "加入新的";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(40, 33);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorCountItem.Text = "/{0}";
             this.bindingNavigatorCountItem.ToolTipText = "項目總數";
             // 
@@ -311,7 +318,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorDeleteItem.Text = "刪除";
             // 
             // bindingNavigatorMoveFirstItem
@@ -320,7 +327,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMoveFirstItem.Text = "移到最前面";
             // 
             // bindingNavigatorMovePreviousItem
@@ -329,13 +336,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMovePreviousItem.Text = "移到上一個";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -350,7 +357,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -358,7 +365,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMoveNextItem.Text = "移到下一個";
             // 
             // bindingNavigatorMoveLastItem
@@ -367,20 +374,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 28);
             this.bindingNavigatorMoveLastItem.Text = "移到最後面";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
             // workOrderBindingNavigatorSaveItem
             // 
             this.workOrderBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.workOrderBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("workOrderBindingNavigatorSaveItem.Image")));
             this.workOrderBindingNavigatorSaveItem.Name = "workOrderBindingNavigatorSaveItem";
-            this.workOrderBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 33);
+            this.workOrderBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 28);
             this.workOrderBindingNavigatorSaveItem.Text = "儲存資料";
             this.workOrderBindingNavigatorSaveItem.Click += new System.EventHandler(this.workOrderBindingNavigatorSaveItem_Click);
             // 
@@ -557,10 +564,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.WorkOrdertextBox);
             this.Controls.Add(this.workOrderlabel);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.WorkOrderbutton4);
+            this.Controls.Add(this.WorkOrderbutton2);
+            this.Controls.Add(this.WorkOrderbutton3);
+            this.Controls.Add(this.WorkOrderbutton1);
             this.Controls.Add(this.WorkTypeComboBox);
             this.Controls.Add(this.labelTechNameInWorkOrder);
             this.Controls.Add(this.label2);
@@ -570,6 +577,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "T_OrderUserControl1";
             this.Size = new System.Drawing.Size(1797, 1500);
+            this.Load += new System.EventHandler(this.T_OrderUserControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingNavigator)).EndInit();
@@ -588,10 +596,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox WorkOrdertextBox;
         private System.Windows.Forms.Label workOrderlabel;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button WorkOrderbutton4;
+        private System.Windows.Forms.Button WorkOrderbutton2;
+        private System.Windows.Forms.Button WorkOrderbutton3;
+        private System.Windows.Forms.Button WorkOrderbutton1;
         private System.Windows.Forms.ComboBox WorkTypeComboBox;
         private System.Windows.Forms.Label labelTechNameInWorkOrder;
         private System.Windows.Forms.Label label2;
