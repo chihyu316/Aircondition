@@ -93,16 +93,31 @@ namespace prjAircondition
             DataTable resultTable = new DataTable();
             SqlConnection conn;
             conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");
-            string query = "SELECT W.WorkOrderID as '工單編號' , WT.WorkType '工作類型' , t.Nickname '師傅名稱' , ModelName as '機型', " +
-                           " SerialNumber as '機號' , CreatedDate as '工單建立日期' , OS.Status as '工單狀態' , CompletedDate as '工單完工日期'," +
-                           "  CASE WHEN PaymentType = 0 THEN N'現金'  WHEN PaymentType = 1 THEN N'分期付款' ELSE N''  END AS '付款方式' " +
-                           " , M.NickName as '會員名稱' , Ci.City as '城市名稱' , Ar.AREA as '地區名稱' , AddressDetail as '施工地址' " +
-                           " FROM WorkOrder AS W inner join Technicians as T on T.T_id = W.TechnicianID " +
-                           " join[Member] as M on M.MemberID = W.MemberID " +
-                           " JOIN[CityList] AS Ci on Ci.CityID = W.CityID " +
-                           " join[AreaList] AS Ar on Ar.AREAID = W.AreaID " +
-                           " join[OrderStatus] as OS on OS.OrderStatus = W.OrderStatus " +
-                           " join[WorkType] AS WT ON WT.WorkTypeID = W.WorkTypeID ";
+            string query = 
+            " SELECT W.WorkOrderID as '工單編號', " +
+            "       WT.WorkType as '工作類型', " +
+            "       T.Nickname as '師傅名稱', " +
+            "       W.ModelName as '機型', " +
+            "       W.SerialNumber as '機號', " +
+            "       W.CreatedDate as '工單建立日期', " +
+            "       OS.Status as '工單狀態', " +
+            "       W.CompletedDate as '工單完工日期', " +
+            "       CASE " +
+            "           WHEN W.PaymentType = 0 THEN N'現金' " +
+            "           WHEN W.PaymentType = 1 THEN N'分期付款' " +
+            "           ELSE N'' " +
+            "       END AS '付款方式', " +
+            "       M.NickName as '會員名稱', " +
+            "       Ci.City as '城市名稱', " +
+            "       Ar.AREA as '地區名稱', " +
+            "       W.AddressDetail as '施工地址' " +
+            "       FROM WorkOrder AS W " +
+            "       LEFT JOIN Technicians AS T ON T.T_id = W.TechnicianID " +
+            "       LEFT JOIN [Member] AS M ON M.MemberID = W.MemberID " +
+            "       LEFT JOIN CityList AS Ci ON Ci.CityID = W.CityID " +
+            "       LEFT JOIN AreaList AS Ar ON Ar.AreaID = W.AreaID " +
+            "       LEFT JOIN OrderStatus AS OS ON OS.OrderStatus = W.OrderStatus " +
+            "       LEFT JOIN WorkType AS WT ON WT.WorkTypeID = W.WorkTypeID ";
 
             switch (S)
             {

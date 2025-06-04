@@ -89,7 +89,7 @@ namespace prjAircondition.Repair
 
         private void RE_update_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = RE_DataSearch.LoadWorkOrder();
+            RE_dataGridView1.DataSource = RE_DataSearch.LoadWorkOrder();
         }
     }
 }
