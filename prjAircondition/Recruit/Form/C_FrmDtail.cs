@@ -31,34 +31,44 @@ namespace prjAircondition.Recruit
 
         private void C_FrmDtail_Load(object sender, EventArgs e)
         {
-            // TODO: 這行程式碼會將資料載入 'c_RecruitDataSet.CourseCategory' 資料表。您可以視需要進行移動或移除。
-            //this.courseCategoryTableAdapter.Fill(this.c_RecruitDataSet.CourseCategory);
-            this.courseCategoryTableAdapter.FillByCategoryID(this.c_RecruitDataSet.CourseCategory, CategoryID);
-            // TODO: 這行程式碼會將資料載入 'c_RecruitDataSet.CourseBatch' 資料表。您可以視需要進行移動或移除。
-            //this.courseBatchTableAdapter.Fill(this.c_RecruitDataSet.CourseBatch);
-            this.courseBatchTableAdapter.FillByCourseBatchID(this.c_RecruitDataSet.CourseBatch, CourseBatchID);
-            // TODO: 這行程式碼會將資料載入 'c_RecruitDataSet.Course' 資料表。您可以視需要進行移動或移除。
-            //this.courseTableAdapter.Fill(this.c_RecruitDataSet.Course);
-            this.courseTableAdapter.FillByCourseID(this.c_RecruitDataSet.Course, CourseID);
-            
-            // 設定各自獨立的 BindingSource（暫不建立關聯）
-            this.courseBindingSource.DataSource = this.c_RecruitDataSet;
-            this.courseBindingSource.DataMember = "Course";
+            try
+            {
+                // 先載入課程資料
+                this.courseTableAdapter.FillByCourseID(this.c_RecruitDataSet.Course, CourseID);
 
-            this.courseBatchBindingSource.DataSource = this.c_RecruitDataSet;
-            this.courseBatchBindingSource.DataMember = "CourseBatch";
+                // 從課程資料中取得正確的 CourseBatchID
+                if (this.c_RecruitDataSet.Course.Rows.Count > 0)
+                {
+                    DataRow courseRow = this.c_RecruitDataSet.Course.Rows[0];
+                    int actualCourseBatchID = Convert.ToInt32(courseRow["CourseBatchID"]);
 
-            this.courseCategoryBindingSource.DataSource = this.c_RecruitDataSet;
-            this.courseCategoryBindingSource.DataMember = "CourseCategory";
+                    // 用正確的 CourseBatchID 載入梯次資料
+                    this.courseBatchTableAdapter.FillByCourseBatchID(this.c_RecruitDataSet.CourseBatch, actualCourseBatchID);
 
-            this.bindingNavigator1.BindingSource = this.courseBindingSource;
-            //// 註冊事件：當 Course 選擇改變時，更新其他表
-            //this.courseBindingSource.CurrentChanged += CourseBindingSource_CurrentChanged;
+                    // 從梯次資料中取得 CategoryID
+                    if (this.c_RecruitDataSet.CourseBatch.Rows.Count > 0)
+                    {
+                        DataRow batchRow = this.c_RecruitDataSet.CourseBatch.Rows[0];
+                        int actualCategoryID = Convert.ToInt32(batchRow["CategoryID"]);
 
-            //// 初始載入時也要執行一次
-            //this.UpdateRelatedTables();
+                        // 載入類別資料
+                        this.courseCategoryTableAdapter.FillByCategoryID(this.c_RecruitDataSet.CourseCategory, actualCategoryID);
+                    }
                 }
 
+                // 設定綁定
+                this.courseBindingSource.DataSource = this.c_RecruitDataSet;
+                this.courseBindingSource.DataMember = "Course";
+                this.courseBatchBindingSource.DataSource = this.c_RecruitDataSet;
+                this.courseBatchBindingSource.DataMember = "CourseBatch";
+                this.courseCategoryBindingSource.DataSource = this.c_RecruitDataSet;
+                this.courseCategoryBindingSource.DataMember = "CourseCategory";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"載入資料失敗：{ex.Message}");
+            }
+        }
 
 
     }

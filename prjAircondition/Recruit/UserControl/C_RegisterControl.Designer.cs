@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.c_RecruitDataSet1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSet();
             this.registrationTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.RegistrationTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,9 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // c_RecruitDataSet1
@@ -71,15 +73,15 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(76, 428);
+            this.listBox1.Location = new System.Drawing.Point(64, 305);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(411, 328);
+            this.listBox1.Size = new System.Drawing.Size(485, 328);
             this.listBox1.TabIndex = 16;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(76, 309);
+            this.button1.Location = new System.Drawing.Point(64, 200);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 61);
             this.button1.TabIndex = 15;
@@ -99,11 +101,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(59, 139);
+            this.label3.Location = new System.Drawing.Point(17, 139);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 30);
+            this.label3.Size = new System.Drawing.Size(157, 30);
             this.label3.TabIndex = 13;
-            this.label3.Text = "選擇課程";
+            this.label3.Text = "選擇梯次課程";
             // 
             // label2
             // 
@@ -141,23 +143,44 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(822, 556);
+            this.dataGridView1.Size = new System.Drawing.Size(826, 556);
             this.dataGridView1.TabIndex = 18;
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(326, 309);
+            this.button3.Location = new System.Drawing.Point(333, 200);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(196, 61);
             this.button3.TabIndex = 19;
             this.button3.Text = "取消報名";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(1240, 74);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(228, 61);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "個別梯次報名狀況";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(886, 91);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(324, 32);
+            this.comboBox1.TabIndex = 21;
+            // 
             // C_RegisterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
@@ -171,8 +194,8 @@
             this.Name = "C_RegisterControl";
             this.Size = new System.Drawing.Size(1526, 887);
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +216,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
