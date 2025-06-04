@@ -255,6 +255,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>T_ACDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Tech\Form\FormTech.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tech\Form\FormTech.Designer.cs">
+      <DependentUpon>FormTech.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tech\UserControl\T_OrderUserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
