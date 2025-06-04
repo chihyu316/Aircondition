@@ -43,10 +43,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmBC = new System.Windows.Forms.ComboBox();
+            this.registrationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableAdapterManager = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.TableAdapterManager();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // c_RecruitDataSet1
@@ -67,27 +72,27 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "查看報名紀錄";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.C_checkR_Click);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(64, 305);
+            this.listBox1.Location = new System.Drawing.Point(26, 266);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(485, 328);
+            this.listBox1.Size = new System.Drawing.Size(440, 292);
             this.listBox1.TabIndex = 16;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(64, 200);
+            this.button1.Location = new System.Drawing.Point(26, 641);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 61);
             this.button1.TabIndex = 15;
             this.button1.Text = "確認報名";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.C_confirmR_Click);
             // 
             // txtMAccount
             // 
@@ -111,7 +116,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(59, 74);
+            this.label2.Location = new System.Drawing.Point(19, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 30);
             this.label2.TabIndex = 12;
@@ -125,6 +130,7 @@
             this.cmSelectCourse.Name = "cmSelectCourse";
             this.cmSelectCourse.Size = new System.Drawing.Size(417, 38);
             this.cmSelectCourse.TabIndex = 11;
+            this.cmSelectCourse.SelectedIndexChanged += new System.EventHandler(this.cmSelectCourse_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -143,13 +149,13 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 31;
-            this.dataGridView1.Size = new System.Drawing.Size(826, 556);
+            this.dataGridView1.Size = new System.Drawing.Size(811, 572);
             this.dataGridView1.TabIndex = 18;
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(333, 200);
+            this.button3.Location = new System.Drawing.Point(270, 641);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(196, 61);
             this.button3.TabIndex = 19;
@@ -166,20 +172,56 @@
             this.button4.Text = "個別梯次報名狀況";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmBC
             // 
-            this.comboBox1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(886, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(324, 32);
-            this.comboBox1.TabIndex = 21;
+            this.cmBC.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cmBC.FormattingEnabled = true;
+            this.cmBC.Location = new System.Drawing.Point(886, 91);
+            this.cmBC.Name = "cmBC";
+            this.cmBC.Size = new System.Drawing.Size(324, 32);
+            this.cmBC.TabIndex = 21;
+            this.cmBC.SelectedIndexChanged += new System.EventHandler(this.cmBC_SelectedIndexChanged);
+            // 
+            // registrationBindingSource
+            // 
+            this.registrationBindingSource.DataMember = "Registration";
+            this.registrationBindingSource.DataSource = this.c_RecruitDataSet1;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ClassroomManagementTableAdapter = null;
+            this.tableAdapterManager.CourseBatchTableAdapter = null;
+            this.tableAdapterManager.CourseCategoryTableAdapter = null;
+            this.tableAdapterManager.CourseTableAdapter = null;
+            this.tableAdapterManager.InstructorTableAdapter = null;
+            this.tableAdapterManager.RegistrationTableAdapter = this.registrationTableAdapter1;
+            this.tableAdapterManager.UpdateOrder = prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(21, 200);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 30);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "報名費用";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(180, 200);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(170, 29);
+            this.txtPrice.TabIndex = 23;
             // 
             // C_RegisterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmBC);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
@@ -196,6 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registrationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +260,10 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmBC;
+        private System.Windows.Forms.BindingSource registrationBindingSource;
+        private DateSet.C_RecruitDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }
