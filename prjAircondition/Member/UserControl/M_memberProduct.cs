@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,9 +52,10 @@ namespace prjAircondition.Member
             }
         }
 
+        
         private void MemberListV_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string Account = MemberListV.Text;
         }
 
         private void M_memberProduct_Load(object sender, EventArgs e)
@@ -75,7 +77,6 @@ namespace prjAircondition.Member
                         string account = reader["MemberAccount"].ToString();
                         ListViewItem item = new ListViewItem(account);
                         item.BackColor = (MemberListV.Items.Count % 2 == 0) ? Color.Gray : Color.White;
-
                         MemberListV.Items.Add(item);
                     }
                 }

@@ -90,6 +90,7 @@
             // 
             this.NicknameTXB.Font = new System.Drawing.Font("新細明體", 15F);
             this.NicknameTXB.Location = new System.Drawing.Point(715, 366);
+            this.NicknameTXB.MaxLength = 10;
             this.NicknameTXB.Name = "NicknameTXB";
             this.NicknameTXB.Size = new System.Drawing.Size(175, 31);
             this.NicknameTXB.TabIndex = 36;
@@ -142,6 +143,7 @@
             // 
             this.PhoneNumberTXB.Font = new System.Drawing.Font("新細明體", 15F);
             this.PhoneNumberTXB.Location = new System.Drawing.Point(715, 288);
+            this.PhoneNumberTXB.MaxLength = 10;
             this.PhoneNumberTXB.Name = "PhoneNumberTXB";
             this.PhoneNumberTXB.Size = new System.Drawing.Size(175, 31);
             this.PhoneNumberTXB.TabIndex = 31;

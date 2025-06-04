@@ -88,12 +88,12 @@ namespace prjAircondition.Member
                     cmd.Parameters.AddWithValue("@Account", Account);
                     if (!string.IsNullOrEmpty(Password))
                     {
-                        cmd.CommandText = "UPDATE member SET Password = @Password, HeadShot = @Headshot, Sexual = @Sexual, PhoneNumber = @PhoneNumber, Nickname = @Nickname WHERE MemberAccount = @Account";
+                        cmd.CommandText = "UPDATE member SET Password = @Password, HeadShot = @Headshot, Sexual = @Sexual, PhoneNumber = @PhoneNumber, Nickname = @Nickname ,CompileDate = GETDATE() WHERE MemberAccount = @Account";
                         cmd.Parameters.AddWithValue("@Password", hashpassword);
                     }
                     else
                     {
-                        cmd.CommandText = "UPDATE Member set  HeadShot = @Headshot, Sexual = @Sexual, PhoneNumber = @PhoneNumber, Nickname = @Nickname where MemberAccount = @Account";
+                        cmd.CommandText = "UPDATE Member set  HeadShot = @Headshot, Sexual = @Sexual, PhoneNumber = @PhoneNumber, Nickname = @Nickname ,CompileDate = GETDATE() where MemberAccount = @Account";
                     }
                     byte[] pictures;
 
