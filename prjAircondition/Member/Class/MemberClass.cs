@@ -83,26 +83,43 @@ namespace prjAircondition.Member
             }
             return false;
         }
-        public void SQLDataFill(string Account)
+        public static DataTable SQLDataFill(string Account)
         {
+            DataTable resulttable = new DataTable();
+
             try
             {
-                SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.Parameters.Add("@Account",SqlDbType.NVarChar,10).Value = Account;
-            string query = @"SELECT [MemberID],[ProductType],[InstallDate],[Address],[Notes],[FileCreateTime],[RegularMaintenanceNotice] 
-                            FROM [dbo].[MemberProduct] mp
-                            JOIN 
-                            [dbo].[Member] m ON mp.MemberID = m.MemberID
-                            WHERE 
-                            m.MemberAccount = @account";
-            DataTable resulttable = new DataTable();
+                using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;"))
+                {
+                    string query = @"SELECT 
+                                mp.[MemberID],
+                                mp.[ProductType],
+                                mp.[InstallDate],
+                                mp.[Address],
+                                mp.[Notes],
+                                mp.[FileCreateTime],
+                                mp.[RegularMaintenanceNotice]
+                             FROM [dbo].[MemberProduct] mp
+                             JOIN [dbo].[Member] m ON mp.MemberID = m.MemberID
+                             WHERE m.MemberAccount = @Account";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Account",Account.Trim());
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(resulttable);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
 
+            return resulttable;
+        }
     }
 }

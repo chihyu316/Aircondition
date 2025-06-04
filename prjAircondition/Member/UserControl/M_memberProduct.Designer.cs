@@ -30,11 +30,12 @@
         {
             this.SearchMember = new System.Windows.Forms.TextBox();
             this.MemberListV = new System.Windows.Forms.ListView();
-            this.MemberProductLV = new System.Windows.Forms.ListView();
             this.memberTableAdapter1 = new prjAircondition.Member.DataSet.M_MemberDatasetTableAdapters.MemberTableAdapter();
             this.m_MemberDataset1 = new prjAircondition.Member.DataSet.M_MemberDataset();
             this.memberTableAdapter2 = new prjAircondition.Dicuss.DataSet.D_ACDataSetTableAdapters.MemberTableAdapter();
+            this.MemberProductDT = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.m_MemberDataset1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberProductDT)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchMember
@@ -58,17 +59,6 @@
             this.MemberListV.View = System.Windows.Forms.View.Details;
             this.MemberListV.SelectedIndexChanged += new System.EventHandler(this.MemberListV_SelectedIndexChanged);
             // 
-            // MemberProductLV
-            // 
-            this.MemberProductLV.Font = new System.Drawing.Font("新細明體", 20F);
-            this.MemberProductLV.HideSelection = false;
-            this.MemberProductLV.Location = new System.Drawing.Point(235, 120);
-            this.MemberProductLV.Name = "MemberProductLV";
-            this.MemberProductLV.Size = new System.Drawing.Size(620, 422);
-            this.MemberProductLV.TabIndex = 47;
-            this.MemberProductLV.UseCompatibleStateImageBehavior = false;
-            this.MemberProductLV.View = System.Windows.Forms.View.Details;
-            // 
             // memberTableAdapter1
             // 
             this.memberTableAdapter1.ClearBeforeFill = true;
@@ -82,18 +72,28 @@
             // 
             this.memberTableAdapter2.ClearBeforeFill = true;
             // 
+            // MemberProductDT
+            // 
+            this.MemberProductDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MemberProductDT.Location = new System.Drawing.Point(231, 185);
+            this.MemberProductDT.Name = "MemberProductDT";
+            this.MemberProductDT.RowTemplate.Height = 24;
+            this.MemberProductDT.Size = new System.Drawing.Size(671, 218);
+            this.MemberProductDT.TabIndex = 47;
+            // 
             // M_memberProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.Controls.Add(this.MemberProductLV);
+            this.Controls.Add(this.MemberProductDT);
             this.Controls.Add(this.SearchMember);
             this.Controls.Add(this.MemberListV);
             this.Name = "M_memberProduct";
             this.Size = new System.Drawing.Size(963, 682);
             this.Load += new System.EventHandler(this.M_memberProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.m_MemberDataset1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberProductDT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,9 +103,9 @@
 
         private System.Windows.Forms.TextBox SearchMember;
         private System.Windows.Forms.ListView MemberListV;
-        private System.Windows.Forms.ListView MemberProductLV;
         private DataSet.M_MemberDatasetTableAdapters.MemberTableAdapter memberTableAdapter1;
         private DataSet.M_MemberDataset m_MemberDataset1;
         private Dicuss.DataSet.D_ACDataSetTableAdapters.MemberTableAdapter memberTableAdapter2;
+        private System.Windows.Forms.DataGridView MemberProductDT;
     }
 }

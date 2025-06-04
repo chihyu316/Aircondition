@@ -1,4 +1,5 @@
-﻿using prjAircondition.Properties;
+﻿using prjAircondition.Dicuss.Class;
+using prjAircondition.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,11 +54,14 @@ namespace prjAircondition.Member
             }
         }
 
-        
+
         private void MemberListV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string Account = MemberListV.Text;
-            MC.SQLDataFill(Account);
+            if (MemberListV.SelectedItems.Count > 0)
+            {
+                string Account = MemberListV.SelectedItems[0].Text;
+                MemberProductDT.DataSource = MemberClass.SQLDataFill(Account.Trim());
+            }
         }
 
         private void M_memberProduct_Load(object sender, EventArgs e)
