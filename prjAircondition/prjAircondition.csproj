@@ -315,6 +315,9 @@
     <EmbeddedResource Include="Shop\UserControl\S_UcProduct1.resx">
       <DependentUpon>S_UcProduct1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tech\UserControl\T_OrderUserControl1.resx">
+      <DependentUpon>T_OrderUserControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tech\UserControl\T_TechUserControl1.resx">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </EmbeddedResource>

@@ -24,5 +24,7 @@ namespace prjAircondition.Tech
             this.tableAdapterManager.UpdateAll(this.t_ACDataSet1);
 
         }
+
+      
     }
 }

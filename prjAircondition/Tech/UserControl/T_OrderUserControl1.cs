@@ -16,5 +16,13 @@ namespace prjAircondition.Tech
         {
             InitializeComponent();
         }
+
+        private void workOrderBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.workOrderBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.t_ACDataSet1);
+
+        }
     }
 }
