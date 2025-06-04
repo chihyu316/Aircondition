@@ -36,7 +36,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,9 +45,10 @@
             this.courseBatchTableAdapter1 = new prjAircondition.Recruit.DateSet.C_RecruitDataSetTableAdapters.CourseBatchTableAdapter();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -67,7 +67,6 @@
             this.dataGridView1.RowTemplate.Height = 31;
             this.dataGridView1.Size = new System.Drawing.Size(1158, 643);
             this.dataGridView1.TabIndex = 7;
-       
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_detail_CellContentClick);
             // 
             // detail
@@ -102,9 +101,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(656, 43);
+            this.button1.Location = new System.Drawing.Point(656, 55);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 76);
+            this.button1.Size = new System.Drawing.Size(121, 59);
             this.button1.TabIndex = 9;
             this.button1.Text = "新增課程";
             this.button1.UseVisualStyleBackColor = true;
@@ -113,9 +112,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(805, 43);
+            this.button2.Location = new System.Drawing.Point(802, 56);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 76);
+            this.button2.Size = new System.Drawing.Size(131, 57);
             this.button2.TabIndex = 10;
             this.button2.Text = "修改課程";
             this.button2.UseVisualStyleBackColor = true;
@@ -171,9 +170,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(981, 43);
+            this.button4.Location = new System.Drawing.Point(954, 59);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(157, 76);
+            this.button4.Size = new System.Drawing.Size(149, 54);
             this.button4.TabIndex = 14;
             this.button4.Text = "修改後儲存";
             this.button4.UseVisualStyleBackColor = true;
@@ -184,7 +183,7 @@
             this.button5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button5.Location = new System.Drawing.Point(656, 125);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(145, 76);
+            this.button5.Size = new System.Drawing.Size(121, 49);
             this.button5.TabIndex = 15;
             this.button5.Text = "刪除";
             this.button5.UseVisualStyleBackColor = true;
@@ -208,8 +207,8 @@
             this.Name = "C_CourseControl";
             this.Size = new System.Drawing.Size(1228, 891);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

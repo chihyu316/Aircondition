@@ -33,15 +33,10 @@
             System.Windows.Forms.Label courseBatchIDLabel;
             System.Windows.Forms.Label courseTitleLabel;
             System.Windows.Forms.Label courseIntroductionLabel;
-            System.Windows.Forms.Label courseLevelLabel;
             System.Windows.Forms.Label standardPriceLabel;
             System.Windows.Forms.Label courseHoursLabel;
             System.Windows.Forms.Label photosLabel;
-            System.Windows.Forms.Label courseStatusLabel;
-            System.Windows.Forms.Label createDateLabel;
-            System.Windows.Forms.Label updateDateLabel;
             System.Windows.Forms.Label courseBatchIDLabel1;
-            System.Windows.Forms.Label categoryIDLabel;
             System.Windows.Forms.Label batchNameLabel;
             System.Windows.Forms.Label instructorIDLabel;
             System.Windows.Forms.Label classroomIDLabel;
@@ -54,9 +49,9 @@
             System.Windows.Forms.Label earlyBirdPriceLabel;
             System.Windows.Forms.Label earlyBirdDeadlineLabel;
             System.Windows.Forms.Label groupDiscountDescLabel;
-            System.Windows.Forms.Label batchStatusLabel;
-            System.Windows.Forms.Label createDateLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(C_FrmDtail));
+            System.Windows.Forms.Label courseLevelLabel1;
+            System.Windows.Forms.Label categoryNameLabel;
             this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.c_RecruitDataSet = new prjAircondition.Recruit.DateSet.C_RecruitDataSet();
             this.courseBatchBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -69,15 +64,10 @@
             this.courseBatchIDTextBox = new System.Windows.Forms.TextBox();
             this.courseTitleTextBox = new System.Windows.Forms.TextBox();
             this.courseIntroductionTextBox = new System.Windows.Forms.TextBox();
-            this.courseLevelComboBox = new System.Windows.Forms.ComboBox();
             this.standardPriceTextBox = new System.Windows.Forms.TextBox();
             this.courseHoursTextBox = new System.Windows.Forms.TextBox();
             this.photosPictureBox = new System.Windows.Forms.PictureBox();
-            this.courseStatusTextBox = new System.Windows.Forms.TextBox();
-            this.createDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.updateDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.courseBatchIDTextBox1 = new System.Windows.Forms.TextBox();
-            this.categoryIDTextBox = new System.Windows.Forms.TextBox();
             this.batchNameTextBox = new System.Windows.Forms.TextBox();
             this.instructorIDTextBox = new System.Windows.Forms.TextBox();
             this.classroomIDTextBox = new System.Windows.Forms.TextBox();
@@ -90,8 +80,6 @@
             this.earlyBirdPriceTextBox = new System.Windows.Forms.TextBox();
             this.earlyBirdDeadlineDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupDiscountDescTextBox = new System.Windows.Forms.TextBox();
-            this.batchStatusTextBox = new System.Windows.Forms.TextBox();
-            this.createDateDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -104,19 +92,16 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.courseLevelTextBox = new System.Windows.Forms.TextBox();
+            this.categoryNameTextBox = new System.Windows.Forms.TextBox();
             courseIDLabel = new System.Windows.Forms.Label();
             courseBatchIDLabel = new System.Windows.Forms.Label();
             courseTitleLabel = new System.Windows.Forms.Label();
             courseIntroductionLabel = new System.Windows.Forms.Label();
-            courseLevelLabel = new System.Windows.Forms.Label();
             standardPriceLabel = new System.Windows.Forms.Label();
             courseHoursLabel = new System.Windows.Forms.Label();
             photosLabel = new System.Windows.Forms.Label();
-            courseStatusLabel = new System.Windows.Forms.Label();
-            createDateLabel = new System.Windows.Forms.Label();
-            updateDateLabel = new System.Windows.Forms.Label();
             courseBatchIDLabel1 = new System.Windows.Forms.Label();
-            categoryIDLabel = new System.Windows.Forms.Label();
             batchNameLabel = new System.Windows.Forms.Label();
             instructorIDLabel = new System.Windows.Forms.Label();
             classroomIDLabel = new System.Windows.Forms.Label();
@@ -129,8 +114,8 @@
             earlyBirdPriceLabel = new System.Windows.Forms.Label();
             earlyBirdDeadlineLabel = new System.Windows.Forms.Label();
             groupDiscountDescLabel = new System.Windows.Forms.Label();
-            batchStatusLabel = new System.Windows.Forms.Label();
-            createDateLabel1 = new System.Windows.Forms.Label();
+            courseLevelLabel1 = new System.Windows.Forms.Label();
+            categoryNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_RecruitDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBatchBindingSource)).BeginInit();
@@ -188,14 +173,14 @@
             courseIDLabel.AutoSize = true;
             courseIDLabel.Location = new System.Drawing.Point(89, 112);
             courseIDLabel.Name = "courseIDLabel";
-            courseIDLabel.Size = new System.Drawing.Size(84, 18);
+            courseIDLabel.Size = new System.Drawing.Size(85, 18);
             courseIDLabel.TabIndex = 0;
-            courseIDLabel.Text = "Course ID:";
+            courseIDLabel.Text = "課程編號:";
             // 
             // courseIDTextBox
             // 
             this.courseIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseID", true));
-            this.courseIDTextBox.Location = new System.Drawing.Point(244, 109);
+            this.courseIDTextBox.Location = new System.Drawing.Point(192, 112);
             this.courseIDTextBox.Name = "courseIDTextBox";
             this.courseIDTextBox.Size = new System.Drawing.Size(200, 29);
             this.courseIDTextBox.TabIndex = 1;
@@ -205,14 +190,14 @@
             courseBatchIDLabel.AutoSize = true;
             courseBatchIDLabel.Location = new System.Drawing.Point(89, 147);
             courseBatchIDLabel.Name = "courseBatchIDLabel";
-            courseBatchIDLabel.Size = new System.Drawing.Size(129, 18);
+            courseBatchIDLabel.Size = new System.Drawing.Size(85, 18);
             courseBatchIDLabel.TabIndex = 2;
-            courseBatchIDLabel.Text = "Course Batch ID:";
+            courseBatchIDLabel.Text = "梯次編號:";
             // 
             // courseBatchIDTextBox
             // 
             this.courseBatchIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseBatchID", true));
-            this.courseBatchIDTextBox.Location = new System.Drawing.Point(244, 144);
+            this.courseBatchIDTextBox.Location = new System.Drawing.Point(192, 147);
             this.courseBatchIDTextBox.Name = "courseBatchIDTextBox";
             this.courseBatchIDTextBox.Size = new System.Drawing.Size(200, 29);
             this.courseBatchIDTextBox.TabIndex = 3;
@@ -222,14 +207,14 @@
             courseTitleLabel.AutoSize = true;
             courseTitleLabel.Location = new System.Drawing.Point(89, 182);
             courseTitleLabel.Name = "courseTitleLabel";
-            courseTitleLabel.Size = new System.Drawing.Size(99, 18);
+            courseTitleLabel.Size = new System.Drawing.Size(85, 18);
             courseTitleLabel.TabIndex = 4;
-            courseTitleLabel.Text = "Course Title:";
+            courseTitleLabel.Text = "課程名稱:";
             // 
             // courseTitleTextBox
             // 
             this.courseTitleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseTitle", true));
-            this.courseTitleTextBox.Location = new System.Drawing.Point(244, 179);
+            this.courseTitleTextBox.Location = new System.Drawing.Point(192, 182);
             this.courseTitleTextBox.Name = "courseTitleTextBox";
             this.courseTitleTextBox.Size = new System.Drawing.Size(200, 29);
             this.courseTitleTextBox.TabIndex = 5;
@@ -239,49 +224,31 @@
             courseIntroductionLabel.AutoSize = true;
             courseIntroductionLabel.Location = new System.Drawing.Point(89, 217);
             courseIntroductionLabel.Name = "courseIntroductionLabel";
-            courseIntroductionLabel.Size = new System.Drawing.Size(149, 18);
+            courseIntroductionLabel.Size = new System.Drawing.Size(85, 18);
             courseIntroductionLabel.TabIndex = 6;
-            courseIntroductionLabel.Text = "Course Introduction:";
+            courseIntroductionLabel.Text = "課程介紹:";
             // 
             // courseIntroductionTextBox
             // 
             this.courseIntroductionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseIntroduction", true));
-            this.courseIntroductionTextBox.Location = new System.Drawing.Point(244, 214);
+            this.courseIntroductionTextBox.Location = new System.Drawing.Point(192, 217);
             this.courseIntroductionTextBox.Name = "courseIntroductionTextBox";
             this.courseIntroductionTextBox.Size = new System.Drawing.Size(200, 29);
             this.courseIntroductionTextBox.TabIndex = 7;
-            // 
-            // courseLevelLabel
-            // 
-            courseLevelLabel.AutoSize = true;
-            courseLevelLabel.Location = new System.Drawing.Point(89, 252);
-            courseLevelLabel.Name = "courseLevelLabel";
-            courseLevelLabel.Size = new System.Drawing.Size(105, 18);
-            courseLevelLabel.TabIndex = 8;
-            courseLevelLabel.Text = "Course Level:";
-            // 
-            // courseLevelComboBox
-            // 
-            this.courseLevelComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseLevel", true));
-            this.courseLevelComboBox.FormattingEnabled = true;
-            this.courseLevelComboBox.Location = new System.Drawing.Point(244, 249);
-            this.courseLevelComboBox.Name = "courseLevelComboBox";
-            this.courseLevelComboBox.Size = new System.Drawing.Size(200, 26);
-            this.courseLevelComboBox.TabIndex = 9;
             // 
             // standardPriceLabel
             // 
             standardPriceLabel.AutoSize = true;
             standardPriceLabel.Location = new System.Drawing.Point(89, 284);
             standardPriceLabel.Name = "standardPriceLabel";
-            standardPriceLabel.Size = new System.Drawing.Size(114, 18);
+            standardPriceLabel.Size = new System.Drawing.Size(85, 18);
             standardPriceLabel.TabIndex = 10;
-            standardPriceLabel.Text = "Standard Price:";
+            standardPriceLabel.Text = "標準價格:";
             // 
             // standardPriceTextBox
             // 
             this.standardPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "StandardPrice", true));
-            this.standardPriceTextBox.Location = new System.Drawing.Point(244, 281);
+            this.standardPriceTextBox.Location = new System.Drawing.Point(192, 284);
             this.standardPriceTextBox.Name = "standardPriceTextBox";
             this.standardPriceTextBox.Size = new System.Drawing.Size(200, 29);
             this.standardPriceTextBox.TabIndex = 11;
@@ -291,14 +258,14 @@
             courseHoursLabel.AutoSize = true;
             courseHoursLabel.Location = new System.Drawing.Point(89, 319);
             courseHoursLabel.Name = "courseHoursLabel";
-            courseHoursLabel.Size = new System.Drawing.Size(107, 18);
+            courseHoursLabel.Size = new System.Drawing.Size(85, 18);
             courseHoursLabel.TabIndex = 12;
-            courseHoursLabel.Text = "Course Hours:";
+            courseHoursLabel.Text = "課程時數:";
             // 
             // courseHoursTextBox
             // 
             this.courseHoursTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseHours", true));
-            this.courseHoursTextBox.Location = new System.Drawing.Point(244, 316);
+            this.courseHoursTextBox.Location = new System.Drawing.Point(192, 319);
             this.courseHoursTextBox.Name = "courseHoursTextBox";
             this.courseHoursTextBox.Size = new System.Drawing.Size(200, 29);
             this.courseHoursTextBox.TabIndex = 13;
@@ -308,117 +275,50 @@
             photosLabel.AutoSize = true;
             photosLabel.Location = new System.Drawing.Point(89, 351);
             photosLabel.Name = "photosLabel";
-            photosLabel.Size = new System.Drawing.Size(58, 18);
+            photosLabel.Size = new System.Drawing.Size(49, 18);
             photosLabel.TabIndex = 14;
-            photosLabel.Text = "Photos:";
+            photosLabel.Text = "圖片:";
             // 
             // photosPictureBox
             // 
+            this.photosPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.photosPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.courseBindingSource, "Photos", true));
-            this.photosPictureBox.Location = new System.Drawing.Point(244, 351);
+            this.photosPictureBox.Location = new System.Drawing.Point(92, 392);
             this.photosPictureBox.Name = "photosPictureBox";
-            this.photosPictureBox.Size = new System.Drawing.Size(200, 50);
+            this.photosPictureBox.Size = new System.Drawing.Size(398, 251);
             this.photosPictureBox.TabIndex = 15;
             this.photosPictureBox.TabStop = false;
-            // 
-            // courseStatusLabel
-            // 
-            courseStatusLabel.AutoSize = true;
-            courseStatusLabel.Location = new System.Drawing.Point(89, 410);
-            courseStatusLabel.Name = "courseStatusLabel";
-            courseStatusLabel.Size = new System.Drawing.Size(108, 18);
-            courseStatusLabel.TabIndex = 16;
-            courseStatusLabel.Text = "Course Status:";
-            // 
-            // courseStatusTextBox
-            // 
-            this.courseStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseStatus", true));
-            this.courseStatusTextBox.Location = new System.Drawing.Point(244, 407);
-            this.courseStatusTextBox.Name = "courseStatusTextBox";
-            this.courseStatusTextBox.Size = new System.Drawing.Size(200, 29);
-            this.courseStatusTextBox.TabIndex = 17;
-            // 
-            // createDateLabel
-            // 
-            createDateLabel.AutoSize = true;
-            createDateLabel.Location = new System.Drawing.Point(89, 446);
-            createDateLabel.Name = "createDateLabel";
-            createDateLabel.Size = new System.Drawing.Size(97, 18);
-            createDateLabel.TabIndex = 18;
-            createDateLabel.Text = "Create Date:";
-            // 
-            // createDateDateTimePicker
-            // 
-            this.createDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBindingSource, "CreateDate", true));
-            this.createDateDateTimePicker.Location = new System.Drawing.Point(244, 442);
-            this.createDateDateTimePicker.Name = "createDateDateTimePicker";
-            this.createDateDateTimePicker.Size = new System.Drawing.Size(200, 29);
-            this.createDateDateTimePicker.TabIndex = 19;
-            // 
-            // updateDateLabel
-            // 
-            updateDateLabel.AutoSize = true;
-            updateDateLabel.Location = new System.Drawing.Point(89, 481);
-            updateDateLabel.Name = "updateDateLabel";
-            updateDateLabel.Size = new System.Drawing.Size(100, 18);
-            updateDateLabel.TabIndex = 20;
-            updateDateLabel.Text = "Update Date:";
-            // 
-            // updateDateDateTimePicker
-            // 
-            this.updateDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBindingSource, "UpdateDate", true));
-            this.updateDateDateTimePicker.Location = new System.Drawing.Point(244, 477);
-            this.updateDateDateTimePicker.Name = "updateDateDateTimePicker";
-            this.updateDateDateTimePicker.Size = new System.Drawing.Size(200, 29);
-            this.updateDateDateTimePicker.TabIndex = 21;
             // 
             // courseBatchIDLabel1
             // 
             courseBatchIDLabel1.AutoSize = true;
-            courseBatchIDLabel1.Location = new System.Drawing.Point(529, 115);
+            courseBatchIDLabel1.Location = new System.Drawing.Point(583, 74);
             courseBatchIDLabel1.Name = "courseBatchIDLabel1";
-            courseBatchIDLabel1.Size = new System.Drawing.Size(129, 18);
+            courseBatchIDLabel1.Size = new System.Drawing.Size(85, 18);
             courseBatchIDLabel1.TabIndex = 22;
-            courseBatchIDLabel1.Text = "Course Batch ID:";
+            courseBatchIDLabel1.Text = "梯次編號:";
             // 
             // courseBatchIDTextBox1
             // 
             this.courseBatchIDTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "CourseBatchID", true));
-            this.courseBatchIDTextBox1.Location = new System.Drawing.Point(696, 112);
+            this.courseBatchIDTextBox1.Location = new System.Drawing.Point(750, 71);
             this.courseBatchIDTextBox1.Name = "courseBatchIDTextBox1";
             this.courseBatchIDTextBox1.Size = new System.Drawing.Size(200, 29);
             this.courseBatchIDTextBox1.TabIndex = 23;
             // 
-            // categoryIDLabel
-            // 
-            categoryIDLabel.AutoSize = true;
-            categoryIDLabel.Location = new System.Drawing.Point(529, 150);
-            categoryIDLabel.Name = "categoryIDLabel";
-            categoryIDLabel.Size = new System.Drawing.Size(98, 18);
-            categoryIDLabel.TabIndex = 24;
-            categoryIDLabel.Text = "Category ID:";
-            // 
-            // categoryIDTextBox
-            // 
-            this.categoryIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "CategoryID", true));
-            this.categoryIDTextBox.Location = new System.Drawing.Point(696, 147);
-            this.categoryIDTextBox.Name = "categoryIDTextBox";
-            this.categoryIDTextBox.Size = new System.Drawing.Size(200, 29);
-            this.categoryIDTextBox.TabIndex = 25;
-            // 
             // batchNameLabel
             // 
             batchNameLabel.AutoSize = true;
-            batchNameLabel.Location = new System.Drawing.Point(529, 185);
+            batchNameLabel.Location = new System.Drawing.Point(583, 112);
             batchNameLabel.Name = "batchNameLabel";
-            batchNameLabel.Size = new System.Drawing.Size(99, 18);
+            batchNameLabel.Size = new System.Drawing.Size(85, 18);
             batchNameLabel.TabIndex = 26;
-            batchNameLabel.Text = "Batch Name:";
+            batchNameLabel.Text = "梯次名稱:";
             // 
             // batchNameTextBox
             // 
             this.batchNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "BatchName", true));
-            this.batchNameTextBox.Location = new System.Drawing.Point(696, 182);
+            this.batchNameTextBox.Location = new System.Drawing.Point(750, 109);
             this.batchNameTextBox.Name = "batchNameTextBox";
             this.batchNameTextBox.Size = new System.Drawing.Size(200, 29);
             this.batchNameTextBox.TabIndex = 27;
@@ -426,16 +326,16 @@
             // instructorIDLabel
             // 
             instructorIDLabel.AutoSize = true;
-            instructorIDLabel.Location = new System.Drawing.Point(529, 220);
+            instructorIDLabel.Location = new System.Drawing.Point(583, 147);
             instructorIDLabel.Name = "instructorIDLabel";
-            instructorIDLabel.Size = new System.Drawing.Size(103, 18);
+            instructorIDLabel.Size = new System.Drawing.Size(67, 18);
             instructorIDLabel.TabIndex = 28;
-            instructorIDLabel.Text = "Instructor ID:";
+            instructorIDLabel.Text = "講師ID:";
             // 
             // instructorIDTextBox
             // 
             this.instructorIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "InstructorID", true));
-            this.instructorIDTextBox.Location = new System.Drawing.Point(696, 217);
+            this.instructorIDTextBox.Location = new System.Drawing.Point(750, 144);
             this.instructorIDTextBox.Name = "instructorIDTextBox";
             this.instructorIDTextBox.Size = new System.Drawing.Size(200, 29);
             this.instructorIDTextBox.TabIndex = 29;
@@ -443,16 +343,16 @@
             // classroomIDLabel
             // 
             classroomIDLabel.AutoSize = true;
-            classroomIDLabel.Location = new System.Drawing.Point(529, 255);
+            classroomIDLabel.Location = new System.Drawing.Point(583, 182);
             classroomIDLabel.Name = "classroomIDLabel";
-            classroomIDLabel.Size = new System.Drawing.Size(109, 18);
+            classroomIDLabel.Size = new System.Drawing.Size(67, 18);
             classroomIDLabel.TabIndex = 30;
-            classroomIDLabel.Text = "Classroom ID:";
+            classroomIDLabel.Text = "教室ID:";
             // 
             // classroomIDTextBox
             // 
             this.classroomIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "ClassroomID", true));
-            this.classroomIDTextBox.Location = new System.Drawing.Point(696, 252);
+            this.classroomIDTextBox.Location = new System.Drawing.Point(750, 179);
             this.classroomIDTextBox.Name = "classroomIDTextBox";
             this.classroomIDTextBox.Size = new System.Drawing.Size(200, 29);
             this.classroomIDTextBox.TabIndex = 31;
@@ -460,16 +360,16 @@
             // startDateLabel
             // 
             startDateLabel.AutoSize = true;
-            startDateLabel.Location = new System.Drawing.Point(529, 291);
+            startDateLabel.Location = new System.Drawing.Point(583, 218);
             startDateLabel.Name = "startDateLabel";
-            startDateLabel.Size = new System.Drawing.Size(84, 18);
+            startDateLabel.Size = new System.Drawing.Size(85, 18);
             startDateLabel.TabIndex = 32;
-            startDateLabel.Text = "Start Date:";
+            startDateLabel.Text = "開課日期:";
             // 
             // startDateDateTimePicker
             // 
             this.startDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBatchBindingSource, "StartDate", true));
-            this.startDateDateTimePicker.Location = new System.Drawing.Point(696, 287);
+            this.startDateDateTimePicker.Location = new System.Drawing.Point(750, 214);
             this.startDateDateTimePicker.Name = "startDateDateTimePicker";
             this.startDateDateTimePicker.Size = new System.Drawing.Size(200, 29);
             this.startDateDateTimePicker.TabIndex = 33;
@@ -477,16 +377,16 @@
             // endDateLabel
             // 
             endDateLabel.AutoSize = true;
-            endDateLabel.Location = new System.Drawing.Point(529, 326);
+            endDateLabel.Location = new System.Drawing.Point(583, 253);
             endDateLabel.Name = "endDateLabel";
-            endDateLabel.Size = new System.Drawing.Size(77, 18);
+            endDateLabel.Size = new System.Drawing.Size(85, 18);
             endDateLabel.TabIndex = 34;
-            endDateLabel.Text = "End Date:";
+            endDateLabel.Text = "結束日期:";
             // 
             // endDateDateTimePicker
             // 
             this.endDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBatchBindingSource, "EndDate", true));
-            this.endDateDateTimePicker.Location = new System.Drawing.Point(696, 322);
+            this.endDateDateTimePicker.Location = new System.Drawing.Point(750, 249);
             this.endDateDateTimePicker.Name = "endDateDateTimePicker";
             this.endDateDateTimePicker.Size = new System.Drawing.Size(200, 29);
             this.endDateDateTimePicker.TabIndex = 35;
@@ -494,16 +394,16 @@
             // classTimeLabel
             // 
             classTimeLabel.AutoSize = true;
-            classTimeLabel.Location = new System.Drawing.Point(529, 360);
+            classTimeLabel.Location = new System.Drawing.Point(583, 287);
             classTimeLabel.Name = "classTimeLabel";
-            classTimeLabel.Size = new System.Drawing.Size(92, 18);
+            classTimeLabel.Size = new System.Drawing.Size(85, 18);
             classTimeLabel.TabIndex = 36;
-            classTimeLabel.Text = "Class Time:";
+            classTimeLabel.Text = "上課時間:";
             // 
             // classTimeTextBox
             // 
             this.classTimeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "ClassTime", true));
-            this.classTimeTextBox.Location = new System.Drawing.Point(696, 357);
+            this.classTimeTextBox.Location = new System.Drawing.Point(750, 284);
             this.classTimeTextBox.Name = "classTimeTextBox";
             this.classTimeTextBox.Size = new System.Drawing.Size(200, 29);
             this.classTimeTextBox.TabIndex = 37;
@@ -511,16 +411,16 @@
             // maxCapacityLabel
             // 
             maxCapacityLabel.AutoSize = true;
-            maxCapacityLabel.Location = new System.Drawing.Point(529, 395);
+            maxCapacityLabel.Location = new System.Drawing.Point(583, 322);
             maxCapacityLabel.Name = "maxCapacityLabel";
-            maxCapacityLabel.Size = new System.Drawing.Size(110, 18);
+            maxCapacityLabel.Size = new System.Drawing.Size(85, 18);
             maxCapacityLabel.TabIndex = 38;
-            maxCapacityLabel.Text = "Max Capacity:";
+            maxCapacityLabel.Text = "最多人數:";
             // 
             // maxCapacityTextBox
             // 
             this.maxCapacityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "MaxCapacity", true));
-            this.maxCapacityTextBox.Location = new System.Drawing.Point(696, 392);
+            this.maxCapacityTextBox.Location = new System.Drawing.Point(750, 319);
             this.maxCapacityTextBox.Name = "maxCapacityTextBox";
             this.maxCapacityTextBox.Size = new System.Drawing.Size(200, 29);
             this.maxCapacityTextBox.TabIndex = 39;
@@ -528,16 +428,16 @@
             // currentEnrollmentLabel
             // 
             currentEnrollmentLabel.AutoSize = true;
-            currentEnrollmentLabel.Location = new System.Drawing.Point(529, 430);
+            currentEnrollmentLabel.Location = new System.Drawing.Point(583, 357);
             currentEnrollmentLabel.Name = "currentEnrollmentLabel";
-            currentEnrollmentLabel.Size = new System.Drawing.Size(146, 18);
+            currentEnrollmentLabel.Size = new System.Drawing.Size(121, 18);
             currentEnrollmentLabel.TabIndex = 40;
-            currentEnrollmentLabel.Text = "Current Enrollment:";
+            currentEnrollmentLabel.Text = "目前報名人數:";
             // 
             // currentEnrollmentTextBox
             // 
             this.currentEnrollmentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "CurrentEnrollment", true));
-            this.currentEnrollmentTextBox.Location = new System.Drawing.Point(696, 427);
+            this.currentEnrollmentTextBox.Location = new System.Drawing.Point(750, 354);
             this.currentEnrollmentTextBox.Name = "currentEnrollmentTextBox";
             this.currentEnrollmentTextBox.Size = new System.Drawing.Size(200, 29);
             this.currentEnrollmentTextBox.TabIndex = 41;
@@ -545,16 +445,16 @@
             // actualPriceLabel
             // 
             actualPriceLabel.AutoSize = true;
-            actualPriceLabel.Location = new System.Drawing.Point(529, 465);
+            actualPriceLabel.Location = new System.Drawing.Point(583, 392);
             actualPriceLabel.Name = "actualPriceLabel";
-            actualPriceLabel.Size = new System.Drawing.Size(100, 18);
+            actualPriceLabel.Size = new System.Drawing.Size(85, 18);
             actualPriceLabel.TabIndex = 42;
-            actualPriceLabel.Text = "Actual Price:";
+            actualPriceLabel.Text = "實際價格:";
             // 
             // actualPriceTextBox
             // 
             this.actualPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "ActualPrice", true));
-            this.actualPriceTextBox.Location = new System.Drawing.Point(696, 462);
+            this.actualPriceTextBox.Location = new System.Drawing.Point(750, 389);
             this.actualPriceTextBox.Name = "actualPriceTextBox";
             this.actualPriceTextBox.Size = new System.Drawing.Size(200, 29);
             this.actualPriceTextBox.TabIndex = 43;
@@ -562,16 +462,16 @@
             // earlyBirdPriceLabel
             // 
             earlyBirdPriceLabel.AutoSize = true;
-            earlyBirdPriceLabel.Location = new System.Drawing.Point(529, 500);
+            earlyBirdPriceLabel.Location = new System.Drawing.Point(583, 427);
             earlyBirdPriceLabel.Name = "earlyBirdPriceLabel";
-            earlyBirdPriceLabel.Size = new System.Drawing.Size(126, 18);
+            earlyBirdPriceLabel.Size = new System.Drawing.Size(85, 18);
             earlyBirdPriceLabel.TabIndex = 44;
-            earlyBirdPriceLabel.Text = "Early Bird Price:";
+            earlyBirdPriceLabel.Text = "早鳥價格:";
             // 
             // earlyBirdPriceTextBox
             // 
             this.earlyBirdPriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "EarlyBirdPrice", true));
-            this.earlyBirdPriceTextBox.Location = new System.Drawing.Point(696, 497);
+            this.earlyBirdPriceTextBox.Location = new System.Drawing.Point(750, 424);
             this.earlyBirdPriceTextBox.Name = "earlyBirdPriceTextBox";
             this.earlyBirdPriceTextBox.Size = new System.Drawing.Size(200, 29);
             this.earlyBirdPriceTextBox.TabIndex = 45;
@@ -579,16 +479,16 @@
             // earlyBirdDeadlineLabel
             // 
             earlyBirdDeadlineLabel.AutoSize = true;
-            earlyBirdDeadlineLabel.Location = new System.Drawing.Point(529, 536);
+            earlyBirdDeadlineLabel.Location = new System.Drawing.Point(583, 463);
             earlyBirdDeadlineLabel.Name = "earlyBirdDeadlineLabel";
-            earlyBirdDeadlineLabel.Size = new System.Drawing.Size(152, 18);
+            earlyBirdDeadlineLabel.Size = new System.Drawing.Size(103, 18);
             earlyBirdDeadlineLabel.TabIndex = 46;
-            earlyBirdDeadlineLabel.Text = "Early Bird Deadline:";
+            earlyBirdDeadlineLabel.Text = "早鳥截止日:";
             // 
             // earlyBirdDeadlineDateTimePicker
             // 
             this.earlyBirdDeadlineDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBatchBindingSource, "EarlyBirdDeadline", true));
-            this.earlyBirdDeadlineDateTimePicker.Location = new System.Drawing.Point(696, 532);
+            this.earlyBirdDeadlineDateTimePicker.Location = new System.Drawing.Point(750, 459);
             this.earlyBirdDeadlineDateTimePicker.Name = "earlyBirdDeadlineDateTimePicker";
             this.earlyBirdDeadlineDateTimePicker.Size = new System.Drawing.Size(200, 29);
             this.earlyBirdDeadlineDateTimePicker.TabIndex = 47;
@@ -596,53 +496,19 @@
             // groupDiscountDescLabel
             // 
             groupDiscountDescLabel.AutoSize = true;
-            groupDiscountDescLabel.Location = new System.Drawing.Point(529, 570);
+            groupDiscountDescLabel.Location = new System.Drawing.Point(583, 497);
             groupDiscountDescLabel.Name = "groupDiscountDescLabel";
-            groupDiscountDescLabel.Size = new System.Drawing.Size(161, 18);
+            groupDiscountDescLabel.Size = new System.Drawing.Size(121, 18);
             groupDiscountDescLabel.TabIndex = 48;
-            groupDiscountDescLabel.Text = "Group Discount Desc:";
+            groupDiscountDescLabel.Text = "團體報名說明:";
             // 
             // groupDiscountDescTextBox
             // 
             this.groupDiscountDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "GroupDiscountDesc", true));
-            this.groupDiscountDescTextBox.Location = new System.Drawing.Point(696, 567);
+            this.groupDiscountDescTextBox.Location = new System.Drawing.Point(750, 494);
             this.groupDiscountDescTextBox.Name = "groupDiscountDescTextBox";
             this.groupDiscountDescTextBox.Size = new System.Drawing.Size(200, 29);
             this.groupDiscountDescTextBox.TabIndex = 49;
-            // 
-            // batchStatusLabel
-            // 
-            batchStatusLabel.AutoSize = true;
-            batchStatusLabel.Location = new System.Drawing.Point(529, 605);
-            batchStatusLabel.Name = "batchStatusLabel";
-            batchStatusLabel.Size = new System.Drawing.Size(100, 18);
-            batchStatusLabel.TabIndex = 50;
-            batchStatusLabel.Text = "Batch Status:";
-            // 
-            // batchStatusTextBox
-            // 
-            this.batchStatusTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBatchBindingSource, "BatchStatus", true));
-            this.batchStatusTextBox.Location = new System.Drawing.Point(696, 602);
-            this.batchStatusTextBox.Name = "batchStatusTextBox";
-            this.batchStatusTextBox.Size = new System.Drawing.Size(200, 29);
-            this.batchStatusTextBox.TabIndex = 51;
-            // 
-            // createDateLabel1
-            // 
-            createDateLabel1.AutoSize = true;
-            createDateLabel1.Location = new System.Drawing.Point(529, 641);
-            createDateLabel1.Name = "createDateLabel1";
-            createDateLabel1.Size = new System.Drawing.Size(97, 18);
-            createDateLabel1.TabIndex = 52;
-            createDateLabel1.Text = "Create Date:";
-            // 
-            // createDateDateTimePicker1
-            // 
-            this.createDateDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.courseBatchBindingSource, "CreateDate", true));
-            this.createDateDateTimePicker1.Location = new System.Drawing.Point(696, 637);
-            this.createDateDateTimePicker1.Name = "createDateDateTimePicker1";
-            this.createDateDateTimePicker1.Size = new System.Drawing.Size(200, 29);
-            this.createDateDateTimePicker1.TabIndex = 53;
             // 
             // bindingNavigator1
             // 
@@ -759,16 +625,52 @@
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 33);
             this.bindingNavigatorDeleteItem.Text = "刪除";
             // 
+            // courseLevelLabel1
+            // 
+            courseLevelLabel1.AutoSize = true;
+            courseLevelLabel1.Location = new System.Drawing.Point(89, 255);
+            courseLevelLabel1.Name = "courseLevelLabel1";
+            courseLevelLabel1.Size = new System.Drawing.Size(85, 18);
+            courseLevelLabel1.TabIndex = 54;
+            courseLevelLabel1.Text = "課程級別:";
+            // 
+            // courseLevelTextBox
+            // 
+            this.courseLevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "CourseLevel", true));
+            this.courseLevelTextBox.Location = new System.Drawing.Point(192, 249);
+            this.courseLevelTextBox.Name = "courseLevelTextBox";
+            this.courseLevelTextBox.Size = new System.Drawing.Size(200, 29);
+            this.courseLevelTextBox.TabIndex = 55;
+            // 
+            // categoryNameLabel
+            // 
+            categoryNameLabel.AutoSize = true;
+            categoryNameLabel.Location = new System.Drawing.Point(89, 77);
+            categoryNameLabel.Name = "categoryNameLabel";
+            categoryNameLabel.Size = new System.Drawing.Size(85, 18);
+            categoryNameLabel.TabIndex = 57;
+            categoryNameLabel.Text = "類別名稱:";
+            // 
+            // categoryNameTextBox
+            // 
+            this.categoryNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseCategoryBindingSource, "CategoryName", true));
+            this.categoryNameTextBox.Location = new System.Drawing.Point(192, 77);
+            this.categoryNameTextBox.Name = "categoryNameTextBox";
+            this.categoryNameTextBox.Size = new System.Drawing.Size(200, 29);
+            this.categoryNameTextBox.TabIndex = 58;
+            // 
             // C_FrmDtail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 760);
+            this.Controls.Add(categoryNameLabel);
+            this.Controls.Add(this.categoryNameTextBox);
+            this.Controls.Add(courseLevelLabel1);
+            this.Controls.Add(this.courseLevelTextBox);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(courseBatchIDLabel1);
             this.Controls.Add(this.courseBatchIDTextBox1);
-            this.Controls.Add(categoryIDLabel);
-            this.Controls.Add(this.categoryIDTextBox);
             this.Controls.Add(batchNameLabel);
             this.Controls.Add(this.batchNameTextBox);
             this.Controls.Add(instructorIDLabel);
@@ -793,10 +695,6 @@
             this.Controls.Add(this.earlyBirdDeadlineDateTimePicker);
             this.Controls.Add(groupDiscountDescLabel);
             this.Controls.Add(this.groupDiscountDescTextBox);
-            this.Controls.Add(batchStatusLabel);
-            this.Controls.Add(this.batchStatusTextBox);
-            this.Controls.Add(createDateLabel1);
-            this.Controls.Add(this.createDateDateTimePicker1);
             this.Controls.Add(courseIDLabel);
             this.Controls.Add(this.courseIDTextBox);
             this.Controls.Add(courseBatchIDLabel);
@@ -805,20 +703,12 @@
             this.Controls.Add(this.courseTitleTextBox);
             this.Controls.Add(courseIntroductionLabel);
             this.Controls.Add(this.courseIntroductionTextBox);
-            this.Controls.Add(courseLevelLabel);
-            this.Controls.Add(this.courseLevelComboBox);
             this.Controls.Add(standardPriceLabel);
             this.Controls.Add(this.standardPriceTextBox);
             this.Controls.Add(courseHoursLabel);
             this.Controls.Add(this.courseHoursTextBox);
             this.Controls.Add(photosLabel);
             this.Controls.Add(this.photosPictureBox);
-            this.Controls.Add(courseStatusLabel);
-            this.Controls.Add(this.courseStatusTextBox);
-            this.Controls.Add(createDateLabel);
-            this.Controls.Add(this.createDateDateTimePicker);
-            this.Controls.Add(updateDateLabel);
-            this.Controls.Add(this.updateDateDateTimePicker);
             this.Name = "C_FrmDtail";
             this.Text = "C_FrmDtail";
             this.Load += new System.EventHandler(this.C_FrmDtail_Load);
@@ -849,15 +739,10 @@
         private System.Windows.Forms.TextBox courseBatchIDTextBox;
         private System.Windows.Forms.TextBox courseTitleTextBox;
         private System.Windows.Forms.TextBox courseIntroductionTextBox;
-        private System.Windows.Forms.ComboBox courseLevelComboBox;
         private System.Windows.Forms.TextBox standardPriceTextBox;
         private System.Windows.Forms.TextBox courseHoursTextBox;
         private System.Windows.Forms.PictureBox photosPictureBox;
-        private System.Windows.Forms.TextBox courseStatusTextBox;
-        private System.Windows.Forms.DateTimePicker createDateDateTimePicker;
-        private System.Windows.Forms.DateTimePicker updateDateDateTimePicker;
         private System.Windows.Forms.TextBox courseBatchIDTextBox1;
-        private System.Windows.Forms.TextBox categoryIDTextBox;
         private System.Windows.Forms.TextBox batchNameTextBox;
         private System.Windows.Forms.TextBox instructorIDTextBox;
         private System.Windows.Forms.TextBox classroomIDTextBox;
@@ -870,8 +755,6 @@
         private System.Windows.Forms.TextBox earlyBirdPriceTextBox;
         private System.Windows.Forms.DateTimePicker earlyBirdDeadlineDateTimePicker;
         private System.Windows.Forms.TextBox groupDiscountDescTextBox;
-        private System.Windows.Forms.TextBox batchStatusTextBox;
-        private System.Windows.Forms.DateTimePicker createDateDateTimePicker1;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -884,5 +767,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.TextBox courseLevelTextBox;
+        private System.Windows.Forms.TextBox categoryNameTextBox;
     }
 }

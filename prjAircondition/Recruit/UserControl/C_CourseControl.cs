@@ -105,16 +105,16 @@ namespace prjAircondition.Recruit
 
 
                 this.dataGridView1.DataSource = dt;
-                this.dataGridView1.Columns["梯次狀態"].Visible = false;
-                this.dataGridView1.Columns["課程狀態"].Visible = false;
+                
 
                 this.dataGridView1.ReadOnly = false;
 
                 // 設定哪些欄位可以編輯（可選）
                 this.dataGridView1.Columns["編號"].ReadOnly = true;  // 編號不能改
-                this.dataGridView1.Columns["BatchStatus"].ReadOnly = true;  // 隱藏欄位不能改
-                this.dataGridView1.Columns["CourseStatus"].ReadOnly = true;  // 隱藏欄位不能改
-
+                this.dataGridView1.Columns["BatchStatus"].Visible = false;  // 隱藏欄位不能改
+                this.dataGridView1.Columns["CourseStatus"].Visible = false;  // 隱藏欄位不能改
+                this.dataGridView1.Columns["梯次狀態"].Visible = true;          // 顯示中文
+                this.dataGridView1.Columns["課程狀態"].Visible = true;          // 顯示中文
             }
         }
 
