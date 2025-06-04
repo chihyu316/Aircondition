@@ -1,25 +1,20 @@
 ﻿using prjAircondition.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace prjAircondition.Shop
 {
     public partial class S_UcProduct1 : UserControl
     {
-        // ✅ 全域變數（宣告在類別內，但不在任何方法裡）
         private SqlDataAdapter adapter;
         private System.Data.DataSet dataSet;
         private BindingSource bindingSource;
         private SqlCommandBuilder commandBuilder;
         private DataTable vendorTable;
+
         public S_UcProduct1()
         {
             InitializeComponent();
@@ -28,22 +23,15 @@ namespace prjAircondition.Shop
         private void S_UcProduct1_Load(object sender, EventArgs e)
         {
             LoadVendorList();
-            LoadCoolingProduct(); // ✅ 初始化 adapter, dataSet, bindingSource
-            this.dataGridView1.CellFormatting += new DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            LoadCoolingProduct();
+            LoadFunctionTypes();
+            this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+            this.dataGridView1.DefaultValuesNeeded += dataGridView1_DefaultValuesNeeded; // 預設值
+            btnSearchByFunction.Click += btnSearchByFunction_Click;
         }
 
-        /// <summary>
-        /// 從資料庫載入廠商資料至 vendorTable
-        /// </summary>
         private void LoadVendorList()
         {
-            // 補充限制使用者不能改 CreatedTime：
-            if (dataGridView1.Columns.Contains("CreatedTime"))
-                dataGridView1.Columns["CreatedTime"].ReadOnly = true;
-            //設定欄位唯讀
-            if (dataGridView1.Columns.Contains("UpdatedTime"))
-                dataGridView1.Columns["UpdatedTime"].ReadOnly = true;
-
             vendorTable = new DataTable();
             string connString = Settings.Default.ACConnectionString;
 
@@ -54,25 +42,26 @@ namespace prjAircondition.Shop
                 adapter.Fill(vendorTable);
             }
 
-            BindComboBox(vendorTable);
+            comboVendor.DataSource = vendorTable;
+            comboVendor.DisplayMember = "VendorName";
+            comboVendor.ValueMember = "VendorID";
+            comboVendor.SelectedIndex = -1;
         }
 
-        private void BindComboBox(DataTable data)
+        private void LoadFunctionTypes()
         {
-            comboVendor.DataSource = null;
-            comboVendor.Items.Clear();
+            string connStr = Settings.Default.ACConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string sql = "SELECT DISTINCT FunctionType FROM CoolingFunction";
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
 
-            if (data.Rows.Count > 0)
-            {
-                comboVendor.DataSource = data;
-                comboVendor.DisplayMember = "VendorName";
-                comboVendor.ValueMember = "VendorID";
-                comboVendor.SelectedIndex = -1;
-            }
-            else
-            {
-                comboVendor.Text = "查無結果";
-                dataGridView1.DataSource = null; // ✅ 顯示空表格
+                comboFunctionType.DataSource = dt;
+                comboFunctionType.DisplayMember = "FunctionType";
+                comboFunctionType.ValueMember = "FunctionType";
+                comboFunctionType.SelectedIndex = -1;
             }
         }
 
@@ -91,297 +80,122 @@ namespace prjAircondition.Shop
             bindingSource.DataSource = dataSet.Tables["CoolingProduct"];
             dataGridView1.DataSource = bindingSource;
 
-            // ✅ 設定不能修改主鍵
             if (dataGridView1.Columns.Contains("CoolingProductID"))
-                dataGridView1.Columns["CoolingProductID"].ReadOnly = true;
-
-            // ✅ 加入選取模式設定
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // 一次選整行
-            dataGridView1.MultiSelect = false; // 限制只能選一筆
-
-            // ✅ 額外建議（欄位寬度自動）
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
-
-        private void LoadProductByVendor(int vendorId)
-        {
-            string connString = Settings.Default.ACConnectionString;
-            DataTable dt = new DataTable();
-
-            using (SqlConnection conn = new SqlConnection(connString))
             {
-                string sql = @"
-                           SELECT CoolingProductID, CoolingName, Price, Stock, ProductStatus
-                           FROM CoolingProduct
-                           WHERE VendorID = @VendorID";
-
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@VendorID", vendorId);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(dt);
-                }
+                dataGridView1.Columns["CoolingProductID"].ReadOnly = true;
+                dataGridView1.Columns["CoolingProductID"].DefaultCellStyle.BackColor = Color.LightGray;
             }
 
-            dataGridView1.DataSource = dt;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.MultiSelect = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.ReadOnly = true;
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
-        {
-            {
-                try
-                {
-                    this.Validate();
-                    bindingSource.EndEdit();
-
-                    foreach (DataRow row in dataSet.Tables["CoolingProduct"].Rows)
-                    {
-                        if (row.RowState == DataRowState.Added)
-                        {
-                            row["CreatedTime"] = DateTime.Now;
-                        }
-                    }
-
-                    adapter.Update(dataSet, "CoolingProduct");
-
-                    MessageBox.Show("新增儲存成功！");
-                    LoadCoolingProduct();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("儲存失敗：" + ex.Message);
-                }
-            }
-        }
-
-        private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
             try
             {
                 this.Validate();
                 bindingSource.EndEdit();
+                bool hasNewRow = false;
 
                 foreach (DataRow row in dataSet.Tables["CoolingProduct"].Rows)
                 {
-                    if (row.RowState == DataRowState.Modified)
+                    if (row.RowState == DataRowState.Added)
                     {
-                        row["UpdatedTime"] = DateTime.Now;
+                        string name = row["CoolingName"]?.ToString().Trim();
+                        string priceText = row["Price"]?.ToString().Trim();
+                        string stockText = row["Stock"]?.ToString().Trim();
+                        string rateText = row["InstallmentRate"]?.ToString().Trim();
+
+                        if (string.IsNullOrEmpty(name) ||
+                            !decimal.TryParse(priceText, out decimal price) || price < 0 ||
+                            !int.TryParse(stockText, out int stock) || stock < 0 )
+                            //!int.TryParse(rateText, out int rate) || rate < 0)
+                        {
+                            MessageBox.Show("請確認欄位是否完整與正確（名稱、價格、庫存、分期）", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        row["CreatedTime"] = DateTime.Now;
+                        row["CreatedBy"] = "admin";
+                        hasNewRow = true;
                     }
                 }
 
+                if (!hasNewRow)
+                {
+                    MessageBox.Show("請先在表格中輸入一筆新資料再點選新增。", "提醒", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 adapter.Update(dataSet, "CoolingProduct");
-                MessageBox.Show("修改儲存成功！");
-                LoadCoolingProduct();
+                MessageBox.Show("新增成功！");
+                LoadCoolingProduct(); // 重新加載以刷新 ID
             }
             catch (Exception ex)
             {
-                MessageBox.Show("修改失敗：" + ex.Message);
+                MessageBox.Show("新增失敗: " + ex.Message);
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void dataGridView1_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
         {
-            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.IsNewRow)
+            e.Row.Cells["CreatedTime"].Value = DateTime.Now;
+            e.Row.Cells["CreatedBy"].Value = "admin";
+            e.Row.Cells["Stock"].Value = 0;  // 確保 Stock 預設為 0
+            e.Row.Cells["Price"].Value = 0;  // 確保 Price 預設為 0
+            e.Row.Cells["InstallmentRate"].Value = 0;  // 確保 InstallmentRate 預設為 0
+            e.Row.Cells["ProductStatus"].Value = 1;
+        }
+
+        private void btnSearchByFunction_Click(object sender, EventArgs e)
+        {
+            if (comboFunctionType.SelectedValue != null && comboVendor.SelectedValue != null)
             {
-                MessageBox.Show("請選擇一筆要刪除的資料！");
-                return;
-            }
+                string functionType = comboFunctionType.SelectedValue.ToString();
+                int vendorId = Convert.ToInt32(comboVendor.SelectedValue);
 
-            // 取得選取列的主鍵 ID
-            var result = MessageBox.Show("確定要刪除這筆資料嗎？", "確認刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result != DialogResult.Yes) return;
+                string connStr = Settings.Default.ACConnectionString;
+                string sql = @"
+                    SELECT DISTINCT cp.*
+                    FROM CoolingProduct cp
+                    JOIN Vendor v ON cp.VendorID = v.VendorID
+                    JOIN CoolingFunctionMap map ON cp.CoolingProductID = map.CoolingProductID
+                    JOIN CoolingFunction cf ON map.FunctionTypeID = cf.FunctionTypeID
+                    WHERE v.VendorID = @VendorID AND cf.FunctionType = @FunctionType";
 
-            try
-            {
-                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["CoolingProductID"].Value);
-                string connString = Settings.Default.ACConnectionString;
-                string sql = "DELETE FROM CoolingProduct WHERE CoolingProductID = @ID";
-
-                using (SqlConnection conn = new SqlConnection(connString))
+                using (SqlConnection conn = new SqlConnection(connStr))
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@ID", id);
-                    conn.Open();
-                    int rows = cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@VendorID", vendorId);
+                    cmd.Parameters.AddWithValue("@FunctionType", functionType);
 
-                    MessageBox.Show(rows > 0 ? "刪除成功！" : "刪除失敗！");
-                    LoadCoolingProduct(); // 重新載入資料
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("刪除失敗：" + ex.Message);
-            }
-        }
-
-        private void btnShowAll_Click(object sender, EventArgs e)
-        {
-            string connString = Settings.Default.ACConnectionString;
-            string sql = "SELECT * FROM CoolingProduct";
-
-            adapter = new SqlDataAdapter(sql, connString);
-            commandBuilder = new SqlCommandBuilder(adapter);
-
-            dataSet = new System.Data.DataSet();
-            adapter.Fill(dataSet, "CoolingProduct");
-
-            bindingSource = new BindingSource();
-            bindingSource.DataSource = dataSet.Tables["CoolingProduct"];
-
-            dataGridView1.DataSource = bindingSource;
-
-            // 設定欄位是否可編輯
-            if (dataGridView1.Columns.Contains("CoolingProductID"))
-                dataGridView1.Columns["CoolingProductID"].ReadOnly = true;
-
-            dataGridView1.AllowUserToAddRows = true;
-            dataGridView1.ReadOnly = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
-
-        private void comboVendor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboVendor.SelectedValue != null && int.TryParse(comboVendor.SelectedValue.ToString(), out int vendorId))
-            {
-                LoadProductByVendor(vendorId);
-            }
-        }
-
-        private void txtSearchVendor_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = txtSearchVendor.Text.Trim();
-
-            if (string.IsNullOrEmpty(keyword))
-            {
-                // 還原全部
-                BindComboBox(vendorTable);
-                dataGridView1.DataSource = null;
-                return;
-            }
-
-            // 搜尋廠商名稱
-            DataView dv = new DataView(vendorTable);
-            dv.RowFilter = $"VendorName LIKE '%{keyword}%'";
-
-            if (dv.Count > 0)
-            {
-                DataTable filteredVendor = dv.ToTable();
-                BindComboBox(filteredVendor);
-
-                // 顯示第一筆符合廠商的商品
-                if (int.TryParse(filteredVendor.Rows[0]["VendorID"].ToString(), out int vendorId))
-                {
-                    LoadProductByVendor(vendorId); // ✅ 查商品
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
                 }
             }
             else
             {
-                // 查無此廠商
-                comboVendor.DataSource = null;
-                comboVendor.Items.Clear();
-                comboVendor.Text = "查無結果";
-
-                // 顯示「查無此資料」到 dataGridView1
-                DataTable emptyTable = new DataTable();
-                emptyTable.Columns.Add("訊息");
-                emptyTable.Rows.Add("查無此資料");
-
-                dataGridView1.DataSource = emptyTable;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                MessageBox.Show("請先選擇廠商與功能分類！");
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            try
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Category" && e.Value is int val1)
             {
-                string columnName = dataGridView1.Columns[e.ColumnIndex].Name;
-
-                if (columnName == "Category")
-                {
-                    int val;
-                    if (int.TryParse(e.Value?.ToString(), out val))
-                    {
-                        if (val == 0) e.Value = "家用";
-                        else if (val == 1) e.Value = "商用";
-                        else e.Value = "其他";
-                    }
-                }
-
-                if (columnName == "Type")
-                {
-                    int val;
-                    if (int.TryParse(e.Value?.ToString(), out val))
-                    {
-                        if (val == 0) e.Value = "定頻";
-                        else if (val == 1) e.Value = "變頻";
-                        else e.Value = "其他";
-                    }
-                }
-
-                if (columnName == "ProductStatus")
-                {
-                    int val;
-                    if (int.TryParse(e.Value?.ToString(), out val))
-                    {
-                        e.Value = val == 0 ? "下架" : "上架";
-                    }
-                }
+                e.Value = val1 == 0 ? "家用" : val1 == 1 ? "商用" : "其他";
             }
-            catch (Exception ex)
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "Type" && e.Value is int val2)
             {
-                Console.WriteLine("CellFormatting 錯誤：" + ex.Message);
+                e.Value = val2 == 0 ? "定頻" : val2 == 1 ? "變頻" : "其他";
             }
-        }
-
-        private void dataGridView1_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            if (dataGridView1.IsCurrentRowDirty)
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "ProductStatus" && e.Value is int val3)
             {
-                var row = dataGridView1.Rows[e.RowIndex];
-
-                string productName = row.Cells["CoolingName"].Value?.ToString().Trim();
-                string priceText = row.Cells["Price"].Value?.ToString().Trim();
-                string stockText = row.Cells["Stock"].Value?.ToString().Trim();
-
-                // 商品名不能為空
-                if (string.IsNullOrEmpty(productName))
-                {
-                    row.ErrorText = "請修正此列錯誤資料";
-                    MessageBox.Show("商品名稱不能為空！");
-                    e.Cancel = true;
-                    return;
-                }
-
-                // 價格必須為有效的 decimal，且 >= 0
-                if (!decimal.TryParse(priceText, out decimal price) || price < 0)
-                {
-                    row.ErrorText = "請修正此列錯誤資料";
-                    MessageBox.Show("價格必須是大於等於 0 的數值！");
-                    e.Cancel = true;
-                    return;
-                }
-
-                //  庫存驗證（可選）
-                if (!int.TryParse(stockText, out int stock) || stock < 0)
-                {
-                    row.ErrorText = "請修正此列錯誤資料";
-                    MessageBox.Show("庫存必須是大於等於 0 的整數！");
-                    e.Cancel = true;
-                    return;
-                }
-
-                // ✅ 驗證成功 → 清除錯誤提示
-                row.ErrorText = string.Empty;
+                e.Value = val3 == 0 ? "下架" : "上架";
             }
         }
     }

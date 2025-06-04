@@ -25,6 +25,9 @@ namespace prjAircondition
         }
         private void LoadOrders(string keyword = "")
         {
+            dataGridView1.ReadOnly = true;                     // 整張表格不可編輯
+            dataGridView1.AllowUserToAddRows = false;         // 不可新增
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // 一次選整列
             string sql = @"
         SELECT 
             m.MemberAccount, 
