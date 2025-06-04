@@ -86,5 +86,10 @@ namespace prjAircondition
                 txtSubtotal.Text = (price * qty).ToString("0.00");
             }
         }
+
+        private void detailIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

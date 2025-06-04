@@ -28,7 +28,7 @@ namespace prjAircondition.Shop
             this.dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             this.dataGridView1.DefaultValuesNeeded += dataGridView1_DefaultValuesNeeded; // 預設值
             btnSearchByFunction.Click += btnSearchByFunction_Click;
-
+            comboVendor.SelectedIndexChanged += comboVendor_SelectedIndexChanged;
         }
 
         private void LoadVendorList()
@@ -107,6 +107,8 @@ namespace prjAircondition.Shop
             if (dataGridView1.Columns.Contains("UpdatedBy")) dataGridView1.Columns["UpdatedBy"].HeaderText = "修改者";
             if (dataGridView1.Columns.Contains("VendorID")) dataGridView1.Columns["VendorID"].HeaderText = "廠商";
 
+         
+            SetupComboColumns(); // 🔧 加入欄位下拉選單設定
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
@@ -136,7 +138,7 @@ namespace prjAircondition.Shop
                         }
 
                         row["CreatedTime"] = DateTime.Now;
-                        row["CreatedBy"] = "admin";
+                        row["CreatedBy"] = "Adminator";
                         hasNewRow = true;
                     }
                 }
@@ -222,7 +224,11 @@ namespace prjAircondition.Shop
             // ✅ 只有選廠商（已有 fallback）
             else if (comboVendor.SelectedValue != null)
             {
-                comboVendor_SelectedIndexChanged(sender, e);
+                if (comboVendor.SelectedItem is DataRowView rowView)
+    {
+        int vendorId = Convert.ToInt32(rowView["VendorID"]);
+        ShowProductByVendor(vendorId); // ✅ 補上引數
+    }
             }
             else
             {
@@ -312,6 +318,7 @@ namespace prjAircondition.Shop
                     if (row.RowState == DataRowState.Modified)
                     {
                         row["UpdatedTime"] = DateTime.Now;
+                        row["UpdatedBy"] = "Adminator";
                     }
                 }
 
@@ -353,23 +360,96 @@ namespace prjAircondition.Shop
 
         private void comboVendor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboVendor.SelectedItem is DataRowView rowView && comboFunctionType.SelectedValue == null)
+            if (comboVendor.SelectedItem is DataRowView rowView)
             {
                 int vendorId = Convert.ToInt32(rowView["VendorID"]);
+                ShowProductByVendor(vendorId);
+            }
 
-                string connStr = Settings.Default.ACConnectionString;
-                string sql = "SELECT * FROM CoolingProduct WHERE VendorID = @VendorID";
+        }
 
-                using (SqlConnection conn = new SqlConnection(connStr))
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@VendorID", vendorId);
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                }
+        //SetupComboColumns() 方法：一次設定「廠商、分類、類型」為下拉選單
+        private void SetupComboColumns()
+        {
+            // 🟡 1. 廠商（VendorID）ComboBoxColumn
+            //if (dataGridView1.Columns.Contains("VendorID"))
+            //{
+            //    DataGridViewComboBoxColumn vendorColumn = new DataGridViewComboBoxColumn();
+            //    vendorColumn.DataPropertyName = "VendorID";
+            //    vendorColumn.Name = "VendorID";
+            //    vendorColumn.HeaderText = "廠商";
+            //    vendorColumn.DataSource = vendorTable;
+            //    vendorColumn.DisplayMember = "VendorName";
+            //    vendorColumn.ValueMember = "VendorID";
+            //    vendorColumn.FlatStyle = FlatStyle.Flat;
+
+            //    dataGridView1.Columns.Remove("VendorID");
+            //    dataGridView1.Columns.Insert(0, vendorColumn);
+            //}
+
+            // 🟢 2. 商品分類（Category） ComboBoxColumn
+            DataTable categoryTable = new DataTable();
+            categoryTable.Columns.Add("Value", typeof(int));
+            categoryTable.Columns.Add("Text", typeof(string));
+            categoryTable.Rows.Add(0, "家用");
+            categoryTable.Rows.Add(1, "商用");
+            categoryTable.Rows.Add(2, "其他");
+
+            if (dataGridView1.Columns.Contains("Category"))
+            {
+                DataGridViewComboBoxColumn categoryColumn = new DataGridViewComboBoxColumn();
+                categoryColumn.DataPropertyName = "Category";
+                categoryColumn.Name = "Category";
+                categoryColumn.HeaderText = "商品類別";
+                categoryColumn.DataSource = categoryTable;
+                categoryColumn.DisplayMember = "Text";
+                categoryColumn.ValueMember = "Value";
+                categoryColumn.FlatStyle = FlatStyle.Flat;
+
+                dataGridView1.Columns.Remove("Category");
+                dataGridView1.Columns.Insert(1, categoryColumn);
+            }
+
+            // 🔵 3. 商品類型（Type） ComboBoxColumn
+            DataTable typeTable = new DataTable();
+            typeTable.Columns.Add("Value", typeof(int));
+            typeTable.Columns.Add("Text", typeof(string));
+            typeTable.Rows.Add(0, "定頻");
+            typeTable.Rows.Add(1, "變頻");
+            typeTable.Rows.Add(2, "其他");
+
+            if (dataGridView1.Columns.Contains("Type"))
+            {
+                DataGridViewComboBoxColumn typeColumn = new DataGridViewComboBoxColumn();
+                typeColumn.DataPropertyName = "Type";
+                typeColumn.Name = "Type";
+                typeColumn.HeaderText = "商品類型";
+                typeColumn.DataSource = typeTable;
+                typeColumn.DisplayMember = "Text";
+                typeColumn.ValueMember = "Value";
+                typeColumn.FlatStyle = FlatStyle.Flat;
+
+                dataGridView1.Columns.Remove("Type");
+                dataGridView1.Columns.Insert(2, typeColumn);
             }
         }
+
+        //封裝查詢用的方法----新增這段自訂方法，取代 comboBox 的 SelectedIndexChanged
+        private void ShowProductByVendor(int vendorId)
+        {
+            string connStr = Settings.Default.ACConnectionString;
+            string sql = "SELECT * FROM CoolingProduct WHERE VendorID = @VendorID";
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@VendorID", vendorId);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+        }
+
     }
 }

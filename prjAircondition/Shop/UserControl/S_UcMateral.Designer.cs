@@ -46,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("新細明體", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(20, 47);
+            this.label1.Location = new System.Drawing.Point(90, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 23);
             this.label1.TabIndex = 18;
@@ -54,7 +54,7 @@
             // 
             // btnShowAll
             // 
-            this.btnShowAll.Location = new System.Drawing.Point(174, 76);
+            this.btnShowAll.Location = new System.Drawing.Point(40, 177);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(144, 62);
             this.btnShowAll.TabIndex = 17;
@@ -87,7 +87,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(324, 141);
+            this.btnDelete.Location = new System.Drawing.Point(562, 177);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(144, 62);
             this.btnDelete.TabIndex = 14;
@@ -96,9 +96,9 @@
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(20, 141);
+            this.btnAddNew.Location = new System.Drawing.Point(396, 177);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(148, 62);
+            this.btnAddNew.Size = new System.Drawing.Size(144, 62);
             this.btnAddNew.TabIndex = 13;
             this.btnAddNew.Text = "儲存";
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             // 
             // txtMaterial
             // 
-            this.txtMaterial.Location = new System.Drawing.Point(195, 45);
+            this.txtMaterial.Location = new System.Drawing.Point(265, 80);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Size = new System.Drawing.Size(386, 25);
             this.txtMaterial.TabIndex = 12;
@@ -123,7 +123,7 @@
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(174, 141);
+            this.btnSaveChanges.Location = new System.Drawing.Point(216, 177);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(144, 62);
             this.btnSaveChanges.TabIndex = 10;
