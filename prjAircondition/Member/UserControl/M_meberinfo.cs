@@ -276,7 +276,34 @@ namespace prjAircondition.Member
 
         private void SearchMember_TextChanged(object sender, EventArgs e)
         {
-            SearchMember.Text = "";
+            string cludename = SearchMember.Text;
+            MemberListV.Items.Clear();
+            //MemberListV.Columns.Clear();
+            //MemberListV.Columns.Add("帳號", 200);
+            string conn = Settings.Default.ACConnectionString;
+            try
+            {
+
+                using (SqlConnection connect = new SqlConnection(conn))
+                {
+                    connect.Open();
+                    string sql = $"SELECT MemberAccount FROM Member where MemberAccount Like @cludename";
+                    SqlCommand cmd = new SqlCommand(sql, connect);
+                    cmd.Parameters.AddWithValue("@cludename", "%" + cludename + "%");
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string account = reader["MemberAccount"].ToString();
+                        ListViewItem item = new ListViewItem(account);
+                        item.BackColor = (MemberListV.Items.Count % 2 == 0) ? Color.Gray : Color.White;
+                        MemberListV.Items.Add(item);
+                    }
+                }
+            }
+            catch(Exception ex) 
+            {   
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -201,7 +201,7 @@
             // 
             this.MemberListV.Font = new System.Drawing.Font("新細明體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.MemberListV.HideSelection = false;
-            this.MemberListV.Location = new System.Drawing.Point(34, 98);
+            this.MemberListV.Location = new System.Drawing.Point(34, 96);
             this.MemberListV.Name = "MemberListV";
             this.MemberListV.Size = new System.Drawing.Size(131, 357);
             this.MemberListV.TabIndex = 40;
