@@ -32,10 +32,11 @@
             // 
             // T_TechUserControl1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "T_TechUserControl1";
-            this.Size = new System.Drawing.Size(508, 400);
+            this.Size = new System.Drawing.Size(1130, 930);
             this.ResumeLayout(false);
 
         }
