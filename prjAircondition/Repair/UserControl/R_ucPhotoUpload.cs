@@ -48,6 +48,7 @@ namespace prjAircondition.Repair
                 RE_dgvPhotoList.DataSource = photoTable;
                 RE_lblCount.Text = $"共 {photoTable.Rows.Count} 筆";
             }
+            InitPhotoHeaders();//顯示中文欄名
         }
 
         private void RE_btnDelete_Click(object sender, EventArgs e)
@@ -167,6 +168,19 @@ namespace prjAircondition.Repair
                     }
                 }
             }
+        }
+        private void InitPhotoHeaders()
+        {
+            var dgv = RE_dgvPhotoList;
+
+            if (dgv.Columns.Contains("PhotoID"))
+                dgv.Columns["PhotoID"].HeaderText = "照片編號";
+
+            if (dgv.Columns.Contains("PhotoDescription"))
+                dgv.Columns["PhotoDescription"].HeaderText = "照片說明";
+
+            if (dgv.Columns.Contains("UploadTime"))
+                dgv.Columns["UploadTime"].HeaderText = "上傳時間";
         }
     }
 

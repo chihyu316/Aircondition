@@ -39,9 +39,8 @@ namespace prjAircondition.Repair
             }
 
             DataRow newRow = dataTable.NewRow();
-
             newRow["WorkOrderID"] = currentWorkOrderID;
-
+            newRow["CreatedTime"] = DateTime.Now; //  自動填入建立時間
             dataTable.Rows.Add(newRow);
         }
 
@@ -69,14 +68,13 @@ namespace prjAircondition.Repair
 
         private void RE_delet_Click(object sender, EventArgs e)
         {
-            // 🛡️ 防止 dataTable 還沒載入就執行
             if (dataTable == null || RE_checklist.CurrentRow == null)
             {
                 MessageBox.Show("請先選取一筆資料再執行刪除", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // 🧩 取得當前資料列
+            //  取得當前資料列
             DataGridViewRow gridRow = RE_checklist.CurrentRow;
             DataRowView rowView = gridRow.DataBoundItem as DataRowView;
             DataRow row = rowView?.Row;
@@ -87,18 +85,25 @@ namespace prjAircondition.Repair
                 return;
             }
 
-            // ⚠️ 若是新列（尚未儲存進資料庫），可直接刪除無需提示
+            //  若是新列（尚未儲存進資料庫）
             if (row.RowState == DataRowState.Added)
             {
                 row.Delete();
+                MessageBox.Show("🗑️ 已移除新增列（尚未儲存至資料庫）", "提示");
                 return;
             }
 
-            // 🔐 若是已存在於資料庫的資料列，加上確認提示
-            var confirm = MessageBox.Show("確定要刪除這筆資料嗎？刪除後無法復原。", "確認刪除", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (confirm == DialogResult.Yes)
+            string checklistID = row.Table.Columns.Contains("ChecklistID") ? row["ChecklistID"].ToString() : "(無 ID)";
+            var result = MessageBox.Show(
+                $"是否確定刪除 ChecklistID = {checklistID}？\n刪除後將無法復原！",
+                " 確認刪除",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                row.Delete(); // 標記為刪除狀態，儲存時由 adapter.Update() 執行
+                row.Delete(); // 標記刪除，按下儲存才會寫入資料庫
+                MessageBox.Show($" 已標記刪除 ChecklistID = {checklistID}\n請記得按下「儲存」以完成刪除！", "已標記刪除");
             }
         }
 
@@ -134,7 +139,27 @@ namespace prjAircondition.Repair
                 //  顯示總筆數
                 RE_lbl.Text = $"共 {dataTable.Rows.Count} 筆資料";
             }
+            InitGridHeaders();
+        }
+        private void InitGridHeaders()
+        {
+            var dgv = RE_checklist;
 
+            if (dgv.Columns.Contains("ChecklistID")) dgv.Columns["ChecklistID"].HeaderText = "清單編號";
+            if (dgv.Columns.Contains("WorkOrderID")) dgv.Columns["WorkOrderID"].HeaderText = "工單編號";
+            if (dgv.Columns.Contains("ScheduledInstallationDate")) dgv.Columns["ScheduledInstallationDate"].HeaderText = "安裝日期";
+            if (dgv.Columns.Contains("IsInstallLocationConfirmed")) dgv.Columns["IsInstallLocationConfirmed"].HeaderText = "安裝位置確認";
+            if (dgv.Columns.Contains("IsPanelAdjustedOrPurchased")) dgv.Columns["IsPanelAdjustedOrPurchased"].HeaderText = "面板已調整/購買";
+            if (dgv.Columns.Contains("IsDrillingLocationConfirmed")) dgv.Columns["IsDrillingLocationConfirmed"].HeaderText = "鑽孔位置確認";
+            if (dgv.Columns.Contains("IsFunctionTested")) dgv.Columns["IsFunctionTested"].HeaderText = "功能測試通過";
+            if (dgv.Columns.Contains("IsWarrantyProvided")) dgv.Columns["IsWarrantyProvided"].HeaderText = "保固已提供";
+            if (dgv.Columns.Contains("IsMemberConsulted")) dgv.Columns["IsMemberConsulted"].HeaderText = "已與會員確認";
+            if (dgv.Columns.Contains("IsRecycleAgreement")) dgv.Columns["IsRecycleAgreement"].HeaderText = "回收同意書已簽署";
+            if (dgv.Columns.Contains("IsCleaningDone")) dgv.Columns["IsCleaningDone"].HeaderText = "已清潔完畢";
+            if (dgv.Columns.Contains("IsRemoteAreaFeeConfirmed")) dgv.Columns["IsRemoteAreaFeeConfirmed"].HeaderText = "偏遠費用已確認";
+            if (dgv.Columns.Contains("IsPaymentConfirmed")) dgv.Columns["IsPaymentConfirmed"].HeaderText = "付款已確認";
+            if (dgv.Columns.Contains("Inspector")) dgv.Columns["Inspector"].HeaderText = "檢查人員";
+            if (dgv.Columns.Contains("CreatedTime")) dgv.Columns["CreatedTime"].HeaderText = "建立時間";
         }
     }
 }
