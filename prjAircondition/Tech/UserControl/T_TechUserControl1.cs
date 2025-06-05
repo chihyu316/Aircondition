@@ -18,7 +18,10 @@ namespace prjAircondition.Tech
     {
         private string licenseImageFolderPath;
         private string imageFolderPath; // 圖片存放位置
-        private string selectedLicensePhotoFullPath = null;
+        private string selectedLicensePhotoFullPath = null; //證照路徑位置
+
+        //假如有照片上傳的路就 先初始化   upDate回去時再複製一份推送回DB
+        private string selectedPhotoFullPath = null;
 
         public T_TechUserControl1()
         {
@@ -30,6 +33,16 @@ namespace prjAircondition.Tech
             InitImageLicenseFolder(); //初始化證照圖片存放位置
         }
 
+        // 初始化 師傅資料庫照片 位置存放處
+        private void InitTechImageFolder()
+        {
+            MessageBox.Show("初始檔案執行位置" + Application.StartupPath);
+            //找個資料夾放圖片並給個資料夾名稱
+            string projectRootPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+            imageFolderPath = Path.Combine(projectRootPath, "TechResources");
+            Directory.CreateDirectory(imageFolderPath);
+        }
+
         // 初始化 License 存放目錄
         private void InitImageLicenseFolder()
         {
@@ -37,82 +50,6 @@ namespace prjAircondition.Tech
             //放到TechResources\LicenseResources
             licenseImageFolderPath = Path.Combine(projectRootPath, "TechResources", "LicenseResources");
             Directory.CreateDirectory(licenseImageFolderPath);
-        }
-
-        private void techniciansBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.techniciansBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.t_ACDataSet1);
-        }
-
-        private void T_TechUserControl1_Load(object sender, EventArgs e)
-        {
-            //先把該帳號資訊傳入 帳號文字輸入框裡面
-            //techAccountTextBox.Text = TechloginAccount;
-            // 所有師傅資料導入
-            this.techniciansTableAdapter.Fill(this.t_ACDataSet1.Technicians);
-            MessageBox.Show($"目前Technicians共有 {this.t_ACDataSet1.Technicians.Rows.Count} 筆資料");
-            //綁gridView和中界點資料
-            // BindingSource 是綁 DataTable資料表，
-            //但 DataGridView 設計器在第一次設計階段並沒有
-            //正確幫你自動產生欄位(AutoGenerateColumns 問題)。
-
-            // 先載入證照資料
-            this.licensesTableAdapter1.Fill(this.t_ACDataSet1.licenses);
-
-            //綁了 DataTable 不是整個 DataSet，
-            //設計器無法幫你預先產生正確欄位。
-            //要格外加方法
-            //this.techniciansDataGridView.AutoGenerateColumns = true;
-            this.techniciansDataGridView.DataSource = this.techniciansBindingSource;
-            FilterLicenseByTechnician();
-            BindControl();
-            //綁定證照控制項
-            BindLicenseControl();
-            SetTechDateTimePickers();//師傅個人資訊時間初始化
-            SetLicenseDateTimePickers();   // <-- 這就是你新加進來的證照時間初始化
-            LoadTechImageFromDS();
-        }
-
-        //依照 師傅id 篩選證照
-        private void FilterLicenseByTechnician()
-        {
-            licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
-        }
-
-        //取得當前師傅ID
-        private object GetCurrentTechnicianId()
-        {
-            if (this.techniciansBindingSource.Current is DataRowView drv)
-            {
-                return Convert.ToInt32(drv["T_id"]);
-            }
-            else
-            {
-                return -1;
-            }
-        }
-
-        // 綁定 License UI 控制項
-        private void BindLicenseControl()
-        {
-            licenseNameTextBox.DataBindings.Add("Text", licensebindingSource1, "license_name");
-            licenseDesTextBox.DataBindings.Add("Text", licensebindingSource1, "image_description");
-            issuedByTextBox.DataBindings.Add("Text", licensebindingSource1, "issued_by");
-
-            //新增時可以讓人選擇日期，所以你綁 DateTime.Now 沒有問題。
-            //最後一個參數是當資料行值為 DBNull 或 null 時，顯示在控制項上的預設值 預設給使用者看得
-            //參數內容
-            //propertyName, dataSource, dataMember, formattingEnabled, updateMode, **nullValue * *
-            //TODO
-            DateTime defaultDate = DateTime.Now;
-            createdAtPickerTech.DataBindings.Clear();
-            updatedAtPickerTech.DataBindings.Clear();
-            issueDateTimePicker1.DataBindings.Add("Value", licensebindingSource1, "issue_date", true, DataSourceUpdateMode.Never, DateTime.Now);
-            expirydateTimePicker1.DataBindings.Add("Value", licensebindingSource1, "expiry_date", true, DataSourceUpdateMode.Never, DateTime.Now);
-            createdAtPickerTech.DataBindings.Add("Value", licensebindingSource1, "created_at", true, DataSourceUpdateMode.Never, defaultDate);
-            updatedAtPickerTech.DataBindings.Add("Value", licensebindingSource1, "updated_at", true, DataSourceUpdateMode.Never, defaultDate);
         }
 
         //中界點綁定設定
@@ -130,6 +67,230 @@ namespace prjAircondition.Tech
             //這裡比對T_id 篩選資料列
 
             // techniciansDataGridView 已經在設計器上 DataSource 綁定了 techniciansBindingSource
+        }
+
+        // 封裝完整路徑組合
+        private string BuildFullPath(string baseFolder, string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath))
+                return null;
+            return Path.Combine(baseFolder, relativePath);
+        }
+
+        // 封裝讀取預設師傅圖路徑
+        private string GetDefaultTechImagePath()
+        {
+            return Path.Combine(imageFolderPath, "Tech", "default", "default.png");
+        }
+
+        // 封裝讀取預設證照圖路徑
+        private string GetDefaultLicenseImagePath()
+        {
+            return Path.Combine(licenseImageFolderPath, "default_license.png");
+        }
+
+        // 取得師傅圖片完整路徑
+        private string GetTechImageFullPath(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath)) return null;
+            return Path.Combine(imageFolderPath, relativePath);
+        }
+
+        // 取得證照圖片完整路徑
+        private string GetLicenseImageFullPath(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath)) return null;
+            return Path.Combine(licenseImageFolderPath, relativePath);
+        }
+
+        //師傅圖片載入區
+        //離線資料庫載入 讀取離線資料庫照片
+        private void LoadTechImageFromDS()
+        {
+            //確認BindingSource所指的位置指向哪筆資料 .Current 且是否是 DataRowView 型別物件
+            //BindingSource 在綁 DataTable 時，每一筆其實是用 DataRowView 包裝起來的
+            //並存入DataRowView drv變數
+            if (techniciansBindingSource.Current is DataRowView drv)
+            {
+                //從 DataRowView 裡面，取出實際的資料列 DataRow 用.Row屬性
+                //用DataRow讀取那筆資料列的東西 row[""]
+                DataRow row = drv.Row;
+
+                string relativePath = row["photo"]?.ToString();
+                string fullPath = GetTechImageFullPath(relativePath);
+                //確保fullPath 不是nuLL 取 裡面內容轉換成字串後不是空白或是空物件 ， 且在真實路徑下有真實檔案
+                if (!string.IsNullOrEmpty(fullPath) && File.Exists(fullPath))
+                {
+                    this.techPictureBox.Image = Image.FromFile(fullPath);
+                    //組合出完整路徑位置(路徑 TechResources/{T_id}/+檔名)
+                }
+                else
+                {
+                    //欄位沒有值也是預設圖片
+                    LoadTechDefaultImage();
+                }
+            }
+            //Binding source此時沒有指向任何筆資料時也是顯示預設圖片
+            else
+            {
+                LoadTechDefaultImage();
+            }
+        }
+
+        //預設圖片位置
+        private void LoadTechDefaultImage()
+        {
+            string defaultPath = GetDefaultTechImagePath();
+
+            //執行檔案預設路徑
+            //MessageBox.Show("Application.StartupPath: " + Application.StartupPath);
+
+            MessageBox.Show("載入師傅預設圖");
+
+            if (File.Exists(defaultPath))
+            {
+                this.techPictureBox.Image = Image.FromFile(defaultPath);
+            }
+            else
+            {
+                this.techPictureBox.Image = null; // 沒預設圖就空白
+            }
+        }
+
+        private void buttonUploadTechPhoto_Click(object sender, EventArgs e)
+        {
+            //在對話框內的文字：「Image Files (.jpg;.jpeg;*.png)」
+            // | 後面接的是實際的副檔名格式
+            openFileDialog1.Filter = "Images Files(.jpg jpeg png) |*.jpg;*.jpeg;*.png";
+            //視窗最上面會顯示「選擇圖片檔案」
+            openFileDialog1.Title = "選擇圖片檔案";
+            DialogResult result = this.openFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                //照片原始路徑位置
+                string sourcePath = this.openFileDialog1.FileName;
+                //拿檔名
+                string fileName = Path.GetFileName(sourcePath);
+
+                //先暫存檔案路徑，還沒上傳，暫放一下
+                selectedPhotoFullPath = sourcePath;
+
+                // 顯示圖片存到TechpictureBox 暫存路徑和檔名
+                this.techPictureBox.Image = Image.FromFile(sourcePath);
+
+                // 把這個TAG給值 為目前所選檔案名稱 方便後續判斷這個圖片有沒有TAG值
+                this.techPictureBox.Tag = fileName;
+                MessageBox.Show($"已上傳 {fileName}");
+            }
+            else
+            {
+                MessageBox.Show("取消");
+            }
+        }
+
+        //證照圖片載入block
+        private void LoadAllLicenseImages()
+        {
+            // 先清除舊的內容
+            this.flowLayoutPanelLicenses.Controls.Clear();
+
+            // 取得目前師傅ID
+            int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
+
+            var licenseRows = t_ACDataSet1.licenses.Where(r => r.T_id == currentTechId);
+            foreach (var row in licenseRows)
+            {
+                //檢查欄位值，給予對應的資料
+                string fileName = string.IsNullOrEmpty(row.image_source) ? null : row.image_source;
+                string licenseName = string.IsNullOrEmpty(row.license_name) ? "" : row.license_name;
+
+                Panel cardPanel = new Panel();
+                cardPanel.Width = 180;
+                cardPanel.Height = 220;
+                cardPanel.Margin = new Padding(10);
+
+                PictureBox picLicense = new PictureBox();
+                picLicense.Width = 160;
+                picLicense.Height = 160;
+                picLicense.SizeMode = PictureBoxSizeMode.Zoom;
+
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    string imagePath = GetLicenseImageFullPath(fileName);
+                    if (File.Exists(imagePath))
+                    {
+                        picLicense.Image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        //沒圖片載入預設證照圖片 方法裡面有預設圖顯示沒有就是null
+                        picLicense.Image = LoadDefaultLicenseImage();
+                    }
+                }
+                else
+                {
+                    picLicense.Image = LoadDefaultLicenseImage();
+                }
+
+                Label labellLicenseName = new Label();
+                labellLicenseName.Text = licenseName;
+                labellLicenseName.Width = 160;
+                labellLicenseName.TextAlign = ContentAlignment.MiddleCenter;
+                labellLicenseName.Top = 170;
+
+                cardPanel.Controls.Add(picLicense);
+                cardPanel.Controls.Add(labellLicenseName);
+                flowLayoutPanelLicenses.Controls.Add(cardPanel);
+            }
+        }
+
+        private Image LoadDefaultLicenseImage()
+        {
+            string defaultLicenseImagePath = GetDefaultLicenseImagePath();
+            if (File.Exists(defaultLicenseImagePath))
+            {
+                return Image.FromFile(defaultLicenseImagePath);
+            }
+            else
+            {
+                return null;  // 找不到預設圖就給 null
+            }
+        }
+
+        //上傳 證照圖片按鈕
+        private void License_Upload_button_Click(object sender, EventArgs e)
+        {
+            //在對話框內的文字：「Image Files (.jpg;.jpeg;*.png)」
+            // | 後面接的是實際的副檔名格式
+            openFileDialog1.Filter = "Images Files(.jpg jpeg png) |*.jpg;*.jpeg;*.png";
+            //視窗最上面會顯示「選擇圖片檔案」
+            openFileDialog1.Title = "選擇圖片檔案";
+            DialogResult result = this.openFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                //照片原始路徑位置
+                string sourcePath = this.openFileDialog1.FileName;
+                //檔名
+                string fileName = Path.GetFileName(sourcePath);
+                //目的地路徑
+                string destPath = Path.Combine(licenseImageFolderPath, fileName);
+
+                // 複製圖片到資料夾 (避免直接讀使用者原始位置)
+                File.Copy(sourcePath, destPath, true);
+                selectedLicensePhotoFullPath = sourcePath;
+                // 顯示圖片存到p1 BOX
+                this.licensepictureBox.Image = Image.FromFile(destPath);
+
+                // 把這個TAG給值 為目前所選檔案名稱
+                this.licensepictureBox.Tag = fileName;
+                MessageBox.Show($"已上傳 {fileName}");
+            }
+            else
+            {
+                MessageBox.Show("取消");
+            }
         }
 
         //個人 師傅資訊業面
@@ -181,6 +342,94 @@ namespace prjAircondition.Tech
             //}
         }
 
+        // 綁定 License UI 控制項
+        private void BindLicenseControl()
+        {
+            licenseNameTextBox.DataBindings.Add("Text", licensebindingSource1, "license_name");
+            licenseDesTextBox.DataBindings.Add("Text", licensebindingSource1, "image_description");
+            issuedByTextBox.DataBindings.Add("Text", licensebindingSource1, "issued_by");
+
+            //新增時可以讓人選擇日期，所以你綁 DateTime.Now 沒有問題。
+            //最後一個參數是當資料行值為 DBNull 或 null 時，顯示在控制項上的預設值 預設給使用者看得
+            //參數內容
+            //propertyName, dataSource, dataMember, formattingEnabled, updateMode, **nullValue * *
+            //TODO
+            DateTime defaultDate = DateTime.Now;
+            this.createdAtPickerLicense.DataBindings.Clear();
+            this.updatedAtPickerLicense.DataBindings.Clear();
+            this.expirydateTimePicker1.DataBindings.Clear();
+            this.issueDateTimePicker1.DataBindings.Clear();
+
+            issueDateTimePicker1.DataBindings.Add("Value", licensebindingSource1, "issue_date", true, DataSourceUpdateMode.Never, DateTime.Now);
+            expirydateTimePicker1.DataBindings.Add("Value", licensebindingSource1, "expiry_date", true, DataSourceUpdateMode.Never, DateTime.Now);
+            createdAtPickerLicense.DataBindings.Add("Value", licensebindingSource1, "created_at", true, DataSourceUpdateMode.Never, defaultDate);
+            updatedAtPickerLicense.DataBindings.Add("Value", licensebindingSource1, "updated_at", true, DataSourceUpdateMode.Never, defaultDate);
+        }
+
+        //依照 師傅id 篩選證照
+        private void FilterLicenseByTechnician()
+        {
+            licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
+        }
+
+        private void RefreshLicenseBinding()
+        {
+            if (licensebindingSource1 != null)
+            {
+                licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
+            }
+        }
+
+        private void techniciansBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.techniciansBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.t_ACDataSet1);
+        }
+
+        private void T_TechUserControl1_Load(object sender, EventArgs e)
+        {
+            //先把該帳號資訊傳入 帳號文字輸入框裡面
+            //techAccountTextBox.Text = TechloginAccount;
+            // 所有師傅資料導入
+            this.techniciansTableAdapter.Fill(this.t_ACDataSet1.Technicians);
+            MessageBox.Show($"目前Technicians共有 {this.t_ACDataSet1.Technicians.Rows.Count} 筆資料");
+            //綁gridView和中界點資料
+            // BindingSource 是綁 DataTable資料表，
+            //但 DataGridView 設計器在第一次設計階段並沒有
+            //正確幫你自動產生欄位(AutoGenerateColumns 問題)。
+
+            // 先載入證照資料
+            this.licensesTableAdapter1.Fill(this.t_ACDataSet1.licenses);
+
+            //綁了 DataTable 不是整個 DataSet，
+            //設計器無法幫你預先產生正確欄位。
+            //要格外加方法
+            //this.techniciansDataGridView.AutoGenerateColumns = true;
+            this.techniciansDataGridView.DataSource = this.techniciansBindingSource;
+            FilterLicenseByTechnician();
+            BindControl();
+            //綁定證照控制項
+            BindLicenseControl();
+            SetTechDateTimePickers();//師傅個人資訊時間初始化
+            SetLicenseDateTimePickers();   // <-- 這就是你新加進來的證照時間初始化
+            LoadTechImageFromDS();
+        }
+
+        //取得當前師傅ID
+        private object GetCurrentTechnicianId()
+        {
+            if (this.techniciansBindingSource.Current is DataRowView drv)
+            {
+                return Convert.ToInt32(drv["T_id"]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        //日期控制區
         private void InitDateTimePicker(DateTimePicker picker, bool enabled = false, bool hideInitially = false)
         {
             picker.Format = DateTimePickerFormat.Custom;
@@ -220,76 +469,6 @@ namespace prjAircondition.Tech
             //updatedAtPickerLicense.Visible = false;
             InitDateTimePicker(createdAtPickerLicense, false, true);
             InitDateTimePicker(updatedAtPickerLicense, false, true);
-        }
-
-        //資料庫照片位置存放處
-        private void InitTechImageFolder()
-        {
-            MessageBox.Show("初始檔案執行位置" + Application.StartupPath);
-            //找個資料夾放圖片並給個資料夾名稱
-            string projectRootPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
-            imageFolderPath = Path.Combine(projectRootPath, "TechResources");
-            Directory.CreateDirectory(imageFolderPath);
-        }
-
-        //離線資料庫載入 讀取離線資料庫照片
-        private void LoadTechImageFromDS()
-        {
-            //確認BindingSource所指的位置指向哪筆資料 .Current 且是否是 DataRowView 型別物件
-            //BindingSource 在綁 DataTable 時，每一筆其實是用 DataRowView 包裝起來的
-            //並存入DataRowView drv變數
-            if (techniciansBindingSource.Current is DataRowView drv)
-            {
-                //從 DataRowView 裡面，取出實際的資料列 DataRow 用.Row屬性
-                //用DataRow讀取那筆資料列的東西 row[""]
-                DataRow row = drv.Row;
-
-                string relativePath = row["photo"]?.ToString();
-                string fullPath = BuildFullPath(imageFolderPath, relativePath);
-                //確保fullPath 不是nuLL 取 裡面內容轉換成字串後不是空白或是空物件 ， 且在真實路徑下有真實檔案
-                if (!string.IsNullOrEmpty(fullPath) && File.Exists(fullPath))
-                {
-                    this.techPictureBox.Image = Image.FromFile(fullPath);
-                    //組合出完整路徑位置(路徑 TechResources/{T_id}/+檔名)
-                }
-                else
-                {
-                    //欄位沒有值也是預設圖片
-                    LoadTechDefaultImage();
-                }
-            }
-            //Binding source此時沒有指向任何筆資料時也是顯示預設圖片
-            else
-            {
-                LoadTechDefaultImage();
-            }
-        }
-
-        //預設圖片位置
-        private void LoadTechDefaultImage()
-        {
-            string defaultPath = GetDefaultTechImagePath();
-
-            //執行檔案預設路徑
-            //MessageBox.Show("Application.StartupPath: " + Application.StartupPath);
-
-            MessageBox.Show("載入師傅預設圖");
-
-            if (File.Exists(defaultPath))
-            {
-                this.techPictureBox.Image = Image.FromFile(defaultPath);
-            }
-            else
-            {
-                this.techPictureBox.Image = null; // 沒預設圖就空白
-            }
-        }
-
-        // 小工具：取得師傅圖片完整路徑
-        private string GetTechImageFullPath(string relativePath)
-        {
-            if (string.IsNullOrEmpty(relativePath)) return null;
-            return Path.Combine(imageFolderPath, relativePath);
         }
 
         //儲存師傅
@@ -359,150 +538,6 @@ namespace prjAircondition.Tech
             MessageBox.Show("資料已更新");
         }
 
-        //上傳 證照圖片按鈕
-        private void License_Upload_button_Click(object sender, EventArgs e)
-        {
-            //在對話框內的文字：「Image Files (.jpg;.jpeg;*.png)」
-            // | 後面接的是實際的副檔名格式
-            openFileDialog1.Filter = "Images Files(.jpg jpeg png) |*.jpg;*.jpeg;*.png";
-            //視窗最上面會顯示「選擇圖片檔案」
-            openFileDialog1.Title = "選擇圖片檔案";
-            DialogResult result = this.openFileDialog1.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                //照片原始路徑位置
-                string sourcePath = this.openFileDialog1.FileName;
-                //檔名
-                string fileName = Path.GetFileName(sourcePath);
-                //目的地路徑
-                string destPath = Path.Combine(licenseImageFolderPath, fileName);
-
-                // 複製圖片到資料夾 (避免直接讀使用者原始位置)
-                File.Copy(sourcePath, destPath, true);
-                selectedLicensePhotoFullPath = sourcePath;
-                // 顯示圖片存到p1 BOX
-                this.licensepictureBox.Image = Image.FromFile(destPath);
-
-                // 把這個TAG給值 為目前所選檔案名稱
-                this.licensepictureBox.Tag = fileName;
-                MessageBox.Show($"已上傳 {fileName}");
-            }
-            else
-            {
-                MessageBox.Show("取消");
-            }
-        }
-
-        //假如有照片上傳的路就 先初始化   upDate回去時再複製一份推送回DB
-        private string selectedPhotoFullPath = null;
-
-        private void buttonUploadPhoto_Click(object sender, EventArgs e)
-        {
-            //在對話框內的文字：「Image Files (.jpg;.jpeg;*.png)」
-            // | 後面接的是實際的副檔名格式
-            openFileDialog1.Filter = "Images Files(.jpg jpeg png) |*.jpg;*.jpeg;*.png";
-            //視窗最上面會顯示「選擇圖片檔案」
-            openFileDialog1.Title = "選擇圖片檔案";
-            DialogResult result = this.openFileDialog1.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                //照片原始路徑位置
-                string sourcePath = this.openFileDialog1.FileName;
-                //拿檔名
-                string fileName = Path.GetFileName(sourcePath);
-
-                //先暫存檔案路徑，還沒上傳，暫放一下
-                selectedPhotoFullPath = sourcePath;
-
-                // 顯示圖片存到TechpictureBox 暫存路徑和檔名
-                this.techPictureBox.Image = Image.FromFile(sourcePath);
-
-                // 把這個TAG給值 為目前所選檔案名稱 方便後續判斷這個圖片有沒有TAG值
-                this.techPictureBox.Tag = fileName;
-                MessageBox.Show($"已上傳 {fileName}");
-            }
-            else
-            {
-                MessageBox.Show("取消");
-            }
-        }
-
-        //顯示師傅資訊
-        private void showTechButton1_Click(object sender, EventArgs e)
-        {
-            if (this.techniciansBindingSource.Current != null)
-            {
-                // 載入圖片
-                LoadTechImageFromDS();
-
-                // 切換到師傅個人資訊頁
-                this.tabControl1.SelectedTab = this.TechPage;
-            }
-            else
-            {
-                MessageBox.Show("請先選擇一筆資料");
-            }
-        }
-
-        private void techniciansBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-            //設定好label 顯示 第幾筆/ 共有幾筆
-            this.ALLTechLabel1.Text = $"{this.techniciansBindingSource.Position + 1} / {this.techniciansBindingSource.Count}";
-
-            RefreshLicenseBinding();
-        }
-
-        //師傅切換時，也切換顯示
-        private void RefreshLicenseBinding()
-        {
-            if (licensebindingSource1 != null)
-            {
-                licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
-            }
-        }
-
-        private void AllTechbutton1_Click(object sender, EventArgs e)
-        {
-            this.techniciansBindingSource.Position = 0;
-        }
-
-        private void AllTechbutton2_Click(object sender, EventArgs e)
-        {
-            this.techniciansBindingSource.Position -= 1;
-        }
-
-        private void AllTechbutton3_Click(object sender, EventArgs e)
-        {
-            this.techniciansBindingSource.Position += 1;
-        }
-
-        private void AllTechbutton4_Click(object sender, EventArgs e)
-        {
-            //到最後一筆索引
-            this.techniciansBindingSource.Position = this.techniciansBindingSource.Count - 1;
-        }
-
-        //dataGridView 資料列雙擊跳
-        private void techniciansDataGridView_DoubleClick(object sender, EventArgs e)
-        {
-            if (techniciansBindingSource.Current is DataRowView drv)
-            {
-                // 直接從 DataRowView 取出 T_id
-                int technicianID = Convert.ToInt32(drv["T_id"]);
-
-                // 這邊你根本不需要重新撈資料
-                // 因為 techniciansBindingSource 已經正確指到這筆資料了
-
-                // 直接切換到個人資料頁面
-                this.tabControl1.SelectedTab = this.TechPage;
-
-                // 順手載入圖片（因為你圖片是隨 SelectionChanged 或 ShowTechnicianDetail 載入的）
-                LoadTechImageFromDS();
-            }
-        }
-
         private void DeleteTechbutton1_Click(object sender, EventArgs e)
         {
             if (this.techniciansBindingSource.Current != null)
@@ -545,6 +580,42 @@ namespace prjAircondition.Tech
             f.Show();
         }
 
+        //顯示師傅資訊
+        private void showTechButton1_Click(object sender, EventArgs e)
+        {
+            if (this.techniciansBindingSource.Current != null)
+            {
+                // 載入圖片
+                LoadTechImageFromDS();
+
+                // 切換到師傅個人資訊頁
+                this.tabControl1.SelectedTab = this.TechPage;
+            }
+            else
+            {
+                MessageBox.Show("請先選擇一筆資料");
+            }
+        }
+
+        //dataGridView 資料列雙擊跳
+        private void techniciansDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            if (techniciansBindingSource.Current is DataRowView drv)
+            {
+                // 直接從 DataRowView 取出 T_id
+                int technicianID = Convert.ToInt32(drv["T_id"]);
+
+                // 這邊你根本不需要重新撈資料
+                // 因為 techniciansBindingSource 已經正確指到這筆資料了
+
+                // 直接切換到個人資料頁面
+                this.tabControl1.SelectedTab = this.TechPage;
+
+                // 順手載入圖片（因為你圖片是隨 SelectionChanged 或 ShowTechnicianDetail 載入的）
+                LoadTechImageFromDS();
+            }
+        }
+
         private void techniciansDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (this.techniciansDataGridView.Columns[e.ColumnIndex].Name == "gender" && e.Value != null)
@@ -565,100 +636,7 @@ namespace prjAircondition.Tech
             this.tabControl2.SelectedTab = this.LicenseAllPage;
         }
 
-        private void LoadAllLicenseImages()
-        {
-            // 先清除舊的內容
-            this.flowLayoutPanelLicenses.Controls.Clear();
-
-            // 取得目前師傅ID
-            int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
-
-            var licenseRows = t_ACDataSet1.licenses.Where(r => r.T_id == currentTechId);
-            foreach (var row in licenseRows)
-            {
-                //檢查欄位值，給予對應的資料
-                string fileName = string.IsNullOrEmpty(row.image_source) ? null : row.image_source;
-                string licenseName = string.IsNullOrEmpty(row.license_name) ? "" : row.license_name;
-
-                Panel cardPanel = new Panel();
-                cardPanel.Width = 180;
-                cardPanel.Height = 220;
-                cardPanel.Margin = new Padding(10);
-
-                PictureBox picLicense = new PictureBox();
-                picLicense.Width = 160;
-                picLicense.Height = 160;
-                picLicense.SizeMode = PictureBoxSizeMode.Zoom;
-
-                if (!string.IsNullOrEmpty(fileName))
-                {
-                    string imagePath = GetLicenseImageFullPath(fileName);
-                    if (File.Exists(imagePath))
-                    {
-                        picLicense.Image = Image.FromFile(imagePath);
-                    }
-                    else
-                    {
-                        //沒圖片載入預設證照圖片 方法裡面有預設圖顯示沒有就是null
-                        picLicense.Image = LoadDefaultLicenseImage();
-                    }
-                }
-                else
-                {
-                    picLicense.Image = LoadDefaultLicenseImage();
-                }
-
-                Label labellLicenseName = new Label();
-                labellLicenseName.Text = licenseName;
-                labellLicenseName.Width = 160;
-                labellLicenseName.TextAlign = ContentAlignment.MiddleCenter;
-                labellLicenseName.Top = 170;
-
-                cardPanel.Controls.Add(picLicense);
-                cardPanel.Controls.Add(labellLicenseName);
-                flowLayoutPanelLicenses.Controls.Add(cardPanel);
-            }
-        }
-
-        private Image LoadDefaultLicenseImage()
-        {
-            string defaultLicenseImagePath = GetDefaultLicenseImagePath();
-            if (File.Exists(defaultLicenseImagePath))
-            {
-                return Image.FromFile(defaultLicenseImagePath);
-            }
-            else
-            {
-                return null;  // 找不到預設圖就給 null
-            }
-        }
-
-        //新增證照功能
-        private void btnAddLicense_Click(object sender, EventArgs e)
-        {
-            // 先透過 BindingSource 產生新資料列（會自動幫你建好 DataRowView）
-            var newRowView = (DataRowView)licensebindingSource1.AddNew();
-
-            // 設定欄位值
-            newRowView["T_id"] = GetCurrentTechnicianId();  // 外鍵，指向目前的師傅
-
-            newRowView["created_at"] = DBNull.Value; //兩個初始欄位都給NULL
-            newRowView["updated_at"] = DBNull.Value;
-
-            // 結束編輯（通常你可以等 UI 完整編輯後再呼叫 EndEdit）
-            licensebindingSource1.EndEdit();
-
-            // 移動游標到新增的這一筆（可有可無，看你要不要跳到最後一筆方便觀察）
-            licensebindingSource1.MoveLast();
-        }
-
-        // 小工具：取得證照圖片完整路徑
-        private string GetLicenseImageFullPath(string relativePath)
-        {
-            if (string.IsNullOrEmpty(relativePath)) return null;
-            return Path.Combine(licenseImageFolderPath, relativePath);
-        }
-
+        //回傳 證照資料到資料數
         //儲存 (包含照片 證照資料一起update回去)
         private void btnSaveLicense_Click(object sender, EventArgs e)
         {
@@ -720,6 +698,26 @@ namespace prjAircondition.Tech
             MessageBox.Show("證照資料已儲存");
         }
 
+        //新增證照功能
+        private void btnAddLicense_Click(object sender, EventArgs e)
+        {
+            // 先透過 BindingSource 產生新資料列（會自動幫你建好 DataRowView）
+            var newRowView = (DataRowView)licensebindingSource1.AddNew();
+
+            // 設定欄位值
+            newRowView["T_id"] = GetCurrentTechnicianId();  // 外鍵，指向目前的師傅
+
+            newRowView["created_at"] = DBNull.Value; //兩個初始欄位都給NULL
+            newRowView["updated_at"] = DBNull.Value;
+
+            // 結束編輯（通常你可以等 UI 完整編輯後再呼叫 EndEdit）
+            licensebindingSource1.EndEdit();
+
+            // 移動游標到新增的這一筆（可有可無，看你要不要跳到最後一筆方便觀察）
+            licensebindingSource1.MoveLast();
+        }
+
+        //刪除功能
         private void btnDeleteLicense_Click(object sender, EventArgs e)
         {
             if (licensebindingSource1.Current != null)
@@ -734,24 +732,36 @@ namespace prjAircondition.Tech
             }
         }
 
-        // 封裝完整路徑組合
-        private string BuildFullPath(string baseFolder, string relativePath)
+        //資料綁定區 上一筆下一筆那些
+        private void techniciansBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(relativePath))
-                return null;
-            return Path.Combine(baseFolder, relativePath);
+            //設定好label 顯示 第幾筆/ 共有幾筆
+            this.ALLTechLabel1.Text = $"{this.techniciansBindingSource.Position + 1} / {this.techniciansBindingSource.Count}";
+
+            RefreshLicenseBinding();
         }
 
-        // 封裝讀取預設師傅圖路徑
-        private string GetDefaultTechImagePath()
+        //師傅切換時，也切換顯示
+
+        private void AllTechbutton1_Click(object sender, EventArgs e)
         {
-            return Path.Combine(imageFolderPath, "Tech", "default", "default.png");
+            this.techniciansBindingSource.Position = 0;
         }
 
-        // 封裝讀取預設證照圖路徑
-        private string GetDefaultLicenseImagePath()
+        private void AllTechbutton2_Click(object sender, EventArgs e)
         {
-            return Path.Combine(licenseImageFolderPath, "default_license.png");
+            this.techniciansBindingSource.Position -= 1;
+        }
+
+        private void AllTechbutton3_Click(object sender, EventArgs e)
+        {
+            this.techniciansBindingSource.Position += 1;
+        }
+
+        private void AllTechbutton4_Click(object sender, EventArgs e)
+        {
+            //到最後一筆索引
+            this.techniciansBindingSource.Position = this.techniciansBindingSource.Count - 1;
         }
     }
 }

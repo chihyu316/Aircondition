@@ -806,7 +806,7 @@
             this.buttonUploadPhoto.TabIndex = 20;
             this.buttonUploadPhoto.Text = "Open File ...";
             this.buttonUploadPhoto.UseVisualStyleBackColor = true;
-            this.buttonUploadPhoto.Click += new System.EventHandler(this.buttonUploadPhoto_Click);
+            this.buttonUploadPhoto.Click += new System.EventHandler(this.buttonUploadTechPhoto_Click);
             // 
             // TechpictureBox
             // 
