@@ -70,6 +70,7 @@
             this.RE_btnNew.TabIndex = 1;
             this.RE_btnNew.Text = "新增工單";
             this.RE_btnNew.UseVisualStyleBackColor = true;
+            this.RE_btnNew.Visible = false;
             this.RE_btnNew.Click += new System.EventHandler(this.RE_btnNew_Click);
             // 
             // RE_update
@@ -82,6 +83,7 @@
             this.RE_update.TabIndex = 2;
             this.RE_update.Text = "Fill Work";
             this.RE_update.UseVisualStyleBackColor = true;
+            this.RE_update.Visible = false;
             this.RE_update.Click += new System.EventHandler(this.RE_update_Click_1);
             // 
             // ER_btnSelect
@@ -106,6 +108,7 @@
             this.RE_btndele.TabIndex = 4;
             this.RE_btndele.Text = "刪除";
             this.RE_btndele.UseVisualStyleBackColor = true;
+            this.RE_btndele.Visible = false;
             this.RE_btndele.Click += new System.EventHandler(this.RE_btndele_Click);
             // 
             // RE_dataGridView1
@@ -179,6 +182,7 @@
             this.RE_btnupd.TabIndex = 2;
             this.RE_btnupd.Text = "修改/儲存";
             this.RE_btnupd.UseVisualStyleBackColor = true;
+            this.RE_btnupd.Visible = false;
             this.RE_btnupd.Click += new System.EventHandler(this.RE_update_Click);
             // 
             // d_ACDataSet1
@@ -216,6 +220,7 @@
             this.RE_lbl1.Size = new System.Drawing.Size(251, 40);
             this.RE_lbl1.TabIndex = 10;
             this.RE_lbl1.Text = "工單操作(操作員)";
+            this.RE_lbl1.Visible = false;
             // 
             // R_ucWorkOrder
             // 

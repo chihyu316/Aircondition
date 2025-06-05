@@ -98,7 +98,7 @@ namespace prjAircondition.Repair
                 {
                     try
                     {
-                        RE_DataSearch.UpdateWorkOrder(row); // ✨呼叫資料庫更新
+                        RE_DataSearch.UpdateWorkOrder(row); // 呼叫資料庫更新
                     }
                     catch (Exception ex)
                     {
@@ -136,7 +136,7 @@ namespace prjAircondition.Repair
             dgv.Columns["AreaID"].HeaderText = "地區";
             dgv.Columns["AddressDetail"].HeaderText = "施工地址";
 
-            // 🛑 隱藏系統用欄位
+            //  隱藏系統用欄位
             //dgv.Columns["WorkOrderID"].Visible = false;
             dgv.Columns["DetailID"].Visible = false;
             dgv.Columns["MemberID"].Visible = false;

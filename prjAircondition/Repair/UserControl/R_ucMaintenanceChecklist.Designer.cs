@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvWorkOrder = new System.Windows.Forms.DataGridView();
-            this.RE_lblCount = new System.Windows.Forms.Label();
             this.RE_btnAdd = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.r_ReapairDataSet1 = new prjAircondition.Repair.DataSet.R_ReapairDataSet();
             this.RE_lbl1 = new System.Windows.Forms.Label();
+            this.RE_lblCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.r_ReapairDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -48,16 +48,6 @@
             this.dgvWorkOrder.RowTemplate.Height = 27;
             this.dgvWorkOrder.Size = new System.Drawing.Size(1004, 449);
             this.dgvWorkOrder.TabIndex = 0;
-            // 
-            // RE_lblCount
-            // 
-            this.RE_lblCount.AutoSize = true;
-            this.RE_lblCount.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.RE_lblCount.Location = new System.Drawing.Point(3, 210);
-            this.RE_lblCount.Name = "RE_lblCount";
-            this.RE_lblCount.Size = new System.Drawing.Size(71, 36);
-            this.RE_lblCount.TabIndex = 1;
-            this.RE_lblCount.Text = "筆數";
             // 
             // RE_btnAdd
             // 
@@ -97,6 +87,16 @@
             this.RE_lbl1.TabIndex = 11;
             this.RE_lbl1.Text = "工單操作(操作員)";
             // 
+            // RE_lblCount
+            // 
+            this.RE_lblCount.AutoSize = true;
+            this.RE_lblCount.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.RE_lblCount.Location = new System.Drawing.Point(3, 210);
+            this.RE_lblCount.Name = "RE_lblCount";
+            this.RE_lblCount.Size = new System.Drawing.Size(71, 36);
+            this.RE_lblCount.TabIndex = 1;
+            this.RE_lblCount.Text = "筆數";
+            // 
             // R_ucMaintenanceChecklist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -119,10 +119,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvWorkOrder;
-        private System.Windows.Forms.Label RE_lblCount;
         private System.Windows.Forms.Button RE_btnAdd;
         private System.Windows.Forms.Button btnInsert;
         private DataSet.R_ReapairDataSet r_ReapairDataSet1;
         private System.Windows.Forms.Label RE_lbl1;
+        private System.Windows.Forms.Label RE_lblCount;
     }
 }

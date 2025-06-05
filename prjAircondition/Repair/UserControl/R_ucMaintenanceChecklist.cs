@@ -20,9 +20,9 @@ namespace prjAircondition.Repair
         
         private void R_ucMaintenanceChecklist_Load_1(object sender, EventArgs e)
         {
-            LoadLookupTables();          // 載入下拉資料 ✅
-            //InitDataTable();             // 建立 dtWorkOrders，並設為 DataSource ✅
-            //InitGridColumns();           // 建立下拉欄位，並中文化 ✅
+            LoadLookupTables();          // 載入下拉資料 
+            //InitDataTable();             // 建立 dtWorkOrders，並設為 DataSource 
+            //InitGridColumns();           // 建立下拉欄位，並中文化 
         }
         private string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
         private DataTable dtWorkOrders;
@@ -191,7 +191,7 @@ namespace prjAircondition.Repair
         private void RE_btnAdd_Click(object sender, EventArgs e)
         {
 
-            // 🧱 先初始化表格與欄位（僅在第一次新增時）
+            //  先初始化表格與欄位（僅在第一次新增時）
             if (dtWorkOrders == null)
             {
                 dtWorkOrders = new DataTable();
@@ -209,7 +209,7 @@ namespace prjAircondition.Repair
                 InitGridColumns(); // 載入欄位樣式
             }
 
-            // 🔢 自動產生下一筆工單編號（查 MAX + 1）
+            //  自動產生下一筆工單編號（查 MAX + 1）
             int nextID = 0;
             using (SqlConnection conn = new SqlConnection(connStr))
             {
@@ -226,8 +226,13 @@ namespace prjAircondition.Repair
             row["WorkOrderID"] = nextID;
             row["CreatedDate"] = DateTime.Now;
             dtWorkOrders.Rows.Add(row);
+            UpdateCountLabel();
         }
-
+        private void UpdateCountLabel()
+        {
+            int count = dtWorkOrders?.Rows.Count ?? 0;
+            RE_lblCount.Text = $"筆數：{count}";
+        }
 
         private void LoadWorkOrders()
         {
@@ -266,7 +271,7 @@ namespace prjAircondition.Repair
                     int rows = adapter.Update(dtWorkOrders);
                     MessageBox.Show($"成功儲存 {rows} 筆工單資料", "儲存成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    LoadWorkOrders(); // 🔁 儲存後重新讀取，顯示資料庫產生的時間
+                    
                 }
                 catch (Exception ex)
                 {
