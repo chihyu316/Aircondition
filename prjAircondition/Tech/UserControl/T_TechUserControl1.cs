@@ -119,7 +119,7 @@ namespace prjAircondition.Tech
         // 封裝讀取預設證照圖路徑
         private string GetDefaultLicenseImagePath()
         {
-            return Path.Combine(licenseImageFolderPath, "default", "default_license.png");
+            return Path.Combine(licenseImageFolderPath, "default", "default.png");
         }
 
         // 取得師傅圖片完整路徑
@@ -133,6 +133,14 @@ namespace prjAircondition.Tech
         private string GetLicenseImageFullPath(string relativePath)
         {
             if (string.IsNullOrEmpty(relativePath)) return null;
+
+            // 當是 default.png 這種，幫你自動補上 default 資料夾
+            if (relativePath == "default.png")
+            {
+                return Path.Combine(licenseImageFolderPath, "default", relativePath);
+            }
+
+            //其他正常儲存
             return Path.Combine(licenseImageFolderPath, relativePath);
         }
 
@@ -682,37 +690,46 @@ namespace prjAircondition.Tech
 
                 updatedAtPickerLicense.Visible = true;
 
-                // 照片處理
-                if (this.licensepictureBox.Tag != null)
+                // 先做第一次Update，把 license_id 讓DB生成
+                this.Validate();
+                licensebindingSource1.EndEdit();
+                licensesTableAdapter1.Update(t_ACDataSet1.licenses);
+                t_ACDataSet1.licenses.AcceptChanges();  // 確保 DataSet 同步
+
+                // 讀出已產生的 license_id
+                int licenseId = Convert.ToInt32(row["license_id"]);
+                int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
+
+                // 照片處理 - 新圖存放位置
+                if (this.licensepictureBox.Tag != null && this.licensepictureBox.Tag.ToString() != "default.png")
                 {
                     // 取得目前上傳的檔名 (之前上傳時暫存在 Tag 內)
                     string fileName = this.licensepictureBox.Tag.ToString();
 
-                    //C:\Users\yozora\Desktop\AC_Middern\NewTech\Aircondition\TechResources\LicenseResources
-                    //按下儲存後才 建立要存放的照片子資料夾
-                    int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
                     // LicenseResources/{T_id} 目錄
                     string licenseFolder = Path.Combine(licenseImageFolderPath, currentTechId.ToString());
                     Directory.CreateDirectory(licenseFolder);
 
                     // 產生目標儲存路徑
                     string storePath = Path.Combine(licenseFolder, fileName);
+
                     // 確認暫存上傳路徑有效，執行檔案複製進專屬資料夾中
                     if (!string.IsNullOrEmpty(selectedLicensePhotoFullPath) && File.Exists(selectedLicensePhotoFullPath))
                     {
                         File.Copy(selectedLicensePhotoFullPath, storePath, true);
                         selectedLicensePhotoFullPath = null;
                     }
-                    // 儲存在 DB 內只存相對路徑 (LicenseResources/{T_id}/{檔名})
-                    row["image_source"] = Path.Combine(currentTechId.ToString(), fileName);
+                    // 儲存在 DB 內只存相對路徑 (LicenseResources/{T_id}/{license_id}/{檔名})
+                    row["image_source"] = Path.Combine(currentTechId.ToString(), licenseId.ToString(), fileName);
+
+                    // 再次更新 image_source 欄位
+                    // 結束 BindingSource 編輯狀態，將 UI 變更同步回 DataRow
+                    licensebindingSource1.EndEdit();
+                    // 利用 TableAdapter 將離線 DataSet 變更回寫至資料庫
+                    licensesTableAdapter1.Update(t_ACDataSet1.licenses);
+                    t_ACDataSet1.licenses.AcceptChanges();
                 }
             }
-            // 執行整體畫面驗證 (強制觸發所有控制項驗證機制)
-            this.Validate();
-            // 結束 BindingSource 編輯狀態，將 UI 變更同步回 DataRow
-            licensebindingSource1.EndEdit();
-            // 利用 TableAdapter 將離線 DataSet 變更回寫至資料庫
-            licensesTableAdapter1.Update(t_ACDataSet1.licenses);
 
             MessageBox.Show("證照資料已儲存");
         }
@@ -726,14 +743,32 @@ namespace prjAircondition.Tech
             // 設定欄位值
             newRowView["T_id"] = GetCurrentTechnicianId();  // 外鍵，指向目前的師傅
 
-            newRowView["created_at"] = DBNull.Value; //兩個初始欄位都給NULL
-            newRowView["updated_at"] = DBNull.Value;
+            DateTime now = DateTime.Now;
+            newRowView["created_at"] = now; //兩個初始欄位都給NULL
+            newRowView["updated_at"] = now;
+
+            // 4. image_source 也不允許 NULL，這裡塞預設路徑
+            //    假設你的預設圖檔放在 LicenseResources\default\default.png
+            newRowView["image_source"] = "default.png";
 
             // 結束編輯（通常你可以等 UI 完整編輯後再呼叫 EndEdit）
             licensebindingSource1.EndEdit();
 
             // 移動游標到新增的這一筆（可有可無，看你要不要跳到最後一筆方便觀察）
             licensebindingSource1.MoveLast();
+
+            // 直接先顯示預設圖
+            string defaultLicenseImagePath = GetDefaultLicenseImagePath();
+            if (File.Exists(defaultLicenseImagePath))
+            {
+                licensepictureBox.Image = Image.FromFile(defaultLicenseImagePath);
+                licensepictureBox.Tag = "default.png";
+            }
+            else
+            {
+                licensepictureBox.Image = null;
+                licensepictureBox.Tag = null;
+            }
         }
 
         //刪除功能
@@ -785,6 +820,84 @@ namespace prjAircondition.Tech
 
         private void ALLTechLabel1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 檢查目前切換到的頁面是否為「新增證照頁」
+            if (tabControl2.SelectedTab == this.InsertLicense)  // 這裡請確認你新增證照頁面的實際 TabPage 名稱
+            {
+                AddNewLicenseAndInitUI();
+            }
+        }
+
+        private void AddNewLicenseAndInitUI()
+        {
+            // 產生新資料列
+            var newRowView = (DataRowView)licensebindingSource1.AddNew();
+
+            newRowView["T_id"] = GetCurrentTechnicianId();
+            DateTime now = DateTime.Now;
+            newRowView["created_at"] = now;
+            newRowView["updated_at"] = now;
+            newRowView["image_source"] = "default.png";
+
+            licensebindingSource1.EndEdit();
+            licensebindingSource1.MoveLast();
+
+            // 手動刷新 UI 顯示預設圖
+            string defaultPath = GetDefaultLicenseImagePath();
+            if (File.Exists(defaultPath))
+            {
+                licensepictureBox.Image = Image.FromFile(defaultPath);
+                licensepictureBox.Tag = "default.png";
+            }
+            else
+            {
+                licensepictureBox.Image = null;
+                licensepictureBox.Tag = null;
+            }
+
+            // 其他欄位一起清空
+            licenseNameTextBox.Text = "";
+            licenseDesTextBox.Text = "";
+            issuedByTextBox.Text = "";
+            DateTime today = DateTime.Now;
+            issueDateTimePicker1.Value = today;
+            expirydateTimePicker1.Value = today;
+            createdAtPickerLicense.Value = today;
+            updatedAtPickerLicense.Value = today;
+        }
+
+        private void ClearAddLicenseForm()
+        {
+            // 清空文字欄位
+            licenseNameTextBox.Text = "";
+            licenseDesTextBox.Text = "";
+            issuedByTextBox.Text = "";
+
+            // 日期欄位預設今天
+            DateTime today = DateTime.Now;
+            issueDateTimePicker1.Value = today;
+            expirydateTimePicker1.Value = today;
+            createdAtPickerLicense.Value = today;
+            updatedAtPickerLicense.Value = today;
+
+            // 預設圖片載入
+            string defaultPath = GetDefaultLicenseImagePath();
+            if (File.Exists(defaultPath))
+            {
+                licensepictureBox.Image = Image.FromFile(defaultPath);
+                licensepictureBox.Tag = "default.png";
+            }
+            else
+            {
+                licensepictureBox.Image = null;
+                licensepictureBox.Tag = null;
+            }
+
+            // 同時確保 selectedLicensePhotoFullPath 也清空，避免殘留舊資料
+            selectedLicensePhotoFullPath = null;
         }
     }
 }
