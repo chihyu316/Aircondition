@@ -111,6 +111,7 @@
             // RE_dataGridView1
             // 
             this.RE_dataGridView1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.RE_dataGridView1.AllowUserToAddRows = false;
             this.RE_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RE_dataGridView1.Location = new System.Drawing.Point(61, 374);
             this.RE_dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -201,9 +202,9 @@
             this.RE_lbl.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.RE_lbl.Location = new System.Drawing.Point(175, 14);
             this.RE_lbl.Name = "RE_lbl";
-            this.RE_lbl.Size = new System.Drawing.Size(139, 40);
+            this.RE_lbl.Size = new System.Drawing.Size(251, 40);
             this.RE_lbl.TabIndex = 10;
-            this.RE_lbl.Text = "條件查詢";
+            this.RE_lbl.Text = "條件查詢(管理者)";
             // 
             // RE_lbl1
             // 
@@ -212,9 +213,9 @@
             this.RE_lbl1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.RE_lbl1.Location = new System.Drawing.Point(175, 183);
             this.RE_lbl1.Name = "RE_lbl1";
-            this.RE_lbl1.Size = new System.Drawing.Size(139, 40);
+            this.RE_lbl1.Size = new System.Drawing.Size(251, 40);
             this.RE_lbl1.TabIndex = 10;
-            this.RE_lbl1.Text = "工單操作";
+            this.RE_lbl1.Text = "工單操作(操作員)";
             // 
             // R_ucWorkOrder
             // 

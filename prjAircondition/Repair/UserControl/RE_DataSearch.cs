@@ -18,7 +18,7 @@ namespace prjAircondition
         {
             string connStr = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
             string query = @"
-    SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID,
+    SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, 
            ModelName, SerialNumber, CreatedDate, OrderStatus,
            CompletedDate, PaymentType, MemberID, CityID, AreaID, AddressDetail
     FROM WorkOrder";

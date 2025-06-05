@@ -33,12 +33,14 @@
             this.RE_btnAdd = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.r_ReapairDataSet1 = new prjAircondition.Repair.DataSet.R_ReapairDataSet();
+            this.RE_lbl1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.r_ReapairDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvWorkOrder
             // 
+            this.dgvWorkOrder.AllowUserToAddRows = false;
             this.dgvWorkOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWorkOrder.Location = new System.Drawing.Point(0, 249);
             this.dgvWorkOrder.Name = "dgvWorkOrder";
@@ -84,10 +86,22 @@
             this.r_ReapairDataSet1.DataSetName = "R_ReapairDataSet";
             this.r_ReapairDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // RE_lbl1
+            // 
+            this.RE_lbl1.AutoSize = true;
+            this.RE_lbl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RE_lbl1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.RE_lbl1.Location = new System.Drawing.Point(31, 36);
+            this.RE_lbl1.Name = "RE_lbl1";
+            this.RE_lbl1.Size = new System.Drawing.Size(251, 40);
+            this.RE_lbl1.TabIndex = 11;
+            this.RE_lbl1.Text = "工單操作(操作員)";
+            // 
             // R_ucMaintenanceChecklist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.RE_lbl1);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.RE_btnAdd);
             this.Controls.Add(this.RE_lblCount);
@@ -109,5 +123,6 @@
         private System.Windows.Forms.Button RE_btnAdd;
         private System.Windows.Forms.Button btnInsert;
         private DataSet.R_ReapairDataSet r_ReapairDataSet1;
+        private System.Windows.Forms.Label RE_lbl1;
     }
 }

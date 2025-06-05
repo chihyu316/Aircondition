@@ -125,7 +125,6 @@ namespace prjAircondition.Repair
             dgv.Columns["DetailID"].HeaderText = "工單細項";
             dgv.Columns["WorkTypeID"].HeaderText = "工作類型";
             dgv.Columns["TechnicianID"].HeaderText = "派工師傅";
-            dgv.Columns["ClosingTechnicianID"].HeaderText = "完工師傅";
             dgv.Columns["ModelName"].HeaderText = "機型";
             dgv.Columns["SerialNumber"].HeaderText = "機號";
             dgv.Columns["CreatedDate"].HeaderText = "建立日期";
@@ -142,7 +141,6 @@ namespace prjAircondition.Repair
             dgv.Columns["DetailID"].Visible = false;
             dgv.Columns["MemberID"].Visible = false;
             dgv.Columns["TechnicianID"].Visible = false;
-            dgv.Columns["ClosingTechnicianID"].Visible = false;
             //dgv.Columns["WorkTypeID"].Visible = false;
             dgv.Columns["OrderStatus"].Visible = false;
             dgv.Columns["PaymentType"].Visible = false;
