@@ -149,12 +149,17 @@ namespace prjAircondition.Recruit
                         {
                             SqlCommand cmd3 = new SqlCommand();
                             cmd3.Connection = conn;
-                            cmd3.CommandText = $"insert into Registration(MemberID,CourseBatchID,RegisterDate,PaymentStatus) values (@memberID,@coursebatchID,@regdate,0)";
+                            cmd3.CommandText = @"INSERT INTO Registration(MemberID,CourseBatchID,RegisterDate,PaymentStatus) 
+                                                 OUTPUT INSERTED.RegisterID  
+                                                 VALUES (@memberID,@coursebatchID,@regdate,0)";
+                            //用sql的output語法直接回傳registerID的結果值
                             cmd3.Parameters.Add("@memberID", SqlDbType.Int).Value = memberID;
                             cmd3.Parameters.Add("@coursebatchID", SqlDbType.Int).Value = selectedC.CourseBatchID;
                             cmd3.Parameters.Add("@regdate", SqlDbType.DateTime).Value = DateTime.Now;   //現在的報名時間
 
+                            int newregisterID=(int)cmd3.ExecuteScalar(); //用ExecuteScalar 執行查詢並回傳第一行第一列的值，叫出output回傳的查詢結果
                             int insertresult = cmd3.ExecuteNonQuery();
+
 
                             if (insertresult > 0)
                             {
@@ -308,6 +313,8 @@ namespace prjAircondition.Recruit
 
             }
         }
+
+  
     }
 }
                       
