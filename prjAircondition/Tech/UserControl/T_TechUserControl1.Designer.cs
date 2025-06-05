@@ -96,8 +96,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.updatedAtPicker = new System.Windows.Forms.DateTimePicker();
-            this.createdAtPicker = new System.Windows.Forms.DateTimePicker();
+            this.updatedAtPickerTech = new System.Windows.Forms.DateTimePicker();
+            this.createdAtPickerTech = new System.Windows.Forms.DateTimePicker();
             this.btnSaveData = new System.Windows.Forms.Button();
             this.techAccountTextBox = new System.Windows.Forms.TextBox();
             this.phone_textBox = new System.Windows.Forms.TextBox();
@@ -111,6 +111,9 @@
             this.LicensePage = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.InsertLicense = new System.Windows.Forms.TabPage();
+            this.btnAddLicense = new System.Windows.Forms.Button();
+            this.btnTechAllLicense = new System.Windows.Forms.Button();
+            this.btnSaveLicense = new System.Windows.Forms.Button();
             this.License_Upload_button = new System.Windows.Forms.Button();
             this.licensepictureBox = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -137,11 +140,10 @@
             this.s_DOrderProcessing1 = new prjAircondition.Shop.DataSet.S_DOrderProcessing();
             this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workOrderTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter();
-            this.btnSaveLicense = new System.Windows.Forms.Button();
-            this.btnTechAllLicense = new System.Windows.Forms.Button();
             this.licensesTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.licensesTableAdapter();
             this.licensebindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnAddLicense = new System.Windows.Forms.Button();
+            this.btnDeleteLicense = new System.Windows.Forms.Button();
+            this.btnDeleteTech = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AllTechPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingNavigator)).BeginInit();
@@ -636,6 +638,7 @@
             // 
             // InsertTechButton1
             // 
+            this.InsertTechButton1.AutoSize = true;
             this.InsertTechButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.InsertTechButton1.Location = new System.Drawing.Point(615, 184);
             this.InsertTechButton1.Name = "InsertTechButton1";
@@ -760,8 +763,9 @@
             this.TechPage.BackColor = System.Drawing.Color.SeaShell;
             this.TechPage.Controls.Add(this.panel1);
             this.TechPage.Controls.Add(this.label7);
-            this.TechPage.Controls.Add(this.updatedAtPicker);
-            this.TechPage.Controls.Add(this.createdAtPicker);
+            this.TechPage.Controls.Add(this.updatedAtPickerTech);
+            this.TechPage.Controls.Add(this.createdAtPickerTech);
+            this.TechPage.Controls.Add(this.btnDeleteTech);
             this.TechPage.Controls.Add(this.btnSaveData);
             this.TechPage.Controls.Add(this.techAccountTextBox);
             this.TechPage.Controls.Add(this.phone_textBox);
@@ -834,24 +838,24 @@
             this.label7.Text = "電話號碼:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // updatedAtPicker
+            // updatedAtPickerTech
             // 
-            this.updatedAtPicker.Location = new System.Drawing.Point(325, 452);
-            this.updatedAtPicker.Name = "updatedAtPicker";
-            this.updatedAtPicker.Size = new System.Drawing.Size(378, 45);
-            this.updatedAtPicker.TabIndex = 22;
+            this.updatedAtPickerTech.Location = new System.Drawing.Point(325, 452);
+            this.updatedAtPickerTech.Name = "updatedAtPickerTech";
+            this.updatedAtPickerTech.Size = new System.Drawing.Size(378, 45);
+            this.updatedAtPickerTech.TabIndex = 22;
             // 
-            // createdAtPicker
+            // createdAtPickerTech
             // 
-            this.createdAtPicker.Location = new System.Drawing.Point(325, 383);
-            this.createdAtPicker.Name = "createdAtPicker";
-            this.createdAtPicker.Size = new System.Drawing.Size(378, 45);
-            this.createdAtPicker.TabIndex = 23;
+            this.createdAtPickerTech.Location = new System.Drawing.Point(325, 383);
+            this.createdAtPickerTech.Name = "createdAtPickerTech";
+            this.createdAtPickerTech.Size = new System.Drawing.Size(378, 45);
+            this.createdAtPickerTech.TabIndex = 23;
             // 
             // btnSaveData
             // 
             this.btnSaveData.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveData.Location = new System.Drawing.Point(413, 585);
+            this.btnSaveData.Location = new System.Drawing.Point(56, 601);
             this.btnSaveData.Name = "btnSaveData";
             this.btnSaveData.Size = new System.Drawing.Size(290, 71);
             this.btnSaveData.TabIndex = 21;
@@ -968,6 +972,7 @@
             // InsertLicense
             // 
             this.InsertLicense.BackColor = System.Drawing.Color.SeaShell;
+            this.InsertLicense.Controls.Add(this.btnDeleteLicense);
             this.InsertLicense.Controls.Add(this.btnAddLicense);
             this.InsertLicense.Controls.Add(this.btnTechAllLicense);
             this.InsertLicense.Controls.Add(this.btnSaveLicense);
@@ -995,12 +1000,45 @@
             this.InsertLicense.TabIndex = 0;
             this.InsertLicense.Text = "新增證照";
             // 
+            // btnAddLicense
+            // 
+            this.btnAddLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnAddLicense.Location = new System.Drawing.Point(29, 683);
+            this.btnAddLicense.Name = "btnAddLicense";
+            this.btnAddLicense.Size = new System.Drawing.Size(270, 72);
+            this.btnAddLicense.TabIndex = 31;
+            this.btnAddLicense.Text = "繼續新增證照";
+            this.btnAddLicense.UseVisualStyleBackColor = true;
+            this.btnAddLicense.Click += new System.EventHandler(this.btnAddLicense_Click);
+            // 
+            // btnTechAllLicense
+            // 
+            this.btnTechAllLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnTechAllLicense.Location = new System.Drawing.Point(29, 571);
+            this.btnTechAllLicense.Name = "btnTechAllLicense";
+            this.btnTechAllLicense.Size = new System.Drawing.Size(218, 53);
+            this.btnTechAllLicense.TabIndex = 31;
+            this.btnTechAllLicense.Text = "所有證照";
+            this.btnTechAllLicense.UseVisualStyleBackColor = true;
+            this.btnTechAllLicense.Click += new System.EventHandler(this.btnTechAllLicense_Click);
+            // 
+            // btnSaveLicense
+            // 
+            this.btnSaveLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveLicense.Location = new System.Drawing.Point(278, 569);
+            this.btnSaveLicense.Name = "btnSaveLicense";
+            this.btnSaveLicense.Size = new System.Drawing.Size(329, 57);
+            this.btnSaveLicense.TabIndex = 31;
+            this.btnSaveLicense.Text = "Update back DB";
+            this.btnSaveLicense.UseVisualStyleBackColor = true;
+            this.btnSaveLicense.Click += new System.EventHandler(this.btnSaveLicense_Click);
+            // 
             // License_Upload_button
             // 
             this.License_Upload_button.ForeColor = System.Drawing.Color.Black;
-            this.License_Upload_button.Location = new System.Drawing.Point(775, 569);
+            this.License_Upload_button.Location = new System.Drawing.Point(775, 573);
             this.License_Upload_button.Name = "License_Upload_button";
-            this.License_Upload_button.Size = new System.Drawing.Size(228, 39);
+            this.License_Upload_button.Size = new System.Drawing.Size(273, 74);
             this.License_Upload_button.TabIndex = 30;
             this.License_Upload_button.Text = "Open File ...";
             this.License_Upload_button.UseVisualStyleBackColor = true;
@@ -1037,16 +1075,17 @@
             // 
             // createdAtPickerLicense
             // 
-            this.createdAtPickerLicense.Location = new System.Drawing.Point(278, 416);
+            this.createdAtPickerLicense.Location = new System.Drawing.Point(278, 415);
             this.createdAtPickerLicense.Name = "createdAtPickerLicense";
             this.createdAtPickerLicense.Size = new System.Drawing.Size(306, 45);
             this.createdAtPickerLicense.TabIndex = 27;
             // 
             // label13
             // 
+            this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(47, 482);
+            this.label13.Location = new System.Drawing.Point(54, 482);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(183, 37);
             this.label13.TabIndex = 24;
@@ -1054,6 +1093,7 @@
             // 
             // label14
             // 
+            this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Consolas", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(47, 415);
@@ -1207,42 +1247,30 @@
             // 
             this.workOrderTableAdapter.ClearBeforeFill = true;
             // 
-            // btnSaveLicense
-            // 
-            this.btnSaveLicense.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveLicense.Location = new System.Drawing.Point(278, 569);
-            this.btnSaveLicense.Name = "btnSaveLicense";
-            this.btnSaveLicense.Size = new System.Drawing.Size(284, 39);
-            this.btnSaveLicense.TabIndex = 31;
-            this.btnSaveLicense.Text = "Update back DB";
-            this.btnSaveLicense.UseVisualStyleBackColor = true;
-            this.btnSaveLicense.Click += new System.EventHandler(this.btnSaveLicense_Click);
-            // 
-            // btnTechAllLicense
-            // 
-            this.btnTechAllLicense.ForeColor = System.Drawing.Color.Black;
-            this.btnTechAllLicense.Location = new System.Drawing.Point(36, 566);
-            this.btnTechAllLicense.Name = "btnTechAllLicense";
-            this.btnTechAllLicense.Size = new System.Drawing.Size(211, 45);
-            this.btnTechAllLicense.TabIndex = 31;
-            this.btnTechAllLicense.Text = "所有證照";
-            this.btnTechAllLicense.UseVisualStyleBackColor = true;
-            this.btnTechAllLicense.Click += new System.EventHandler(this.btnTechAllLicense_Click);
-            // 
             // licensesTableAdapter1
             // 
             this.licensesTableAdapter1.ClearBeforeFill = true;
             // 
-            // btnAddLicense
+            // btnDeleteLicense
             // 
-            this.btnAddLicense.ForeColor = System.Drawing.Color.Black;
-            this.btnAddLicense.Location = new System.Drawing.Point(56, 18);
-            this.btnAddLicense.Name = "btnAddLicense";
-            this.btnAddLicense.Size = new System.Drawing.Size(253, 45);
-            this.btnAddLicense.TabIndex = 31;
-            this.btnAddLicense.Text = "繼續新增證照";
-            this.btnAddLicense.UseVisualStyleBackColor = true;
-            this.btnAddLicense.Click += new System.EventHandler(this.btnAddLicense_Click);
+            this.btnDeleteLicense.Location = new System.Drawing.Point(404, 691);
+            this.btnDeleteLicense.Name = "btnDeleteLicense";
+            this.btnDeleteLicense.Size = new System.Drawing.Size(164, 64);
+            this.btnDeleteLicense.TabIndex = 32;
+            this.btnDeleteLicense.Text = "刪除";
+            this.btnDeleteLicense.UseVisualStyleBackColor = true;
+            this.btnDeleteLicense.Click += new System.EventHandler(this.btnDeleteLicense_Click);
+            // 
+            // btnDeleteTech
+            // 
+            this.btnDeleteTech.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteTech.Location = new System.Drawing.Point(429, 601);
+            this.btnDeleteTech.Name = "btnDeleteTech";
+            this.btnDeleteTech.Size = new System.Drawing.Size(290, 71);
+            this.btnDeleteTech.TabIndex = 21;
+            this.btnDeleteTech.Text = "刪除";
+            this.btnDeleteTech.UseVisualStyleBackColor = true;
+            this.btnDeleteTech.Click += new System.EventHandler(this.btnSaveData_Click);
             // 
             // T_TechUserControl1
             // 
@@ -1328,8 +1356,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker updatedAtPicker;
-        private System.Windows.Forms.DateTimePicker createdAtPicker;
+        private System.Windows.Forms.DateTimePicker updatedAtPickerTech;
+        private System.Windows.Forms.DateTimePicker createdAtPickerTech;
         private System.Windows.Forms.Button btnSaveData;
         private System.Windows.Forms.TextBox techAccountTextBox;
         private System.Windows.Forms.TextBox phone_textBox;
@@ -1407,5 +1435,7 @@
         private DataSet.T_ACDataSet1TableAdapters.licensesTableAdapter licensesTableAdapter1;
         private System.Windows.Forms.BindingSource licensebindingSource1;
         private System.Windows.Forms.Button btnAddLicense;
+        private System.Windows.Forms.Button btnDeleteLicense;
+        private System.Windows.Forms.Button btnDeleteTech;
     }
 }

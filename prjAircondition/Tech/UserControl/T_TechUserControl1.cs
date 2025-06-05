@@ -15,16 +15,27 @@ namespace prjAircondition.Tech
 {
     public partial class T_TechUserControl1 : UserControl
     {
+        private string licenseImageFolderPath;
         private string imageFolderPath; // 圖片存放位置
+        private string selectedLicensePhotoFullPath = null;
 
         public T_TechUserControl1()
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.None;
 
-            SetDateTimePickers();
             InitImageFolder();
             InitBindingSource(); // << 重點：把 BindingSource 初始設定集中處理
+            InitImageLicenseFolder();
+        }
+
+        // 初始化 License 存放目錄
+        private void InitImageLicenseFolder()
+        {
+            string projectRootPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
+            //放到TechResources\LicenseResources
+            licenseImageFolderPath = Path.Combine(projectRootPath, "TechResources", "LicenseResources");
+            Directory.CreateDirectory(licenseImageFolderPath);
         }
 
         private void techniciansBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -54,8 +65,53 @@ namespace prjAircondition.Tech
             //要格外加方法
             //this.techniciansDataGridView.AutoGenerateColumns = true;
             this.techniciansDataGridView.DataSource = this.techniciansBindingSource;
+            FilterLicenseByTechnician();
             BindControl();
+            //綁定證照控制項
+            BindLicenseControl();
+            SetTechDateTimePickers();//師傅個人資訊時間初始化
+            SetLicenseDateTimePickers();   // <-- 這就是你新加進來的證照時間初始化
             LoadImageFromDS();
+        }
+
+        //依照 師傅id 篩選證照
+        private void FilterLicenseByTechnician()
+        {
+            licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
+        }
+
+        //取得當前師傅ID
+        private object GetCurrentTechnicianId()
+        {
+            if (this.techniciansBindingSource.Current is DataRowView drv)
+            {
+                return Convert.ToInt32(drv["T_id"]);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        // 綁定 License UI 控制項
+        private void BindLicenseControl()
+        {
+            licenseNameTextBox.DataBindings.Add("Text", licensebindingSource1, "license_name");
+            licenseDesTextBox.DataBindings.Add("Text", licensebindingSource1, "image_description");
+            issuedByTextBox.DataBindings.Add("Text", licensebindingSource1, "issued_by");
+
+            //新增時可以讓人選擇日期，所以你綁 DateTime.Now 沒有問題。
+            //最後一個參數是當資料行值為 DBNull 或 null 時，顯示在控制項上的預設值 預設給使用者看得
+            //參數內容
+            //propertyName, dataSource, dataMember, formattingEnabled, updateMode, **nullValue * *
+            //TODO
+            DateTime defaultDate = DateTime.Now;
+            createdAtPickerTech.DataBindings.Clear();
+            updatedAtPickerTech.DataBindings.Clear();
+            issueDateTimePicker1.DataBindings.Add("Value", licensebindingSource1, "issue_date", true, DataSourceUpdateMode.Never, DateTime.Now);
+            expirydateTimePicker1.DataBindings.Add("Value", licensebindingSource1, "expiry_date", true, DataSourceUpdateMode.Never, DateTime.Now);
+            createdAtPickerTech.DataBindings.Add("Value", licensebindingSource1, "created_at", true, DataSourceUpdateMode.Never, defaultDate);
+            updatedAtPickerTech.DataBindings.Add("Value", licensebindingSource1, "updated_at", true, DataSourceUpdateMode.Never, defaultDate);
         }
 
         //中界點綁定設定
@@ -72,24 +128,10 @@ namespace prjAircondition.Tech
             //Filter 不是 SQL 語法，而是 .NET DataView 語法
             //這裡比對T_id 篩選資料列
 
-            licensebindingSource1.Filter = $"T_id = {GetCurrentTechnicianId()}";
-
             // techniciansDataGridView 已經在設計器上 DataSource 綁定了 techniciansBindingSource
         }
 
-        //取得當前師傅ID
-        private object GetCurrentTechnicianId()
-        {
-            if (this.techniciansBindingSource.Current is DataRowView drv)
-            {
-                return Convert.ToInt32(drv["T_id"]);
-            }
-            else
-            {
-                return -1;
-            }
-        }
-
+        //個人 師傅資訊業面
         public void BindControl()
         {
             // 先清除舊的 DataBinding，避免重複綁定
@@ -97,8 +139,8 @@ namespace prjAircondition.Tech
             phone_textBox.DataBindings.Clear();
             NickNameTextBox.DataBindings.Clear();
             techAccountTextBox.DataBindings.Clear();
-            createdAtPicker.DataBindings.Clear();
-            updatedAtPicker.DataBindings.Clear();
+            createdAtPickerTech.DataBindings.Clear();
+            updatedAtPickerTech.DataBindings.Clear();
 
             // 2. 綁定 BindingSource 個人資訊頁面也綁定中介層資訊 都綁在techniciansBindingSource
             // 隨資料列移動
@@ -112,7 +154,7 @@ namespace prjAircondition.Tech
             this.labelTechNameInALLTechs.DataBindings.Add("Text", this.techniciansBindingSource, "name");
 
             // 綁定「建立時間」，只能讀取，使用者不能改
-            createdAtPicker.DataBindings.Add(
+            createdAtPickerTech.DataBindings.Add(
                 "Value",
                 this.techniciansBindingSource,
                 "created_at",
@@ -121,7 +163,7 @@ namespace prjAircondition.Tech
             );
 
             // 綁定「更新時間」，也是讀取用，改動放在 Save 時程式裡
-            updatedAtPicker.DataBindings.Add(
+            updatedAtPickerTech.DataBindings.Add(
                 "Value",
                 this.techniciansBindingSource,
                 "updated_at",
@@ -138,17 +180,45 @@ namespace prjAircondition.Tech
             //}
         }
 
-        private void SetDateTimePickers()
+        private void InitDateTimePicker(DateTimePicker picker, bool enabled = false, bool hideInitially = false)
         {
-            // 針對「建立時間」DateTimePicker 做設定
-            createdAtPicker.Format = DateTimePickerFormat.Custom;
-            createdAtPicker.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            createdAtPicker.Enabled = false; // 讓使用者不能手動改
+            picker.Format = DateTimePickerFormat.Custom;
+            picker.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            picker.Enabled = enabled;
+            picker.Visible = !hideInitially;
+        }
 
-            // 針對「更新時間」DateTimePicker 做設定 幾時幾分幾秒
-            updatedAtPicker.Format = DateTimePickerFormat.Custom;
-            updatedAtPicker.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            updatedAtPicker.Enabled = false; // 讓使用者不能手動改
+        private void SetTechDateTimePickers()
+        {
+            //// 針對「建立時間」DateTimePicker 做設定
+            //createdAtPickerTech.Format = DateTimePickerFormat.Custom;
+            //createdAtPickerTech.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            //createdAtPickerTech.Enabled = false; // 讓使用者不能手動改
+
+            //// 針對「更新時間」DateTimePicker 做設定 幾時幾分幾秒
+            //updatedAtPickerTech.Format = DateTimePickerFormat.Custom;
+            //updatedAtPickerTech.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            //updatedAtPickerTech.Enabled = false; // 讓使用者不能手動改
+            InitDateTimePicker(createdAtPickerTech);
+            InitDateTimePicker(updatedAtPickerTech);
+        }
+
+        //證照類載入時不顯示，直到送回DB
+        private void SetLicenseDateTimePickers()
+        {
+            // 建立時間
+            //createdAtPickerLicense.Format = DateTimePickerFormat.Custom;
+            //createdAtPickerLicense.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            //createdAtPickerLicense.Enabled = false;
+            //createdAtPickerLicense.Visible = false; // 新增階段先隱藏
+
+            // 更新時間
+            //updatedAtPickerLicense.Format = DateTimePickerFormat.Custom;
+            //updatedAtPickerLicense.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            //updatedAtPickerLicense.Enabled = false;
+            //updatedAtPickerLicense.Visible = false;
+            InitDateTimePicker(createdAtPickerLicense, false, true);
+            InitDateTimePicker(updatedAtPickerLicense, false, true);
         }
 
         //資料庫照片位置存放處
@@ -237,7 +307,7 @@ namespace prjAircondition.Tech
                 dataRow["updated_at"] = now;
 
                 //更新UI顯示時間 同步顯示
-                updatedAtPicker.Value = now;
+                updatedAtPickerTech.Value = now;
 
                 //照片有更動時，更新photo欄位內容
                 if (this.pictureBox1.Tag != null)
@@ -275,7 +345,7 @@ namespace prjAircondition.Tech
             MessageBox.Show("資料已更新");
         }
 
-        //上傳圖片按鈕
+        //上傳 證照圖片按鈕
         private void License_Upload_button_Click(object sender, EventArgs e)
         {
             //在對話框內的文字：「Image Files (.jpg;.jpeg;*.png)」
@@ -296,12 +366,12 @@ namespace prjAircondition.Tech
 
                 // 複製圖片到資料夾 (避免直接讀使用者原始位置)
                 File.Copy(sourcePath, destPath, true);
-
+                selectedLicensePhotoFullPath = sourcePath;
                 // 顯示圖片存到p1 BOX
-                this.pictureBox1.Image = Image.FromFile(destPath);
+                this.licensepictureBox.Image = Image.FromFile(destPath);
 
                 // 把這個TAG給值 為目前所選檔案名稱
-                this.pictureBox1.Tag = fileName;
+                this.licensepictureBox.Tag = fileName;
                 MessageBox.Show($"已上傳 {fileName}");
             }
             else
@@ -480,10 +550,6 @@ namespace prjAircondition.Tech
             this.tabControl2.SelectedTab = this.LicenseAllPage;
         }
 
-        private void btnSaveLicense_Click(object sender, EventArgs e)
-        {
-        }
-
         //新增證照功能
         private void btnAddLicense_Click(object sender, EventArgs e)
         {
@@ -493,11 +559,82 @@ namespace prjAircondition.Tech
             // 設定欄位值
             newRowView["T_id"] = GetCurrentTechnicianId();  // 外鍵，指向目前的師傅
 
+            newRowView["created_at"] = DBNull.Value; //兩個初始欄位都給NULL
+            newRowView["updated_at"] = DBNull.Value;
+
             // 結束編輯（通常你可以等 UI 完整編輯後再呼叫 EndEdit）
             licensebindingSource1.EndEdit();
 
             // 移動游標到新增的這一筆（可有可無，看你要不要跳到最後一筆方便觀察）
             licensebindingSource1.MoveLast();
+        }
+
+        //儲存 (包含照片 證照資料一起update回去)
+        private void btnSaveLicense_Click(object sender, EventArgs e)
+        {
+            // 先確認目前 BindingSource 是否有指向資料列
+            if (licensebindingSource1.Current is DataRowView drv)
+            {
+                DataRow row = drv.Row;
+                DateTime now = DateTime.Now;
+
+                bool isNew = row.IsNull("created_at");
+                //只在第一次編輯創立時間
+                if (isNew)
+                {
+                    row["created_at"] = now;
+                }
+
+                //時間控制項管理
+                //不論是不是新資料，每次都顯示 created_at 值 (用資料行內的值)
+                createdAtPickerLicense.Value = Convert.ToDateTime(row["created_at"]);
+                createdAtPickerLicense.Visible = true;
+
+                // 每次都更新 updated_at 並且顯示資料
+                row["updated_at"] = now;
+
+                updatedAtPickerLicense.Visible = true;
+
+                // 照片處理
+                if (this.licensepictureBox.Tag != null)
+                {
+                    // 取得目前上傳的檔名 (之前上傳時暫存在 Tag 內)
+                    string fileName = this.licensepictureBox.Tag.ToString();
+                    // 將檔名存入 photo 欄位，供資料庫記錄
+                    row["image_source"] = fileName;
+
+                    // 產生目標儲存路徑
+                    string storePath = Path.Combine(licenseImageFolderPath, fileName);
+                    // 確認暫存上傳路徑有效，執行檔案複製進專屬資料夾中
+                    if (!string.IsNullOrEmpty(selectedLicensePhotoFullPath) && File.Exists(selectedLicensePhotoFullPath))
+                    {
+                        File.Copy(selectedLicensePhotoFullPath, storePath, true);
+                        selectedLicensePhotoFullPath = null;
+                    }
+                }
+            }
+            // 執行整體畫面驗證 (強制觸發所有控制項驗證機制)
+            this.Validate();
+            // 結束 BindingSource 編輯狀態，將 UI 變更同步回 DataRow
+            licensebindingSource1.EndEdit();
+            // 利用 TableAdapter 將離線 DataSet 變更回寫至資料庫
+            licensesTableAdapter1.Update(t_ACDataSet1.licenses);
+
+            MessageBox.Show("證照資料已儲存");
+        }
+
+        private void btnDeleteLicense_Click(object sender, EventArgs e)
+        {
+            if (licensebindingSource1.Current != null)
+            {
+                //將當前資料全部清掉
+                licensebindingSource1.RemoveCurrent();
+                MessageBox.Show("已刪除");
+            }
+            else
+            {
+                MessageBox.Show("目前沒有選取任何證照");
+            }
         }
     }
 }
