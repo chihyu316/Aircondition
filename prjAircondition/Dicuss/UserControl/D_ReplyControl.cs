@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjAircondition.Dicuss.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,19 @@ namespace prjAircondition
 {
     public partial class D_ReplyControl : UserControl
     {
-        public static  string ReplyContent { get; set; }
-        public D_ReplyControl()
+        //public static  string UserID { get; set; }
+        public D_ReplyControl(string UserID)
         {
             InitializeComponent();
-            textBox1.Text = ReplyContent;
+            dataGridView1.DataSource = D_DataConnect.LoadhPostmain();
+            textBox1.Text = UserID;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
+        private void Insert_Post_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

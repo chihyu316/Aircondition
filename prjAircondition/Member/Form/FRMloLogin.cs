@@ -27,6 +27,7 @@ namespace prjAircondition.Member
             if( Logibtxt.Text =="Adminator")
             {
                 MessageBox.Show("登入成功！");
+                account = Logibtxt.Text.Trim();
                 Form1 form1 = new Form1(account);
                 this.Hide();
                 form1.ShowDialog();

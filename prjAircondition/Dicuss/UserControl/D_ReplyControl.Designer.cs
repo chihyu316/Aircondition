@@ -34,6 +34,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Insert_Post = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,15 +94,73 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(194, 95);
+            this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.textBox1.Location = new System.Drawing.Point(202, 91);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(282, 33);
             this.textBox1.TabIndex = 5;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.textBox2.Location = new System.Drawing.Point(201, 130);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(283, 33);
+            this.textBox2.TabIndex = 6;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.textBox4.Location = new System.Drawing.Point(201, 212);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(283, 206);
+            this.textBox4.TabIndex = 8;
+            // 
+            // Insert_Post
+            // 
+            this.Insert_Post.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Insert_Post.Location = new System.Drawing.Point(247, 458);
+            this.Insert_Post.Name = "Insert_Post";
+            this.Insert_Post.Size = new System.Drawing.Size(122, 36);
+            this.Insert_Post.TabIndex = 9;
+            this.Insert_Post.Text = "新增文章";
+            this.Insert_Post.UseVisualStyleBackColor = true;
+            this.Insert_Post.Click += new System.EventHandler(this.Insert_Post_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "版務規定",
+            "閒聊討論",
+            "疑難雜症",
+            "心得分享"});
+            this.comboBox1.Location = new System.Drawing.Point(201, 172);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(283, 32);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(-45, 690);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 97);
+            this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.Visible = false;
             // 
             // D_ReplyControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Insert_Post);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -104,7 +168,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "D_ReplyControl";
-            this.Size = new System.Drawing.Size(873, 684);
+            this.Size = new System.Drawing.Size(600, 684);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +183,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button Insert_Post;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
