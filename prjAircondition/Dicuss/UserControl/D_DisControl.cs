@@ -21,6 +21,9 @@ namespace prjAircondition.Dicuss
             for (int year = 2020; year <= DateTime.Now.Year; year++)  
             comboBox1.Items.Add(year.ToString());
             for (int month = 1; month <= 12; month++) comboBox2.Items.Add(month.ToString("D2"));
+            D_PostdataGridView.ReadOnly = true;                  
+            D_PostdataGridView.AllowUserToAddRows = false;       
+            D_PostdataGridView.AllowUserToDeleteRows = false;    
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

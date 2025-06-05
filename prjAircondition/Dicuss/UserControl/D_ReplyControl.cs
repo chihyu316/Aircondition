@@ -18,14 +18,14 @@ namespace prjAircondition
         {
             InitializeComponent();
             dataGridView1.DataSource = D_DataConnect.LoadhPostmain();
-            textBox1.Text = UserID;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            NickNameT.Text = UserID;
+            PostSortCombo.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
         private void Insert_Post_Click(object sender, EventArgs e)
         {
-
+            D_DataConnect.PostInsert(NickNameT.Text, (string)PostSortCombo.SelectedItem,TitleT.Text, ContextT.Text);
         }
     }
 }

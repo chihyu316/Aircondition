@@ -33,11 +33,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.NickNameT = new System.Windows.Forms.TextBox();
+            this.TitleT = new System.Windows.Forms.TextBox();
+            this.ContextT = new System.Windows.Forms.TextBox();
             this.Insert_Post = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.PostSortCombo = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(104, 135);
+            this.label2.Location = new System.Drawing.Point(104, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 24);
             this.label2.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(104, 175);
+            this.label3.Location = new System.Drawing.Point(104, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 24);
             this.label3.TabIndex = 2;
@@ -92,30 +92,31 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "發文者:";
             // 
-            // textBox1
+            // NickNameT
             // 
-            this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.textBox1.Location = new System.Drawing.Point(202, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(282, 33);
-            this.textBox1.TabIndex = 5;
+            this.NickNameT.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.NickNameT.Location = new System.Drawing.Point(202, 91);
+            this.NickNameT.Name = "NickNameT";
+            this.NickNameT.ReadOnly = true;
+            this.NickNameT.Size = new System.Drawing.Size(282, 33);
+            this.NickNameT.TabIndex = 5;
             // 
-            // textBox2
+            // TitleT
             // 
-            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.textBox2.Location = new System.Drawing.Point(201, 130);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(283, 33);
-            this.textBox2.TabIndex = 6;
+            this.TitleT.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.TitleT.Location = new System.Drawing.Point(201, 172);
+            this.TitleT.Name = "TitleT";
+            this.TitleT.Size = new System.Drawing.Size(283, 33);
+            this.TitleT.TabIndex = 6;
             // 
-            // textBox4
+            // ContextT
             // 
-            this.textBox4.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.textBox4.Location = new System.Drawing.Point(201, 212);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(283, 206);
-            this.textBox4.TabIndex = 8;
+            this.ContextT.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.ContextT.Location = new System.Drawing.Point(201, 212);
+            this.ContextT.Multiline = true;
+            this.ContextT.Name = "ContextT";
+            this.ContextT.Size = new System.Drawing.Size(283, 206);
+            this.ContextT.TabIndex = 8;
             // 
             // Insert_Post
             // 
@@ -128,19 +129,19 @@
             this.Insert_Post.UseVisualStyleBackColor = true;
             this.Insert_Post.Click += new System.EventHandler(this.Insert_Post_Click);
             // 
-            // comboBox1
+            // PostSortCombo
             // 
-            this.comboBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.PostSortCombo.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.PostSortCombo.FormattingEnabled = true;
+            this.PostSortCombo.Items.AddRange(new object[] {
             "版務規定",
             "閒聊討論",
             "疑難雜症",
             "心得分享"});
-            this.comboBox1.Location = new System.Drawing.Point(201, 172);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(283, 32);
-            this.comboBox1.TabIndex = 10;
+            this.PostSortCombo.Location = new System.Drawing.Point(201, 131);
+            this.PostSortCombo.Name = "PostSortCombo";
+            this.PostSortCombo.Size = new System.Drawing.Size(283, 32);
+            this.PostSortCombo.TabIndex = 10;
             // 
             // dataGridView1
             // 
@@ -157,11 +158,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.PostSortCombo);
             this.Controls.Add(this.Insert_Post);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ContextT);
+            this.Controls.Add(this.TitleT);
+            this.Controls.Add(this.NickNameT);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -182,11 +183,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox NickNameT;
+        private System.Windows.Forms.TextBox TitleT;
+        private System.Windows.Forms.TextBox ContextT;
         private System.Windows.Forms.Button Insert_Post;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox PostSortCombo;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

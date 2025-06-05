@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Microsoft.PowerShell.Commands;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace prjAircondition.Dicuss.Class
 {
@@ -28,17 +29,17 @@ namespace prjAircondition.Dicuss.Class
                              from PostsMain as P
                              join [Member] as M on  P.MemberID = M.MemberID
                              join [PostsSortList] as ps on PS.PostsSortID = P.PostsSortID
-                             join [PostsStateList] as PL on PL.PostsStateListId = P.PostsState;";                            
+                             join [PostsStateList] as PL on PL.PostsStateListId = P.PostsState;";
             DataTable resultTable = new DataTable();
             try
             {
                 SqlConnection conn = new SqlConnection(connStr);
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                conn.Open();                
+                conn.Open();
                 adapter.Fill(resultTable);
-                conn.Close();     
+                conn.Close();
             }
-           
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -103,48 +104,48 @@ namespace prjAircondition.Dicuss.Class
                 return resultTable;
             }
         }
-        public static DataTable PostUpdate(string state,string userName,string Title)
+        public static DataTable PostUpdate(string state, string userName, string Title)
         {
             // 根據 state 參數決定要更新的 PostsStateID
             int stateID = 0;
             if (state == "置頂")
-            stateID = 1; 
+                stateID = 1;
             else if (state == "精華")
-            stateID = 2; 
+                stateID = 2;
             else if (state == "一般")
-            stateID = 3;
+                stateID = 3;
             DataTable resultTable = new DataTable();
             SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");
             conn.Open();
-                // 先用 userName 查出對應的 MemberID
-                int memberId = -1;
-                using (SqlCommand cmdGetId = new SqlCommand("SELECT MemberID FROM Member WHERE NickName = @NickName", conn))
+            // 先用 userName 查出對應的 MemberID
+            int memberId = -1;
+            using (SqlCommand cmdGetId = new SqlCommand("SELECT MemberID FROM Member WHERE NickName = @NickName", conn))
+            {
+                cmdGetId.Parameters.AddWithValue("@NickName", userName);
+                var result = cmdGetId.ExecuteScalar();
+                if (result == null)
                 {
-                    cmdGetId.Parameters.AddWithValue("@NickName", userName);
-                    var result = cmdGetId.ExecuteScalar();
-                    if (result == null)
-                    {
-                        resultTable.Columns.Add("Error");
-                        resultTable.Rows.Add("找不到該使用者。");
-                        return resultTable;
-                    }
-                    memberId = Convert.ToInt32(result);
+                    resultTable.Columns.Add("Error");
+                    resultTable.Rows.Add("找不到該使用者。");
+                    return resultTable;
                 }
+                memberId = Convert.ToInt32(result);
+            }
             // 使用 MemberID 和 Title 更新 PostsMain 的 PostsState
             conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");
-            string query = @"update PostsMain set PostsState = @stateID where MemberID = @MemberID and Title = @Title";           
-            SqlCommand cmdUpdate = new SqlCommand(query, conn);           
-                conn.Open();
-                cmdUpdate.Parameters.AddWithValue("@stateID", stateID);
-                cmdUpdate.Parameters.AddWithValue("@MemberID", memberId);
+            string query = @"update PostsMain set PostsState = @stateID where MemberID = @MemberID and Title = @Title";
+            SqlCommand cmdUpdate = new SqlCommand(query, conn);
+            conn.Open();
+            cmdUpdate.Parameters.AddWithValue("@stateID", stateID);
+            cmdUpdate.Parameters.AddWithValue("@MemberID", memberId);
             cmdUpdate.Parameters.AddWithValue("@Title", Title);
             int rowsAffected = cmdUpdate.ExecuteNonQuery();
-                resultTable.Columns.Add("Result");
-                resultTable.Rows.Add($"更新了 {rowsAffected} 筆資料。");
-                conn.Close();      
+            resultTable.Columns.Add("Result");
+            resultTable.Rows.Add($"更新了 {rowsAffected} 筆資料。");
+            conn.Close();
             return resultTable;
         }
-        public static void PostDelete(int Postid) 
+        public static void PostDelete(int Postid)
         {
 
             DialogResult result = MessageBox.Show(
@@ -152,22 +153,81 @@ namespace prjAircondition.Dicuss.Class
             "刪除確認",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
+            {
+                string connectionString = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
+                string deleteQuery = "DELETE FROM PostsMain WHERE PostsID = @PostID";
+                SqlConnection conn = new SqlConnection(connectionString);
+                SqlCommand cmd = new SqlCommand(deleteQuery, conn);
+                cmd.Parameters.AddWithValue("@PostID", Postid);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("資料已刪除！");
+            }
+            else
+            {
+                MessageBox.Show("取消刪除。");
+            }
+        }
+        public static DataTable PostInsert(string userName,string Postsort ,string Title ,string Contents)
+        {
+            DataTable resultTable = new DataTable();
+            DialogResult result = MessageBox.Show(
+            "確定要新增這筆資料嗎？",
+            "新增確認",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning);
+            int memberId = -1;
+            int PostsSortID = -1;
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=AC;Integrated Security=True;");
+            conn.Open();
+            using (SqlCommand cmdGetId = new SqlCommand("SELECT MemberID FROM Member WHERE NickName = @NickName", conn))
+            {
+                cmdGetId.Parameters.AddWithValue("@NickName", userName);
+                var ra = cmdGetId.ExecuteScalar();
+                if (ra == null)
                 {
-                    string connectionString = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
-                    string deleteQuery = "DELETE FROM PostsMain WHERE PostsID = @PostID";
-                    SqlConnection conn = new SqlConnection(connectionString);
-                    SqlCommand cmd = new SqlCommand(deleteQuery, conn);
-                    cmd.Parameters.AddWithValue("@PostID", Postid);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    MessageBox.Show("資料已刪除！");
+                    resultTable.Columns.Add("Error");
+                    resultTable.Rows.Add("找不到該使用者。");
+                    return resultTable;
                 }
-                else
+                memberId = Convert.ToInt32(ra);
+            }
+            using (SqlCommand cmdGetId = new SqlCommand("SELECT PostsSortID FROM [PostsSortList] WHERE PostsSortName = @PostsSortName", conn))
+            {
+                cmdGetId.Parameters.AddWithValue("@PostsSortName", Postsort);
+                var rb = cmdGetId.ExecuteScalar();
+                if (rb == null)
                 {
-                    MessageBox.Show("取消刪除。");
+                    resultTable.Columns.Add("Error");
+                    resultTable.Rows.Add("找不到此文章分類。");
+                    return resultTable;
                 }
+                PostsSortID = Convert.ToInt32(rb);
+            }
+            if (result == DialogResult.Yes)
+            {
+                string connectionString = "Data Source=.;Initial Catalog=AC;Integrated Security=True;";
+                string insertQuery = @"INSERT INTO PostsMain 
+                                      (MemberID, PostsSortID, PostsState, Title, 
+                                       Contents,PostTime )
+                                       VALUES 
+                                      (@MemberID,@PostsSortID, 3 ,@Title,@Contents,GETDATE())";
+                SqlCommand cmd = new SqlCommand(insertQuery, conn);
+                cmd.Parameters.AddWithValue("@MemberID", memberId);
+                cmd.Parameters.AddWithValue("@PostsSortID", PostsSortID);
+                cmd.Parameters.AddWithValue("@Title", Title);
+                cmd.Parameters.AddWithValue("@Contents", Contents);          
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("資料已新增！");
+            }
+            else
+            {
+                MessageBox.Show("取消新增。");
+            }
+            return resultTable;
         }
     }
 }
