@@ -33,10 +33,43 @@ namespace prjAircondition.Tech
             InitImageLicenseFolder(); //初始化證照圖片存放位置
         }
 
+        private void T_TechUserControl1_Load(object sender, EventArgs e)
+        {
+            //先把該帳號資訊傳入 帳號文字輸入框裡面
+            //techAccountTextBox.Text = TechloginAccount;
+            // 所有師傅資料導入
+            this.techniciansTableAdapter.Fill(this.t_ACDataSet1.Technicians);
+            MessageBox.Show($"目前Technicians共有 {this.t_ACDataSet1.Technicians.Rows.Count} 筆資料");
+            //綁gridView和中界點資料
+            // BindingSource 是綁 DataTable資料表，
+            //但 DataGridView 設計器在第一次設計階段並沒有
+            //正確幫你自動產生欄位(AutoGenerateColumns 問題)。
+
+            // 先載入證照資料
+            this.licensesTableAdapter1.Fill(this.t_ACDataSet1.licenses);
+
+            //綁了 DataTable 不是整個 DataSet，
+            //設計器無法幫你預先產生正確欄位。
+            //要格外加方法
+            //this.techniciansDataGridView.AutoGenerateColumns = true;
+            this.techniciansDataGridView.DataSource = this.techniciansBindingSource;
+            FilterLicenseByTechnician();
+            BindTechControl();
+            //綁定證照控制項
+            BindLicenseControl();
+            SetTechDateTimePickers();//師傅個人資訊時間初始化
+            SetLicenseDateTimePickers();   // <-- 這就是你新加進來的證照時間初始化
+            LoadTechImageFromDS();
+
+            //Gridview 屬性設定
+            //CustomizeTechGridView();
+        }
+
         // 初始化 師傅資料庫照片 位置存放處
         private void InitTechImageFolder()
         {
-            MessageBox.Show("初始檔案執行位置" + Application.StartupPath);
+            //MessageBox.Show("初始檔案執行位置" + Application.StartupPath);
+
             //找個資料夾放圖片並給個資料夾名稱
             string projectRootPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
             imageFolderPath = Path.Combine(projectRootPath, "TechResources");
@@ -86,7 +119,7 @@ namespace prjAircondition.Tech
         // 封裝讀取預設證照圖路徑
         private string GetDefaultLicenseImagePath()
         {
-            return Path.Combine(licenseImageFolderPath, "default_license.png");
+            return Path.Combine(licenseImageFolderPath, "default", "default_license.png");
         }
 
         // 取得師傅圖片完整路徑
@@ -293,8 +326,23 @@ namespace prjAircondition.Tech
             }
         }
 
+        //測試用，gridView屬性高於程式碼
+        public void CustomizeTechGridView()
+        {
+            this.techniciansDataGridView.Columns.Clear();
+            // 範例: 修改每一欄的 HeaderText 與寬度
+            var columnT_id = new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "T_id",
+                HeaderText = "師傅id2",
+                Name = "師傅id222",
+                Width = 300
+            };
+            this.techniciansDataGridView.Columns.Add(columnT_id);
+        }
+
         //個人 師傅資訊業面
-        public void BindControl()
+        public void BindTechControl()
         {
             // 先清除舊的 DataBinding，避免重複綁定
             userNameTextBox.DataBindings.Clear();
@@ -385,35 +433,6 @@ namespace prjAircondition.Tech
             this.Validate();
             this.techniciansBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.t_ACDataSet1);
-        }
-
-        private void T_TechUserControl1_Load(object sender, EventArgs e)
-        {
-            //先把該帳號資訊傳入 帳號文字輸入框裡面
-            //techAccountTextBox.Text = TechloginAccount;
-            // 所有師傅資料導入
-            this.techniciansTableAdapter.Fill(this.t_ACDataSet1.Technicians);
-            MessageBox.Show($"目前Technicians共有 {this.t_ACDataSet1.Technicians.Rows.Count} 筆資料");
-            //綁gridView和中界點資料
-            // BindingSource 是綁 DataTable資料表，
-            //但 DataGridView 設計器在第一次設計階段並沒有
-            //正確幫你自動產生欄位(AutoGenerateColumns 問題)。
-
-            // 先載入證照資料
-            this.licensesTableAdapter1.Fill(this.t_ACDataSet1.licenses);
-
-            //綁了 DataTable 不是整個 DataSet，
-            //設計器無法幫你預先產生正確欄位。
-            //要格外加方法
-            //this.techniciansDataGridView.AutoGenerateColumns = true;
-            this.techniciansDataGridView.DataSource = this.techniciansBindingSource;
-            FilterLicenseByTechnician();
-            BindControl();
-            //綁定證照控制項
-            BindLicenseControl();
-            SetTechDateTimePickers();//師傅個人資訊時間初始化
-            SetLicenseDateTimePickers();   // <-- 這就是你新加進來的證照時間初始化
-            LoadTechImageFromDS();
         }
 
         //取得當前師傅ID
@@ -762,6 +781,10 @@ namespace prjAircondition.Tech
         {
             //到最後一筆索引
             this.techniciansBindingSource.Position = this.techniciansBindingSource.Count - 1;
+        }
+
+        private void ALLTechLabel1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

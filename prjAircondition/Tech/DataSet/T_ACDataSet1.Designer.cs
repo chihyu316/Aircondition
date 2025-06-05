@@ -1318,6 +1318,8 @@ namespace prjAircondition.Tech.DataSet {
             
             private global::System.Data.DataColumn columnTechnicianName;
             
+            private global::System.Data.DataColumn columnWorkTypeName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WorkOrderDataTable() {
@@ -1481,6 +1483,14 @@ namespace prjAircondition.Tech.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn WorkTypeNameColumn {
+                get {
+                    return this.columnWorkTypeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1532,7 +1542,8 @@ namespace prjAircondition.Tech.DataSet {
                         int CityID, 
                         int AreaID, 
                         string AddressDetail, 
-                        string TechnicianName) {
+                        string TechnicianName, 
+                        string WorkTypeName) {
                 WorkOrderRow rowWorkOrderRow = ((WorkOrderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         WorkOrderID,
@@ -1550,7 +1561,8 @@ namespace prjAircondition.Tech.DataSet {
                         CityID,
                         AreaID,
                         AddressDetail,
-                        TechnicianName};
+                        TechnicianName,
+                        WorkTypeName};
                 rowWorkOrderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWorkOrderRow);
                 return rowWorkOrderRow;
@@ -1596,6 +1608,7 @@ namespace prjAircondition.Tech.DataSet {
                 this.columnAreaID = base.Columns["AreaID"];
                 this.columnAddressDetail = base.Columns["AddressDetail"];
                 this.columnTechnicianName = base.Columns["TechnicianName"];
+                this.columnWorkTypeName = base.Columns["WorkTypeName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1633,6 +1646,8 @@ namespace prjAircondition.Tech.DataSet {
                 base.Columns.Add(this.columnAddressDetail);
                 this.columnTechnicianName = new global::System.Data.DataColumn("TechnicianName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTechnicianName);
+                this.columnWorkTypeName = new global::System.Data.DataColumn("WorkTypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkTypeName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnWorkOrderID}, true));
                 this.columnWorkOrderID.AllowDBNull = false;
@@ -2978,6 +2993,22 @@ namespace prjAircondition.Tech.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string WorkTypeName {
+                get {
+                    try {
+                        return ((string)(this[this.tableWorkOrder.WorkTypeNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("資料表 \'WorkOrder\' 中資料行 \'WorkTypeName\' 的值是 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkOrder.WorkTypeNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDetailIDNull() {
                 return this.IsNull(this.tableWorkOrder.DetailIDColumn);
             }
@@ -3154,6 +3185,18 @@ namespace prjAircondition.Tech.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTechnicianNameNull() {
                 this[this.tableWorkOrder.TechnicianNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsWorkTypeNameNull() {
+                return this.IsNull(this.tableWorkOrder.WorkTypeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetWorkTypeNameNull() {
+                this[this.tableWorkOrder.WorkTypeNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5220,30 +5263,12 @@ SELECT WorkOrderID, DetailID, WorkTypeID, TechnicianID, ClosingTechnicianID, Mod
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT  
-    WO.WorkOrderID, 
-    WO.DetailID, 
-    WO.WorkTypeID, 
-    WT.WorkType AS WorkTypeName,  -- 新增：工作類型名稱
-    WO.TechnicianID, 
-    T.name AS TechnicianName, 
-    WO.ClosingTechnicianID, 
-    WO.ModelName, 
-    WO.SerialNumber, 
-    WO.CreatedDate, 
-    WO.OrderStatus, 
-    WO.CompletedDate, 
-    WO.PaymentType, 
-    WO.MemberID, 
-    WO.CityID, 
-    WO.AreaID, 
-    WO.AddressDetail
-FROM     
-    WorkOrder AS WO
-LEFT JOIN 
-    Technicians AS T ON WO.TechnicianID = T.T_id
-LEFT JOIN 
-    WorkType AS WT ON WO.WorkTypeID = WT.WorkTypeID";
+            this._commandCollection[1].CommandText = @"SELECT  WO.WorkOrderID, WO.DetailID, T.name AS TechnicianName, WO.WorkTypeID, WT.WorkType, WO.TechnicianID, WO.ClosingTechnicianID, WO.ModelName, 
+               WO.SerialNumber, WO.CreatedDate, WO.OrderStatus, WO.CompletedDate, WO.PaymentType, WO.MemberID, WO.CityID, WO.AreaID, 
+               WO.AddressDetail
+FROM     WorkOrder AS WO LEFT OUTER JOIN
+               Technicians AS T ON WO.TechnicianID = T.T_id LEFT OUTER JOIN
+               WorkType AS WT ON WO.WorkTypeID = WT.WorkTypeID";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
@@ -5251,7 +5276,7 @@ LEFT JOIN
     WO.WorkOrderID, 
     WO.DetailID, 
     WO.WorkTypeID, 
-    WT.WorkType AS WorkTypeName,  -- 新增：工作類型名稱
+    WT.WorkType AS WorkTypeName, 
     WO.TechnicianID, 
     T.name AS TechnicianName, 
     WO.ClosingTechnicianID, 
@@ -5267,28 +5292,28 @@ LEFT JOIN
     WO.AddressDetail
 FROM 
     WorkOrder WO
-JOIN 
+LEFT JOIN
     Technicians T
 ON 
-    WO.TechnicianID = T.T_id
-JOIN 
+WO.TechnicianID = T.T_id
+LEFT JOIN 
     WorkType WT
 ON 
     WO.WorkTypeID = WT.WorkTypeID
 WHERE
-    T.T_id = @TechnicianID
+    WO.TechnicianID = @TechnicianID
 ";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "T_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TechnicianID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT 
     WO.WorkOrderID, 
     WO.DetailID, 
     WO.WorkTypeID, 
+    WT.WorkType AS WorkTypeName,  
     WO.TechnicianID, 
     T.name AS TechnicianName, 
-    WT.WorkType, -- 新增這個
     WO.ClosingTechnicianID, 
     WO.ModelName, 
     WO.SerialNumber, 
@@ -5300,13 +5325,18 @@ WHERE
     WO.CityID, 
     WO.AreaID, 
     WO.AddressDetail
-FROM WorkOrder AS WO
-LEFT JOIN Technicians AS T ON WO.TechnicianID = T.T_id
-LEFT JOIN WorkType AS WT ON WO.WorkTypeID = WT.WorkTypeID
-WHERE WO.TechnicianID = @TechID
-AND WO.WorkTypeID = @WorkTypeID";
+FROM 
+    WorkOrder WO
+LEFT JOIN 
+    Technicians T ON WO.TechnicianID = T.T_id
+LEFT JOIN 
+    WorkType WT ON WO.WorkTypeID = WT.WorkTypeID
+WHERE 
+    WO.TechnicianID = @TechnicianID 
+    AND (@WorkTypeID = 0 OR WO.WorkTypeID = @WorkTypeID)
+   ";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TechnicianID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TechnicianID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TechnicianID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WorkTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "WorkTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5362,9 +5392,14 @@ AND WO.WorkTypeID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCertainTechAllWorkOrders(T_ACDataSet1.WorkOrderDataTable dataTable, int TechnicianID) {
+        public virtual int FillByCertainTechAllWorkOrders(T_ACDataSet1.WorkOrderDataTable dataTable, global::System.Nullable<int> TechnicianID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID));
+            if ((TechnicianID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -5376,9 +5411,14 @@ AND WO.WorkTypeID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual T_ACDataSet1.WorkOrderDataTable GetDataByCertainTechAllWorkOrders(int TechnicianID) {
+        public virtual T_ACDataSet1.WorkOrderDataTable GetDataByCertainTechAllWorkOrders(global::System.Nullable<int> TechnicianID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID));
+            if ((TechnicianID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             T_ACDataSet1.WorkOrderDataTable dataTable = new T_ACDataSet1.WorkOrderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5388,10 +5428,10 @@ AND WO.WorkTypeID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByTechnicianIDAndWorkTypeID(T_ACDataSet1.WorkOrderDataTable dataTable, global::System.Nullable<int> TechID, global::System.Nullable<int> WorkTypeID) {
+        public virtual int FillByTechnicianIDAndWorkTypeID(T_ACDataSet1.WorkOrderDataTable dataTable, global::System.Nullable<int> TechnicianID, global::System.Nullable<int> WorkTypeID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((TechID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechID.Value));
+            if ((TechnicianID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5413,10 +5453,10 @@ AND WO.WorkTypeID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual T_ACDataSet1.WorkOrderDataTable GetDataByTechnicianIDAndWorkTypeID(global::System.Nullable<int> TechID, global::System.Nullable<int> WorkTypeID) {
+        public virtual T_ACDataSet1.WorkOrderDataTable GetDataByTechnicianIDAndWorkTypeID(global::System.Nullable<int> TechnicianID, global::System.Nullable<int> WorkTypeID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((TechID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechID.Value));
+            if ((TechnicianID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TechnicianID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;

@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(T_OrderUserControl1));
             this.searchButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.WorkOrdertextBox = new System.Windows.Forms.TextBox();
+            this.WorkOrderTechIDtextBox = new System.Windows.Forms.TextBox();
             this.workOrderlabel = new System.Windows.Forms.Label();
             this.WorkOrderbutton4 = new System.Windows.Forms.Button();
             this.WorkOrderbutton2 = new System.Windows.Forms.Button();
@@ -43,12 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.workType = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.t_ACDataSet1 = new prjAircondition.Tech.DataSet.T_ACDataSet1();
-            this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workOrderTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter();
-            this.tableAdapterManager = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TableAdapterManager();
-            this.techniciansTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter();
-            this.workTypeTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkTypeTableAdapter();
             this.workOrderBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -63,31 +57,37 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.workOrderBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.workOrderDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workTypeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
+            this.workOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.t_ACDataSet1 = new prjAircondition.Tech.DataSet.T_ACDataSet1();
+            this.workOrderTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter();
+            this.tableAdapterManager = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TableAdapterManager();
+            this.techniciansTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter();
+            this.workTypeTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkTypeTableAdapter();
+            this.techniciansBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingNavigator)).BeginInit();
             this.workOrderBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workTypeBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
@@ -113,13 +113,13 @@
             this.label3.TabIndex = 31;
             this.label3.Text = "師傅id:";
             // 
-            // WorkOrdertextBox
+            // WorkOrderTechIDtextBox
             // 
-            this.WorkOrdertextBox.Location = new System.Drawing.Point(705, 159);
-            this.WorkOrdertextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.WorkOrdertextBox.Name = "WorkOrdertextBox";
-            this.WorkOrdertextBox.Size = new System.Drawing.Size(105, 36);
-            this.WorkOrdertextBox.TabIndex = 30;
+            this.WorkOrderTechIDtextBox.Location = new System.Drawing.Point(705, 163);
+            this.WorkOrderTechIDtextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.WorkOrderTechIDtextBox.Name = "WorkOrderTechIDtextBox";
+            this.WorkOrderTechIDtextBox.Size = new System.Drawing.Size(105, 36);
+            this.WorkOrderTechIDtextBox.TabIndex = 30;
             // 
             // workOrderlabel
             // 
@@ -233,38 +233,6 @@
             this.label1.Size = new System.Drawing.Size(165, 37);
             this.label1.TabIndex = 23;
             this.label1.Text = "訂單資料";
-            // 
-            // t_ACDataSet1
-            // 
-            this.t_ACDataSet1.DataSetName = "T_ACDataSet1";
-            this.t_ACDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // workOrderBindingSource
-            // 
-            this.workOrderBindingSource.DataMember = "WorkOrder";
-            this.workOrderBindingSource.DataSource = this.t_ACDataSet1;
-            this.workOrderBindingSource.CurrentChanged += new System.EventHandler(this.workOrderBindingSource_CurrentChanged);
-            // 
-            // workOrderTableAdapter
-            // 
-            this.workOrderTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.licensesTableAdapter = null;
-            this.tableAdapterManager.TechniciansTableAdapter = this.techniciansTableAdapter1;
-            this.tableAdapterManager.UpdateOrder = prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.WorkOrderTableAdapter = this.workOrderTableAdapter;
-            this.tableAdapterManager.WorkTypeTableAdapter = this.workTypeTableAdapter1;
-            // 
-            // techniciansTableAdapter1
-            // 
-            this.techniciansTableAdapter1.ClearBeforeFill = true;
-            // 
-            // workTypeTableAdapter1
-            // 
-            this.workTypeTableAdapter1.ClearBeforeFill = true;
             // 
             // workOrderBindingNavigator
             // 
@@ -398,6 +366,7 @@
             this.workOrderDataGridView.AutoGenerateColumns = false;
             this.workOrderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.workOrderDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -412,159 +381,192 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15});
+            this.dataGridViewTextBoxColumn14});
             this.workOrderDataGridView.DataSource = this.workOrderBindingSource;
-            this.workOrderDataGridView.Location = new System.Drawing.Point(43, 465);
+            this.workOrderDataGridView.Location = new System.Drawing.Point(43, 460);
             this.workOrderDataGridView.Name = "workOrderDataGridView";
             this.workOrderDataGridView.RowHeadersWidth = 62;
             this.workOrderDataGridView.RowTemplate.Height = 31;
-            this.workOrderDataGridView.Size = new System.Drawing.Size(1328, 592);
+            this.workOrderDataGridView.Size = new System.Drawing.Size(1381, 592);
             this.workOrderDataGridView.TabIndex = 34;
+            this.workOrderDataGridView.SelectionChanged += new System.EventHandler(this.workOrderDataGridView_SelectionChanged);
             // 
-            // dataGridViewTextBoxColumn1
+            // workOrderBindingSource
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "WorkOrderID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "WorkOrderID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 150;
+            this.workOrderBindingSource.DataMember = "WorkOrder";
+            this.workOrderBindingSource.DataSource = this.t_ACDataSet1;
+            this.workOrderBindingSource.CurrentChanged += new System.EventHandler(this.workOrderBindingSource_CurrentChanged);
             // 
-            // dataGridViewTextBoxColumn2
+            // t_ACDataSet1
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DetailID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "DetailID";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
+            this.t_ACDataSet1.DataSetName = "T_ACDataSet1";
+            this.t_ACDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataGridViewTextBoxColumn3
+            // workOrderTableAdapter
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "WorkTypeID";
-            this.dataGridViewTextBoxColumn3.HeaderText = "WorkTypeID";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
+            this.workOrderTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // tableAdapterManager
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "TechnicianID";
-            this.dataGridViewTextBoxColumn4.HeaderText = "TechnicianID";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.licensesTableAdapter = null;
+            this.tableAdapterManager.TechniciansTableAdapter = this.techniciansTableAdapter1;
+            this.tableAdapterManager.UpdateOrder = prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.WorkOrderTableAdapter = this.workOrderTableAdapter;
+            this.tableAdapterManager.WorkTypeTableAdapter = this.workTypeTableAdapter1;
             // 
-            // dataGridViewTextBoxColumn5
+            // techniciansTableAdapter1
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "ClosingTechnicianID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "ClosingTechnicianID";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
+            this.techniciansTableAdapter1.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // workTypeTableAdapter1
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ModelName";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ModelName";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "SerialNumber";
-            this.dataGridViewTextBoxColumn7.HeaderText = "SerialNumber";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "CreatedDate";
-            this.dataGridViewTextBoxColumn8.HeaderText = "CreatedDate";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "OrderStatus";
-            this.dataGridViewTextBoxColumn9.HeaderText = "OrderStatus";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "CompletedDate";
-            this.dataGridViewTextBoxColumn10.HeaderText = "CompletedDate";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 150;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "PaymentType";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "PaymentType";
-            this.dataGridViewCheckBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "MemberID";
-            this.dataGridViewTextBoxColumn11.HeaderText = "MemberID";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "CityID";
-            this.dataGridViewTextBoxColumn12.HeaderText = "CityID";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "AreaID";
-            this.dataGridViewTextBoxColumn13.HeaderText = "AreaID";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "AddressDetail";
-            this.dataGridViewTextBoxColumn14.HeaderText = "AddressDetail";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "TechnicianName";
-            this.dataGridViewTextBoxColumn15.HeaderText = "TechnicianName";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Width = 150;
+            this.workTypeTableAdapter1.ClearBeforeFill = true;
             // 
             // techniciansBindingSource
             // 
             this.techniciansBindingSource.DataMember = "Technicians";
             this.techniciansBindingSource.DataSource = this.t_ACDataSet1;
             // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "AddressDetail";
+            this.dataGridViewTextBoxColumn14.HeaderText = "地址細項";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "AreaID";
+            this.dataGridViewTextBoxColumn13.HeaderText = "地區ID";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "CityID";
+            this.dataGridViewTextBoxColumn12.HeaderText = "城市ID";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "MemberID";
+            this.dataGridViewTextBoxColumn11.HeaderText = "會員ID";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 150;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "PaymentType";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "付款型態";
+            this.dataGridViewCheckBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "CompletedDate";
+            this.dataGridViewTextBoxColumn10.HeaderText = "完成時間";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "OrderStatus";
+            this.dataGridViewTextBoxColumn9.HeaderText = "工單狀態";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "CreatedDate";
+            this.dataGridViewTextBoxColumn8.HeaderText = "創立時間";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "SerialNumber";
+            this.dataGridViewTextBoxColumn7.HeaderText = "型號";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ModelName";
+            this.dataGridViewTextBoxColumn6.HeaderText = "型號名稱";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "ClosingTechnicianID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "完成師傅ID";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TechnicianID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "會員ID";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "WorkTypeID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "工作類型ID";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DetailID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "細節ID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "WorkOrderID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "安裝單ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "TechnicianName";
+            this.dataGridViewTextBoxColumn15.HeaderText = "師傅名字";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 150;
+            // 
             // T_OrderUserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.Controls.Add(this.workOrderDataGridView);
             this.Controls.Add(this.workOrderBindingNavigator);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.WorkOrdertextBox);
+            this.Controls.Add(this.WorkOrderTechIDtextBox);
             this.Controls.Add(this.workOrderlabel);
             this.Controls.Add(this.WorkOrderbutton4);
             this.Controls.Add(this.WorkOrderbutton2);
@@ -580,14 +582,14 @@
             this.Name = "T_OrderUserControl1";
             this.Size = new System.Drawing.Size(1797, 1500);
             this.Load += new System.EventHandler(this.T_OrderUserControl1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingNavigator)).EndInit();
             this.workOrderBindingNavigator.ResumeLayout(false);
             this.workOrderBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workTypeBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.t_ACDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -596,7 +598,7 @@
         #endregion
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox WorkOrdertextBox;
+        private System.Windows.Forms.TextBox WorkOrderTechIDtextBox;
         private System.Windows.Forms.Label workOrderlabel;
         private System.Windows.Forms.Button WorkOrderbutton4;
         private System.Windows.Forms.Button WorkOrderbutton2;
@@ -627,6 +629,9 @@
         private DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter techniciansTableAdapter1;
         private DataSet.T_ACDataSet1TableAdapters.WorkTypeTableAdapter workTypeTableAdapter1;
         private System.Windows.Forms.DataGridView workOrderDataGridView;
+        private System.Windows.Forms.BindingSource techniciansBindingSource;
+        private System.Windows.Forms.BindingSource workTypeBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -642,8 +647,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.BindingSource techniciansBindingSource;
-        private System.Windows.Forms.BindingSource workTypeBindingSource1;
     }
 }

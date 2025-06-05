@@ -167,7 +167,6 @@
             this.NickNameTextBox.Name = "NickNameTextBox";
             this.NickNameTextBox.Size = new System.Drawing.Size(378, 36);
             this.NickNameTextBox.TabIndex = 53;
-            this.NickNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
