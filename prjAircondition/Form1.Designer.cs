@@ -53,27 +53,29 @@
             System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("保養");
             System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("維修");
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("拆機");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("工單", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("照片上傳");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("工單", new System.Windows.Forms.TreeNode[] {
             treeNode12,
             treeNode13,
             treeNode14,
             treeNode15,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("課程一覽");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("我要報名");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("我的課程");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("我的交易記錄");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("證照課程", new System.Windows.Forms.TreeNode[] {
-            treeNode18,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("課程一覽");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("我要報名");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("我的課程");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("我的交易記錄");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("證照課程", new System.Windows.Forms.TreeNode[] {
             treeNode19,
             treeNode20,
-            treeNode21});
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("文章管理");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("留言管理");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("討論版", new System.Windows.Forms.TreeNode[] {
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("登出");
+            treeNode21,
+            treeNode22});
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("文章管理");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("留言管理");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("討論版", new System.Windows.Forms.TreeNode[] {
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("登出");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -92,6 +94,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -104,8 +107,9 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.SeaShell;
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox5);
-            this.splitContainer1.Size = new System.Drawing.Size(1280, 635);
-            this.splitContainer1.SplitterDistance = 258;
+            this.splitContainer1.Size = new System.Drawing.Size(1707, 794);
+            this.splitContainer1.SplitterDistance = 344;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // treeView1
@@ -115,7 +119,8 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.treeView1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.treeView1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.treeView1.Location = new System.Drawing.Point(0, 154);
+            this.treeView1.Location = new System.Drawing.Point(0, 193);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "M_Node1";
             treeNode1.Text = "會員資料";
@@ -149,35 +154,37 @@
             treeNode15.Text = "維修";
             treeNode16.Name = "Repair_Node5";
             treeNode16.Text = "拆機";
-            treeNode17.Name = "Repair";
-            treeNode17.Text = "工單";
-            treeNode18.Name = "Recruit_Node1";
-            treeNode18.Text = "課程一覽";
-            treeNode19.Name = "Recruit_Node2";
-            treeNode19.Text = "我要報名";
-            treeNode20.Name = "Recruit_Node3";
-            treeNode20.Text = "我的課程";
-            treeNode21.Name = "Recruit_Node4";
-            treeNode21.Text = "我的交易記錄";
-            treeNode22.Name = "Recruit";
-            treeNode22.Text = "證照課程";
-            treeNode23.Name = "Dis_Node1";
-            treeNode23.Text = "文章管理";
-            treeNode24.Name = "Dis_Node2";
-            treeNode24.Text = "留言管理";
-            treeNode25.Name = "Discuss";
-            treeNode25.Text = "討論版";
-            treeNode26.Name = "LogOut";
-            treeNode26.Text = "登出";
+            treeNode17.Name = "Repair_Node6";
+            treeNode17.Text = "照片上傳";
+            treeNode18.Name = "Repair";
+            treeNode18.Text = "工單";
+            treeNode19.Name = "Recruit_Node1";
+            treeNode19.Text = "課程一覽";
+            treeNode20.Name = "Recruit_Node2";
+            treeNode20.Text = "我要報名";
+            treeNode21.Name = "Recruit_Node3";
+            treeNode21.Text = "我的課程";
+            treeNode22.Name = "Recruit_Node4";
+            treeNode22.Text = "我的交易記錄";
+            treeNode23.Name = "Recruit";
+            treeNode23.Text = "證照課程";
+            treeNode24.Name = "Dis_Node1";
+            treeNode24.Text = "文章管理";
+            treeNode25.Name = "Dis_Node2";
+            treeNode25.Text = "留言管理";
+            treeNode26.Name = "Discuss";
+            treeNode26.Text = "討論版";
+            treeNode27.Name = "LogOut";
+            treeNode27.Text = "登出";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode4,
             treeNode7,
             treeNode11,
-            treeNode17,
-            treeNode22,
-            treeNode25,
-            treeNode26});
-            this.treeView1.Size = new System.Drawing.Size(258, 481);
+            treeNode18,
+            treeNode23,
+            treeNode26,
+            treeNode27});
+            this.treeView1.Size = new System.Drawing.Size(344, 601);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -185,8 +192,9 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 157);
+            this.pictureBox1.Size = new System.Drawing.Size(349, 196);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -195,25 +203,28 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Bisque;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(724, 385);
+            this.pictureBox5.Location = new System.Drawing.Point(965, 481);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(291, 247);
+            this.pictureBox5.Size = new System.Drawing.Size(388, 309);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(1280, 635);
+            this.ClientSize = new System.Drawing.Size(1707, 794);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.splitContainer1.Panel1.ResumeLayout(false);

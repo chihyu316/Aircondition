@@ -88,6 +88,10 @@ namespace prjAircondition
                     R_ucUninstallChecklist uninstall= new R_ucUninstallChecklist();
                     ShowPage(uninstall);
                     break;
+                case "照片上傳":
+                    R_ucPhotoUpload photoupload = new R_ucPhotoUpload();
+                    ShowPage(photoupload);
+                    break;
                 case "課程一覽":
                     C_CourseControl course = new C_CourseControl();
                     ShowPage(course);
