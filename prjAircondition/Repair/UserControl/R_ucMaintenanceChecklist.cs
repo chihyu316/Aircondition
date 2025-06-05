@@ -211,19 +211,18 @@ namespace prjAircondition.Repair
 
             //  自動產生下一筆工單編號（查 MAX + 1）
             int nextID = 0;
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                string sql = "SELECT ISNULL(MAX(WorkOrderID), 0) + 1 FROM WorkOrder";
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    conn.Open();
-                    nextID = (int)cmd.ExecuteScalar();
-                }
-            }
+            //using (SqlConnection conn = new SqlConnection(connStr))
+            //{
+            //    using (SqlCommand cmd = new SqlCommand(sql, conn))
+            //    {
+            //        conn.Open();
+            //        nextID = (int)cmd.ExecuteScalar();
+            //    }
+            //}
 
             // ➕ 建立資料列並自動填入欄位
             DataRow row = dtWorkOrders.NewRow();
-            row["WorkOrderID"] = nextID;
+            //row["WorkOrderID"] = nextID;
             row["CreatedDate"] = DateTime.Now;
             dtWorkOrders.Rows.Add(row);
             UpdateCountLabel();
@@ -258,7 +257,7 @@ namespace prjAircondition.Repair
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string sql = @"SELECT WorkOrderID, WorkTypeID, TechnicianID, CityID, AreaID, MemberID, 
+                string sql = @"SELECT WorkTypeID, TechnicianID, CityID, AreaID, MemberID, 
                               ModelName, CreatedDate, AddressDetail 
                        FROM WorkOrder";
 
