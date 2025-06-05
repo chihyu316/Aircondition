@@ -19,7 +19,6 @@ namespace prjAircondition
     public partial class Form1 : Form
     {
         string loginAccount;
-
         private void ShowPage(UserControl user)
         {
             splitContainer1.Panel2.Controls.Clear();
@@ -30,6 +29,7 @@ namespace prjAircondition
         {
             InitializeComponent();
             loginAccount = UserID;
+            D_ReplyControl.ReplyContent = loginAccount;
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)

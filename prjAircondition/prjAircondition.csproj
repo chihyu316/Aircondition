@@ -270,6 +270,9 @@
     <Compile Include="Tech\UserControl\T_TechUserControl1.Designer.cs">
       <DependentUpon>T_TechUserControl1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dicuss\UserControl\D_ReplyControl.resx">
+      <DependentUpon>D_ReplyControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recruit\Form\C_FrmAddB.resx">
       <DependentUpon>C_FrmAddB.cs</DependentUpon>
     </EmbeddedResource>

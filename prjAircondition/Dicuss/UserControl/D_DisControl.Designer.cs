@@ -39,6 +39,8 @@
             this.D_textUserT = new System.Windows.Forms.TextBox();
             this.D_PostdataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.D_PL_Combobox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.D_ListContextT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.D_ListUserT = new System.Windows.Forms.TextBox();
@@ -47,7 +49,6 @@
             this.D_label5 = new System.Windows.Forms.Label();
             this.D_label4 = new System.Windows.Forms.Label();
             this.D_label3 = new System.Windows.Forms.Label();
-            this.D_BTN_Insert = new System.Windows.Forms.Button();
             this.D_BTN_Update = new System.Windows.Forms.Button();
             this.D_BTN_Delete = new System.Windows.Forms.Button();
             this.d_ACDataSet1 = new prjAircondition.Dicuss.DataSet.D_ACDataSet();
@@ -82,6 +83,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.DropDownWidth = 72;
             this.comboBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.comboBox2.FormattingEnabled = true;
@@ -92,6 +94,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(629, 15);
@@ -140,9 +143,12 @@
             this.D_PostdataGridView.Size = new System.Drawing.Size(526, 455);
             this.D_PostdataGridView.TabIndex = 5;
             this.D_PostdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.D_PostdataGridView.SelectionChanged += new System.EventHandler(this.PostMaindataGridView_SelectionChanged);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.D_PL_Combobox);
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.D_ListContextT);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.D_ListUserT);
@@ -159,18 +165,42 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "文章詳細資料";
             // 
+            // D_PL_Combobox
+            // 
+            this.D_PL_Combobox.DropDownWidth = 72;
+            this.D_PL_Combobox.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.D_PL_Combobox.FormattingEnabled = true;
+            this.D_PL_Combobox.Items.AddRange(new object[] {
+            "精華",
+            "置頂",
+            "一般"});
+            this.D_PL_Combobox.Location = new System.Drawing.Point(103, 180);
+            this.D_PL_Combobox.Name = "D_PL_Combobox";
+            this.D_PL_Combobox.Size = new System.Drawing.Size(84, 29);
+            this.D_PL_Combobox.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 24);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "文章狀態:";
+            // 
             // D_ListContextT
             // 
-            this.D_ListContextT.Location = new System.Drawing.Point(10, 244);
+            this.D_ListContextT.Location = new System.Drawing.Point(10, 281);
             this.D_ListContextT.Multiline = true;
             this.D_ListContextT.Name = "D_ListContextT";
-            this.D_ListContextT.Size = new System.Drawing.Size(399, 262);
+            this.D_ListContextT.ReadOnly = true;
+            this.D_ListContextT.Size = new System.Drawing.Size(399, 225);
             this.D_ListContextT.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 202);
+            this.label1.Location = new System.Drawing.Point(8, 254);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 24);
             this.label1.TabIndex = 10;
@@ -178,29 +208,32 @@
             // 
             // D_ListUserT
             // 
-            this.D_ListUserT.Location = new System.Drawing.Point(105, 141);
+            this.D_ListUserT.Location = new System.Drawing.Point(105, 26);
             this.D_ListUserT.Name = "D_ListUserT";
+            this.D_ListUserT.ReadOnly = true;
             this.D_ListUserT.Size = new System.Drawing.Size(304, 33);
             this.D_ListUserT.TabIndex = 9;
             // 
             // D_ListSortT
             // 
-            this.D_ListSortT.Location = new System.Drawing.Point(105, 95);
+            this.D_ListSortT.Location = new System.Drawing.Point(105, 123);
             this.D_ListSortT.Name = "D_ListSortT";
+            this.D_ListSortT.ReadOnly = true;
             this.D_ListSortT.Size = new System.Drawing.Size(304, 33);
             this.D_ListSortT.TabIndex = 8;
             // 
             // D_ListTitleT
             // 
-            this.D_ListTitleT.Location = new System.Drawing.Point(105, 45);
+            this.D_ListTitleT.Location = new System.Drawing.Point(105, 73);
             this.D_ListTitleT.Name = "D_ListTitleT";
+            this.D_ListTitleT.ReadOnly = true;
             this.D_ListTitleT.Size = new System.Drawing.Size(304, 33);
             this.D_ListTitleT.TabIndex = 7;
             // 
             // D_label5
             // 
             this.D_label5.AutoSize = true;
-            this.D_label5.Location = new System.Drawing.Point(27, 144);
+            this.D_label5.Location = new System.Drawing.Point(27, 29);
             this.D_label5.Name = "D_label5";
             this.D_label5.Size = new System.Drawing.Size(72, 24);
             this.D_label5.TabIndex = 6;
@@ -209,7 +242,7 @@
             // D_label4
             // 
             this.D_label4.AutoSize = true;
-            this.D_label4.Location = new System.Drawing.Point(8, 98);
+            this.D_label4.Location = new System.Drawing.Point(8, 126);
             this.D_label4.Name = "D_label4";
             this.D_label4.Size = new System.Drawing.Size(91, 24);
             this.D_label4.TabIndex = 5;
@@ -218,41 +251,33 @@
             // D_label3
             // 
             this.D_label3.AutoSize = true;
-            this.D_label3.Location = new System.Drawing.Point(8, 51);
+            this.D_label3.Location = new System.Drawing.Point(8, 79);
             this.D_label3.Name = "D_label3";
             this.D_label3.Size = new System.Drawing.Size(91, 24);
             this.D_label3.TabIndex = 4;
             this.D_label3.Text = "文章標題:";
             // 
-            // D_BTN_Insert
-            // 
-            this.D_BTN_Insert.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.D_BTN_Insert.Location = new System.Drawing.Point(35, 65);
-            this.D_BTN_Insert.Name = "D_BTN_Insert";
-            this.D_BTN_Insert.Size = new System.Drawing.Size(93, 35);
-            this.D_BTN_Insert.TabIndex = 7;
-            this.D_BTN_Insert.Text = "新增";
-            this.D_BTN_Insert.UseVisualStyleBackColor = true;
-            // 
             // D_BTN_Update
             // 
             this.D_BTN_Update.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.D_BTN_Update.Location = new System.Drawing.Point(134, 67);
+            this.D_BTN_Update.Location = new System.Drawing.Point(115, 67);
             this.D_BTN_Update.Name = "D_BTN_Update";
             this.D_BTN_Update.Size = new System.Drawing.Size(93, 33);
             this.D_BTN_Update.TabIndex = 8;
             this.D_BTN_Update.Text = "修改";
             this.D_BTN_Update.UseVisualStyleBackColor = true;
+            this.D_BTN_Update.Click += new System.EventHandler(this.D_BTN_Update_Click);
             // 
             // D_BTN_Delete
             // 
             this.D_BTN_Delete.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
-            this.D_BTN_Delete.Location = new System.Drawing.Point(233, 67);
+            this.D_BTN_Delete.Location = new System.Drawing.Point(214, 67);
             this.D_BTN_Delete.Name = "D_BTN_Delete";
             this.D_BTN_Delete.Size = new System.Drawing.Size(93, 33);
             this.D_BTN_Delete.TabIndex = 9;
             this.D_BTN_Delete.Text = "刪除";
             this.D_BTN_Delete.UseVisualStyleBackColor = true;
+            this.D_BTN_Delete.Click += new System.EventHandler(this.D_BTN_Delete_Click);
             // 
             // d_ACDataSet1
             // 
@@ -309,7 +334,6 @@
             this.Controls.Add(this.D_textTitleT);
             this.Controls.Add(this.D_BTN_Delete);
             this.Controls.Add(this.D_BTN_Update);
-            this.Controls.Add(this.D_BTN_Insert);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.D_PostdataGridView);
             this.Name = "D_DisControl";
@@ -342,7 +366,6 @@
         private System.Windows.Forms.TextBox D_ListUserT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox D_ListContextT;
-        private System.Windows.Forms.Button D_BTN_Insert;
         private System.Windows.Forms.Button D_BTN_Update;
         private System.Windows.Forms.Button D_BTN_Delete;
         private DataSet.D_ACDataSet d_ACDataSet1;
@@ -350,5 +373,7 @@
         private System.Windows.Forms.Label D_L_Data;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox D_PL_Combobox;
     }
 }

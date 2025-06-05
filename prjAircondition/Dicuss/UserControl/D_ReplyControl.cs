@@ -12,9 +12,11 @@ namespace prjAircondition
 {
     public partial class D_ReplyControl : UserControl
     {
+        public static  string ReplyContent { get; set; }
         public D_ReplyControl()
         {
             InitializeComponent();
+            textBox1.Text = ReplyContent;
         }
     }
 }

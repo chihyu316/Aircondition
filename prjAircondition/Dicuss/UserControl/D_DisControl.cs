@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,6 +42,48 @@ namespace prjAircondition.Dicuss
             else if (!string.IsNullOrEmpty(month))
                 TextSrc3 = month;
              D_PostdataGridView.DataSource =D_DataConnect.PostMainSrc(TextSrc1, TextSrc2, TextSrc3);
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+
+        }
+
+        private void PostMaindataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (D_PostdataGridView.CurrentRow != null)
+            {
+                DataGridViewRow row = D_PostdataGridView.CurrentRow;
+
+                D_ListTitleT.Text = row.Cells["文章標題"].Value?.ToString();
+                D_ListSortT.Text = row.Cells["文章類型"].Value?.ToString();
+                D_ListUserT.Text = row.Cells["發文者"].Value?.ToString();
+                D_ListContextT.Text = row.Cells["文章內容"].Value?.ToString();
+                var status = row.Cells["文章狀態"].Value?.ToString();
+                if (D_PL_Combobox.Items.Contains(status))
+                {
+                    D_PL_Combobox.SelectedItem = status;
+                }
+            }
+        }
+
+        private void D_BTN_Update_Click(object sender, EventArgs e)
+        {
+            D_DataConnect.PostUpdate((string)D_PL_Combobox.SelectedItem,D_ListUserT.Text,D_ListTitleT.Text);
+            D_PostdataGridView.DataSource = D_DataConnect.LoadhPostmain();
+        }
+
+        private void D_BTN_Delete_Click(object sender, EventArgs e)
+        {
+            if (D_PostdataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = D_PostdataGridView.SelectedRows[0];
+                int postId = Convert.ToInt32(selectedRow.Cells["文章編號"].Value);
+                D_DataConnect.PostDelete(postId);
+                D_PostdataGridView.DataSource = D_DataConnect.LoadhPostmain();
+            }
+            else 
+            {
+                MessageBox.Show("請選擇要刪除的文章。");
+            }
         }
     }
 }
