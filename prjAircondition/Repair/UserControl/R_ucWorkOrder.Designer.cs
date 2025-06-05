@@ -64,7 +64,7 @@
             // 
             this.RE_btnNew.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.RE_btnNew.Location = new System.Drawing.Point(307, 244);
-            this.RE_btnNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RE_btnNew.Margin = new System.Windows.Forms.Padding(4);
             this.RE_btnNew.Name = "RE_btnNew";
             this.RE_btnNew.Size = new System.Drawing.Size(128, 56);
             this.RE_btnNew.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             this.RE_update.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.RE_update.Location = new System.Drawing.Point(495, 244);
-            this.RE_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RE_update.Margin = new System.Windows.Forms.Padding(4);
             this.RE_update.Name = "RE_update";
             this.RE_update.Size = new System.Drawing.Size(127, 56);
             this.RE_update.TabIndex = 2;
@@ -88,7 +88,7 @@
             // 
             this.ER_btnSelect.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.ER_btnSelect.Location = new System.Drawing.Point(867, 62);
-            this.ER_btnSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ER_btnSelect.Margin = new System.Windows.Forms.Padding(4);
             this.ER_btnSelect.Name = "ER_btnSelect";
             this.ER_btnSelect.Size = new System.Drawing.Size(128, 59);
             this.ER_btnSelect.TabIndex = 3;
@@ -100,7 +100,7 @@
             // 
             this.RE_btndele.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.RE_btndele.Location = new System.Drawing.Point(867, 244);
-            this.RE_btndele.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RE_btndele.Margin = new System.Windows.Forms.Padding(4);
             this.RE_btndele.Name = "RE_btndele";
             this.RE_btndele.Size = new System.Drawing.Size(131, 59);
             this.RE_btndele.TabIndex = 4;
@@ -113,8 +113,9 @@
             this.RE_dataGridView1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.RE_dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RE_dataGridView1.Location = new System.Drawing.Point(61, 374);
-            this.RE_dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RE_dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.RE_dataGridView1.Name = "RE_dataGridView1";
+            this.RE_dataGridView1.ReadOnly = true;
             this.RE_dataGridView1.RowHeadersWidth = 51;
             this.RE_dataGridView1.RowTemplate.Height = 24;
             this.RE_dataGridView1.Size = new System.Drawing.Size(1257, 341);
@@ -133,7 +134,7 @@
             "付款方式",
             "施工地址"});
             this.RE_cob.Location = new System.Drawing.Point(414, 62);
-            this.RE_cob.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RE_cob.Margin = new System.Windows.Forms.Padding(4);
             this.RE_cob.Name = "RE_cob";
             this.RE_cob.Size = new System.Drawing.Size(160, 24);
             this.RE_cob.TabIndex = 6;
@@ -142,7 +143,7 @@
             // 
             this.RE_SearchT.Font = new System.Drawing.Font("微軟正黑體", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.RE_SearchT.Location = new System.Drawing.Point(674, 65);
-            this.RE_SearchT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RE_SearchT.Margin = new System.Windows.Forms.Padding(4);
             this.RE_SearchT.Name = "RE_SearchT";
             this.RE_SearchT.Size = new System.Drawing.Size(159, 23);
             this.RE_SearchT.TabIndex = 7;
@@ -171,7 +172,7 @@
             // 
             this.RE_btnupd.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.RE_btnupd.Location = new System.Drawing.Point(685, 244);
-            this.RE_btnupd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RE_btnupd.Margin = new System.Windows.Forms.Padding(4);
             this.RE_btnupd.Name = "RE_btnupd";
             this.RE_btnupd.Size = new System.Drawing.Size(127, 56);
             this.RE_btnupd.TabIndex = 2;
@@ -232,7 +233,7 @@
             this.Controls.Add(this.RE_update);
             this.Controls.Add(this.RE_btnNew);
             this.Controls.Add(this.RE_lblCount);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "R_ucWorkOrder";
             this.Size = new System.Drawing.Size(1384, 858);
             ((System.ComponentModel.ISupportInitialize)(this.RE_dataGridView1)).EndInit();

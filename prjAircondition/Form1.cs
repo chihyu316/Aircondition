@@ -76,7 +76,7 @@ namespace prjAircondition
                     R_ucInstallationChecklist install = new R_ucInstallationChecklist();
                     ShowPage(install);
                     break;
-                case "保養":
+                case "新增工單":
                     R_ucMaintenanceChecklist maintain = new R_ucMaintenanceChecklist();
                     ShowPage(maintain);
                     break;

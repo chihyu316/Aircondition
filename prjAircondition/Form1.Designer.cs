@@ -50,7 +50,7 @@
             treeNode10});
             System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("施工單");
             System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("安裝");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("保養");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("新增工單");
             System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("維修");
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("拆機");
             System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("照片上傳");
@@ -94,7 +94,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -120,7 +120,7 @@
             this.treeView1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.treeView1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.treeView1.Location = new System.Drawing.Point(0, 193);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "M_Node1";
             treeNode1.Text = "會員資料";
@@ -149,7 +149,7 @@
             treeNode13.Name = "Repair_Node2";
             treeNode13.Text = "安裝";
             treeNode14.Name = "Repair_Node3";
-            treeNode14.Text = "保養";
+            treeNode14.Text = "新增工單";
             treeNode15.Name = "Repair_Node4";
             treeNode15.Text = "維修";
             treeNode16.Name = "Repair_Node5";
@@ -192,7 +192,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(349, 196);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -204,7 +204,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Bisque;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(965, 481);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(388, 309);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +224,7 @@
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(1707, 794);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.splitContainer1.Panel1.ResumeLayout(false);
