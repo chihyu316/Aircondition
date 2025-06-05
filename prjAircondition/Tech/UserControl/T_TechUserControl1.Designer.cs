@@ -93,11 +93,12 @@
             this.TechPage = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonUploadPhoto = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.techPictureBox = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.updatedAtPickerTech = new System.Windows.Forms.DateTimePicker();
             this.createdAtPickerTech = new System.Windows.Forms.DateTimePicker();
+            this.btnDeleteTech = new System.Windows.Forms.Button();
             this.btnSaveData = new System.Windows.Forms.Button();
             this.techAccountTextBox = new System.Windows.Forms.TextBox();
             this.phone_textBox = new System.Windows.Forms.TextBox();
@@ -111,6 +112,7 @@
             this.LicensePage = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.InsertLicense = new System.Windows.Forms.TabPage();
+            this.btnDeleteLicense = new System.Windows.Forms.Button();
             this.btnAddLicense = new System.Windows.Forms.Button();
             this.btnTechAllLicense = new System.Windows.Forms.Button();
             this.btnSaveLicense = new System.Windows.Forms.Button();
@@ -132,6 +134,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.LicenseAllPage = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanelLicenses = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.techniciansTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TechniciansTableAdapter();
             this.tableAdapterManager = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.TableAdapterManager();
@@ -142,8 +146,6 @@
             this.workOrderTableAdapter = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.WorkOrderTableAdapter();
             this.licensesTableAdapter1 = new prjAircondition.Tech.DataSet.T_ACDataSet1TableAdapters.licensesTableAdapter();
             this.licensebindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnDeleteLicense = new System.Windows.Forms.Button();
-            this.btnDeleteTech = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.AllTechPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.techniciansBindingNavigator)).BeginInit();
@@ -153,11 +155,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.techniciansDataGridView)).BeginInit();
             this.TechPage.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techPictureBox)).BeginInit();
             this.LicensePage.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.InsertLicense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).BeginInit();
+            this.LicenseAllPage.SuspendLayout();
+            this.flowLayoutPanelLicenses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.licensebindingSource1)).BeginInit();
@@ -786,7 +790,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonUploadPhoto);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.techPictureBox);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Location = new System.Drawing.Point(797, 31);
             this.panel1.Name = "panel1";
@@ -804,15 +808,15 @@
             this.buttonUploadPhoto.UseVisualStyleBackColor = true;
             this.buttonUploadPhoto.Click += new System.EventHandler(this.buttonUploadPhoto_Click);
             // 
-            // pictureBox1
+            // TechpictureBox
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(40, 110);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(520, 402);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.techPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("TechpictureBox.Image")));
+            this.techPictureBox.Location = new System.Drawing.Point(40, 110);
+            this.techPictureBox.Name = "TechpictureBox";
+            this.techPictureBox.Size = new System.Drawing.Size(520, 402);
+            this.techPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.techPictureBox.TabIndex = 19;
+            this.techPictureBox.TabStop = false;
             // 
             // label6
             // 
@@ -851,6 +855,17 @@
             this.createdAtPickerTech.Name = "createdAtPickerTech";
             this.createdAtPickerTech.Size = new System.Drawing.Size(378, 45);
             this.createdAtPickerTech.TabIndex = 23;
+            // 
+            // btnDeleteTech
+            // 
+            this.btnDeleteTech.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteTech.Location = new System.Drawing.Point(429, 601);
+            this.btnDeleteTech.Name = "btnDeleteTech";
+            this.btnDeleteTech.Size = new System.Drawing.Size(290, 71);
+            this.btnDeleteTech.TabIndex = 21;
+            this.btnDeleteTech.Text = "刪除";
+            this.btnDeleteTech.UseVisualStyleBackColor = true;
+            this.btnDeleteTech.Click += new System.EventHandler(this.btnSaveData_Click);
             // 
             // btnSaveData
             // 
@@ -999,6 +1014,16 @@
             this.InsertLicense.Size = new System.Drawing.Size(1626, 888);
             this.InsertLicense.TabIndex = 0;
             this.InsertLicense.Text = "新增證照";
+            // 
+            // btnDeleteLicense
+            // 
+            this.btnDeleteLicense.Location = new System.Drawing.Point(404, 691);
+            this.btnDeleteLicense.Name = "btnDeleteLicense";
+            this.btnDeleteLicense.Size = new System.Drawing.Size(164, 64);
+            this.btnDeleteLicense.TabIndex = 32;
+            this.btnDeleteLicense.Text = "刪除";
+            this.btnDeleteLicense.UseVisualStyleBackColor = true;
+            this.btnDeleteLicense.Click += new System.EventHandler(this.btnDeleteLicense_Click);
             // 
             // btnAddLicense
             // 
@@ -1196,12 +1221,31 @@
             // LicenseAllPage
             // 
             this.LicenseAllPage.BackColor = System.Drawing.Color.SeaShell;
+            this.LicenseAllPage.Controls.Add(this.flowLayoutPanelLicenses);
             this.LicenseAllPage.Location = new System.Drawing.Point(4, 46);
             this.LicenseAllPage.Name = "LicenseAllPage";
             this.LicenseAllPage.Padding = new System.Windows.Forms.Padding(3);
             this.LicenseAllPage.Size = new System.Drawing.Size(1626, 888);
             this.LicenseAllPage.TabIndex = 1;
             this.LicenseAllPage.Text = "查看所有證照";
+            // 
+            // flowLayoutPanelLicenses
+            // 
+            this.flowLayoutPanelLicenses.AutoScroll = true;
+            this.flowLayoutPanelLicenses.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanelLicenses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelLicenses.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanelLicenses.Name = "flowLayoutPanelLicenses";
+            this.flowLayoutPanelLicenses.Size = new System.Drawing.Size(1620, 882);
+            this.flowLayoutPanelLicenses.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(8, 0);
+            this.flowLayoutPanel2.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -1251,27 +1295,6 @@
             // 
             this.licensesTableAdapter1.ClearBeforeFill = true;
             // 
-            // btnDeleteLicense
-            // 
-            this.btnDeleteLicense.Location = new System.Drawing.Point(404, 691);
-            this.btnDeleteLicense.Name = "btnDeleteLicense";
-            this.btnDeleteLicense.Size = new System.Drawing.Size(164, 64);
-            this.btnDeleteLicense.TabIndex = 32;
-            this.btnDeleteLicense.Text = "刪除";
-            this.btnDeleteLicense.UseVisualStyleBackColor = true;
-            this.btnDeleteLicense.Click += new System.EventHandler(this.btnDeleteLicense_Click);
-            // 
-            // btnDeleteTech
-            // 
-            this.btnDeleteTech.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteTech.Location = new System.Drawing.Point(429, 601);
-            this.btnDeleteTech.Name = "btnDeleteTech";
-            this.btnDeleteTech.Size = new System.Drawing.Size(290, 71);
-            this.btnDeleteTech.TabIndex = 21;
-            this.btnDeleteTech.Text = "刪除";
-            this.btnDeleteTech.UseVisualStyleBackColor = true;
-            this.btnDeleteTech.Click += new System.EventHandler(this.btnSaveData_Click);
-            // 
             // T_TechUserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -1307,12 +1330,14 @@
             this.TechPage.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techPictureBox)).EndInit();
             this.LicensePage.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.InsertLicense.ResumeLayout(false);
             this.InsertLicense.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licensepictureBox)).EndInit();
+            this.LicenseAllPage.ResumeLayout(false);
+            this.flowLayoutPanelLicenses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.s_DOrderProcessing1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.licensebindingSource1)).EndInit();
@@ -1353,7 +1378,7 @@
         private System.Windows.Forms.TabPage TechPage;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonUploadPhoto;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox techPictureBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker updatedAtPickerTech;
@@ -1437,5 +1462,7 @@
         private System.Windows.Forms.Button btnAddLicense;
         private System.Windows.Forms.Button btnDeleteLicense;
         private System.Windows.Forms.Button btnDeleteTech;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelLicenses;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,9 +25,9 @@ namespace prjAircondition.Tech
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.None;
 
-            InitImageFolder();
+            InitTechImageFolder(); //初始化師傅照片存放位置
             InitBindingSource(); // << 重點：把 BindingSource 初始設定集中處理
-            InitImageLicenseFolder();
+            InitImageLicenseFolder(); //初始化證照圖片存放位置
         }
 
         // 初始化 License 存放目錄
@@ -71,7 +72,7 @@ namespace prjAircondition.Tech
             BindLicenseControl();
             SetTechDateTimePickers();//師傅個人資訊時間初始化
             SetLicenseDateTimePickers();   // <-- 這就是你新加進來的證照時間初始化
-            LoadImageFromDS();
+            LoadTechImageFromDS();
         }
 
         //依照 師傅id 篩選證照
@@ -222,8 +223,9 @@ namespace prjAircondition.Tech
         }
 
         //資料庫照片位置存放處
-        private void InitImageFolder()
+        private void InitTechImageFolder()
         {
+            MessageBox.Show("初始檔案執行位置" + Application.StartupPath);
             //找個資料夾放圖片並給個資料夾名稱
             string projectRootPath = Directory.GetParent(Application.StartupPath).Parent.Parent.FullName;
             imageFolderPath = Path.Combine(projectRootPath, "TechResources");
@@ -231,7 +233,7 @@ namespace prjAircondition.Tech
         }
 
         //離線資料庫載入 讀取離線資料庫照片
-        private void LoadImageFromDS()
+        private void LoadTechImageFromDS()
         {
             //確認BindingSource所指的位置指向哪筆資料 .Current 且是否是 DataRowView 型別物件
             //BindingSource 在綁 DataTable 時，每一筆其實是用 DataRowView 包裝起來的
@@ -241,49 +243,56 @@ namespace prjAircondition.Tech
                 //從 DataRowView 裡面，取出實際的資料列 DataRow 用.Row屬性
                 //用DataRow讀取那筆資料列的東西 row[""]
                 DataRow row = drv.Row;
-                //確保row["photo"]欄位不是nuLL 取 裡面內容轉換成字串後不是空白
-                if (!row.IsNull("photo") && !string.IsNullOrWhiteSpace(row["photo"].ToString()))
+
+                string relativePath = row["photo"]?.ToString();
+                string fullPath = BuildFullPath(imageFolderPath, relativePath);
+                //確保fullPath 不是nuLL 取 裡面內容轉換成字串後不是空白或是空物件 ， 且在真實路徑下有真實檔案
+                if (!string.IsNullOrEmpty(fullPath) && File.Exists(fullPath))
                 {
-                    //取出照片檔名
-                    string filename = row["photo"].ToString();
-                    //組合出完整路徑位置(路徑+檔名)
-                    string fullPath = Path.Combine(imageFolderPath, filename);
-                    //檔案存在顯示 否則就是Null
-                    pictureBox1.Image = File.Exists(fullPath) ? Image.FromFile(fullPath) : null;
+                    this.techPictureBox.Image = Image.FromFile(fullPath);
+                    //組合出完整路徑位置(路徑 TechResources/{T_id}/+檔名)
                 }
                 else
                 {
                     //欄位沒有值也是預設圖片
-                    LoadDefaultImage();
+                    LoadTechDefaultImage();
                 }
             }
             //Binding source此時沒有指向任何筆資料時也是顯示預設圖片
             else
             {
-                LoadDefaultImage();
+                LoadTechDefaultImage();
             }
         }
 
         //預設圖片位置
-        private void LoadDefaultImage()
+        private void LoadTechDefaultImage()
         {
-            //給預設照片 都在 C:\Users\yozora\Desktop\AC_Middern\NewTech\Aircondition\TechResources底下
-            string defaultPath = Path.Combine(imageFolderPath, "default.png");
+            string defaultPath = GetDefaultTechImagePath();
+
             //執行檔案預設路徑
             //MessageBox.Show("Application.StartupPath: " + Application.StartupPath);
 
-            MessageBox.Show("載入預設圖");
+            MessageBox.Show("載入師傅預設圖");
 
             if (File.Exists(defaultPath))
             {
-                pictureBox1.Image = Image.FromFile(defaultPath);
+                this.techPictureBox.Image = Image.FromFile(defaultPath);
             }
             else
             {
-                pictureBox1.Image = null; // 沒預設圖就空白
+                this.techPictureBox.Image = null; // 沒預設圖就空白
             }
         }
 
+        // 小工具：取得師傅圖片完整路徑
+        private string GetTechImageFullPath(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath)) return null;
+            return Path.Combine(imageFolderPath, relativePath);
+        }
+
+        //儲存師傅
         private void btnSaveData_Click(object sender, EventArgs e)
         {
             //另一種寫法
@@ -310,23 +319,28 @@ namespace prjAircondition.Tech
                 updatedAtPickerTech.Value = now;
 
                 //照片有更動時，更新photo欄位內容
-                if (this.pictureBox1.Tag != null)
+                if (this.techPictureBox.Tag != null)
                 {
                     //把那筆資料列欄位換成這個Tag名稱
-                    string fileName = this.pictureBox1.Tag.ToString();
-                    dataRow["photo"] = fileName;
+                    string fileName = this.techPictureBox.Tag.ToString();
+                    // 組成 T_id 子資料夾
+                    int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
+                    //Tech/{T_id}/{真正的檔名}
+                    string techFolder = Path.Combine(imageFolderPath, "Tech", currentTechId.ToString());
+                    Directory.CreateDirectory(techFolder);
 
-                    //儲存時複製一份檔案到資料夾裡 路徑
-                    string storePath = Path.Combine(imageFolderPath, fileName);
-
-                    //// 檢查來源路徑是否有效，才進行檔案複製
-                    //if (!string.IsNullOrEmpty(selectedPhotoFullPath) && File.Exists(selectedPhotoFullPath))
-                    //{
-                    //    // 避免重複覆蓋同名檔案 複製一份檔案到這路徑storePath下
-                    //    // true 代表有同名檔案時覆蓋
-                    //    File.Copy(selectedPhotoFullPath, storePath, true);
-                    //    selectedPhotoFullPath = null;
-                    //}
+                    string destPath = Path.Combine(techFolder, fileName);
+                    // 檢查來源路徑是否有效，才進行檔案複製
+                    if (!string.IsNullOrEmpty(selectedPhotoFullPath) && File.Exists(selectedPhotoFullPath))
+                    {
+                        // 避免重複覆蓋同名檔案 複製一份檔案到這路徑storePath下
+                        // true 代表有同名檔案時覆蓋
+                        //儲存時複製一份本地檔案到 資料夾裡的檔案 路徑位置
+                        File.Copy(selectedPhotoFullPath, destPath, true);
+                        selectedPhotoFullPath = null;
+                    }
+                    // 寫入相對路徑 (以便移動整個專案時路徑不受限)
+                    dataRow["photo"] = Path.Combine("Tech", currentTechId.ToString(), fileName);
                 }
             }
             //強制觸發整個表單(Form 或 UserControl) 上所有控制項的驗證事件。 如果UI
@@ -362,7 +376,7 @@ namespace prjAircondition.Tech
                 //檔名
                 string fileName = Path.GetFileName(sourcePath);
                 //目的地路徑
-                string destPath = Path.Combine(imageFolderPath, fileName);
+                string destPath = Path.Combine(licenseImageFolderPath, fileName);
 
                 // 複製圖片到資料夾 (避免直接讀使用者原始位置)
                 File.Copy(sourcePath, destPath, true);
@@ -402,11 +416,11 @@ namespace prjAircondition.Tech
                 //先暫存檔案路徑，還沒上傳，暫放一下
                 selectedPhotoFullPath = sourcePath;
 
-                // 顯示圖片存到pictureBox1
-                this.pictureBox1.Image = Image.FromFile(sourcePath);
+                // 顯示圖片存到TechpictureBox 暫存路徑和檔名
+                this.techPictureBox.Image = Image.FromFile(sourcePath);
 
                 // 把這個TAG給值 為目前所選檔案名稱 方便後續判斷這個圖片有沒有TAG值
-                this.pictureBox1.Tag = fileName;
+                this.techPictureBox.Tag = fileName;
                 MessageBox.Show($"已上傳 {fileName}");
             }
             else
@@ -421,7 +435,7 @@ namespace prjAircondition.Tech
             if (this.techniciansBindingSource.Current != null)
             {
                 // 載入圖片
-                LoadImageFromDS();
+                LoadTechImageFromDS();
 
                 // 切換到師傅個人資訊頁
                 this.tabControl1.SelectedTab = this.TechPage;
@@ -485,7 +499,7 @@ namespace prjAircondition.Tech
                 this.tabControl1.SelectedTab = this.TechPage;
 
                 // 順手載入圖片（因為你圖片是隨 SelectionChanged 或 ShowTechnicianDetail 載入的）
-                LoadImageFromDS();
+                LoadTechImageFromDS();
             }
         }
 
@@ -547,7 +561,76 @@ namespace prjAircondition.Tech
         //切換到師父 所有圖片一覽頁面
         private void btnTechAllLicense_Click(object sender, EventArgs e)
         {
+            LoadAllLicenseImages();
             this.tabControl2.SelectedTab = this.LicenseAllPage;
+        }
+
+        private void LoadAllLicenseImages()
+        {
+            // 先清除舊的內容
+            this.flowLayoutPanelLicenses.Controls.Clear();
+
+            // 取得目前師傅ID
+            int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
+
+            var licenseRows = t_ACDataSet1.licenses.Where(r => r.T_id == currentTechId);
+            foreach (var row in licenseRows)
+            {
+                //檢查欄位值，給予對應的資料
+                string fileName = string.IsNullOrEmpty(row.image_source) ? null : row.image_source;
+                string licenseName = string.IsNullOrEmpty(row.license_name) ? "" : row.license_name;
+
+                Panel cardPanel = new Panel();
+                cardPanel.Width = 180;
+                cardPanel.Height = 220;
+                cardPanel.Margin = new Padding(10);
+
+                PictureBox picLicense = new PictureBox();
+                picLicense.Width = 160;
+                picLicense.Height = 160;
+                picLicense.SizeMode = PictureBoxSizeMode.Zoom;
+
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    string imagePath = GetLicenseImageFullPath(fileName);
+                    if (File.Exists(imagePath))
+                    {
+                        picLicense.Image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        //沒圖片載入預設證照圖片 方法裡面有預設圖顯示沒有就是null
+                        picLicense.Image = LoadDefaultLicenseImage();
+                    }
+                }
+                else
+                {
+                    picLicense.Image = LoadDefaultLicenseImage();
+                }
+
+                Label labellLicenseName = new Label();
+                labellLicenseName.Text = licenseName;
+                labellLicenseName.Width = 160;
+                labellLicenseName.TextAlign = ContentAlignment.MiddleCenter;
+                labellLicenseName.Top = 170;
+
+                cardPanel.Controls.Add(picLicense);
+                cardPanel.Controls.Add(labellLicenseName);
+                flowLayoutPanelLicenses.Controls.Add(cardPanel);
+            }
+        }
+
+        private Image LoadDefaultLicenseImage()
+        {
+            string defaultLicenseImagePath = GetDefaultLicenseImagePath();
+            if (File.Exists(defaultLicenseImagePath))
+            {
+                return Image.FromFile(defaultLicenseImagePath);
+            }
+            else
+            {
+                return null;  // 找不到預設圖就給 null
+            }
         }
 
         //新增證照功能
@@ -567,6 +650,13 @@ namespace prjAircondition.Tech
 
             // 移動游標到新增的這一筆（可有可無，看你要不要跳到最後一筆方便觀察）
             licensebindingSource1.MoveLast();
+        }
+
+        // 小工具：取得證照圖片完整路徑
+        private string GetLicenseImageFullPath(string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath)) return null;
+            return Path.Combine(licenseImageFolderPath, relativePath);
         }
 
         //儲存 (包含照片 證照資料一起update回去)
@@ -600,17 +690,24 @@ namespace prjAircondition.Tech
                 {
                     // 取得目前上傳的檔名 (之前上傳時暫存在 Tag 內)
                     string fileName = this.licensepictureBox.Tag.ToString();
-                    // 將檔名存入 photo 欄位，供資料庫記錄
-                    row["image_source"] = fileName;
+
+                    //C:\Users\yozora\Desktop\AC_Middern\NewTech\Aircondition\TechResources\LicenseResources
+                    //按下儲存後才 建立要存放的照片子資料夾
+                    int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
+                    // LicenseResources/{T_id} 目錄
+                    string licenseFolder = Path.Combine(licenseImageFolderPath, currentTechId.ToString());
+                    Directory.CreateDirectory(licenseFolder);
 
                     // 產生目標儲存路徑
-                    string storePath = Path.Combine(licenseImageFolderPath, fileName);
+                    string storePath = Path.Combine(licenseFolder, fileName);
                     // 確認暫存上傳路徑有效，執行檔案複製進專屬資料夾中
                     if (!string.IsNullOrEmpty(selectedLicensePhotoFullPath) && File.Exists(selectedLicensePhotoFullPath))
                     {
                         File.Copy(selectedLicensePhotoFullPath, storePath, true);
                         selectedLicensePhotoFullPath = null;
                     }
+                    // 儲存在 DB 內只存相對路徑 (LicenseResources/{T_id}/{檔名})
+                    row["image_source"] = Path.Combine(currentTechId.ToString(), fileName);
                 }
             }
             // 執行整體畫面驗證 (強制觸發所有控制項驗證機制)
@@ -635,6 +732,26 @@ namespace prjAircondition.Tech
             {
                 MessageBox.Show("目前沒有選取任何證照");
             }
+        }
+
+        // 封裝完整路徑組合
+        private string BuildFullPath(string baseFolder, string relativePath)
+        {
+            if (string.IsNullOrEmpty(relativePath))
+                return null;
+            return Path.Combine(baseFolder, relativePath);
+        }
+
+        // 封裝讀取預設師傅圖路徑
+        private string GetDefaultTechImagePath()
+        {
+            return Path.Combine(imageFolderPath, "Tech", "default", "default.png");
+        }
+
+        // 封裝讀取預設證照圖路徑
+        private string GetDefaultLicenseImagePath()
+        {
+            return Path.Combine(licenseImageFolderPath, "default_license.png");
         }
     }
 }
