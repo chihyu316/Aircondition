@@ -244,7 +244,10 @@ namespace prjAircondition.Tech
             // 取得目前師傅ID
             int currentTechId = Convert.ToInt32(GetCurrentTechnicianId());
 
-            var licenseRows = t_ACDataSet1.licenses.Where(r => r.T_id == currentTechId);
+            var licenseRows = t_ACDataSet1.licenses
+             .AsEnumerable()
+             .Where(r => r.Field<int>("T_id") == currentTechId);
+
             foreach (var row in licenseRows)
             {
                 //檢查欄位值，給予對應的資料
