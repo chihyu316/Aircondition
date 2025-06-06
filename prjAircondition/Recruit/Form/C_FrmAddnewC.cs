@@ -17,11 +17,31 @@ namespace prjAircondition
         public C_FrmAddnewC()
         {
             InitializeComponent();
+            LoadToCourseBatchComboBox();
         }
 
         private void courseBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
+            if (this.courseBindingSource.Current is DataRowView rowView)
+            {
+                DataRow row = rowView.Row;
+                if (row["CourseStatus"] == DBNull.Value || row["CourseStatus"] == null)
+                {
+                    row["CourseStatus"] = 0;
+                }
+            }
+            if (cmbBatch.SelectedIndex >= 0 && cmbBatch.SelectedValue != null)
+            {
+                ((DataRowView)this.courseBindingSource.Current)["CourseBatchID"] = cmbBatch.SelectedValue;
+            }
+            else
+            {
+                ((DataRowView)this.courseBindingSource.Current)["CourseBatchID"] = DBNull.Value;
+                MessageBox.Show("請選擇課程梯次！");
+                return;
+            }
+
             this.courseBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.c_RecruitDataSet);
 
@@ -50,6 +70,33 @@ namespace prjAircondition
             this.courseLevelComboBox.SelectedIndex = 0;
         }
 
+        private void LoadToCourseBatchComboBox()
+        {
+            string connstring = Settings.Default.ACConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connstring))
+            {
+                conn.Open();
+                string sql = @"SELECT 
+                CourseBatchID,
+                BatchName + '｜' +
+                ISNULL(ClassTime, '未設定') + '｜' +
+                FORMAT(StartDate, 'yyyy/MM/dd') AS DisplayName
+                 FROM CourseBatch
+                ORDER BY StartDate DESC";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                // 綁定 ComboBox
+                cmbBatch.DataSource = dt;
+                cmbBatch.DisplayMember = "DisplayName";     // 顯示名稱
+                cmbBatch.ValueMember = "CourseBatchID";     // 真正要存的值
+                cmbBatch.SelectedIndex = -1; // 預設不選
+            }
+
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             DialogResult result = this.openFileDialog1.ShowDialog();

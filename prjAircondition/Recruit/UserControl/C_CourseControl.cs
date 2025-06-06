@@ -103,9 +103,8 @@ namespace prjAircondition.Recruit
                     row["課程狀態"] = GetCStatus((byte)row["CourseStatus"]);
                 }
 
-
                 this.dataGridView1.DataSource = dt;
-                
+
 
                 this.dataGridView1.ReadOnly = false;
 
@@ -158,8 +157,8 @@ namespace prjAircondition.Recruit
             addnewC.ShowDialog();
             if (addnewC.DialogResult == DialogResult.OK)
             {
+                cmCourse_SelectedIndexChanged(this.comboBox1, EventArgs.Empty);
 
-                C_RecruitDataSet.CourseRow courseRow = this.c_RecruitDataSet1.Course.NewCourseRow();
 
             }
         }
@@ -193,10 +192,10 @@ namespace prjAircondition.Recruit
 
                             // 更新資料庫
                             string sql = @"UPDATE Course SET CourseLevel = @CourseLevel, CourseTitle = @CourseTitle
-                                  WHERE CourseID = @CourseID;
-                                  
-                                  UPDATE CourseBatch SET StartDate = @StartDate, EndDate = @EndDate
-                                  WHERE CourseBatchID = (SELECT CourseBatchID FROM Course WHERE CourseID = @CourseID)";
+                              WHERE CourseID = @CourseID;
+                              
+                              UPDATE CourseBatch SET StartDate = @StartDate, EndDate = @EndDate
+                              WHERE CourseBatchID = (SELECT CourseBatchID FROM Course WHERE CourseID = @CourseID)";
 
                             using (SqlCommand cmd = new SqlCommand(sql, conn))
                             {
@@ -285,4 +284,5 @@ namespace prjAircondition.Recruit
 
             }
         }
-    }   }
+    }
+}

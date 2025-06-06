@@ -105,6 +105,7 @@ namespace prjAircondition.Recruit
             listBox1.Items.Add($"會員帳號{txtMAccount.Text}");
             listBox1.Items.Add($"課程ID{selectedC.CourseBatchID}");
             listBox1.Items.Add($"課程名稱{selectedC.Display}");
+            listBox1.Items.Add($"報名費用{selectedC.ActualPrice}"); //加入報名費用顯示
             listBox1.Items.Add($"報名時間{DateTime.Now:MM/dd HH:mm}");
 
             //接下來要確定帳號是有在資料庫內的
@@ -149,27 +150,27 @@ namespace prjAircondition.Recruit
                         {
                             SqlCommand cmd3 = new SqlCommand();
                             cmd3.Connection = conn;
-                            cmd3.CommandText = @"INSERT INTO Registration(MemberID,CourseBatchID,RegisterDate,PaymentStatus) 
-                                                 OUTPUT INSERTED.RegisterID  
-                                                 VALUES (@memberID,@coursebatchID,@regdate,0)";
-                            //用sql的output語法直接回傳registerID的結果值
+                            cmd3.CommandText = @"
+                            INSERT INTO Registration(MemberID, CourseBatchID, RegistrationFee, RegisterDate, PaymentStatus) 
+                            VALUES (@memberID, @coursebatchID, @regfee, @regdate, 0);
+                            SELECT SCOPE_IDENTITY();";
+
                             cmd3.Parameters.Add("@memberID", SqlDbType.Int).Value = memberID;
                             cmd3.Parameters.Add("@coursebatchID", SqlDbType.Int).Value = selectedC.CourseBatchID;
-                            cmd3.Parameters.Add("@regdate", SqlDbType.DateTime).Value = DateTime.Now;   //現在的報名時間
+                            cmd3.Parameters.Add("@regfee", SqlDbType.Int).Value = selectedC.ActualPrice;
+                            cmd3.Parameters.Add("@regdate", SqlDbType.DateTime).Value = DateTime.Now;
 
-                            int newregisterID=(int)cmd3.ExecuteScalar(); //用ExecuteScalar 執行查詢並回傳第一行第一列的值，叫出output回傳的查詢結果
-                            int insertresult = cmd3.ExecuteNonQuery();
-
-
-                            if (insertresult > 0)
+                            object result = cmd3.ExecuteScalar();
+                            if (result != null)
                             {
-                                MessageBox.Show("報名成功");
-
+                                int newregisterID = Convert.ToInt32(result);
+                                MessageBox.Show($"報名成功！報名編號：{newregisterID}");
                             }
                             else
                             {
                                 MessageBox.Show("報名失敗");
                             }
+
                         }
                     }
                 }

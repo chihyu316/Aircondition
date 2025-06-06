@@ -84,7 +84,7 @@
             this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label1.Location = new System.Drawing.Point(75, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 31);
+            this.label1.Size = new System.Drawing.Size(92, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "課程分類";
             // 
@@ -94,16 +94,16 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(197, 68);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(249, 38);
+            this.comboBox1.Size = new System.Drawing.Size(249, 33);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.cmCourse_SelectedIndexChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(656, 55);
+            this.button1.Location = new System.Drawing.Point(634, 59);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 59);
+            this.button1.Size = new System.Drawing.Size(143, 54);
             this.button1.TabIndex = 9;
             this.button1.Text = "新增課程";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.textBox1.Location = new System.Drawing.Point(197, 135);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 39);
+            this.textBox1.Size = new System.Drawing.Size(249, 34);
             this.textBox1.TabIndex = 11;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -146,7 +146,7 @@
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label2.Location = new System.Drawing.Point(27, 143);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 31);
+            this.label2.Size = new System.Drawing.Size(132, 25);
             this.label2.TabIndex = 13;
             this.label2.Text = "搜尋課程名稱";
             // 
@@ -181,9 +181,9 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button5.Location = new System.Drawing.Point(656, 125);
+            this.button5.Location = new System.Drawing.Point(634, 125);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(121, 49);
+            this.button5.Size = new System.Drawing.Size(143, 49);
             this.button5.TabIndex = 15;
             this.button5.Text = "刪除";
             this.button5.UseVisualStyleBackColor = true;
