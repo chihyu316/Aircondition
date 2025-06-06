@@ -320,12 +320,12 @@ namespace prjAircondition.Tech
                 string sourcePath = this.openFileDialog1.FileName;
                 //檔名
                 string fileName = Path.GetFileName(sourcePath);
-                //目的地路徑
-                string destPath = Path.Combine(licenseImageFolderPath, fileName);
 
+                // 這裡只記錄來源路徑，不要複製
                 selectedLicensePhotoFullPath = sourcePath;
+
                 // 顯示圖片存到p1 BOX
-                this.licensepictureBox.Image = Image.FromFile(destPath);
+                this.licensepictureBox.Image = Image.FromFile(sourcePath);
 
                 // 把這個TAG給值 為目前所選檔案名稱
                 this.licensepictureBox.Tag = fileName;
