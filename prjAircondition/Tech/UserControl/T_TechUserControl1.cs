@@ -248,8 +248,8 @@ namespace prjAircondition.Tech
             foreach (var row in licenseRows)
             {
                 //檢查欄位值，給予對應的資料
-                string fileName = string.IsNullOrEmpty(row.image_source) ? null : row.image_source;
-                string licenseName = string.IsNullOrEmpty(row.license_name) ? "" : row.license_name;
+                string fileName = row.IsNull("image_source") ? null : row.image_source;
+                string licenseName = row.IsNull("license_name") ? "" : row.license_name;
 
                 Panel cardPanel = new Panel();
                 cardPanel.Width = 180;
@@ -662,6 +662,7 @@ namespace prjAircondition.Tech
         //切換到師父 所有圖片一覽頁面
         private void btnTechAllLicense_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("LoadAllLicenseImages 被呼叫了");
             LoadAllLicenseImages();
             this.tabControl2.SelectedTab = this.LicenseAllPage;
         }
