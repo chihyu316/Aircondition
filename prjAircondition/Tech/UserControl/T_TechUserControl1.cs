@@ -47,6 +47,10 @@ namespace prjAircondition.Tech
 
             // 先載入證照資料
             this.licensesTableAdapter1.Fill(this.t_ACDataSet1.licenses);
+            if (tabControl2.SelectedIndex == 0 && this.licensebindingSource1.Current == null)
+            {
+                AddNewLicenseAndInitUI();
+            }
 
             //綁了 DataTable 不是整個 DataSet，
             //設計器無法幫你預先產生正確欄位。
@@ -737,6 +741,9 @@ namespace prjAircondition.Tech
         //新增證照功能
         private void btnAddLicense_Click(object sender, EventArgs e)
         {
+            LoadAllLicenseImages();
+            this.tabControl2.SelectedTab = this.LicenseAllPage;
+
             // 先透過 BindingSource 產生新資料列（會自動幫你建好 DataRowView）
             var newRowView = (DataRowView)licensebindingSource1.AddNew();
 
@@ -756,6 +763,8 @@ namespace prjAircondition.Tech
 
             // 移動游標到新增的這一筆（可有可無，看你要不要跳到最後一筆方便觀察）
             licensebindingSource1.MoveLast();
+
+            //Ui預設圖載入
 
             // 直接先顯示預設圖
             string defaultLicenseImagePath = GetDefaultLicenseImagePath();
@@ -898,6 +907,12 @@ namespace prjAircondition.Tech
 
             // 同時確保 selectedLicensePhotoFullPath 也清空，避免殘留舊資料
             selectedLicensePhotoFullPath = null;
+        }
+
+        private void tabControl2_Enter(object sender, EventArgs e)
+        {
+            // 你在這裡寫初始化邏輯
+            AddNewLicenseAndInitUI();
         }
     }
 }

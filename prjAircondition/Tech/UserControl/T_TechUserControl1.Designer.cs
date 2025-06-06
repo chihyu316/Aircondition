@@ -987,6 +987,7 @@
             this.tabControl2.Size = new System.Drawing.Size(1634, 938);
             this.tabControl2.TabIndex = 0;
             this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
+            this.tabControl2.Enter += new System.EventHandler(this.tabControl2_Enter);
             // 
             // InsertLicense
             // 
