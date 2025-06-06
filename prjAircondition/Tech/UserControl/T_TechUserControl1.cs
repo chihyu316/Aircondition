@@ -39,7 +39,7 @@ namespace prjAircondition.Tech
             //techAccountTextBox.Text = TechloginAccount;
             // 所有師傅資料導入
             this.techniciansTableAdapter.Fill(this.t_ACDataSet1.Technicians);
-            MessageBox.Show($"目前Technicians共有 {this.t_ACDataSet1.Technicians.Rows.Count} 筆資料");
+            //MessageBox.Show($"目前Technicians共有 {this.t_ACDataSet1.Technicians.Rows.Count} 筆資料");
             //綁gridView和中界點資料
             // BindingSource 是綁 DataTable資料表，
             //但 DataGridView 設計器在第一次設計階段並沒有
@@ -137,13 +137,14 @@ namespace prjAircondition.Tech
         private string GetLicenseImageFullPath(string relativePath)
         {
             if (string.IsNullOrEmpty(relativePath)) return null;
+            // 把 / 轉成符合系統的路徑符號
 
             // 當是 default.png 這種，幫你自動補上 default 資料夾
             if (relativePath == "default.png")
             {
                 return Path.Combine(licenseImageFolderPath, "default", relativePath);
             }
-
+            relativePath = relativePath.Replace("/", Path.DirectorySeparatorChar.ToString());
             //其他正常儲存
             return Path.Combine(licenseImageFolderPath, relativePath);
         }
@@ -190,7 +191,7 @@ namespace prjAircondition.Tech
             //執行檔案預設路徑
             //MessageBox.Show("Application.StartupPath: " + Application.StartupPath);
 
-            MessageBox.Show("載入師傅預設圖");
+            //MessageBox.Show("載入師傅預設圖");
 
             if (File.Exists(defaultPath))
             {
@@ -322,8 +323,6 @@ namespace prjAircondition.Tech
                 //目的地路徑
                 string destPath = Path.Combine(licenseImageFolderPath, fileName);
 
-                // 複製圖片到資料夾 (避免直接讀使用者原始位置)
-                File.Copy(sourcePath, destPath, true);
                 selectedLicensePhotoFullPath = sourcePath;
                 // 顯示圖片存到p1 BOX
                 this.licensepictureBox.Image = Image.FromFile(destPath);
@@ -711,8 +710,20 @@ namespace prjAircondition.Tech
                     string fileName = this.licensepictureBox.Tag.ToString();
 
                     // LicenseResources/{T_id} 目錄
-                    string licenseFolder = Path.Combine(licenseImageFolderPath, currentTechId.ToString());
+                    string licenseFolder = Path.Combine(licenseImageFolderPath, currentTechId.ToString(), licenseId.ToString());
                     Directory.CreateDirectory(licenseFolder);
+
+                    // 確保目錄存在
+                    Directory.CreateDirectory(licenseFolder);
+
+                    // 【插入點】清理該 licenseId 資料夾內所有舊檔案，確保一個 license_id 只保留一份圖
+                    if (Directory.Exists(licenseFolder))
+                    {
+                        foreach (var file in Directory.GetFiles(licenseFolder))
+                        {
+                            File.Delete(file);
+                        }
+                    }
 
                     // 產生目標儲存路徑
                     string storePath = Path.Combine(licenseFolder, fileName);
@@ -910,6 +921,12 @@ namespace prjAircondition.Tech
         }
 
         private void tabControl2_Enter(object sender, EventArgs e)
+        {
+            // 你在這裡寫初始化邏輯
+            AddNewLicenseAndInitUI();
+        }
+
+        private void tabControl1_Enter(object sender, EventArgs e)
         {
             // 你在這裡寫初始化邏輯
             AddNewLicenseAndInitUI();
